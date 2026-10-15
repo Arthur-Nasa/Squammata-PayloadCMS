@@ -1,0 +1,50 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Next.js
+.next/
+out/
+
+# Build
+build/
+dist/
+*.tsbuildinfo
+next-env.d.ts
+
+# Environment
+.env
+.env.local
+.env.production.local
+
+# Payload CMS
+media/
+src/app/(payload)/importMap.js
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# AI & LLM specific files (Antigravity, Gemini, Claude, Cursor, Prompts & Phase Handoffs)
+.antigravity/
+skills
+*skills_master_manual*.md
+docs/phases/
+.gemini/
+.claude/
+.cursor/
+.agent/
+.copilot/
+*.prompt.md
