@@ -1,0 +1,115 @@
+/* ====================================================
+   Squammata Design System v3.8
+   Tokens CSS Canônicos - Tema Concreto Branco (Niemeyer)
+   ==================================================== */
+
+:root {
+  /* --- Tipografia --- */
+  --font-logo: 'Quicksand', sans-serif;
+  --font-body: 'Zilla Slab', serif;
+  --font-mono: 'Space Mono', monospace;
+
+  /* --- Tema Concreto Branco (Niemeyer) - Padrão --- */
+  --branco-niemeyer: #FAF9F6;
+  --branco-puro: #FFFFFF;
+  --carvao-tecnico: #1A1A1A;
+  --marrom-borda: #4E3220;
+  --marrom-borda-suave: #D5CFC6;
+  --castanho-squammata: #3C2313;
+  --confirmacao-verde: #2D4024;
+  --creme-ogilvy: #F2EFE9;
+  --concreto-claro: #EAE5DC;
+  --concreto-medio: #8C857B;
+
+  /* --- Geometria --- */
+  --border-width: 1px;
+  --border-radius: 0px;
+  --padding-layout: 5rem 2.5rem;
+  --padding-card: 3.5rem;
+
+  /* --- Transições --- */
+  --transition-speed: 0.3s;
+  --transition-curve: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- Tema Terracota Tectónico --- */
+[data-theme='terracota'] {
+  --branco-niemeyer: #7A4207;
+  --branco-puro: #2F1804;
+  --carvao-tecnico: #FAF9F6;
+  --marrom-borda: #F2EFE9;
+  --marrom-borda-suave: #4E3220;
+  --castanho-squammata: #FAF9F6;
+  --confirmacao-verde: #8FAD88;
+  --creme-ogilvy: #2A170C;
+  --concreto-claro: #3C2313;
+  --concreto-medio: #D5CFC6;
+}
+
+/* --- Tema Solo Profundo (Noturno) --- */
+[data-theme='noturno'] {
+  --branco-niemeyer: #1C0F07;
+  --branco-puro: #2A170C;
+  --carvao-tecnico: #FFFFFF;
+  --marrom-borda: #FFFFFF;
+  --marrom-borda-suave: #4E3220;
+  --castanho-squammata: #FFFFFF;
+  --confirmacao-verde: #8FAD88;
+  --creme-ogilvy: #2A170C;
+  --concreto-claro: #3C2313;
+  --concreto-medio: #D5CFC6;
+}
+
+/* --- Reset e Base --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--carvao-tecnico);
+  background-color: var(--branco-niemeyer);
+  line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-logo);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--carvao-tecnico);
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.25rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+
+a {
+  color: var(--castanho-squammata);
+  text-decoration: none;
+  transition: color var(--transition-speed) var(--transition-curve);
+}
+
+a:hover {
+  color: var(--marrom-borda);
+}
+
+code, pre {
+  font-family: var(--font-mono);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
