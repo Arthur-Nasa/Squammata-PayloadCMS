@@ -7,6 +7,13 @@ import sharp from 'sharp'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
+import { Categories } from './collections/Categories'
+import { Posts } from './collections/Posts'
+import { CaseStudies } from './collections/CaseStudies'
+import { Services } from './collections/Services'
+import { Inquiries } from './collections/Inquiries'
+import { SiteSettings } from './globals/SiteSettings'
+import { LocalSEO } from './globals/LocalSEO'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -22,8 +29,8 @@ export default buildConfig({
       icons: [{ rel: 'icon', type: 'image/svg+xml', url: '/favicon.svg' }],
     },
   },
-  collections: [Users, Media],
-  globals: [],
+  collections: [Users, Media, Categories, Posts, CaseStudies, Services, Inquiries],
+  globals: [SiteSettings, LocalSEO],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   sharp,
