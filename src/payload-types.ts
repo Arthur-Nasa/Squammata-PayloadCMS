@@ -69,6 +69,11 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
+    categories: Category;
+    posts: Post;
+    'case-studies': CaseStudy;
+    services: Service;
+    inquiries: Inquiry;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -78,6 +83,11 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    categories: CategoriesSelect<false> | CategoriesSelect<true>;
+    posts: PostsSelect<false> | PostsSelect<true>;
+    'case-studies': CaseStudiesSelect<false> | CaseStudiesSelect<true>;
+    services: ServicesSelect<false> | ServicesSelect<true>;
+    inquiries: InquiriesSelect<false> | InquiriesSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -87,8 +97,14 @@ export interface Config {
     defaultIDType: number;
   };
   fallbackLocale: null;
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    'site-settings': SiteSetting;
+    'local-seo': LocalSeo;
+  };
+  globalsSelect: {
+    'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
+    'local-seo': LocalSeoSelect<false> | LocalSeoSelect<true>;
+  };
   locale: null;
   widgets: {
     collections: CollectionsWidget;
@@ -193,6 +209,205 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories".
+ */
+export interface Category {
+  id: number;
+  title: string;
+  /**
+   * Identificador único amigável para URLs e filtros de conteúdo.
+   */
+  slug: string;
+  /**
+   * Sumário analítico para páginas de taxonomia e indexação de busca.
+   */
+  description?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts".
+ */
+export interface Post {
+  id: number;
+  title: string;
+  /**
+   * Identificador único na rota /posts/[slug].
+   */
+  slug: string;
+  publishedAt?: string | null;
+  authors?: (number | User)[] | null;
+  category: number | Category;
+  /**
+   * Calculado de forma automatizada via contagem de palavras.
+   */
+  readingTime?: number | null;
+  heroImage?: (number | null) | Media;
+  /**
+   * Texto conciso de até 260 caracteres para listagens, feeds e metatags.
+   */
+  excerpt?: string | null;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  seo?: {
+    metaTitle?: string | null;
+    metaDescription?: string | null;
+    ogImage?: (number | null) | Media;
+  };
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "case-studies".
+ */
+export interface CaseStudy {
+  id: number;
+  title: string;
+  /**
+   * Identificador amigável para a rota /casos/[slug].
+   */
+  slug: string;
+  /**
+   * Pode ser preenchido com a razão social ou indicação sob sigilo comercial com setor.
+   */
+  clientName: string;
+  sector: 'fashion' | 'food_beverage' | 'retail' | 'b2b_industrial' | 'health_beauty' | 'other';
+  publishedAt?: string | null;
+  featuredImage?: (number | null) | Media;
+  /**
+   * Descrição objetiva da situação da empresa antes da intervenção técnica.
+   */
+  initialDiagnosis: string;
+  implementedSolution: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  /**
+   * Indicadores objetivos apurados após a conclusão dos trabalhos.
+   */
+  metrics?:
+    | {
+        label: string;
+        value: string;
+        impactArea?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Síntese analítica do impacto permanente na operação do cliente.
+   */
+  resultsSummary: string;
+  seo?: {
+    metaTitle?: string | null;
+    metaDescription?: string | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "services".
+ */
+export interface Service {
+  id: number;
+  title: string;
+  /**
+   * Identificador para a rota /servicos/[slug].
+   */
+  slug: string;
+  /**
+   * Ordem numérica crescente para exibição em menus e listagens.
+   */
+  order: number;
+  icon?: (number | null) | Media;
+  /**
+   * Síntese da proposta de valor para cartões e destaques na página inicial.
+   */
+  shortDescription: string;
+  /**
+   * Estágio de maturidade da empresa e faixa de faturamento recomendada.
+   */
+  targetAudience: string;
+  deliverables?:
+    | {
+        title: string;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  methodology: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  seo?: {
+    metaTitle?: string | null;
+    metaDescription?: string | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "inquiries".
+ */
+export interface Inquiry {
+  id: number;
+  fullName: string;
+  corporateEmail: string;
+  phone: string;
+  companyName: string;
+  websiteUrl?: string | null;
+  monthlyRevenue: 'under_50k' | '50k_to_200k' | '200k_to_1m' | 'above_1m';
+  mainChallenge: 'dre_margin' | 'platform' | 'logistics' | 'seo' | 'governance';
+  message?: string | null;
+  status: 'new' | 'in_review' | 'contacted' | 'disqualified' | 'converted';
+  /**
+   * Visível e editável exclusivamente por consultores administradores.
+   */
+  internalNotes?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -222,6 +437,26 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'categories';
+        value: number | Category;
+      } | null)
+    | ({
+        relationTo: 'posts';
+        value: number | Post;
+      } | null)
+    | ({
+        relationTo: 'case-studies';
+        value: number | CaseStudy;
+      } | null)
+    | ({
+        relationTo: 'services';
+        value: number | Service;
+      } | null)
+    | ({
+        relationTo: 'inquiries';
+        value: number | Inquiry;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -345,6 +580,119 @@ export interface MediaSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories_select".
+ */
+export interface CategoriesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  description?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts_select".
+ */
+export interface PostsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  publishedAt?: T;
+  authors?: T;
+  category?: T;
+  readingTime?: T;
+  heroImage?: T;
+  excerpt?: T;
+  content?: T;
+  seo?:
+    | T
+    | {
+        metaTitle?: T;
+        metaDescription?: T;
+        ogImage?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "case-studies_select".
+ */
+export interface CaseStudiesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  clientName?: T;
+  sector?: T;
+  publishedAt?: T;
+  featuredImage?: T;
+  initialDiagnosis?: T;
+  implementedSolution?: T;
+  metrics?:
+    | T
+    | {
+        label?: T;
+        value?: T;
+        impactArea?: T;
+        id?: T;
+      };
+  resultsSummary?: T;
+  seo?:
+    | T
+    | {
+        metaTitle?: T;
+        metaDescription?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "services_select".
+ */
+export interface ServicesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  order?: T;
+  icon?: T;
+  shortDescription?: T;
+  targetAudience?: T;
+  deliverables?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        id?: T;
+      };
+  methodology?: T;
+  seo?:
+    | T
+    | {
+        metaTitle?: T;
+        metaDescription?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "inquiries_select".
+ */
+export interface InquiriesSelect<T extends boolean = true> {
+  fullName?: T;
+  corporateEmail?: T;
+  phone?: T;
+  companyName?: T;
+  websiteUrl?: T;
+  monthlyRevenue?: T;
+  mainChallenge?: T;
+  message?: T;
+  status?: T;
+  internalNotes?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv_select".
  */
 export interface PayloadKvSelect<T extends boolean = true> {
@@ -382,6 +730,132 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-settings".
+ */
+export interface SiteSetting {
+  id: number;
+  brandName: string;
+  tagline: string;
+  corporateEmail: string;
+  corporateDocument?: string | null;
+  socialLinks?:
+    | {
+        platform: 'linkedin' | 'github' | 'instagram' | 'video';
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
+  announcementBanner?: {
+    enabled?: boolean | null;
+    text?: string | null;
+    link?: string | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "local-seo".
+ */
+export interface LocalSeo {
+  id: number;
+  businessName: string;
+  schemaType: 'ProfessionalService' | 'LocalBusiness' | 'ConsultingService';
+  streetAddress: string;
+  neighborhood: string;
+  city: string;
+  state: string;
+  postalCode: string;
+  coordinates: {
+    latitude: number;
+    longitude: number;
+  };
+  contactPhone: string;
+  whatsappPhone?: string | null;
+  serviceAreas?:
+    | {
+        city: string;
+        id?: string | null;
+      }[]
+    | null;
+  businessHours?:
+    | {
+        dayOfWeek: string;
+        opens: string;
+        closes: string;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-settings_select".
+ */
+export interface SiteSettingsSelect<T extends boolean = true> {
+  brandName?: T;
+  tagline?: T;
+  corporateEmail?: T;
+  corporateDocument?: T;
+  socialLinks?:
+    | T
+    | {
+        platform?: T;
+        url?: T;
+        id?: T;
+      };
+  announcementBanner?:
+    | T
+    | {
+        enabled?: T;
+        text?: T;
+        link?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "local-seo_select".
+ */
+export interface LocalSeoSelect<T extends boolean = true> {
+  businessName?: T;
+  schemaType?: T;
+  streetAddress?: T;
+  neighborhood?: T;
+  city?: T;
+  state?: T;
+  postalCode?: T;
+  coordinates?:
+    | T
+    | {
+        latitude?: T;
+        longitude?: T;
+      };
+  contactPhone?: T;
+  whatsappPhone?: T;
+  serviceAreas?:
+    | T
+    | {
+        city?: T;
+        id?: T;
+      };
+  businessHours?:
+    | T
+    | {
+        dayOfWeek?: T;
+        opens?: T;
+        closes?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
