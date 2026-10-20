@@ -5,7 +5,7 @@ export const LocalSEO: GlobalConfig = {
   label: 'SEO Local e Schema.org',
   access: {
     read: () => true,
-    update: ({ req: { user } }) => user?.role === 'admin',
+    update: ({ req: { user } }) => Boolean(user),
   },
   fields: [
     {

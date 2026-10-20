@@ -1,39 +1,32 @@
 import type { CollectionConfig } from 'payload'
 
+import { authenticated } from '../access/authenticated'
+
 export const Users: CollectionConfig = {
   slug: 'users',
+  access: {
+    admin: authenticated,
+    create: authenticated,
+    delete: authenticated,
+    read: authenticated,
+    update: authenticated,
+  },
   admin: {
-    useAsTitle: 'email',
-    defaultColumns: ['email', 'role', 'updatedAt'],
+    defaultColumns: ['name', 'email'],
+    useAsTitle: 'name',
   },
   auth: true,
-  access: {
-    // Apenas usuários autenticados podem ler a lista de usuários
-    read: ({ req: { user } }) => Boolean(user),
-    // Apenas admins podem criar novos usuários
-    create: ({ req: { user } }) => user?.role === 'admin',
-    // Apenas admins podem deletar usuários
-    delete: ({ req: { user } }) => user?.role === 'admin',
-  },
   fields: [
     {
-      name: 'role',
-      type: 'select',
-      required: true,
-      defaultValue: 'editor',
-      options: [
-        { label: 'Administrador', value: 'admin' },
-        { label: 'Editor', value: 'editor' },
-      ],
-      access: {
-        // Apenas admins podem alterar o papel de um usuário
-        update: ({ req: { user } }) => user?.role === 'admin',
-      },
+      name: 'name',
+      type: 'text',
     },
     {
-      name: 'displayName',
-      type: 'text',
-      label: 'Nome de Exibição',
+      name: 'avatar',
+      type: 'upload',
+      relationTo: 'media',
+      label: 'Avatar',
     },
   ],
+  timestamps: true,
 }

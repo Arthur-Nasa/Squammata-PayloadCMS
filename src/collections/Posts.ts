@@ -1,69 +1,185 @@
 import type { CollectionConfig } from 'payload'
-import { calculateReadingTime } from './Posts/hooks/calculateReadingTime'
-import { revalidatePostAfterChange, revalidatePostAfterDelete } from './Posts/hooks/revalidatePost'
 
-export const Posts: CollectionConfig = {
+import {
+  BlocksFeature,
+  FixedToolbarFeature,
+  HeadingFeature,
+  HorizontalRuleFeature,
+  InlineToolbarFeature,
+  BlockquoteFeature,
+  OrderedListFeature,
+  UnorderedListFeature,
+  lexicalEditor,
+} from '@payloadcms/richtext-lexical'
+
+import { authenticated } from '../access/authenticated'
+import { authenticatedOrPublished } from '../access/authenticatedOrPublished'
+import { Code } from '../blocks/Code/config'
+import { MediaBlock } from '../blocks/MediaBlock/config'
+import { generatePreviewPath } from '../utilities/generatePreviewPath'
+import { populateAuthors } from './Posts/hooks/populateAuthors'
+import { revalidateDelete, revalidatePost } from './Posts/hooks/revalidatePost'
+
+import {
+  MetaDescriptionField,
+  MetaImageField,
+  MetaTitleField,
+  OverviewField,
+  PreviewField,
+} from '@payloadcms/plugin-seo/fields'
+import { slugField } from 'payload'
+
+export const Posts: CollectionConfig<'posts'> = {
   slug: 'posts',
-  admin: {
-    useAsTitle: 'title',
-    defaultColumns: ['title', 'category', 'publishedAt', '_status', 'updatedAt'],
-  },
-  versions: {
-    drafts: true,
-  },
   access: {
-    read: ({ req: { user } }) => {
-      if (user) {
-        return true
-      }
-      return {
-        _status: {
-          equals: 'published',
-        },
-      }
-    },
-    create: ({ req: { user } }) => Boolean(user),
-    update: ({ req: { user } }) => Boolean(user),
-    delete: ({ req: { user } }) => user?.role === 'admin',
+    create: authenticated,
+    delete: authenticated,
+    read: authenticatedOrPublished,
+    update: authenticated,
   },
-  hooks: {
-    afterChange: [revalidatePostAfterChange],
-    afterDelete: [revalidatePostAfterDelete],
+  // This config controls what's populated by default when a post is referenced
+  // https://payloadcms.com/docs/queries/select#defaultpopulate-collection-config-property
+  // Type safe if the collection slug generic is passed to `CollectionConfig` - `CollectionConfig<'posts'>
+  defaultPopulate: {
+    title: true,
+    slug: true,
+    categories: true,
+    meta: {
+      image: true,
+      description: true,
+    },
+  },
+  admin: {
+    defaultColumns: ['title', 'slug', 'updatedAt'],
+    livePreview: {
+      url: ({ data, req }) => 
+        generatePreviewPath({
+          slug: data?.slug,
+          collection: 'posts',
+          req,
+        }),
+    },
+    preview: (data, { req }) =>
+      generatePreviewPath({
+        slug: data?.slug as string,
+        collection: 'posts',
+        req,
+      }),
+    useAsTitle: 'title',
   },
   fields: [
     {
       name: 'title',
       type: 'text',
       required: true,
-      label: 'Título do Artigo',
     },
     {
-      name: 'slug',
-      type: 'text',
-      required: true,
-      unique: true,
-      index: true,
-      label: 'Slug da URL',
+      type: 'tabs',
+      tabs: [
+        {
+          fields: [
+            {
+              name: 'heroImage',
+              type: 'upload',
+              relationTo: 'media',
+            },
+            {
+              name: 'content',
+              type: 'richText',
+              editor: lexicalEditor({
+                features: ({ rootFeatures }) => {
+                  return [
+                    ...rootFeatures,
+                    HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] }),
+                    BlocksFeature({ blocks: [Code, MediaBlock] }),
+                    FixedToolbarFeature(),
+                    InlineToolbarFeature(),
+                    HorizontalRuleFeature(),
+                    BlockquoteFeature(),
+                    OrderedListFeature(),
+                    UnorderedListFeature()
+                  ]
+                },
+              }),
+              label: false,
+              required: true,
+            },
+          ],
+          label: 'Content',
+        },
+        {
+          fields: [
+            {
+              name: 'relatedPosts',
+              type: 'relationship',
+              admin: {
+                position: 'sidebar',
+              },
+              filterOptions: ({ id }) => {
+                return {
+                  id: {
+                    not_in: [id],
+                  },
+                }
+              },
+              hasMany: true,
+              relationTo: 'posts',
+            },
+            {
+              name: 'categories',
+              type: 'relationship',
+              admin: {
+                position: 'sidebar',
+              },
+              hasMany: true,
+              relationTo: 'categories',
+            },
+          ],
+          label: 'Meta',
+        },
+        {
+          name: 'meta',
+          label: 'SEO',
+          fields: [
+            OverviewField({
+              titlePath: 'meta.title',
+              descriptionPath: 'meta.description',
+              imagePath: 'meta.image',
+            }),
+            MetaTitleField({
+              hasGenerateFn: true,
+            }),
+            MetaImageField({
+              relationTo: 'media',
+            }),
+
+            MetaDescriptionField({}),
+            PreviewField({
+              // if the `generateUrl` function is configured
+              hasGenerateFn: true,
+
+              // field paths to match the target field for data
+              titlePath: 'meta.title',
+              descriptionPath: 'meta.description',
+            }),
+          ],
+        },
+      ],
+    },
+    {
+      name: 'publishedAt',
+      type: 'date',
       admin: {
+        date: {
+          pickerAppearance: 'dayAndTime',
+        },
         position: 'sidebar',
-        description: 'Identificador único na rota /posts/[slug].',
       },
       hooks: {
-        beforeValidate: [
-          ({ value, data }) => {
-            if (value && typeof value === 'string') {
-              return value
-                .toLowerCase()
-                .trim()
-                .replace(/[^a-z0-9]+/g, '-')
-                .replace(/^-+|-+$/g, '')
-            }
-            if (data?.title && typeof data.title === 'string') {
-              return data.title
-                .toLowerCase()
-                .trim()
-                .replace(/[^a-z0-9]+/g, '-')
-                .replace(/^-+|-+$/g, '')
+        beforeChange: [
+          ({ siblingData, value }) => {
+            if (siblingData._status === 'published' && !value) {
+              return new Date()
             }
             return value
           },
@@ -71,94 +187,57 @@ export const Posts: CollectionConfig = {
       },
     },
     {
-      name: 'publishedAt',
-      type: 'date',
-      label: 'Data de Publicação',
-      admin: {
-        position: 'sidebar',
-        date: {
-          pickerAppearance: 'dayAndTime',
-        },
-      },
-      defaultValue: () => new Date(),
-    },
-    {
       name: 'authors',
       type: 'relationship',
-      relationTo: 'users',
+      admin: {
+        position: 'sidebar',
+      },
       hasMany: true,
-      label: 'Autores',
-      admin: {
-        position: 'sidebar',
-      },
+      relationTo: 'users',
     },
+    // This field is only used to populate the user data via the `populateAuthors` hook
+    // This is because the `user` collection has access control locked to protect user privacy
+    // GraphQL will also not return mutated user data that differs from the underlying schema
     {
-      name: 'category',
-      type: 'relationship',
-      relationTo: 'categories',
-      required: true,
-      label: 'Categoria Temática',
-      admin: {
-        position: 'sidebar',
+      name: 'populatedAuthors',
+      type: 'array',
+      access: {
+        update: () => false,
       },
-    },
-    {
-      name: 'readingTime',
-      type: 'number',
-      label: 'Tempo Estimado de Leitura (minutos)',
       admin: {
-        position: 'sidebar',
+        disabled: true,
         readOnly: true,
-        description: 'Calculado de forma automatizada via contagem de palavras.',
       },
-      hooks: {
-        beforeValidate: [calculateReadingTime],
-      },
-    },
-    {
-      name: 'heroImage',
-      type: 'relationship',
-      relationTo: 'media',
-      label: 'Imagem Principal',
-    },
-    {
-      name: 'excerpt',
-      type: 'textarea',
-      label: 'Resumo Analítico',
-      maxLength: 260,
-      admin: {
-        description: 'Texto conciso de até 260 caracteres para listagens, feeds e metatags.',
-      },
-    },
-    {
-      name: 'content',
-      type: 'richText',
-      label: 'Conteúdo Editorial',
-      required: true,
-    },
-    {
-      name: 'seo',
-      type: 'group',
-      label: 'Otimização para Motores de Busca (SEO)',
       fields: [
         {
-          name: 'metaTitle',
+          name: 'id',
           type: 'text',
-          label: 'Título de SEO (Meta Title)',
         },
         {
-          name: 'metaDescription',
-          type: 'textarea',
-          label: 'Descrição de SEO (Meta Description)',
-          maxLength: 160,
-        },
-        {
-          name: 'ogImage',
-          type: 'relationship',
+          name: 'avatar',
+          type: 'upload',
           relationTo: 'media',
-          label: 'Imagem para Compartilhamento (Open Graph)',
+        },
+        {
+          name: 'name',
+          type: 'text',
         },
       ],
     },
+    slugField(),
   ],
+  hooks: {
+    afterChange: [revalidatePost],
+    afterRead: [populateAuthors],
+    afterDelete: [revalidateDelete],
+  },
+  versions: {
+    drafts: {
+      autosave: {
+        interval: 100, // We set this interval for optimal live preview
+      },
+      schedulePublish: true,
+    },
+    maxPerDoc: 50,
+  },
 }

@@ -10,9 +10,9 @@ export const Inquiries: CollectionConfig = {
     // Permite criação pública a partir do formulário institucional da web
     create: () => true,
     // Leitura, atualização e remoção estritamente restritas a administradores autenticados
-    read: ({ req: { user } }) => user?.role === 'admin',
-    update: ({ req: { user } }) => user?.role === 'admin',
-    delete: ({ req: { user } }) => user?.role === 'admin',
+    read: ({ req: { user } }) => Boolean(user),
+    update: ({ req: { user } }) => Boolean(user),
+    delete: ({ req: { user } }) => Boolean(user),
   },
   fields: [
     {
@@ -93,7 +93,7 @@ export const Inquiries: CollectionConfig = {
       access: {
         // Bloqueia manipulação do status pelo formulário público na criação
         create: () => false,
-        update: ({ req: { user } }) => user?.role === 'admin',
+        update: ({ req: { user } }) => Boolean(user),
       },
     },
     {
@@ -106,8 +106,8 @@ export const Inquiries: CollectionConfig = {
       },
       access: {
         create: () => false,
-        read: ({ req: { user } }) => user?.role === 'admin',
-        update: ({ req: { user } }) => user?.role === 'admin',
+        read: ({ req: { user } }) => Boolean(user),
+        update: ({ req: { user } }) => Boolean(user),
       },
     },
   ],

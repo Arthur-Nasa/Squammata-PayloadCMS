@@ -1,138 +1,210 @@
 import type { CollectionConfig } from 'payload'
 
-export const Services: CollectionConfig = {
+import { authenticated } from '../access/authenticated'
+import { authenticatedOrPublished } from '../access/authenticatedOrPublished'
+import { generatePreviewPath } from '../utilities/generatePreviewPath'
+import { populateAuthors } from './Services/hooks/populateAuthors'
+import { revalidateDelete, revalidatePost } from './Services/hooks/revalidatePost'
+
+import {
+  MetaDescriptionField,
+  MetaImageField,
+  MetaTitleField,
+  OverviewField,
+  PreviewField,
+} from '@payloadcms/plugin-seo/fields'
+import { slugField } from 'payload'
+
+export const Services: CollectionConfig<'services'> = {
   slug: 'services',
-  admin: {
-    useAsTitle: 'title',
-    defaultColumns: ['title', 'order', 'updatedAt'],
-  },
   access: {
-    read: () => true,
-    create: ({ req: { user } }) => Boolean(user),
-    update: ({ req: { user } }) => Boolean(user),
-    delete: ({ req: { user } }) => user?.role === 'admin',
+    create: authenticated,
+    delete: authenticated,
+    read: authenticatedOrPublished,
+    update: authenticated,
+  },
+  // This config controls what's populated by default when a post is referenced
+  // https://payloadcms.com/docs/queries/select#defaultpopulate-collection-config-property
+  // Type safe if the collection slug generic is passed to `CollectionConfig` - `CollectionConfig<'posts'>
+  defaultPopulate: {
+    title: true,
+    slug: true,
+    categories: true,
+    meta: {
+      image: true,
+      description: true,
+    },
+  },
+  admin: {
+    defaultColumns: ['title', 'slug', 'updatedAt'],
+    livePreview: {
+      url: ({ data, req }) => 
+        generatePreviewPath({
+          slug: data?.slug,
+          collection: 'services',
+          req,
+        }),
+    },
+    preview: (data, { req }) =>
+      generatePreviewPath({
+        slug: data?.slug as string,
+        collection: 'services',
+        req,
+      }),
+    useAsTitle: 'title',
   },
   fields: [
     {
       name: 'title',
       type: 'text',
       required: true,
-      label: 'Nome da Linha de Consultoria',
     },
     {
-      name: 'slug',
-      type: 'text',
-      required: true,
-      unique: true,
-      index: true,
-      label: 'Slug da URL',
+      type: 'tabs',
+      tabs: [
+        {
+          fields: [
+            {
+              name: 'short',
+              type: 'textarea',
+              label: "Short Description"
+            },
+            {
+              name: 'list',
+              type: 'array',
+              labels: {
+                singular: 'List item',
+                plural: 'List items',
+              },
+              fields: [
+                {
+                  name: "text",
+                  type: "text",
+                  label: "Value"
+                }
+              ]
+            },
+          ],
+          label: 'Preview',
+        },
+        {
+          fields: [
+            {
+              name: 'layout',
+              type: 'blocks',
+              blockReferences: [
+                'reusable_block',
+                'content', 
+                'mediaBlock',
+                'intro',
+                'about_service'
+              ],
+              blocks: [],
+              required: true,
+              admin: {
+                initCollapsed: true,
+              },
+            },
+          ],
+          label: 'Content',
+        },
+        {
+          fields: [
+            {
+              name: 'relatedServices',
+              type: 'relationship',
+              admin: {
+                position: 'sidebar',
+              },
+              filterOptions: ({ id }) => {
+                return {
+                  id: {
+                    not_in: [id],
+                  },
+                }
+              },
+              hasMany: true,
+              relationTo: 'services',
+            },
+            {
+              name: 'categories',
+              type: 'relationship',
+              admin: {
+                position: 'sidebar',
+              },
+              hasMany: true,
+              relationTo: 'categories',
+            },
+          ],
+          label: 'Meta',
+        },
+        {
+          name: 'meta',
+          label: 'SEO',
+          fields: [
+            OverviewField({
+              titlePath: 'meta.title',
+              descriptionPath: 'meta.description',
+              imagePath: 'meta.image',
+            }),
+            MetaTitleField({
+              hasGenerateFn: true,
+            }),
+            MetaImageField({
+              relationTo: 'media',
+            }),
+            MetaDescriptionField({}),
+            PreviewField({
+              // if the `generateUrl` function is configured
+              hasGenerateFn: true,
+
+              // field paths to match the target field for data
+              titlePath: 'meta.title',
+              descriptionPath: 'meta.description',
+            }),
+          ],
+        },
+      ],
+    },
+    {
+      name: 'order',
+      type: 'number',
       admin: {
         position: 'sidebar',
-        description: 'Identificador para a rota /servicos/[slug].',
+      }
+    },
+    {
+      name: 'publishedAt',
+      type: 'date',
+      admin: {
+        date: {
+          pickerAppearance: 'dayAndTime',
+        },
+        position: 'sidebar',
       },
       hooks: {
-        beforeValidate: [
-          ({ value, data }) => {
-            if (value && typeof value === 'string') {
-              return value
-                .toLowerCase()
-                .trim()
-                .replace(/[^a-z0-9]+/g, '-')
-                .replace(/^-+|-+$/g, '')
-            }
-            if (data?.title && typeof data.title === 'string') {
-              return data.title
-                .toLowerCase()
-                .trim()
-                .replace(/[^a-z0-9]+/g, '-')
-                .replace(/^-+|-+$/g, '')
+        beforeChange: [
+          ({ siblingData, value }) => {
+            if (siblingData._status === 'published' && !value) {
+              return new Date()
             }
             return value
           },
         ],
       },
     },
-    {
-      name: 'order',
-      type: 'number',
-      required: true,
-      defaultValue: 0,
-      label: 'Ordem de Exibição',
-      admin: {
-        position: 'sidebar',
-        description: 'Ordem numérica crescente para exibição em menus e listagens.',
-      },
-    },
-    {
-      name: 'icon',
-      type: 'relationship',
-      relationTo: 'media',
-      label: 'Ícone ou Elemento Visual',
-      admin: {
-        position: 'sidebar',
-      },
-    },
-    {
-      name: 'shortDescription',
-      type: 'textarea',
-      required: true,
-      label: 'Sumário Executivo',
-      maxLength: 240,
-      admin: {
-        description: 'Síntese da proposta de valor para cartões e destaques na página inicial.',
-      },
-    },
-    {
-      name: 'targetAudience',
-      type: 'text',
-      required: true,
-      label: 'Perfil Operacional Recomendado',
-      admin: {
-        description: 'Estágio de maturidade da empresa e faixa de faturamento recomendada.',
-      },
-    },
-    {
-      name: 'deliverables',
-      type: 'array',
-      label: 'Entregáveis Tangíveis da Consultoria',
-      minRows: 1,
-      fields: [
-        {
-          name: 'title',
-          type: 'text',
-          required: true,
-          label: 'Título do Entregável (Ex: Diagnóstico de Checkout, Matriz de Atribuição)',
-        },
-        {
-          name: 'description',
-          type: 'textarea',
-          label: 'Detalhamento do Entregável',
-        },
-      ],
-    },
-    {
-      name: 'methodology',
-      type: 'richText',
-      required: true,
-      label: 'Metodologia e Fases de Execução',
-    },
-    {
-      name: 'seo',
-      type: 'group',
-      label: 'Metadados de SEO',
-      fields: [
-        {
-          name: 'metaTitle',
-          type: 'text',
-          label: 'Título de SEO',
-        },
-        {
-          name: 'metaDescription',
-          type: 'textarea',
-          label: 'Descrição de SEO',
-          maxLength: 160,
-        },
-      ],
-    },
+    slugField(),
   ],
+  hooks: {
+    afterChange: [revalidatePost],
+    afterRead: [populateAuthors],
+    afterDelete: [revalidateDelete],
+  },
+  versions: {
+    drafts: {
+      autosave: false,
+      schedulePublish: true,
+    },
+    maxPerDoc: 1,
+  },
 }

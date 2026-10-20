@@ -5,7 +5,7 @@ export const SiteSettings: GlobalConfig = {
   label: 'Configurações Institucionais',
   access: {
     read: () => true,
-    update: ({ req: { user } }) => user?.role === 'admin',
+    update: ({ req: { user } }) => Boolean(user),
   },
   fields: [
     {
