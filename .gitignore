@@ -21,6 +21,7 @@ next-env.d.ts
 # Payload CMS
 media/
 src/app/(payload)/importMap.js
+lumex-payload/
 
 # OS
 .DS_Store
