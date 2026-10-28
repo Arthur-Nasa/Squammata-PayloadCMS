@@ -1,11 +1,8 @@
 /* -------------------------------------------
 
-Name: 		Lumex
-Version:    1.0
-Developer:	Nazar Miller (millerDigitalDesign)
-Portfolio:  https://themeforest.net/user/millerdigitaldesign/portfolio?ref=MillerDigitalDesign
-
-p.s. I am available for Freelance hire (UI design, web development). email: miller.themes@gmail.com
+Squammata Design System v4.2
+Biofilia Paulista & Anti-AI-Slop Canonical Engine
+Campinas/SP · Consultoria em Gestão de Projetos & Engenharia de E-commerce
 
 ------------------------------------------- */
 
@@ -24,24 +21,454 @@ p.s. I am available for Freelance hire (UI design, web development). email: mill
 @import 'components';
 
 /* -------------------------------------------
-Squammata Design System v3.8 Override Rules
-Cantos retos absolutos, precisão geométrica e controle visual
+Squammata Design System - Curvatura Orgânica Racional
+Inspirada na morfologia do pássaro e tipografia Quicksand
 ------------------------------------------- */
-*, *::before, *::after {
-  border-radius: 0 !important;
+
+// Inputs, caixas de formulário e elementos de controle (Micro - 8px)
+.mil-input,
+input:not(.mil-subscribe input),
+textarea,
+select,
+.mil-pagination .page-link {
+  border-radius: var(--border-radius-sm, 8px) !important;
 }
 
-.mil-btn,
+// Formulário de inscrição específico (Pill perfeito - 100px)
+.mil-subscribe {
+  border-radius: var(--border-radius-pill, 100px) !important;
+
+  input {
+    border-radius: var(--border-radius-pill, 100px) 0 0 var(--border-radius-pill, 100px) !important;
+  }
+
+  button {
+    border-radius: 0 var(--border-radius-pill, 100px) var(--border-radius-pill, 100px) 0 !important;
+  }
+}
+
+// Badges, tags e pílulas de destaque (Pill / Cápsula)
+.mil-badge,
+.mil-tag,
+.mil-category-pill {
+  border-radius: var(--border-radius-pill, 100px) !important;
+}
+
+// Botões com curvatura suave e precisa e modificadores a nível de elemento
+.mil-btn {
+  border-radius: var(--border-radius-sm, 8px) !important;
+
+  // --- Modificadores de Raio de Borda (Cantos) ---
+  &.mil-radius-sharp {
+    border-radius: 4px !important;
+  }
+  &.mil-radius-sm {
+    border-radius: var(--border-radius-sm, 8px) !important;
+  }
+  &.mil-radius-md {
+    border-radius: var(--border-radius-md, 16px) !important;
+  }
+  &.mil-radius-lg {
+    border-radius: var(--border-radius-lg, 24px) !important;
+  }
+  &.mil-radius-pill {
+    border-radius: var(--border-radius-pill, 100px) !important;
+  }
+
+  // --- Variações Cromáticas Canônicas da Marca Squammata ---
+  &.mil-btn-terracota,
+  &.mil-accent {
+    background-color: #C15C3D !important;
+    color: #FFFFFF !important;
+    border: 1px solid #C15C3D !important;
+
+    span {
+      color: #FFFFFF !important;
+    }
+
+    i {
+      background-color: #FFFFFF !important;
+      color: #C15C3D !important;
+    }
+
+    &:hover {
+      background-color: #A84C30 !important;
+      border-color: #A84C30 !important;
+      color: #FFFFFF !important;
+
+      span {
+        color: #FFFFFF !important;
+      }
+
+      i {
+        background-color: #FFFFFF !important;
+        color: #A84C30 !important;
+      }
+    }
+  }
+
+  &.mil-btn-cafe,
+  &.mil-dark {
+    background-color: #3A2313 !important;
+    color: #FAF9F6 !important;
+    border: 1px solid #4E3220 !important;
+
+    span {
+      color: #FAF9F6 !important;
+    }
+
+    i {
+      background-color: #C15C3D !important;
+      color: #FFFFFF !important;
+    }
+
+    &:hover {
+      background-color: #241810 !important;
+      border-color: #C15C3D !important;
+      color: #FFFFFF !important;
+
+      span {
+        color: #FFFFFF !important;
+      }
+
+      i {
+        background-color: #FFFFFF !important;
+        color: #C15C3D !important;
+      }
+    }
+  }
+
+  &.mil-btn-floresta,
+  &.mil-btn-bio-forest {
+    background-color: #244735 !important;
+    color: #FFFFFF !important;
+    border: 1px solid #1E3B2C !important;
+
+    span {
+      color: #FFFFFF !important;
+    }
+
+    i {
+      background-color: #3D6B52 !important;
+      color: #FFFFFF !important;
+    }
+
+    &:hover {
+      background-color: #1A3427 !important;
+      border-color: #3D6B52 !important;
+      color: #FFFFFF !important;
+
+      span {
+        color: #FFFFFF !important;
+      }
+
+      i {
+        background-color: #FFFFFF !important;
+        color: #244735 !important;
+      }
+    }
+  }
+
+  &.mil-btn-ambar {
+    background-color: #B87514 !important;
+    color: #FFFFFF !important;
+    border: 1px solid #99600E !important;
+
+    span {
+      color: #FFFFFF !important;
+    }
+
+    i {
+      background-color: #FAF9F6 !important;
+      color: #B87514 !important;
+    }
+
+    &:hover {
+      background-color: #99600E !important;
+      border-color: #B87514 !important;
+      color: #FFFFFF !important;
+
+      span {
+        color: #FFFFFF !important;
+      }
+
+      i {
+        background-color: #FFFFFF !important;
+        color: #99600E !important;
+      }
+    }
+  }
+
+  &.mil-btn-rio,
+  &.mil-btn-bio-river {
+    background-color: #244558 !important;
+    color: #FFFFFF !important;
+    border: 1px solid #1C3645 !important;
+
+    span {
+      color: #FFFFFF !important;
+    }
+
+    i {
+      background-color: #3C6D8A !important;
+      color: #FFFFFF !important;
+    }
+
+    &:hover {
+      background-color: #172D3A !important;
+      border-color: #3C6D8A !important;
+      color: #FFFFFF !important;
+
+      span {
+        color: #FFFFFF !important;
+      }
+
+      i {
+        background-color: #FFFFFF !important;
+        color: #244558 !important;
+      }
+    }
+  }
+
+  &.mil-btn-argila {
+    background-color: #F3EFE6 !important;
+    color: #3A2313 !important;
+    border: 1px solid #D5CFC6 !important;
+
+    span {
+      color: #3A2313 !important;
+    }
+
+    i {
+      background-color: #3A2313 !important;
+      color: #F3EFE6 !important;
+    }
+
+    &:hover {
+      background-color: #EAE3D6 !important;
+      border-color: #C15C3D !important;
+      color: #C15C3D !important;
+
+      span {
+        color: #C15C3D !important;
+      }
+
+      i {
+        background-color: #C15C3D !important;
+        color: #FFFFFF !important;
+      }
+    }
+  }
+
+  &.mil-btn-niemeyer {
+    background-color: #FAF9F6 !important;
+    color: #3A2313 !important;
+    border: 1px solid #EAE3D6 !important;
+    box-shadow: 0 4px 14px rgba(58, 35, 19, 0.08) !important;
+
+    span {
+      color: #3A2313 !important;
+    }
+
+    i {
+      background-color: #C15C3D !important;
+      color: #FFFFFF !important;
+    }
+
+    &:hover {
+      background-color: #FFFFFF !important;
+      border-color: #C15C3D !important;
+      color: #C15C3D !important;
+      box-shadow: 0 8px 20px rgba(193, 92, 61, 0.16) !important;
+
+      span {
+        color: #C15C3D !important;
+      }
+
+      i {
+        background-color: #C15C3D !important;
+        color: #FFFFFF !important;
+      }
+    }
+  }
+
+  &.mil-btn-outline {
+    background-color: transparent !important;
+    border: 1.5px solid #4E3220 !important;
+    color: #3A2313 !important;
+
+    span {
+      color: inherit !important;
+    }
+
+    i {
+      background-color: #3A2313 !important;
+      color: #FAF9F6 !important;
+    }
+
+    &:hover {
+      background-color: rgba(193, 92, 61, 0.08) !important;
+      border-color: #C15C3D !important;
+      color: #C15C3D !important;
+
+      span {
+        color: #C15C3D !important;
+      }
+
+      i {
+        background-color: #C15C3D !important;
+        color: #FFFFFF !important;
+      }
+    }
+  }
+
+  // Variação compacta de botão
+  &.mil-sm {
+    height: 4.8rem !important;
+    padding: 0 1.2rem 0 2.4rem !important;
+    font-size: 1.3rem !important;
+
+    i {
+      width: 3.2rem !important;
+      height: 3.2rem !important;
+      margin-left: 1.6rem !important;
+    }
+  }
+
+  // Botão com chanfro triangular decorativo
+  &.mil-angle {
+    position: relative;
+    overflow: hidden;
+
+    &:after {
+      width: 4rem;
+      height: 4rem;
+      top: -2.4rem;
+      right: -2.4rem;
+    }
+
+    &.mil-angle-lg:after {
+      width: 6rem;
+      height: 6rem;
+      top: -3.5rem;
+      right: -3.5rem;
+    }
+  }
+}
+
+// Menu de Navegação Superior e Gaveta Mobile em Quicksand
+.mil-main-menu,
+.mil-main-menu a,
+.mil-navigation,
+.mil-navigation a,
+nav ul li > a,
+nav ul li ul li > a,
+.mil-mobile-menu nav a,
+.mil-mobile-menu .mil-btn,
+.mil-top-panel .mil-btn {
+  font-family: var(--font-quicksand), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+// Cartões modulares de serviços, blog, projetos, equipe e preços (Base - 16px)
 .mil-card,
 .mil-blog-card,
 .mil-service-card,
 .mil-project-card,
 .mil-team-card,
 .mil-price-card,
-.mil-input,
-.mil-badge,
-img {
-  border-radius: 0 !important;
+.mil-price-card-2,
+.mil-accordion-group,
+.mil-large-card,
+.mil-card-head,
+.mil-item-card {
+  border-radius: var(--border-radius-md, 16px) !important;
+  overflow: hidden;
+  box-shadow: $shadow-soft;
+  transition: transform 0.35s $ease-landing, box-shadow 0.35s $ease-landing;
+
+  &:hover {
+    box-shadow: $shadow-hover;
+    transform: translateY(-4px);
+  }
+
+  // Modificadores de Raio para Cartões
+  &.mil-radius-sharp {
+    border-radius: 4px !important;
+  }
+  &.mil-radius-sm {
+    border-radius: var(--border-radius-sm, 8px) !important;
+  }
+  &.mil-radius-md {
+    border-radius: var(--border-radius-md, 16px) !important;
+  }
+  &.mil-radius-lg {
+    border-radius: var(--border-radius-lg, 24px) !important;
+  }
+  &.mil-radius-pill {
+    border-radius: var(--border-radius-pill, 100px) !important;
+  }
+
+  // Estilos de Cor dos Cartões
+  &.mil-card-argila {
+    background-color: var(--squammata-argila, #F3EFE6) !important;
+    border: 1px solid var(--squammata-borda, #D5CFC6) !important;
+  }
+
+  &.mil-card-terracota {
+    background-color: rgba(193, 92, 61, 0.06) !important;
+    border: 1px solid rgba(193, 92, 61, 0.22) !important;
+  }
+
+  &.mil-card-floresta {
+    background-color: rgba(36, 71, 53, 0.06) !important;
+    border: 1px solid rgba(36, 71, 53, 0.22) !important;
+  }
+
+  &.mil-card-cafe {
+    background-color: var(--squammata-cafe, #3A2313) !important;
+    border: 1px solid #4E3220 !important;
+    color: #FAF9F6 !important;
+
+    h1, h2, h3, h4, h5, h6, p, span, .mil-c-m-1, .mil-c-m-2, .mil-c-m-3 {
+      color: #FAF9F6 !important;
+    }
+  }
+
+  &.mil-card-dark {
+    background-color: #1A1A1A !important;
+    border: 1px solid #333333 !important;
+    color: #FAF9F6 !important;
+
+    h1, h2, h3, h4, h5, h6, p, span, .mil-c-m-1, .mil-c-m-2, .mil-c-m-3 {
+      color: #FAF9F6 !important;
+    }
+  }
+
+  &.mil-card-outline {
+    background-color: transparent !important;
+    border: 1.5px solid var(--squammata-borda-forte, #4E3220) !important;
+  }
+}
+
+// Imagens em destaque e containers de mídia (16px)
+.mil-card img,
+.mil-blog-card img,
+.mil-service-card img,
+.mil-project-card img,
+.mil-team-card img,
+.mil-large-card img,
+.mil-card-head img,
+.mil-item-card img,
+.mil-image-frame {
+  border-radius: var(--border-radius-md, 16px);
+}
+
+// Seções de destaque, blocos herói e modais (Macro - 24px)
+.mil-banner-frame,
+.mil-hero-frame,
+.mil-order-call-window,
+.mil-modal {
+  border-radius: var(--border-radius-lg, 24px) !important;
 }
 
 .mil-cursor-follower {
@@ -49,3 +476,459 @@ img {
   transition: transform 0.12s ease-out, opacity 0.2s ease-out;
 }
 
+/* -------------------------------------------
+Elementos de Transição e Fundo Orgânico (Squammata Bird Silhouette)
+------------------------------------------- */
+
+// Divisores de seção inspirados na curva suave do dorso do pássaro
+.mil-section-curve-divider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 2;
+
+  svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 48px;
+
+    @media (min-width: 768px) {
+      height: 72px;
+    }
+    @media (min-width: 1200px) {
+      height: 96px;
+    }
+  }
+
+  &.mil-curve-top {
+    transform: rotate(180deg);
+  }
+
+  &.mil-fill-niemeyer path {
+    fill: var(--branco-niemeyer);
+  }
+
+  &.mil-fill-dark path {
+    fill: var(--carvao-tecnico);
+  }
+
+  &.mil-fill-gray path {
+    fill: $m-4;
+  }
+
+  &.mil-fill-argila path {
+    fill: var(--superficie-argila);
+  }
+
+  &.mil-fill-coffee path {
+    fill: var(--marrom-squammata);
+  }
+}
+
+// Fundo com marca d'água orgânica da silhueta do pássaro
+.mil-bird-watermark {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  opacity: 0.04;
+  transition: opacity 0.3s ease;
+
+  &.mil-watermark-right {
+    right: -5%;
+    bottom: -10%;
+    width: 45vw;
+    max-width: 650px;
+  }
+
+  &.mil-watermark-left {
+    left: -8%;
+    top: -5%;
+    width: 40vw;
+    max-width: 550px;
+    transform: scaleX(-1);
+  }
+
+  &.mil-watermark-subtle {
+    opacity: 0.025;
+  }
+}
+
+// Borda superior e inferior orgânica para seções alternadas
+.mil-gray-section,
+.mil-dark-section {
+  position: relative;
+}
+
+/* -------------------------------------------
+Biofilia Paulista v4.1 - Indicadores Semânticos e Sombras Telúricas
+------------------------------------------- */
+
+.mil-shadow-soft {
+  box-shadow: $shadow-soft !important;
+}
+
+.mil-shadow-hover {
+  box-shadow: $shadow-hover !important;
+}
+
+// Indicadores semânticos de DRE e Performance
+.mil-kpi-success {
+  color: $bio-success !important;
+}
+
+.mil-kpi-warning {
+  color: $bio-warning !important;
+}
+
+.mil-kpi-danger {
+  color: $bio-danger !important;
+}
+
+.mil-badge-success {
+  background-color: rgba(36, 71, 53, 0.12) !important;
+  color: $bio-success !important;
+  border-radius: $radius-pill !important;
+}
+
+.mil-badge-warning {
+  background-color: rgba(140, 88, 8, 0.12) !important;
+  color: $bio-warning !important;
+  border-radius: $radius-pill !important;
+}
+
+.mil-badge-danger {
+  background-color: rgba(122, 35, 29, 0.12) !important;
+  color: $bio-danger !important;
+  border-radius: $radius-pill !important;
+}
+
+// Badges Biofílicos Expandidos
+.mil-badge-moss {
+  background-color: rgba(52, 74, 50, 0.12) !important;
+  color: $bio-moss !important;
+  border-radius: $radius-pill !important;
+}
+
+.mil-badge-river {
+  background-color: rgba(36, 69, 88, 0.12) !important;
+  color: $bio-river !important;
+  border-radius: $radius-pill !important;
+}
+
+.mil-badge-terraroxa {
+  background-color: rgba(82, 36, 22, 0.12) !important;
+  color: $bio-terraroxa !important;
+  border-radius: $radius-pill !important;
+}
+
+.mil-badge-sandstone {
+  background-color: rgba(200, 142, 82, 0.15) !important;
+  color: $bio-sandstone !important;
+  border-radius: $radius-pill !important;
+}
+
+.mil-badge-amber {
+  background-color: rgba(184, 117, 20, 0.14) !important;
+  color: $bio-amber !important;
+  border-radius: $radius-pill !important;
+}
+
+.mil-badge-twilight {
+  background-color: rgba(72, 53, 68, 0.12) !important;
+  color: $bio-twilight !important;
+  border-radius: $radius-pill !important;
+}
+
+.mil-badge-coffee {
+  background-color: rgba(58, 35, 19, 0.10) !important;
+  color: $bio-coffee !important;
+  border-radius: $radius-pill !important;
+}
+
+.mil-badge-clay {
+  background-color: rgba(147, 62, 36, 0.12) !important;
+  color: $bio-clay !important;
+  border-radius: $radius-pill !important;
+}
+
+.mil-bg-argila {
+  background-color: $m-5-alt !important;
+}
+
+/* -------------------------------------------
+Malha de Escamas Imbricadas (Padrão Squama)
+------------------------------------------- */
+.mil-squama-pattern {
+  position: relative;
+  background-image: url('/logo/squammata/squammata-bio-pattern.svg');
+  background-repeat: repeat;
+}
+
+.mil-squama-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.4rem;
+
+  @media (min-width: 992px) {
+    gap: 3.2rem;
+  }
+}
+
+// Botões Atômicos Complementares
+.mil-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  padding: 1.6rem 3.2rem;
+  border-radius: var(--border-radius-pill, 100px);
+  border: 1px solid var(--marrom-borda-suave);
+  color: var(--carvao-tecnico);
+  background-color: transparent;
+  font-family: var(--font-logo);
+  font-size: 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.35s $ease-landing;
+
+  &:hover {
+    border-color: $a-1;
+    color: $a-1;
+    background-color: rgba(122, 66, 7, 0.04);
+  }
+}
+
+.mil-circle-btn {
+  width: 5.4rem;
+  height: 5.4rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $a-1;
+  color: #FFFFFF;
+  border: none;
+  cursor: pointer;
+  box-shadow: $shadow-soft;
+  transition: transform 0.35s $ease-landing, background-color 0.25s ease, box-shadow 0.35s $ease-landing;
+
+  &:hover {
+    background-color: $a-2;
+    transform: scale(1.08);
+    box-shadow: $shadow-hover;
+  }
+}
+
+// Botões com Variações Cromáticas Biofílicas
+.mil-btn-bio-forest {
+  background-color: $bio-forest !important;
+  color: #FFFFFF !important;
+  border: none !important;
+
+  &:hover {
+    background-color: $bio-leaf !important;
+    color: #FFFFFF !important;
+  }
+}
+
+.mil-btn-bio-river {
+  background-color: $bio-river !important;
+  color: #FFFFFF !important;
+  border: none !important;
+
+  &:hover {
+    background-color: $bio-mist !important;
+    color: #FFFFFF !important;
+  }
+}
+
+.mil-btn-bio-terraroxa {
+  background-color: $bio-terraroxa !important;
+  color: #FFFFFF !important;
+  border: none !important;
+
+  &:hover {
+    background-color: $bio-clay !important;
+    color: #FFFFFF !important;
+  }
+}
+
+.mil-btn-bio-coffee {
+  background-color: $bio-coffee !important;
+  color: #FFFFFF !important;
+  border: none !important;
+
+  &:hover {
+    background-color: $bio-cocoa !important;
+    color: #FFFFFF !important;
+  }
+}
+
+// Superfícies e Cards de Blocos com Dinamismo Biofílico
+.mil-card-bio-forest {
+  background-color: $bio-green-subtle;
+  border: 1px solid rgba(36, 71, 53, 0.18);
+  border-radius: var(--border-radius-md, 16px);
+  padding: var(--padding-card, 3.5rem);
+  transition: all 0.35s $ease-landing;
+
+  &:hover {
+    border-color: $bio-forest;
+    box-shadow: $shadow-hover;
+  }
+}
+
+.mil-card-bio-river {
+  background-color: $bio-water-subtle;
+  border: 1px solid rgba(36, 69, 88, 0.18);
+  border-radius: var(--border-radius-md, 16px);
+  padding: var(--padding-card, 3.5rem);
+  transition: all 0.35s $ease-landing;
+
+  &:hover {
+    border-color: $bio-river;
+    box-shadow: $shadow-hover;
+  }
+}
+
+.mil-card-bio-terracotta {
+  background-color: $bio-terracotta-subtle;
+  border: 1px solid rgba(122, 66, 7, 0.18);
+  border-radius: var(--border-radius-md, 16px);
+  padding: var(--padding-card, 3.5rem);
+  transition: all 0.35s $ease-landing;
+
+  &:hover {
+    border-color: $bio-terracotta;
+    box-shadow: $shadow-hover;
+  }
+}
+
+.mil-card-bio-wood {
+  background-color: $bio-wood-subtle;
+  border: 1px solid rgba(99, 63, 46, 0.18);
+  border-radius: var(--border-radius-md, 16px);
+  padding: var(--padding-card, 3.5rem);
+  transition: all 0.35s $ease-landing;
+
+  &:hover {
+    border-color: $bio-wood;
+    box-shadow: $shadow-hover;
+  }
+}
+
+.mil-card-bio-twilight {
+  background-color: $bio-twilight-subtle;
+  border: 1px solid rgba(72, 53, 68, 0.18);
+  border-radius: var(--border-radius-md, 16px);
+  padding: var(--padding-card, 3.5rem);
+  transition: all 0.35s $ease-landing;
+
+  &:hover {
+    border-color: $bio-twilight;
+    box-shadow: $shadow-hover;
+  }
+}
+
+/* -------------------------------------------
+Protocolo Hallmark & Anti-AI-Slop: 8-State Interactive Support
+(default, hover, focus, active, disabled, loading, error, success)
+------------------------------------------- */
+.mil-btn {
+  transition: transform 0.35s $ease-landing, box-shadow 0.35s $ease-landing, background-color 0.25s ease, color 0.25s ease;
+
+  &:hover,
+  &.is-hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-hover;
+  }
+
+  &:focus-visible,
+  &.is-focus {
+    outline: 2px solid $m-2 !important;
+    outline-offset: 2px !important;
+  }
+
+  &:active,
+  &.is-active {
+    transform: translateY(1px);
+    box-shadow: inset 0 2px 6px rgba(58, 35, 19, 0.18) !important;
+  }
+
+  &:disabled,
+  &[aria-disabled="true"],
+  &.is-disabled {
+    opacity: 0.45 !important;
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  &[aria-busy="true"],
+  &.is-loading {
+    cursor: wait !important;
+    opacity: 0.85;
+    pointer-events: none !important;
+  }
+
+  &.is-error {
+    border: 1px solid #A33A2A !important;
+    background-color: rgba(163, 58, 42, 0.08) !important;
+    color: #A33A2A !important;
+    span {
+      color: #A33A2A !important;
+    }
+  }
+
+  &.is-success {
+    background-color: $bio-forest !important;
+    color: #FFFFFF !important;
+    span {
+      color: #FFFFFF !important;
+    }
+  }
+}
+
+/* -------------------------------------------
+Hero Mineral Niemeyer (Superfície Plana Canônica v4.2)
+------------------------------------------- */
+.mil-hero-niemeyer {
+  background-color: var(--branco-niemeyer) !important;
+  color: var(--carvao-tecnico) !important;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--marrom-borda-suave);
+
+  h1 {
+    color: var(--carvao-tecnico) !important;
+    font-family: var(--font-heading) !important;
+    font-style: normal !important;
+  }
+
+  .mil-opacity-text {
+    color: var(--concreto-medio) !important;
+    opacity: 0.92;
+  }
+
+  p {
+    color: var(--concreto-medio) !important;
+  }
+
+  .mil-counter-box {
+    background: #FFFFFF;
+    border: 1px solid var(--marrom-borda-suave);
+    border-radius: var(--border-radius-md, 16px);
+    padding: 2.4rem;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.35s $ease-landing, box-shadow 0.35s $ease-landing;
+
+    &:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+  }
+}

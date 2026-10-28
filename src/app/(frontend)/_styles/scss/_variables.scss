@@ -1,5 +1,5 @@
 /* -------------------------------------------
-fonts (Squammata Design System v3.8)
+fonts (Squammata Design System v4.0)
 ------------------------------------------- */
 
 $font-1: var(--font-quicksand), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -7,42 +7,118 @@ $font-2: var(--font-zilla-slab), Georgia, serif;
 $font-3: var(--font-space-mono), "SF Mono", Monaco, Menlo, monospace;
 
 /* -------------------------------------------
-colors (Squammata Design System v3.8)
+colors (Squammata Design System v4.2 - Biofilia Paulista Expandida)
 ------------------------------------------- */
 
-$m-1: #1A1A1A; // Texto primário e superfícies escuras
-$m-2: #4E3220; // Contorno estrutural terroso
-$m-3: #8C827A; // Cinza mineral
-$m-4: #D5CFC6; // Borda sutil de concreto
-$m-5: #FAF9F6; // Canvas canônico Niemeyer (Concreto Branco)
+// 1. Núcleo Estrutural Mineral (Legado e Base Canônica)
+$m-1: #1A1A1A; // Basalto Profundo / Texto primário (WCAG AAA 16.5:1)
+$m-2: #3A2313; // Marrom Squammata (Café Torrado original do logo / Âncora da marca - WCAG AAA 13.4:1)
+$m-3: #3E3731; // Cinza chumbo mineral terroso (WCAG AAA 7.8:1 sobre Niemeyer $m-5)
+$m-4: #D5CFC6; // Borda sutil de sedimento mineral
+$m-5: #FAF9F6; // Canvas canônico Niemeyer (Concreto Branco / Calcário)
+$m-5-alt: #F3EFE6; // Superfície Mineral Secundária (Argila Seca)
 
-// Acento institucional da marca: Terracota Tectónico
+// Acento institucional da marca: Terracota Tectónico / Terra Roxa
 $a-1: #7A4207;
 $a-2: #9E5509;
 
-/* -------------------------------------------
-geometria purista (cantos retos absolutos)
-------------------------------------------- */
-$radius-base: 0px;
+// Aliases de conveniência semântica
+$marrom-squammata: $m-2;
+$bio-coffee-main: $m-2;
+$bio-green-deep: #244735;
+
+// Indicadores de Negócios / DRE
+$bio-success: #244735; // Verde Mata Estacional (Margem positiva / DRE)
+$bio-warning: #8C5808; // Ocre de Safra (Alertas operacionais / Estoque)
+$bio-danger: #7A231D;  // Vermelho Óxido / Brasas de Queimada (Quedas / Erros)
+
+// 2. Família Botânica & Vegetal Paulista (Verdes e Clorofilas)
+$bio-moss: #344A32;          // Verde Musgo de Cuesta (Profundo e aveludado)
+$bio-forest: #244735;        // Verde Mata Estacional (Florestas de Interior)
+$bio-leaf: #1B382B;          // Verde Folha de Café Bourbon (Ceroso e denso)
+$bio-sage: #4D6E57;          // Verde Alecrim do Campo / Sálvia do Cerrado
+$bio-sprout: #6C8B64;        // Verde Broto e Palmito Juçara (Crescimento e inovação)
+$bio-lichen: #8EA885;        // Verde Líquen Rupestre (Acentos suaves)
+$bio-green-subtle: #E6EFE5;  // Clorofila Pálida (Superfície leve para cards de dados positivos)
+
+// 3. Família Geológica & Mineral Paulista (Terracotas, Argilas e Solos)
+$bio-terracotta: #7A4207;       // Terracota Tectônico (Acento primário)
+$bio-terracotta-light: #9E5509; // Terracota Solar / Insolação
+$bio-terraroxa: #522416;        // Terra Roxa Vulcânica (Solo basáltico paulista)
+$bio-clay: #933E24;             // Argila Vermelha de Olaria (Cerâmica tradicional)
+$bio-sandstone: #C88E52;        // Arenito Botucatu (Minerais de cuesta)
+$bio-ochre: #8C5808;            // Ocre de Safra (Grãos e silos secos)
+$bio-amber: #B87514;            // Âmbar Solar (Métricas de transação)
+$bio-ember: #7A231D;            // Brasas de Queimada / Óxido Férrico (Crítico)
+$bio-ceramic: #D98260;          // Cerâmica Crua (Acento caloroso)
+$bio-terracotta-subtle: #F7EBE4;// Poeira de Tijolo (Superfície quente de alerta ou produto)
+
+// 4. Família Dendrológica, Grãos & Torrefação (Madeiras, Café e Safras)
+$bio-coffee: #3A2313;        // Marrom Café Torrado (Âncora institucional)
+$bio-cocoa: #2B1A12;         // Cacau Cabruca / Tanino Escuro
+$bio-jacaranda: #442B21;     // Jacarandá Paulista (Madeira nobre de planalto)
+$bio-wood: #633F2E;          // Casca de Peroba-Rosa (Rústico e orgânico)
+$bio-straw: #CCA458;         // Palha Seca e Milho Crioulo (Tom dourado de colheita)
+$bio-coffee-flower: #EBDCBF; // Flor de Café e Seda (Bege nobre para caixas de destaque)
+$bio-wood-subtle: #F4EDE4;   // Marfim de Madeira Clara (Superfície acolhedora)
+
+// 5. Família Hidrográfica & Atmosfera Paulista (Águas, Céus e Crepúsculo)
+$bio-river: #244558;          // Azul Rio Piracicaba (Água profunda de leito mineral)
+$bio-mist: #43677A;           // Bruma de Cuesta e Neblina Matinal
+$bio-sky: #688FA3;            // Céu de Inverno Paulista (Azul seco e cristalino)
+$bio-spring: #8FAFC0;         // Nascente de Rocha (Linhas de fluxo e pureza)
+$bio-water-subtle: #E5EEF3;   // Espelho d'Água (Superfície refrescante para blocos de apoio)
+$bio-twilight: #483544;       // Crepúsculo Sertanejo (Violeta terroso do entardecer)
+$bio-amethyst: #684860;       // Ametista de Geodo Paulista (Toque mineral raro)
+$bio-twilight-subtle: #EFE8ED;// Névoa Crepuscular (Superfície suave de inspiração)
+
+// 6. Família Estrutural Neutra & Minerais de Apoio
+$bio-niemeyer: #FAF9F6;   // Concreto Branco Niemeyer / Calcário
+$bio-argila: #F3EFE6;     // Superfície de Argila Seca
+$bio-travertine: #EAE3D6; // Mármore Travertino Paulista
+$bio-border: #D5CFC6;     // Borda de Sedimento Mineral
+$bio-pebble: #736B63;     // Seixo de Rio e Cascalho Cinza (Texto terciário)
+$bio-lead: #3E3731;       // Chumbo Mineral Terroso (Texto secundário)
+$bio-charcoal: #1A1A1A;   // Basalto Profundo / Carvão Técnico (Texto primário)
 
 /* -------------------------------------------
-font size
+geometria orgânica racional (Squammata Curvature)
+Inspirada na morfologia da Columbina squammata e seixos de rio
 ------------------------------------------- */
-
-$fs-xxxl: 10rem;
-$fs-xxl: 8.5rem;
-$fs-xl: 7.2rem;
-$fs-lg: 5.8rem;
-$fs-md: 4.8rem;
-$fs-sm: 3.6rem;
-$fs-xs: 2.4rem;
-$fs-xxs: 1.8rem;
+$radius-sm: 8px;
+$radius-base: 16px;
+$radius-lg: 24px;
+$radius-pill: 100px;
 
 /* -------------------------------------------
-transições ágeis e sóbrias
+escala tipográfica equilibrada (Anti-gigantismo v4.1)
 ------------------------------------------- */
 
-$t-sm: .15s ease-out;
-$t-md: .25s ease-out;
-$t-lg: .4s ease-out;
-$t-xl: .6s ease-out;
+$fs-xxxl: 4.6rem;
+$fs-xxl: 3.8rem;
+$fs-xl: 3.2rem;
+$fs-lg: 2.6rem;
+$fs-md: 2.2rem;
+$fs-sm: 1.8rem;
+$fs-xs: 1.6rem;
+$fs-xxs: 1.4rem;
+
+/* -------------------------------------------
+cinemática de voo e pouso (Biofilia v4.1)
+------------------------------------------- */
+
+$ease-landing: cubic-bezier(0.22, 1, 0.36, 1);
+$ease-river: cubic-bezier(0.4, 0, 0.2, 1);
+
+$t-sm: .15s $ease-landing;
+$t-md: .25s $ease-landing;
+$t-lg: .4s $ease-landing;
+$t-xl: .6s $ease-river;
+
+/* -------------------------------------------
+elevação de luz solar difusa (Sombras Telúricas sem preto puro)
+------------------------------------------- */
+
+$shadow-soft: 0 10px 30px -6px rgba(58, 35, 19, 0.06), 0 4px 12px -2px rgba(62, 55, 49, 0.04);
+$shadow-hover: 0 18px 40px -8px rgba(58, 35, 19, 0.11), 0 6px 16px -3px rgba(122, 66, 7, 0.06);
+

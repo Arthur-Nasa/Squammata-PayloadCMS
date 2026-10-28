@@ -4,32 +4,101 @@
    ==================================================== */
 
 :root {
-  /* --- Tipografia --- */
-  --font-logo: 'Quicksand', sans-serif;
-  --font-body: 'Zilla Slab', serif;
-  --font-mono: 'Space Mono', monospace;
+  /* --- Tipografia Canônica (Squammata Design System v4.2) --- */
+  --font-heading: var(--font-zilla-slab), Georgia, serif;
+  --font-body: var(--font-quicksand), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-logo: var(--font-quicksand), sans-serif;
+  --font-mono: var(--font-space-mono), "SF Mono", Monaco, Menlo, monospace;
 
-  /* --- Tema Concreto Branco (Niemeyer) - Padrão --- */
+  /* --- Tema Concreto Branco (Niemeyer) e Biofilia Paulista v4.1 --- */
   --branco-niemeyer: #FAF9F6;
+  --superficie-argila: #F3EFE6;
   --branco-puro: #FFFFFF;
   --carvao-tecnico: #1A1A1A;
   --marrom-borda: #4E3220;
   --marrom-borda-suave: #D5CFC6;
-  --castanho-squammata: #3C2313;
-  --confirmacao-verde: #2D4024;
+  --marrom-squammata: #3A2313;
+  --castanho-squammata: #3A2313;
+  --acento-terracota: #7A4207;
+  --acento-hover: #9E5509;
+
+  /* --- Tokens Semânticos Biofílicos Canônicos (DRE e Indicadores) --- */
+  --bio-success: #244735;
+  --bio-warning: #8C5808;
+  --bio-danger: #7A231D;
+  --confirmacao-verde: #244735;
   --creme-ogilvy: #F2EFE9;
   --concreto-claro: #EAE5DC;
-  --concreto-medio: #8C857B;
+  --concreto-medio: #3E3731;
 
-  /* --- Geometria --- */
+  /* --- Família Botânica & Vegetal Paulista --- */
+  --bio-moss: #344A32;
+  --bio-forest: #244735;
+  --bio-leaf: #1B382B;
+  --bio-sage: #4D6E57;
+  --bio-sprout: #6C8B64;
+  --bio-lichen: #8EA885;
+  --bio-green-subtle: #E6EFE5;
+
+  /* --- Família Geológica & Solos Minerais --- */
+  --bio-terracotta: #7A4207;
+  --bio-terracotta-light: #9E5509;
+  --bio-terraroxa: #522416;
+  --bio-clay: #933E24;
+  --bio-sandstone: #C88E52;
+  --bio-ochre: #8C5808;
+  --bio-amber: #B87514;
+  --bio-ember: #7A231D;
+  --bio-ceramic: #D98260;
+  --bio-terracotta-subtle: #F7EBE4;
+
+  /* --- Família Dendrológica, Grãos & Torrefação --- */
+  --bio-coffee: #3A2313;
+  --bio-cocoa: #2B1A12;
+  --bio-jacaranda: #442B21;
+  --bio-wood: #633F2E;
+  --bio-straw: #CCA458;
+  --bio-coffee-flower: #EBDCBF;
+  --bio-wood-subtle: #F4EDE4;
+
+  /* --- Família Hidrográfica & Atmosfera Paulista --- */
+  --bio-river: #244558;
+  --bio-mist: #43677A;
+  --bio-sky: #688FA3;
+  --bio-spring: #8FAFC0;
+  --bio-water-subtle: #E5EEF3;
+  --bio-twilight: #483544;
+  --bio-amethyst: #684860;
+  --bio-twilight-subtle: #EFE8ED;
+
+  /* --- Família Estrutural Neutra --- */
+  --bio-niemeyer: #FAF9F6;
+  --bio-argila: #F3EFE6;
+  --bio-travertine: #EAE3D6;
+  --bio-border: #D5CFC6;
+  --bio-pebble: #736B63;
+  --bio-lead: #3E3731;
+  --bio-charcoal: #1A1A1A;
+
+  /* --- Geometria Orgânica Racional (Squammata Curvature) --- */
   --border-width: 1px;
-  --border-radius: 0px;
+  --border-radius-sm: 8px;
+  --border-radius-md: 16px;
+  --border-radius-lg: 24px;
+  --border-radius-pill: 100px;
+  --border-radius: var(--border-radius-md);
   --padding-layout: 5rem 2.5rem;
   --padding-card: 3.5rem;
 
-  /* --- Transições --- */
-  --transition-speed: 0.3s;
-  --transition-curve: cubic-bezier(0.16, 1, 0.3, 1);
+  /* --- Cinemática de Voo e Pouso (Biofilia v4.1) --- */
+  --ease-landing: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-river: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-speed: 0.35s;
+  --transition-curve: var(--ease-landing);
+
+  /* --- Elevação de Luz Solar Difusa (Sombras Telúricas sem preto puro) --- */
+  --shadow-soft: 0 10px 30px -6px rgba(58, 35, 19, 0.06), 0 4px 12px -2px rgba(62, 55, 49, 0.04);
+  --shadow-hover: 0 18px 40px -8px rgba(58, 35, 19, 0.11), 0 6px 16px -3px rgba(122, 66, 7, 0.06);
 }
 
 /* --- Tema Terracota Tectónico --- */
@@ -70,7 +139,9 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 62.5%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -79,20 +150,20 @@ body {
   font-family: var(--font-body);
   color: var(--carvao-tecnico);
   background-color: var(--branco-niemeyer);
-  line-height: 1.7;
+  line-height: 1.6;
+}
+
+p {
+  max-width: 68ch;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-logo);
+  font-family: var(--font-heading);
+  font-style: normal;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.15;
   color: var(--carvao-tecnico);
 }
-
-h1 { font-size: 3rem; }
-h2 { font-size: 2.25rem; }
-h3 { font-size: 1.5rem; }
-h4 { font-size: 1.25rem; }
 
 a {
   color: var(--castanho-squammata);

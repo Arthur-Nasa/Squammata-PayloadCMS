@@ -9,7 +9,7 @@ body {
 }
 
 .mil-opacity-text {
-    opacity: .5;
+    opacity: .88;
     transition: $t-md;
 
     &:hover {
@@ -240,23 +240,51 @@ b {
 
 .mil-angle {
     position: relative;
+    overflow: hidden;
 
     &:after {
         content: '';
-        width: 15rem;
-        height: 15rem;
+        width: 14rem;
+        height: 14rem;
         display: block;
-        background-color: $m-5;
+        background-color: var(--squammata-niemeyer, #FAF9F6);
         position: absolute;
-        top: -10rem;
-        right: -10rem;
-        z-index: 9;
+        top: -9rem;
+        right: -9rem;
+        z-index: 2;
         transform: rotate(45deg);
+        pointer-events: none;
+        transition: background-color 0.3s ease;
     }
 
-    &.mil-angle-gray {
+    &.mil-angle-gray,
+    &.mil-angle-argila {
         &:after {
-            background-color: $m-4;
+            background-color: var(--squammata-argila, #F3EFE6);
+        }
+    }
+
+    &.mil-angle-terracota {
+        &:after {
+            background-color: var(--squammata-terracota, #C15C3D);
+        }
+    }
+
+    &.mil-angle-cafe {
+        &:after {
+            background-color: var(--squammata-cafe, #3A2313);
+        }
+    }
+
+    &.mil-angle-floresta {
+        &:after {
+            background-color: var(--squammata-floresta, #244735);
+        }
+    }
+
+    &.mil-angle-ambar {
+        &:after {
+            background-color: var(--squammata-ambar, #B87514);
         }
     }
 
@@ -268,10 +296,10 @@ b {
             right: -12rem;
 
             @media (max-width: 768px) {
-                width: 15rem;
-                height: 15rem;
-                top: -10rem;
-                right: -10rem;
+                width: 14rem;
+                height: 14rem;
+                top: -9rem;
+                right: -9rem;
             }
         }
     }
@@ -302,13 +330,25 @@ b {
 }
 
 .mil-badge {
-    background-color: $m-3;
-    border-radius: 2rem;
-    font-size: 1.4rem;
-    color: $m-4;
-    font-weight: 600;
+    font-family: $font-3;
+    background-color: $m-1;
+    border: 1px solid $m-2;
+    border-radius: var(--border-radius-pill, 100px) !important;
+    font-size: 1.2rem;
+    line-height: 140%;
+    color: $m-5;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
     display: inline-flex;
-    padding: .2rem 1.2rem .4rem;
+    align-items: center;
+    padding: .4rem 1.2rem;
+
+    &.mil-accent-badge {
+        background-color: $a-1;
+        border-color: $a-2;
+        color: $m-5;
+    }
 }
 
 .mil-handwrite {
@@ -415,39 +455,51 @@ forms
     display: flex;
     position: relative;
     width: 100%;
+    border-radius: 10rem;
+    overflow: hidden;
+    background-color: $m-4;
+    border: 1px solid rgba($m-2, 0.15);
 
     & input {
         height: 7rem;
-        background-color: $m-4;
+        background-color: transparent;
         border: none;
         width: 100%;
         padding: 0 10rem 0 3rem;
-        border-radius: 0 7rem 7rem 0;
+        border-radius: 10rem 0 0 10rem;
+        color: $m-1;
 
         &:focus {
-            outline: inherit;
+            outline: none;
         }
 
         &::placeholder {
             font-family: $font-1;
             font-size: 1.4rem;
-            color: $m-2;
+            color: $m-3;
         }
     }
 
     & button {
         cursor: pointer;
         position: absolute;
+        top: 0;
         right: 0;
+        bottom: 0;
         border: none;
-        height: 7rem;
+        height: 100%;
         background-color: $a-1;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 0 7rem 7rem 0;
+        border-radius: 0 10rem 10rem 0;
         padding-left: 3rem;
         padding-right: 1.5rem;
+        transition: background-color $t-sm;
+
+        &:hover {
+            background-color: $a-2;
+        }
 
         & i {
             width: 4rem;
@@ -458,6 +510,11 @@ forms
             align-items: center;
             background-color: $m-1;
             color: $a-1;
+            transition: transform $t-sm;
+        }
+
+        &:hover i {
+            transform: scale(1.05);
         }
     }
 }
@@ -802,7 +859,7 @@ section
 }
 
 .mil-gray-section {
-    background-color: $m-4;
+    background-color: $m-5-alt;
 }
 
 .mil-square-box {
@@ -1098,7 +1155,7 @@ breadcrumbs
 
             & a {
                 pointer-events: none;
-                color: $a-1;
+                color: #E8A382;
             }
 
             &:after {
@@ -1148,10 +1205,14 @@ buttons
 
     &.mil-accent {
         background-color: $a-1;
-        color: $m-1;
+        color: #FFFFFF;
+
+        & span {
+            color: #FFFFFF;
+        }
 
         & i {
-            background-color: $m-1;
+            background-color: #FFFFFF;
             color: $a-1;
         }
     }
@@ -1188,15 +1249,25 @@ buttons
         color: $a-1;
 
         &.mil-accent {
-            color: $m-1;
+            background-color: $a-2;
+            color: #FFFFFF;
+
+            & span {
+                color: #FFFFFF;
+            }
+
+            & i {
+                background-color: #FFFFFF;
+                color: $a-2;
+            }
         }
 
         &.mil-soft {
             background-color: $a-1;
-            color: $m-1;
+            color: #FFFFFF;
 
             & i {
-                background-color: $m-1;
+                background-color: #FFFFFF;
                 color: $a-1;
             }
         }

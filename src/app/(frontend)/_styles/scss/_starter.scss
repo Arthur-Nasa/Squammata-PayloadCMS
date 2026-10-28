@@ -73,19 +73,11 @@ page scale
 ------------------------------------------- */
 
 html {
-    font-size: 10px;
-
-    @media (min-width: 1920px) {
-        font-size: 11px;
-    }
-
-    @media (max-width: 1800px) {
-        font-size: 9px;
-    }
-
-    @media (max-width: 1600px) {
-        font-size: 8px;
-    }
+    font-size: 62.5%; /* 1rem = 10px, scales proportionally on 125% zoom and high-density displays */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 /* -------------------------------------------
@@ -106,77 +98,79 @@ h6,
 .mil-h4,
 .mil-h5,
 .mil-h6 {
-    font-weight: 800;
+    font-family: $font-2;
+    font-style: normal;
+    font-weight: 700;
     color: $m-1;
-    line-height: 100%;
-    letter-spacing: -.04em;
+    line-height: 108%;
+    letter-spacing: -.01em;
 }
 
 .mil-h1,
 h1 {
-    font-size: 8.4rem;
-
-    @media (max-width: 1200px) {
-        font-size: 6.2rem;
-    }
-
-    @media (max-width: 768px) {
-        font-size: 5.2rem;
-    }
+    font-size: clamp(3.0rem, 3.2vw + 0.8rem, 4.6rem);
+    line-height: 108%;
+    letter-spacing: -.01em;
 }
 
 .mil-h2,
 h2 {
-    font-size: 4.2rem;
-    line-height: 110%;
-
-    @media (max-width: 768px) {
-        font-size: 3.6rem;
-    }
+    font-size: clamp(2.2rem, 2.0vw + 0.6rem, 3.2rem);
+    line-height: 112%;
+    letter-spacing: -.01em;
 }
 
 .mil-h3,
 h3 {
-    font-size: 2.6rem;
-    line-height: 110%;
+    font-size: 2.2rem;
+    line-height: 120%;
     letter-spacing: -.01em;
 
     @media (max-width: 768px) {
-        font-size: 3rem;
+        font-size: 1.9rem;
     }
 }
 
 .mil-h4,
 h4 {
-    font-size: 2.2rem;
-    line-height: 110%;
+    font-size: 1.8rem;
+    line-height: 125%;
     letter-spacing: -.01em;
 }
 
 .mil-h5,
 h5 {
-    font-size: 2.2rem;
-    line-height: 110%;
+    font-size: 1.6rem;
+    line-height: 125%;
     font-weight: 700;
     letter-spacing: -.01em;
 }
 
 .mil-h6,
 h6 {
-    font-size: 1.8rem;
-    line-height: 120%;
+    font-size: 1.4rem;
+    line-height: 130%;
     font-weight: 700;
     letter-spacing: -.01em;
 }
 
+.mil-fs-xxxl { font-size: $fs-xxxl; line-height: 108%; }
+.mil-fs-xxl  { font-size: $fs-xxl;  line-height: 110%; }
+.mil-fs-xl   { font-size: $fs-xl;   line-height: 112%; }
+.mil-fs-lg   { font-size: $fs-lg;   line-height: 115%; }
+.mil-fs-md   { font-size: $fs-md;   line-height: 120%; }
+.mil-fs-sm   { font-size: $fs-sm;   line-height: 125%; }
+.mil-fs-xs   { font-size: $fs-xs;   line-height: 130%; }
+.mil-fs-xxs  { font-size: $fs-xxs;  line-height: 135%; }
+
 .mil-t-14 {
     font-size: 1.4rem;
-    line-height: 175%;
+    line-height: 160%;
 }
 
 .mil-t-16 {
     font-size: 1.6rem;
-    line-height: 175%;
+    line-height: 160%;
 }
 
 /* Richtext wrapper: apply site styles to content coming from Payload richtext */
@@ -284,7 +278,7 @@ h6 {
 
 /* -------------------------------------------
 
-colors
+colors (Squammata Design System v4.2)
 
 ------------------------------------------- */
 
@@ -315,6 +309,113 @@ colors
 .mil-c-a-1 {
     color: $a-1;
 }
+
+.mil-c-a-2 {
+    color: $a-2;
+}
+
+// Textos da Botânica Paulista
+.mil-c-bio-moss { color: $bio-moss; }
+.mil-c-bio-forest { color: $bio-forest; }
+.mil-c-bio-leaf { color: $bio-leaf; }
+.mil-c-bio-sage { color: $bio-sage; }
+.mil-c-bio-sprout { color: $bio-sprout; }
+.mil-c-bio-lichen { color: $bio-lichen; }
+
+// Textos Geológicos & Minerais
+.mil-c-bio-terracotta { color: $bio-terracotta; }
+.mil-c-bio-terracotta-light { color: $bio-terracotta-light; }
+.mil-c-bio-terraroxa { color: $bio-terraroxa; }
+.mil-c-bio-clay { color: $bio-clay; }
+.mil-c-bio-sandstone { color: $bio-sandstone; }
+.mil-c-bio-ochre { color: $bio-ochre; }
+.mil-c-bio-amber { color: $bio-amber; }
+.mil-c-bio-ember { color: $bio-ember; }
+.mil-c-bio-ceramic { color: $bio-ceramic; }
+
+// Textos Dendrológicos & Torrefação
+.mil-c-bio-coffee { color: $bio-coffee; }
+.mil-c-bio-cocoa { color: $bio-cocoa; }
+.mil-c-bio-jacaranda { color: $bio-jacaranda; }
+.mil-c-bio-wood { color: $bio-wood; }
+.mil-c-bio-straw { color: $bio-straw; }
+
+// Textos Hidrográficos & Atmosfera
+.mil-c-bio-river { color: $bio-river; }
+.mil-c-bio-mist { color: $bio-mist; }
+.mil-c-bio-sky { color: $bio-sky; }
+.mil-c-bio-spring { color: $bio-spring; }
+.mil-c-bio-twilight { color: $bio-twilight; }
+.mil-c-bio-amethyst { color: $bio-amethyst; }
+
+// Textos Estruturais Minerais
+.mil-c-bio-pebble { color: $bio-pebble; }
+.mil-c-bio-lead { color: $bio-lead; }
+.mil-c-bio-charcoal { color: $bio-charcoal; }
+
+/* -------------------------------------------
+backgrounds (Biofilia Paulista)
+------------------------------------------- */
+.mil-bg-m-1 { background-color: $m-1 !important; }
+.mil-bg-m-2 { background-color: $m-2 !important; }
+.mil-bg-m-3 { background-color: $m-3 !important; }
+.mil-bg-m-4 { background-color: $m-4 !important; }
+.mil-bg-m-5 { background-color: $m-5 !important; }
+.mil-bg-m-5-alt { background-color: $m-5-alt !important; }
+.mil-bg-a-1 { background-color: $a-1 !important; }
+
+// Backgrounds Botânicos
+.mil-bg-bio-moss { background-color: $bio-moss !important; }
+.mil-bg-bio-forest { background-color: $bio-forest !important; }
+.mil-bg-bio-leaf { background-color: $bio-leaf !important; }
+.mil-bg-bio-sage { background-color: $bio-sage !important; }
+.mil-bg-bio-sprout { background-color: $bio-sprout !important; }
+.mil-bg-bio-green-subtle { background-color: $bio-green-subtle !important; }
+
+// Backgrounds Geológicos & Minerais
+.mil-bg-bio-terracotta { background-color: $bio-terracotta !important; }
+.mil-bg-bio-terraroxa { background-color: $bio-terraroxa !important; }
+.mil-bg-bio-clay { background-color: $bio-clay !important; }
+.mil-bg-bio-sandstone { background-color: $bio-sandstone !important; }
+.mil-bg-bio-ochre { background-color: $bio-ochre !important; }
+.mil-bg-bio-amber { background-color: $bio-amber !important; }
+.mil-bg-bio-ember { background-color: $bio-ember !important; }
+.mil-bg-bio-terracotta-subtle { background-color: $bio-terracotta-subtle !important; }
+
+// Backgrounds Madeiras & Torrefação
+.mil-bg-bio-coffee { background-color: $bio-coffee !important; }
+.mil-bg-bio-cocoa { background-color: $bio-cocoa !important; }
+.mil-bg-bio-jacaranda { background-color: $bio-jacaranda !important; }
+.mil-bg-bio-wood { background-color: $bio-wood !important; }
+.mil-bg-bio-coffee-flower { background-color: $bio-coffee-flower !important; }
+.mil-bg-bio-wood-subtle { background-color: $bio-wood-subtle !important; }
+
+// Backgrounds Hidrográficos & Atmosfera
+.mil-bg-bio-river { background-color: $bio-river !important; }
+.mil-bg-bio-mist { background-color: $bio-mist !important; }
+.mil-bg-bio-sky { background-color: $bio-sky !important; }
+.mil-bg-bio-spring { background-color: $bio-spring !important; }
+.mil-bg-bio-water-subtle { background-color: $bio-water-subtle !important; }
+.mil-bg-bio-twilight { background-color: $bio-twilight !important; }
+.mil-bg-bio-amethyst { background-color: $bio-amethyst !important; }
+.mil-bg-bio-twilight-subtle { background-color: $bio-twilight-subtle !important; }
+
+// Backgrounds Estruturais Neutros
+.mil-bg-bio-niemeyer { background-color: $bio-niemeyer !important; }
+.mil-bg-bio-argila { background-color: $bio-argila !important; }
+.mil-bg-bio-travertine { background-color: $bio-travertine !important; }
+
+/* -------------------------------------------
+borders (Biofilia Paulista)
+------------------------------------------- */
+.mil-border-m-4 { border: 1px solid $m-4 !important; }
+.mil-border-a-1 { border: 1px solid $a-1 !important; }
+.mil-border-bio-moss { border: 1px solid $bio-moss !important; }
+.mil-border-bio-forest { border: 1px solid $bio-forest !important; }
+.mil-border-bio-river { border: 1px solid $bio-river !important; }
+.mil-border-bio-terracotta { border: 1px solid $bio-terracotta !important; }
+.mil-border-bio-sandstone { border: 1px solid $bio-sandstone !important; }
+.mil-border-bio-twilight { border: 1px solid $bio-twilight !important; }
 
 /* -------------------------------------------
 
