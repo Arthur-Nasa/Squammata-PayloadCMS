@@ -1,10 +1,35 @@
 'use client'
 
-import React from 'react'
-import Image from 'next/image'
+import React, { useState, useEffect } from 'react'
 import styles from './arthur.module.scss'
 
 export const ArthurPortfolioView: React.FC = () => {
+  // Resolução dinâmica e defensiva do caminho do avatar para compatibilidade universal
+  const [avatarSrc, setAvatarSrc] = useState('./arthur-saggioratto.jpg')
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const isGhPages = window.location.pathname.includes('Squammata-PayloadCMS')
+      if (isGhPages) {
+        setAvatarSrc('/Squammata-PayloadCMS/arthur-saggioratto.jpg')
+      } else {
+        setAvatarSrc('./arthur-saggioratto.jpg')
+      }
+    }
+  }, [])
+
+  const handleImageFallback = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    const target = e.currentTarget
+    if (!target.dataset.fallbackTried) {
+      target.dataset.fallbackTried = 'true'
+      if (typeof window !== 'undefined' && window.location.pathname.includes('Squammata-PayloadCMS')) {
+        target.src = '/Squammata-PayloadCMS/arthur-saggioratto.jpg'
+      } else {
+        target.src = './arthur-saggioratto.jpg'
+      }
+    }
+  }
+
   const handlePrint = () => {
     if (typeof window !== 'undefined') {
       window.print()
@@ -16,7 +41,7 @@ export const ArthurPortfolioView: React.FC = () => {
   )
 
   return (
-    <div className={styles.portfolioPage}>
+    <div className={styles.portfolioPage} data-portfolio-standalone="true">
       {/* 1. NAVBAR STANDALONE FIXA COM AVATAR / LOGO */}
       <nav className={styles.standaloneNavbar} aria-label="Navegação Principal do Portfólio">
         <div className={styles.container}>
@@ -24,14 +49,14 @@ export const ArthurPortfolioView: React.FC = () => {
             {/* Brand / Logo com Foto e Status */}
             <a href="#sobre" className={styles.navBrand}>
               <div className={styles.navAvatarWrapper}>
-                <Image
-                  src="/arthur-saggioratto.jpg"
+                <img
+                  src={avatarSrc}
                   alt="Arthur Saggioratto"
                   width={44}
                   height={44}
                   className={styles.navAvatar}
-                  priority
-                  unoptimized
+                  onError={handleImageFallback}
+                  loading="eager"
                 />
                 <span className={styles.navStatusDot} title="Disponível para novos projetos e consultoria" />
               </div>
@@ -138,14 +163,14 @@ export const ArthurPortfolioView: React.FC = () => {
               <div className={styles.profileCard}>
                 <div className={styles.profileCardHeader}>
                   <div className={styles.profilePhotoWrapper}>
-                    <Image
-                      src="/arthur-saggioratto.jpg"
+                    <img
+                      src={avatarSrc}
                       alt="Arthur Saggioratto"
                       width={124}
                       height={124}
                       className={styles.profilePhoto}
-                      priority
-                      unoptimized
+                      onError={handleImageFallback}
+                      loading="eager"
                     />
                   </div>
 
@@ -797,13 +822,14 @@ export const ArthurPortfolioView: React.FC = () => {
         <div className={styles.container}>
           <div className={styles.footerBox}>
             <div className={styles.footerAvatarWrapper}>
-              <Image
-                src="/arthur-saggioratto.jpg"
+              <img
+                src={avatarSrc}
                 alt="Arthur Saggioratto"
                 width={72}
                 height={72}
                 className={styles.footerAvatar}
-                unoptimized
+                onError={handleImageFallback}
+                loading="lazy"
               />
             </div>
 

@@ -184,3 +184,22 @@ img {
   height: auto;
   display: block;
 }
+
+/* Proteção Estrita: Ocultar Header e Footer da Squammata quando o portfólio standalone estiver presente */
+body:has([data-portfolio-standalone="true"]) .mil-top-panel,
+body:has(#sobre) .mil-top-panel,
+body:has([data-portfolio-standalone="true"]) .mil-footer-1,
+body:has([data-portfolio-standalone="true"]) .mil-footer-2,
+body:has([data-portfolio-standalone="true"]) footer:not([class*="executiveFooter"]),
+body:has(#sobre) .mil-footer-1,
+body:has(#sobre) .mil-footer-2,
+body:has(#sobre) footer:not([class*="executiveFooter"]) {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+

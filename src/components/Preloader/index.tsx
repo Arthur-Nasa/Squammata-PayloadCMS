@@ -8,7 +8,18 @@ import { PreloaderAnimation } from '@/common/scrollAnimation'
 export const Preloader = () => {
   const [show, setShow] = useState(true);
   const pathname = usePathname();
-  const isArthurPortfolio = pathname?.startsWith('/arthur') || pathname?.startsWith('/portfolio');
+  const isArthurPortfolio =
+    pathname?.startsWith('/arthur') ||
+    pathname?.startsWith('/portfolio') ||
+    pathname?.includes('Squammata-PayloadCMS') ||
+    (typeof window !== 'undefined' && (
+      window.location.pathname.includes('Squammata-PayloadCMS') ||
+      window.location.hostname.includes('github.io') ||
+      window.location.pathname === '/' ||
+      window.location.pathname.endsWith('/index.html') ||
+      document.querySelector('[data-portfolio-standalone="true"]') !== null ||
+      document.getElementById('sobre') !== null
+    ));
   
   useEffect(() => {
     const cleanup = PreloaderAnimation();
