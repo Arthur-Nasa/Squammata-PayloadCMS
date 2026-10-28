@@ -31,6 +31,7 @@ export const ArthurPortfolioView: React.FC = () => {
                   height={44}
                   className={styles.navAvatar}
                   priority
+                  unoptimized
                 />
                 <span className={styles.navStatusDot} title="Disponível para novos projetos e consultoria" />
               </div>
@@ -144,6 +145,7 @@ export const ArthurPortfolioView: React.FC = () => {
                       height={124}
                       className={styles.profilePhoto}
                       priority
+                      unoptimized
                     />
                   </div>
 
@@ -801,6 +803,7 @@ export const ArthurPortfolioView: React.FC = () => {
                 width={72}
                 height={72}
                 className={styles.footerAvatar}
+                unoptimized
               />
             </div>
 

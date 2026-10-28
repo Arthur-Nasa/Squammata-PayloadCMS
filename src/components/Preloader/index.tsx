@@ -2,10 +2,13 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { PreloaderAnimation } from '@/common/scrollAnimation'
 
 export const Preloader = () => {
   const [show, setShow] = useState(true);
+  const pathname = usePathname();
+  const isArthurPortfolio = pathname?.startsWith('/arthur') || pathname?.startsWith('/portfolio');
   
   useEffect(() => {
     const cleanup = PreloaderAnimation();
@@ -27,7 +30,19 @@ export const Preloader = () => {
       <div className="mil-preloader-frame">
           <div></div>
           <div className="mil-logo">
-              <Image src="/logo/squammata/squammata-lockup-horizontal-white.svg" alt="Squammata" width={160} height={34} priority />
+              {isArthurPortfolio ? (
+                <Image
+                  src="/arthur-saggioratto.jpg"
+                  alt="Arthur Saggioratto"
+                  width={64}
+                  height={64}
+                  style={{ borderRadius: '50%', objectFit: 'cover', border: '2px solid rgba(255,255,255,0.2)' }}
+                  priority
+                  unoptimized
+                />
+              ) : (
+                <Image src="/logo/squammata/squammata-lockup-horizontal-white.svg" alt="Squammata" width={160} height={34} priority />
+              )}
           </div>
           <div className="mil-preloader mil-tac">
               <div>

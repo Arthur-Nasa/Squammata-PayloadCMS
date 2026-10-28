@@ -1,0 +1,56 @@
+name: Deploy Portfolio to GitHub Pages
+
+on:
+  push:
+    branches:
+      - boilerplate/engine
+      - main
+    paths:
+      - 'src/app/(frontend)/arthur/**'
+      - 'src/app/(frontend)/portfolio/**'
+      - 'src/components/Preloader/**'
+      - 'public/**'
+      - 'scripts/export-gh-pages.mjs'
+      - '.github/workflows/deploy-gh-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repositório
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configurar Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Instalar dependências
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Gerar build e exportar arquivos estáticos
+        run: pnpm pages:export
+
+      - name: Publicar na branch gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: gh-pages-dist
+          branch: gh-pages
+          commit-message: "deploy: publicar portfolio executivo de Arthur Saggioratto no GitHub Pages [skip ci]"

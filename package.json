@@ -12,7 +12,9 @@
     "generate:importmap": "cross-env LD_PRELOAD= NODE_OPTIONS=--no-deprecation payload generate:importmap",
     "payload": "cross-env LD_PRELOAD= NODE_OPTIONS=--no-deprecation payload",
     "site:create": "cross-env LD_PRELOAD= node scripts/create-site.mjs",
-    "site:export": "cross-env LD_PRELOAD= node scripts/export-client.mjs"
+    "site:export": "cross-env LD_PRELOAD= node scripts/export-client.mjs",
+    "pages:export": "cross-env LD_PRELOAD= node scripts/export-gh-pages.mjs",
+    "pages:deploy": "cross-env LD_PRELOAD= node scripts/export-gh-pages.mjs --deploy"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

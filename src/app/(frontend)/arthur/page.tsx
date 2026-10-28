@@ -60,7 +60,9 @@ const personSchema = {
 }
 
 export const metadata: Metadata = {
-  title: 'Arthur Saggioratto | Consultoria de E-commerce, Growth & SEO Técnico',
+  title: {
+    absolute: 'Arthur Saggioratto | Consultoria de E-commerce, Growth & SEO Técnico',
+  },
   description:
     'Currículo executivo e consultoria estratégica de Arthur Saggioratto. 15 anos acelerando negócios digitais, arquitetura de e-commerce e crescimento com lucro real no fechamento do DRE.',
   openGraph: {
