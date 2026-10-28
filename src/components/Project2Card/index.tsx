@@ -31,7 +31,11 @@ export const Project2Card: React.FC<{
           <div className="row g-0 mil-w-100">
             <div className="col-lg-4">
                   <div className="mil-cover">
-                      {!metaImage && <div className="">No image</div>}
+                      {!metaImage && (
+                        <div className="mil-image-placeholder mil-flex-center" style={{ width: '100%', height: '100%', minHeight: '180px', background: '#D5CFC6', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                          <span className="mil-badge" style={{ backgroundColor: '#1A1A1A', color: '#FAF9F6', borderRadius: '100px' }}>Squammata DRE</span>
+                        </div>
+                      )}
                       {metaImage && 
                       <Media 
                           resource={metaImage} 
@@ -46,7 +50,7 @@ export const Project2Card: React.FC<{
                           {titleToUse && <h4 className="mil-mb-2">{titleToUse}</h4>}
                           {short_description && <p className="mil-t-16 mil-c-m-2 mil-mb-3">{short_description}</p>}
                           <div className="mil-btn mil-soft">
-                              <span>Read more</span>
+                              <span>Ver Estudo de Caso</span>
                               <i className="far fa-arrow-right"></i>
                           </div>
                       </div>

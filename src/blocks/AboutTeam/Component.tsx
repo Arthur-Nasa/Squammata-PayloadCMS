@@ -24,9 +24,15 @@ export const AboutTeamBlock: React.FC<AboutTeamBlockProps> = ({
     <div className="mil-sticky-section mil-bg-out-left-gray">
       <div className="mil-sticky-part mil-p-10-10 mil-angle mil-angle-lg">
         <div className="mil-fake-container-left">
-          {portrait && (
+          {portrait ? (
             <div className="mil-circle-portrait mil-mb-2">
               <Media resource={portrait} imgClassName="mil-w-100" />
+            </div>
+          ) : (
+            <div className="mil-circle-portrait mil-mb-2" style={{ width: '120px', height: '120px', borderRadius: '50%', background: 'var(--color-surface, #222)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <span style={{ fontSize: '24px', fontWeight: 'bold', color: 'var(--color-text, #fff)' }}>
+                {name ? name.slice(0, 2).toUpperCase() : 'SQ'}
+              </span>
             </div>
           )}
           {name && <h3 className="mil-mb-2">{name}</h3>}

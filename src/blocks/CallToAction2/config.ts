@@ -1,4 +1,5 @@
 import type { Block } from 'payload'
+import { createButtonFields } from '@/fields/elementCustomization'
 
 export const CallToAction2: Block = {
   slug: 'call_to_action_2',
@@ -15,26 +16,22 @@ export const CallToAction2: Block = {
       type: 'textarea',
       label: 'Title (use HTML like <br> for line breaks)',
     },
-    {
-      name: 'button1_text',
-      type: 'text',
-      label: 'Button 1 Text (e.g., FAQ)',
-    },
-    {
-      name: 'button1_url',
-      type: 'text',
-      label: 'Button 1 URL',
-    },
-    {
-      name: 'button2_text',
-      type: 'text',
-      label: 'Button 2 Text (e.g., Let\'s Talk)',
-    },
-    {
-      name: 'button2_url',
-      type: 'text',
-      label: 'Button 2 URL',
-    },
+    ...createButtonFields({
+      prefix: 'button1',
+      label: 'Botão 1',
+      defaultText: 'FAQ',
+      defaultUrl: '/faq',
+      defaultColor: 'outline',
+      defaultRadius: 'default',
+    }),
+    ...createButtonFields({
+      prefix: 'button2',
+      label: 'Botão 2',
+      defaultText: "Let's Talk",
+      defaultUrl: '/contact',
+      defaultColor: 'terracota',
+      defaultRadius: 'default',
+    }),
   ],
   labels: {
     plural: 'Call to Action 2',

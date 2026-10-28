@@ -12,7 +12,7 @@ export const Preloader = () => {
 
     const t = setTimeout(() => {
       setShow(false);
-    }, 6000)
+    }, 1000)
 
     return () => {
       cleanup?.();
@@ -27,11 +27,11 @@ export const Preloader = () => {
       <div className="mil-preloader-frame">
           <div></div>
           <div className="mil-logo">
-              <Image src="/img/logo/logo-l.png" alt="Lumex" width={108} height={23} />
+              <Image src="/logo/squammata/squammata-lockup-horizontal-white.svg" alt="Squammata" width={160} height={34} priority />
           </div>
           <div className="mil-preloader mil-tac">
               <div>
-                  <p className="mil-c-m-3 mil-mb-1 mil-t-16">Loading ...</p>
+                  <p className="mil-c-m-3 mil-mb-1 mil-t-16">Carregando...</p>
                   <div className="mil-mb-2"><span className="mil-counter mil-counter-2 mil-c-m-4">00</span><span className="mil-c-a-1 mil-sub-text-1">%</span></div>
                   <div className="mil-mil-preloader-line-frame">
                       <div className="mil-mil-preloader-line"></div>

@@ -6,6 +6,8 @@ import { sanitizeHTML } from '@/utilities/sanitizeHtml'
 import type { IntroBlock as IntroBlockProps } from '@/payload-types'
 
 export const IntroBlock: React.FC<IntroBlockProps> = ({ bgImage, short_title, title }) => {
+  const sanitizedTitle = title ? title.replace(/\s*V6\b/gi, '') : ''
+
   return (
     <div className="mil-hero-inner" id="top">
         {bgImage && (
@@ -20,10 +22,10 @@ export const IntroBlock: React.FC<IntroBlockProps> = ({ bgImage, short_title, ti
             <div className="mil-container">
                 <div className="row mil-aie">
                     <div className="col-lg-12 mil-tac">
-                        {title && <h1 className="mil-c-m-4 mil-mb-5" dangerouslySetInnerHTML={{ __html: sanitizeHTML(title) }} />}
+                        {sanitizedTitle && <h1 className="mil-c-m-4 mil-mb-5" dangerouslySetInnerHTML={{ __html: sanitizeHTML(sanitizedTitle) }} />}
                         <ul className="mil-breadcrumbs mil-jcc mil-w-100">
                             <li><Link href="/">Home</Link></li>
-                            <li className="mil-cuttent"><a href="#.">{short_title}</a></li>
+                            <li className="mil-current"><a href="#.">{short_title}</a></li>
                         </ul>
                     </div>
                 </div>

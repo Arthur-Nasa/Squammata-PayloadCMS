@@ -1,4 +1,5 @@
 import type { Block } from 'payload'
+import { createButtonFields } from '@/fields/elementCustomization'
 
 export const HeroTwo: Block = {
   slug: 'hero_two',
@@ -29,16 +30,14 @@ export const HeroTwo: Block = {
       type: 'textarea',
       label: 'Description (use HTML like <br class="mil-lg-hidden"> for responsive line breaks; wrap in <i> for italics)',
     },
-    {
-      name: 'button_text',
-      type: 'text',
-      label: 'Button Text',
-    },
-    {
-      name: 'button_url',
-      type: 'text',
-      label: 'Button URL',
-    },
+    ...createButtonFields({
+      prefix: 'button',
+      label: 'Botão',
+      defaultText: '',
+      defaultUrl: '',
+      defaultColor: 'cafe',
+      defaultRadius: 'default',
+    }),
     {
       name: 'bgImage',
       type: 'upload',

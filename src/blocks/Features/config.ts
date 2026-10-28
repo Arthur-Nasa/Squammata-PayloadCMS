@@ -6,6 +6,10 @@ import {
   InlineToolbarFeature,
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
+import {
+  createButtonFields,
+  createCardCustomizationFields,
+} from '@/fields/elementCustomization'
 
 export const Features: Block = {
   slug: 'features',
@@ -36,26 +40,22 @@ export const Features: Block = {
       }),
       label: 'Description',
     },
-    {
-      name: 'button1_text',
-      type: 'text',
-      label: 'Button 1 Text',
-    },
-    {
-      name: 'button1_url',
-      type: 'text',
-      label: 'Button 1 URL',
-    },
-    {
-      name: 'button2_text',
-      type: 'text',
-      label: 'Button 2 Text',
-    },
-    {
-      name: 'button2_url',
-      type: 'text',
-      label: 'Button 2 URL',
-    },
+    ...createButtonFields({
+      prefix: 'button1',
+      label: 'Botão 1',
+      defaultText: '',
+      defaultUrl: '',
+      defaultColor: 'terracota',
+      defaultRadius: 'default',
+    }),
+    ...createButtonFields({
+      prefix: 'button2',
+      label: 'Botão 2',
+      defaultText: '',
+      defaultUrl: '',
+      defaultColor: 'cafe',
+      defaultRadius: 'default',
+    }),
     {
       name: 'features',
       type: 'array',
@@ -79,6 +79,13 @@ export const Features: Block = {
           type: 'textarea',
           label: 'Description (use HTML like <br> for responsive line breaks)',
         },
+        ...createCardCustomizationFields({
+          prefix: 'item',
+          label: 'Item / Card',
+          defaultStyle: 'default',
+          defaultRadius: 'default',
+          defaultTriangle: 'none',
+        }),
       ],
     },
   ],

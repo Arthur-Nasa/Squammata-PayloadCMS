@@ -1,17 +1,25 @@
 import React from 'react'
 import { Media } from '@/components/Media'
-import Link from "next/link"
+import Link from 'next/link'
 import type { HeroTwoBlock as HeroTwoBlockProps } from '@/payload-types'
 import { sanitizeHTML } from '@/utilities/sanitizeHtml'
+import { getButtonClasses } from '@/fields/elementCustomization'
 
-export const HeroTwoBlock: React.FC<HeroTwoBlockProps> = ({
-  title,
-  users,
-  description,
-  button_text,
-  button_url,
-  bgImage,
-}) => {
+export const HeroTwoBlock: React.FC<HeroTwoBlockProps> = (props) => {
+  const {
+    title,
+    users,
+    description,
+    button_text,
+    button_url,
+    bgImage,
+  } = props
+
+  const bColor = (props as any).button_color || 'cafe'
+  const bRadius = (props as any).button_radius
+  const bTriangle = (props as any).button_has_triangle
+  const bShowIcon = (props as any).button_show_icon !== false
+
   return (
     <div className="mil-hero-2" id="top">
       <div className="mil-hero-content">
@@ -45,9 +53,12 @@ export const HeroTwoBlock: React.FC<HeroTwoBlockProps> = ({
                   />
                 )}
                 {button_text && button_url && (
-                  <Link href={button_url} className="mil-btn mil-link-type mil-dark">
+                  <Link
+                    href={button_url}
+                    className={getButtonClasses(bColor, bRadius, bTriangle)}
+                  >
                     <span>{button_text}</span>
-                    <i className="far fa-arrow-right"></i>
+                    {bShowIcon && <i className="far fa-arrow-right"></i>}
                   </Link>
                 )}
               </div>

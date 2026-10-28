@@ -31,12 +31,12 @@ export const RelatedPosts: React.FC<RelatedPostsProps> = async (props) => {
       <div className="container">
           <div className="row mil-aie mil-mb-10">
               <div className="col-12 col-md-6 mil-sm-mb-4">
-                  <div className="mil-badge mil-mb-4">Similar Projects</div>
-                  <h2 className="mil-c-m-1">What We’ve <br className="mil-sm-hidden" />Achieved Together</h2>
+                  <div className="mil-badge mil-mb-4">Outros Estudos de Caso</div>
+                  <h2 className="mil-c-m-1">Operações Auditadas <br className="mil-sm-hidden" />e Resultados no DRE</h2>
               </div>
               <div className="col-12 col-md-6">
                   <div className="mil-flex-column mil-jce">
-                      <p className="mil-c-m-2 mil-t-16">Each project we take on is a partnership — rooted in trust, driven by insight, and focused on results. From global brands to ambitious startups, our work reflects real challenges, smart solutions, and measurable impact.</p>
+                      <p className="mil-c-m-2 mil-t-16">Diagnósticos operacionais, reestruturação de catálogos e integrações de ERP com impacto mensurável nas margens financeiras.</p>
                   </div>
               </div>
           </div>

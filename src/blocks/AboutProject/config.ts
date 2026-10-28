@@ -11,29 +11,29 @@ export const AboutProject: Block = {
   slug: 'about_project',
   interfaceName: 'AboutProjectBlock',
   fields: [
-    { name: 'badge', type: 'text', label: 'Badge', defaultValue: 'About project' },
+    { name: 'badge', type: 'text', label: 'Badge', defaultValue: 'Diagnóstico & DRE' },
     {
       name: 'title',
       type: 'textarea',
-      label: 'Project Title (use <br class="mil-md-hidden"> for responsive line break)',
+      label: 'Título da Operação (use <br class="mil-md-hidden"> para quebra responsiva)',
     },
     {
       name: 'info_items',
       type: 'array',
-      label: 'Project Info',
+      label: 'Ficha Técnica da Operação',
       labels: {
-        singular: 'Info Item',
-        plural: 'Info Items',
+        singular: 'Dado da Operação',
+        plural: 'Dados da Operação',
       },
       fields: [
-        { name: 'label', type: 'text', label: 'Label (e.g., Client)' },
-        { name: 'value', type: 'text', label: 'Value' },
-        { name: 'url', type: 'text', label: 'URL (optional – makes value a link)' },
+        { name: 'label', type: 'text', label: 'Rótulo (ex: Cliente, Setor, Localização)' },
+        { name: 'value', type: 'text', label: 'Valor' },
+        { name: 'url', type: 'text', label: 'URL (opcional)' },
       ],
     },
 
-    // Right side content
-    { name: 'intro_title', type: 'text', label: 'Intro Title', defaultValue: 'About Project' },
+    // Conteúdo lateral
+    { name: 'intro_title', type: 'text', label: 'Título do Diagnóstico Inicial', defaultValue: 'Diagnóstico Inicial e Gargalos' },
     {
       name: 'intro_description',
       type: 'richText',
@@ -47,16 +47,16 @@ export const AboutProject: Block = {
           ]
         },
       }),
-      label: 'Intro Description',
+      label: 'Descrição do Diagnóstico Inicial',
     },
     {
       name: 'image',
       type: 'upload',
       relationTo: 'media',
-      label: 'Project Image (with overlay)',
+      label: 'Imagem da Operação (com overlay)',
     },
 
-    { name: 'approach_title', type: 'text', label: 'Approach Title', defaultValue: 'Our Approach' },
+    { name: 'approach_title', type: 'text', label: 'Título da Intervenção Técnica', defaultValue: 'Intervenção Técnica e Metodologia' },
     {
       name: 'approach_description',
       type: 'richText',
@@ -70,55 +70,55 @@ export const AboutProject: Block = {
           ]
         },
       }),
-      label: 'Approach Description',
+      label: 'Descrição da Intervenção e Metodologia',
     },
 
-    { name: 'delivered_title', type: 'text', label: 'What We Delivered Title', defaultValue: 'What We Delivered' },
+    { name: 'delivered_title', type: 'text', label: 'Título dos Entregáveis', defaultValue: 'Entregáveis Técnicos' },
     {
       name: 'delivered_items',
       type: 'array',
-      label: 'Delivered Items',
+      label: 'Entregáveis Concluídos',
       labels: {
-        singular: 'Delivered Item',
-        plural: 'Delivered Items',
+        singular: 'Entregável',
+        plural: 'Entregáveis',
       },
       fields: [
-        { name: 'title', type: 'text', label: 'Item Title (bold)' },
-        { name: 'description', type: 'text', label: 'Description' },
+        { name: 'title', type: 'text', label: 'Título do Entregável' },
+        { name: 'description', type: 'text', label: 'Descrição' },
       ],
     },
 
-    { name: 'goals_title', type: 'text', label: 'Key Goals Title', defaultValue: 'Key Goals' },
+    { name: 'goals_title', type: 'text', label: 'Título das Metas', defaultValue: 'Metas Estabelecidas' },
     {
       name: 'goals_items',
       type: 'array',
-      label: 'Key Goals',
+      label: 'Metas e Objetivos',
       labels: {
-        singular: 'Goal Item',
-        plural: 'Goal Items',
+        singular: 'Meta',
+        plural: 'Metas',
       },
       fields: [
-        { name: 'title', type: 'text', label: 'Goal Title (bold)' },
-        { name: 'description', type: 'text', label: 'Description' },
+        { name: 'title', type: 'text', label: 'Título da Meta' },
+        { name: 'description', type: 'text', label: 'Descrição' },
       ],
     },
 
-    { name: 'results_title', type: 'text', label: 'Results Title', defaultValue: 'Results' },
+    { name: 'results_title', type: 'text', label: 'Título dos Resultados', defaultValue: 'Resultados Apurados no DRE' },
     {
       name: 'results_items',
       type: 'array',
-      label: 'Results',
+      label: 'Métricas de Impacto',
       labels: {
-        singular: 'Result Item',
-        plural: 'Result Items',
+        singular: 'Métrica',
+        plural: 'Métricas',
       },
       fields: [
-        { name: 'title', type: 'text', label: 'Result Title (bold)' },
-        { name: 'description', type: 'text', label: 'Description' },
+        { name: 'title', type: 'text', label: 'Indicador / Métrica (ex: Margem Bruta)' },
+        { name: 'description', type: 'text', label: 'Impacto Apurado (ex: +18.4%)' },
       ],
     },
 
-    { name: 'conclusion_title', type: 'text', label: 'Conclusion Title', defaultValue: 'Conclusion' },
+    { name: 'conclusion_title', type: 'text', label: 'Título da Conclusão', defaultValue: 'Consolidação e Próximos Passos' },
     {
       name: 'conclusion_description',
       type: 'richText',
@@ -132,11 +132,11 @@ export const AboutProject: Block = {
           ]
         },
       }),
-      label: 'Conclusion Description',
+      label: 'Descrição da Conclusão',
     },
   ],
   labels: {
-    singular: 'About Project Block',
-    plural: 'About Project Blocks',
+    singular: 'Bloco Sobre o Estudo de Caso',
+    plural: 'Blocos Sobre o Estudo de Caso',
   },
 }

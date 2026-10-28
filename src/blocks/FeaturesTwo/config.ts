@@ -1,4 +1,8 @@
 import type { Block } from 'payload'
+import {
+  createButtonFields,
+  createCardCustomizationFields,
+} from '@/fields/elementCustomization'
 
 export const FeaturesTwo: Block = {
   slug: 'features_two',
@@ -19,16 +23,14 @@ export const FeaturesTwo: Block = {
       type: 'textarea',
       label: 'Description (use HTML like <br> for line breaks)',
     },
-    {
-      name: 'button_text',
-      type: 'text',
-      label: 'Button Text',
-    },
-    {
-      name: 'button_url',
-      type: 'text',
-      label: 'Button URL',
-    },
+    ...createButtonFields({
+      prefix: 'button',
+      label: 'Botão',
+      defaultText: '',
+      defaultUrl: '',
+      defaultColor: 'cafe',
+      defaultRadius: 'default',
+    }),
     {
       name: 'features',
       type: 'array',
@@ -52,6 +54,14 @@ export const FeaturesTwo: Block = {
           type: 'textarea',
           label: 'Description (use HTML like <br> for line breaks)',
         },
+        ...createCardCustomizationFields({
+          prefix: 'card',
+          label: 'Card',
+          defaultStyle: 'default',
+          defaultRadius: 'default',
+          defaultTriangle: 'triangle',
+          styleEnumName: 'enum_f2_feat_card_style',
+        }),
       ],
     },
   ],

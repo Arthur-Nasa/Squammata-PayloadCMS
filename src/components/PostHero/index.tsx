@@ -26,8 +26,8 @@ export const PostHero: React.FC<{
                   <div className="col-lg-12 mil-tac">
                       {title && <h1 className="mil-c-m-4 mil-mb-5" dangerouslySetInnerHTML={{ __html: sanitizeHTML(title) }} />}
                       <ul className="mil-breadcrumbs mil-jcc mil-w-100">
-                          <li><Link href="/">Home</Link></li>
-                          <li className="mil-cuttent"><a href="#.">Publication</a></li>
+                          <li><Link href="/">Início</Link></li>
+                          <li><Link href="/posts">Publicações</Link></li>
                       </ul>
                   </div>
               </div>

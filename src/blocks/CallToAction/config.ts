@@ -1,4 +1,5 @@
 import type { Block } from 'payload'
+import { createButtonFields } from '@/fields/elementCustomization'
 
 export const CallToAction: Block = {
   slug: 'call_to_action',
@@ -31,26 +32,22 @@ export const CallToAction: Block = {
       type: 'textarea',
       label: 'Description (use HTML like <br> for responsive line breaks)',
     },
-    {
-      name: 'button1_text',
-      type: 'text',
-      label: 'Button 1 Text',
-    },
-    {
-      name: 'button1_url',
-      type: 'text',
-      label: 'Button 1 URL',
-    },
-    {
-      name: 'button2_text',
-      type: 'text',
-      label: 'Button 2 Text',
-    },
-    {
-      name: 'button2_url',
-      type: 'text',
-      label: 'Button 2 URL',
-    },
+    ...createButtonFields({
+      prefix: 'button1',
+      label: 'Button 1',
+      defaultText: '',
+      defaultUrl: '',
+      defaultColor: 'terracota',
+      defaultRadius: 'default',
+    }),
+    ...createButtonFields({
+      prefix: 'button2',
+      label: 'Button 2',
+      defaultText: '',
+      defaultUrl: '',
+      defaultColor: 'outline',
+      defaultRadius: 'default',
+    }),
   ],
   labels: {
     plural: 'CTA Blocks',

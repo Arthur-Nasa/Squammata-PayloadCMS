@@ -1,24 +1,37 @@
 import React from 'react'
 import { Media } from '@/components/Media'
 import RichText from '@/components/RichText'
-import Link from "next/link";
+import Link from 'next/link'
 import type { AboutUsThreeBlock as AboutUsThreeBlockProps } from '@/payload-types'
 import { sanitizeHTML } from '@/utilities/sanitizeHtml'
+import { getButtonClasses } from '@/fields/elementCustomization'
 
-export const AboutUsThreeBlock: React.FC<AboutUsThreeBlockProps> = ({
-  badge,
-  title,
-  left_description,
-  button1_text,
-  button1_url,
-  button2_text,
-  button2_url,
-  right_description1,
-  image,
-  right_description2,
-  skills,
-  right_description3,
-}) => {
+export const AboutUsThreeBlock: React.FC<AboutUsThreeBlockProps> = (props) => {
+  const {
+    badge,
+    title,
+    left_description,
+    button1_text,
+    button1_url,
+    button2_text,
+    button2_url,
+    right_description1,
+    image,
+    right_description2,
+    skills,
+    right_description3,
+  } = props
+
+  const b1Color = (props as any).button1_color || 'terracota'
+  const b1Radius = (props as any).button1_radius
+  const b1Triangle = (props as any).button1_has_triangle
+  const b1ShowIcon = (props as any).button1_show_icon !== false
+
+  const b2Color = (props as any).button2_color || 'cafe'
+  const b2Radius = (props as any).button2_radius
+  const b2Triangle = (props as any).button2_has_triangle
+  const b2ShowIcon = (props as any).button2_show_icon !== false
+
   return (
     <div className="mil-sticky-section">
       <div className="mil-sticky-part mil-p-10-10">
@@ -39,15 +52,21 @@ export const AboutUsThreeBlock: React.FC<AboutUsThreeBlockProps> = ({
             )}
           </div>
           {button1_text && button1_url && (
-            <Link href={button1_url} className="mil-btn mil-mr-4 mil-accent">
+            <Link
+              href={button1_url}
+              className={getButtonClasses(b1Color, b1Radius, b1Triangle, 'mil-mr-4')}
+            >
               <span>{button1_text}</span>
-              <i className="far fa-arrow-right"></i>
+              {b1ShowIcon && <i className="far fa-arrow-right"></i>}
             </Link>
           )}
           {button2_text && button2_url && (
-            <Link href={button2_url} className="mil-btn mil-link-type mil-dark">
+            <Link
+              href={button2_url}
+              className={getButtonClasses(b2Color, b2Radius, b2Triangle)}
+            >
               <span>{button2_text}</span>
-              <i className="far fa-arrow-right"></i>
+              {b2ShowIcon && <i className="far fa-arrow-right"></i>}
             </Link>
           )}
         </div>

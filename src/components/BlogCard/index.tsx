@@ -38,7 +38,11 @@ export const BlogCard: React.FC<{
             <div className="row g-0 mil-w-100">
                 <div className="col-12">
                     <div className="mil-cover">
-                        {!metaImage && <div className="">No image</div>}
+                        {!metaImage && (
+                          <div className="mil-placeholder-card" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '220px', background: '#D5CFC6', borderRadius: '16px' }}>
+                            <span className="mil-badge" style={{ backgroundColor: '#1A1A1A', color: '#FAF9F6', borderRadius: '100px' }}>Squammata Análise</span>
+                          </div>
+                        )}
                         {metaImage && 
                         <Media 
                             resource={metaImage} 
@@ -56,7 +60,7 @@ export const BlogCard: React.FC<{
                                     if (typeof category === 'object') {
                                         const { title: titleFromCategory } = category
 
-                                        const categoryTitle = titleFromCategory || 'Untitled category'
+                                        const categoryTitle = titleFromCategory || 'Geral'
 
                                         const isLast = index === categories.length - 1
 
@@ -82,7 +86,7 @@ export const BlogCard: React.FC<{
                             {titleToUse && <h4 className="mil-mb-2">{titleToUse}</h4>}
                             {description && <p className="mil-t-16 mil-c-m-2 mil-mb-3">{sanitizedDescription}</p>}
                             <div className="mil-btn mil-soft">
-                                <span>Read more</span>
+                                <span>Ler Artigo</span>
                                 <i className="far fa-arrow-right"></i>
                             </div>
                         </div>

@@ -1,4 +1,8 @@
 import type { Block } from 'payload'
+import {
+  createButtonFields,
+  createCardCustomizationFields,
+} from '@/fields/elementCustomization'
 
 export const PricesBlock: Block = {
   slug: 'prices_block',
@@ -8,31 +12,32 @@ export const PricesBlock: Block = {
       name: 'badge',
       type: 'text',
       label: 'Badge',
+      defaultValue: 'Tabela de Investimentos V6',
     },
     {
       name: 'title',
       type: 'textarea',
-      label: 'Title (use HTML like <br> for line breaks, use span like <span class="mil-opacity-text">TEXT</span> for highlighted text)',
+      label: 'Título (use <br> para quebra de linha ou span com class="mil-opacity-text")',
+      defaultValue: 'Investimento Claro. <br><span class="mil-opacity-text">Retorno no DRE.</span>',
     },
     {
       name: 'description',
       type: 'textarea',
-      label: 'Description (use HTML like <br> for line breaks)',
+      label: 'Descrição',
+      defaultValue: 'Modelos de contratação objetivos para saneamento técnico, engenharia de dados e gestão continuada.',
     },
-    {
-      name: 'button_text',
-      type: 'text',
-      label: 'Top Button Text',
-    },
-    {
-      name: 'button_url',
-      type: 'text',
-      label: 'Top Button URL',
-    },
+    ...createButtonFields({
+      prefix: 'button',
+      label: 'Botão Superior',
+      defaultText: 'Solicitar Diagnóstico',
+      defaultUrl: '#popup',
+      defaultColor: 'cafe',
+      defaultRadius: 'default',
+    }),
     {
       name: 'plans',
       type: 'array',
-      label: 'Plans',
+      label: 'Planos e Soluções',
       minRows: 1,
       maxRows: 10,
       fields: [
@@ -75,20 +80,27 @@ export const PricesBlock: Block = {
             },
           ],
         },
-        {
-          name: 'button_text',
-          type: 'text',
-          label: 'Plan Button Text',
-        },
-        {
-          name: 'button_url',
-          type: 'text',
-          label: 'Plan Button URL',
-        },
+        ...createButtonFields({
+          prefix: 'button',
+          label: 'Botão do Plano',
+          defaultText: 'Contratar Solução',
+          defaultUrl: '#contact',
+          defaultColor: 'terracota',
+          defaultRadius: 'default',
+          colorEnumName: 'enum_pb_plan_btn_color',
+          radiusEnumName: 'enum_pb_plan_btn_radius',
+        }),
+        ...createCardCustomizationFields({
+          name: 'card_color',
+          label: 'Estilo do Card',
+          defaultStyle: 'default',
+          defaultRadius: 'default',
+          defaultTriangle: 'triangle',
+          styleEnumName: 'enum_pb_plan_card_color',
+        }),
         {
           name: 'button_style',
           type: 'select',
-          label: 'Button Style',
           options: [
             { label: 'Light', value: 'mil-light' },
             { label: 'Accent', value: 'mil-accent' },
@@ -96,17 +108,18 @@ export const PricesBlock: Block = {
             { label: 'Dark', value: 'mil-dark' },
           ],
           defaultValue: 'mil-soft',
+          admin: { hidden: true },
         },
         {
           name: 'card_style',
           type: 'select',
-          label: 'Card Style',
           options: [
             { label: 'Default Card', value: '' },
             { label: 'Gray Card', value: 'mil-gray-card' },
             { label: 'Angle Gray', value: 'mil-angle-gray' },
           ],
           defaultValue: '',
+          admin: { hidden: true },
         },
       ],
     },

@@ -1,17 +1,30 @@
 import React from 'react'
 import { Media } from '@/components/Media'
-import Link from "next/link"
+import Link from 'next/link'
 import type { CallToAction2Block as CallToAction2BlockProps } from '@/payload-types'
 import { sanitizeHTML } from '@/utilities/sanitizeHtml'
+import { getButtonClasses } from '@/fields/elementCustomization'
 
-export const CallToAction2Block: React.FC<CallToAction2BlockProps> = ({
-  bgImage,
-  title,
-  button1_text,
-  button1_url,
-  button2_text,
-  button2_url,
-}) => {
+export const CallToAction2Block: React.FC<CallToAction2BlockProps> = (props) => {
+  const {
+    bgImage,
+    title,
+    button1_text,
+    button1_url,
+    button2_text,
+    button2_url,
+  } = props
+
+  const b1Color = (props as any).button1_color || 'outline'
+  const b1Radius = (props as any).button1_radius
+  const b1Triangle = (props as any).button1_has_triangle
+  const b1ShowIcon = (props as any).button1_show_icon !== false
+
+  const b2Color = (props as any).button2_color || 'terracota'
+  const b2Radius = (props as any).button2_radius
+  const b2Triangle = (props as any).button2_has_triangle
+  const b2ShowIcon = (props as any).button2_show_icon !== false
+
   return (
     <div className="mil-section mil-p-10-10">
       {bgImage && (
@@ -33,15 +46,21 @@ export const CallToAction2Block: React.FC<CallToAction2BlockProps> = ({
           </div>
           <div className="col-md-4 mil-flex-row mil-jce mil-sm-jcc mil-sm-mt-5">
             {button1_text && button1_url && (
-              <Link href={button1_url} className="mil-btn mil-link-type mil-mr-4">
+              <Link
+                href={button1_url}
+                className={getButtonClasses(b1Color, b1Radius, b1Triangle, 'mil-mr-4')}
+              >
                 <span>{button1_text}</span>
-                <i className="far fa-arrow-right"></i>
+                {b1ShowIcon && <i className="far fa-arrow-right"></i>}
               </Link>
             )}
             {button2_text && button2_url && (
-              <Link href={button2_url} className="mil-btn mil-accent">
+              <Link
+                href={button2_url}
+                className={getButtonClasses(b2Color, b2Radius, b2Triangle)}
+              >
                 <span>{button2_text}</span>
-                <i className="far fa-arrow-right"></i>
+                {b2ShowIcon && <i className="far fa-arrow-right"></i>}
               </Link>
             )}
           </div>

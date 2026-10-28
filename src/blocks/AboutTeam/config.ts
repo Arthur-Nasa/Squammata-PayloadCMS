@@ -15,34 +15,34 @@ export const AboutTeam: Block = {
       name: 'portrait',
       type: 'upload',
       relationTo: 'media',
-      label: 'Portrait Photo',
-      required: true,
+      label: 'Foto de Perfil',
+      required: false,
     },
-    { name: 'name', type: 'text', label: 'Full Name', required: true },
-    { name: 'position', type: 'text', label: 'Position (e.g., CEO, Founder)' },
+    { name: 'name', type: 'text', label: 'Nome Completo', required: true },
+    { name: 'position', type: 'text', label: 'Cargo / Função Técnica' },
     {
       name: 'contact_items',
       type: 'array',
-      label: 'Contact Info',
+      label: 'Informações de Contato',
       labels: {
-        singular: 'Contact Item',
-        plural: 'Contact Items',
+        singular: 'Item de Contato',
+        plural: 'Itens de Contato',
       },
       fields: [
-        { name: 'label', type: 'text', label: 'Label (e.g., Call)' },
-        { name: 'value', type: 'text', label: 'Value' },
+        { name: 'label', type: 'text', label: 'Rótulo (ex: E-mail, Telefone)' },
+        { name: 'value', type: 'text', label: 'Valor' },
       ],
     },
     {
       name: 'social_links',
       type: 'array',
-      label: 'Social Links',
+      label: 'Links de Redes',
       labels: {
-        singular: 'Social Link',
-        plural: 'Social Links',
+        singular: 'Link',
+        plural: 'Links',
       },
       fields: [
-        { name: 'icon_class', type: 'text', label: 'Icon Class (e.g., fab fa-linkedin-in)' },
+        { name: 'icon_class', type: 'text', label: 'Classe do Ícone (ex: fab fa-linkedin-in)' },
         { name: 'url', type: 'text', label: 'URL' },
       ],
     },
@@ -59,9 +59,9 @@ export const AboutTeam: Block = {
           ]
         },
       }),
-      label: 'Intro Paragraph'
+      label: 'Parágrafo Introdutório'
     },
-    { name: 'quote', type: 'textarea', label: 'Handwritten Quote' },
+    { name: 'quote', type: 'textarea', label: 'Frase de Destaque' },
     {
       name: 'bio_description',
       type: 'richText',
@@ -75,32 +75,32 @@ export const AboutTeam: Block = {
           ]
         },
       }),
-      label: 'Bio Paragraph'
+      label: 'Biografia Técnica'
     },
     {
       name: 'skills',
       type: 'array',
-      label: 'Skills',
+      label: 'Competências Técnicas',
       fields: [
-        { name: 'name', type: 'text', label: 'Skill Name' },
-        { name: 'percentage', type: 'text', label: 'Percentage (e.g., 95%)' },
+        { name: 'name', type: 'text', label: 'Nome da Competência' },
+        { name: 'percentage', type: 'text', label: 'Nível / Percentual (ex: 95%)' },
       ],
     },
     {
       name: 'timeline',
       type: 'array',
-      label: 'Education & Certifications',
+      label: 'Formação & Certificações',
       fields: [
-        { name: 'date', type: 'text', label: 'Date / Period (e.g., 2006–2009)' },
-        { name: 'title', type: 'text', label: 'Institution / Program' },
-        { name: 'description', type: 'textarea', label: 'Description' },
+        { name: 'date', type: 'text', label: 'Período (ex: 2018–2022)' },
+        { name: 'title', type: 'text', label: 'Instituição / Especialidade' },
+        { name: 'description', type: 'textarea', label: 'Descrição' },
       ],
     },
     {
       name: 'certificate_image',
       type: 'upload',
       relationTo: 'media',
-      label: 'Certificate / Diploma Image (optional)',
+      label: 'Certificado (opcional)',
     },
     { 
       name: 'closing_description', 
@@ -115,11 +115,11 @@ export const AboutTeam: Block = {
           ]
         },
       }),
-      label: 'Closing Paragraph' 
+      label: 'Considerações Finais' 
     },
   ],
   labels: {
-    singular: 'About Team Member Block',
-    plural: 'About Team Member Blocks',
+    singular: 'Bloco Sobre o Especialista',
+    plural: 'Blocos Sobre o Especialista',
   },
 }

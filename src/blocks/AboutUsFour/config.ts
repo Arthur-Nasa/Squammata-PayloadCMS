@@ -6,6 +6,7 @@ import {
   InlineToolbarFeature,
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
+import { createButtonFields } from '@/fields/elementCustomization'
 
 export const AboutUsFour: Block = {
   slug: 'about_us_four',
@@ -52,26 +53,22 @@ export const AboutUsFour: Block = {
         },
       ],
     },
-    {
-      name: 'button1_text',
-      type: 'text',
-      label: 'Button 1 Text (e.g., Services)',
-    },
-    {
-      name: 'button1_url',
-      type: 'text',
-      label: 'Button 1 URL',
-    },
-    {
-      name: 'button2_text',
-      type: 'text',
-      label: 'Button 2 Text (e.g., Contact us)',
-    },
-    {
-      name: 'button2_url',
-      type: 'text',
-      label: 'Button 2 URL',
-    },
+    ...createButtonFields({
+      prefix: 'button1',
+      label: 'Botão 1',
+      defaultText: '',
+      defaultUrl: '',
+      defaultColor: 'terracota',
+      defaultRadius: 'default',
+    }),
+    ...createButtonFields({
+      prefix: 'button2',
+      label: 'Botão 2',
+      defaultText: '',
+      defaultUrl: '',
+      defaultColor: 'cafe',
+      defaultRadius: 'default',
+    }),
     {
       name: 'image',
       type: 'upload',

@@ -387,8 +387,8 @@ export const PreloaderAnimation = (root: ScrollAnimationRoot = document): (() =>
     const counterEl = root.querySelector?.('.mil-counter') as HTMLElement | null
     const lineEl = root.querySelector?.('.mil-mil-preloader-line') as HTMLElement | null
     const preloaderFrame = root.querySelector?.('.mil-preloader-frame') as HTMLElement | null
-    const startDelay = 400
-    const duration = 2000
+    const startDelay = 100
+    const duration = 700
 
     let timeoutId: ReturnType<typeof setTimeout> | undefined
     let rafId: number | undefined
@@ -410,12 +410,8 @@ export const PreloaderAnimation = (root: ScrollAnimationRoot = document): (() =>
                 if (progress < 1) {
                     rafId = requestAnimationFrame(animate)
                 } else {
-                    setTimeout(() => {
-                        preloaderFrame.classList.remove('mil-loading')
-                        setTimeout(() => {
-                            preloaderFrame.classList.add('mil-ready')
-                        }, 400)
-                    }, 400)
+                    preloaderFrame.classList.remove('mil-loading')
+                    preloaderFrame.classList.add('mil-ready')
                 }
             }
 

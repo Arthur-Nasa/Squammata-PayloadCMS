@@ -1,12 +1,13 @@
 import React from 'react'
 import { Media } from '@/components/Media'
 import { sanitizeHTML } from '@/utilities/sanitizeHtml'
+import { BirdWatermark } from '@/components/BirdWatermark'
 
 import type { SubscribeBlock as SubscribeBlockProps } from '@/payload-types'
 
 export const SubscribeBlock: React.FC<SubscribeBlockProps> = ({ title, media_file }) => {
   return (
-    <div className="mil-section mil-p-10-10">
+    <div className="mil-section mil-p-10-10 position-relative overflow-hidden">
         {media_file && (
         <Media
             imgClassName={"mil-bg-img mil-scale-img"}
@@ -14,7 +15,8 @@ export const SubscribeBlock: React.FC<SubscribeBlockProps> = ({ title, media_fil
         />
         )}
         <div className="mil-overlay mil-blur"></div>
-        <div className="container">
+        <BirdWatermark position="right" className="mil-watermark-subtle" />
+        <div className="container position-relative" style={{ zIndex: 1 }}>
             <div className="row mil-aic">
                 <div className="col-md-8">
                     {title && <h2 className="mil-c-m-5 mil-sm-tac" dangerouslySetInnerHTML={{ __html:  sanitizeHTML(title) }} />}

@@ -32,14 +32,14 @@ export const RelatedPosts: React.FC<RelatedPostsProps> = async (props) => {
       <div className="container">
           <div className="row mil-aie mil-mb-10">
               <div className="col-12 col-md-6 mil-sm-mb-4">
-                  <div className="mil-badge mil-mb-4">Our Team</div>
-                  <h2 className="mil-c-m-1">Discover Other <br className="mil-sm-hidden" /><span className="mil-opacity-text">Professionals</span> on Our Team</h2>
+                  <div className="mil-badge mil-mb-4">Equipe Técnica</div>
+                  <h2 className="mil-c-m-1">Corpo Técnico e <br className="mil-sm-hidden" /><span className="mil-opacity-text">Especialistas</span> Squammata</h2>
               </div>
               <div className="col-12 col-md-6">
                   <div className="mil-flex-column mil-jce mil-aie mil-md-ais">
-                      <p className="mil-c-m-2 mil-t-14 mil-mb-3">Expert guidance. Results you trust.</p>
+                      <p className="mil-c-m-2 mil-t-14 mil-mb-3">Responsabilidade direta por cada linha do DRE.</p>
                       <Link href="/team" className="mil-btn mil-link-type mil-dark">
-                          <span>View all</span>
+                          <span>Ver Todos</span>
                           <i className="far fa-arrow-right"></i>
                       </Link>
                   </div>
