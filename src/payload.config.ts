@@ -9,6 +9,7 @@ sharp.cache(false)
 sharp.concurrency(1)
 
 // Coleções da Squammata e do ecossistema de blocos
+import { defaultSiteConfig } from './site.config'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Categories } from './collections/Categories'
@@ -92,8 +93,8 @@ export default buildConfig({
       },
     },
     meta: {
-      titleSuffix: ' | Squammata CMS',
-      icons: [{ rel: 'icon', type: 'image/svg+xml', url: '/favicon.svg' }],
+      titleSuffix: ` | ${defaultSiteConfig.branding.name} Admin`,
+      icons: [{ rel: 'icon', type: 'image/svg+xml', url: defaultSiteConfig.branding.logos.favicon || '/favicon.svg' }],
     },
     livePreview: {
       breakpoints: [

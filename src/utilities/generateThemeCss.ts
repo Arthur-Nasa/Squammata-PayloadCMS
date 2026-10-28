@@ -1,5 +1,6 @@
 import type { ClientThemeConfig } from '@/site.config'
 import { RADIUS_TOKENS } from '@/theme/presets'
+import { getFontPreset, type FontPresetKey } from '@/theme/fontPresets'
 
 export interface ThemeCssInput {
   primaryColor?: string | null
@@ -10,10 +11,11 @@ export interface ThemeCssInput {
   cardBg?: string | null
   border?: string | null
   radius?: 'organic' | 'modern' | 'sharp' | null
+  fontPreset?: FontPresetKey | null
 }
 
 /**
- * Converte um tema de cliente em variáveis CSS injetáveis no <head>
+ * Converte um tema de cliente e suas configurações tipográficas em variáveis CSS injetáveis no <head>
  */
 export function generateThemeCss(theme?: ThemeCssInput | null): string {
   const primary = theme?.primaryColor || '#7A4207'
@@ -25,6 +27,7 @@ export function generateThemeCss(theme?: ThemeCssInput | null): string {
   const border = theme?.border || '#D5CFC6'
   const radiusKey = theme?.radius || 'organic'
   const radius = RADIUS_TOKENS[radiusKey] || RADIUS_TOKENS.organic
+  const fontConfig = getFontPreset(theme?.fontPreset)
 
   return `
     :root {
@@ -49,6 +52,11 @@ export function generateThemeCss(theme?: ThemeCssInput | null): string {
       --m-1: ${darkBg};
       --m-5: ${lightBg};
       --m-4: ${border};
+
+      /* --- Dynamic Font System Tokens --- */
+      --font-heading: ${fontConfig.headingFont};
+      --font-body: ${fontConfig.bodyFont};
+      --font-mono: ${fontConfig.monoFont};
     }
   `.replace(/\s+/g, ' ').trim()
 }

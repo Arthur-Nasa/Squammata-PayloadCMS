@@ -1,41 +1,34 @@
 import React from 'react'
 import { getCachedGlobal } from '@/utilities/getGlobals'
 import type { LocalSeo } from '@/payload-types'
+import { defaultSiteConfig } from '@/site.config'
 
 export async function LocalBusinessJsonLd() {
   try {
     const seoData: LocalSeo = await getCachedGlobal('local-seo', 1)()
-    if (!seoData) return null
+
+    const areasServed =
+      seoData?.serviceAreas && seoData.serviceAreas.length > 0
+        ? seoData.serviceAreas.map((item) => (typeof item === 'object' && item?.city ? item.city : String(item)))
+        : defaultSiteConfig.contact.citiesServed || [defaultSiteConfig.contact.address.city]
 
     const schema = {
       '@context': 'https://schema.org',
-      '@type': seoData.schemaType || 'ProfessionalService',
-      name: seoData.businessName || 'Squammata Gestão de Projetos e E-commerce',
+      '@type': seoData?.schemaType || 'ProfessionalService',
+      name: seoData?.businessName || defaultSiteConfig.branding.legalName || defaultSiteConfig.branding.name,
+      description: defaultSiteConfig.branding.description,
       address: {
         '@type': 'PostalAddress',
-        streetAddress: seoData.streetAddress || 'Rua Coronel Quirino, 1200',
-        addressLocality: seoData.city || 'Campinas',
-        addressRegion: seoData.state || 'SP',
-        postalCode: seoData.postalCode || '13025-002',
+        streetAddress:
+          seoData?.streetAddress ||
+          `${defaultSiteConfig.contact.address.street}${defaultSiteConfig.contact.address.number ? `, ${defaultSiteConfig.contact.address.number}` : ''}`,
+        addressLocality: seoData?.city || defaultSiteConfig.contact.address.city,
+        addressRegion: seoData?.state || defaultSiteConfig.contact.address.state,
+        postalCode: seoData?.postalCode || defaultSiteConfig.contact.address.zipCode,
         addressCountry: 'BR',
       },
-      geo: {
-        '@type': 'GeoCoordinates',
-        latitude: -22.9056,
-        longitude: -47.0506,
-      },
-      areaServed: [
-        'Campinas',
-        'Americana',
-        'Hortolândia',
-        'Indaiatuba',
-        'Itatiba',
-        'Jaguariúna',
-        'Paulínia',
-        'Sumaré',
-        'Valinhos',
-        'Vinhedo',
-      ],
+      telephone: seoData?.contactPhone || defaultSiteConfig.contact.phone,
+      areaServed: areasServed,
       priceRange: '$$$',
     }
 

@@ -30,6 +30,7 @@ export async function POST(req: Request) {
     const result = await provisionClientFromConfig({
       payload,
       config: clientConfig,
+      templateData: body.templateData,
       adminPassword: body.adminPassword || 'admin-change-me-2026',
     })
 

@@ -1,26 +1,44 @@
 import type { Payload, PayloadRequest } from 'payload'
 import type { SiteConfig } from '@/site.config'
 
+export interface TemplateNicheData {
+  niche?: string
+  name?: string
+  description?: string
+  services?: Array<{
+    title: string
+    shortDescription?: string
+    price?: string
+  }>
+  faq?: Array<{
+    question: string
+    answer: string
+  }>
+}
+
 export interface ProvisionResult {
   success: boolean
   message: string
   clientName: string
   timestamp: string
+  servicesCount?: number
 }
 
 /**
  * Motor de Provisionamento Automatizado de Clientes
- * Inicializa e sincroniza os globals institucionais, temas e dados fiscais
- * a partir de qualquer manifesto de cliente fornecido.
+ * Inicializa e sincroniza os globals institucionais, temas, cabeçalho, rodapé
+ * e coleções de nicho a partir de qualquer manifesto de cliente fornecido.
  */
 export async function provisionClientFromConfig({
   payload,
   config,
+  templateData,
   adminPassword = 'admin-change-me-2026',
   req,
 }: {
   payload: Payload
   config: SiteConfig
+  templateData?: TemplateNicheData
   adminPassword?: string
   req?: PayloadRequest
 }): Promise<ProvisionResult> {
@@ -76,7 +94,7 @@ export async function provisionClientFromConfig({
   await payload.updateGlobal({
     slug: 'local-seo',
     data: {
-      businessName: config.branding.legalName,
+      businessName: config.branding.legalName || config.branding.name,
       streetAddress: `${config.contact.address.street}${
         config.contact.address.number ? `, ${config.contact.address.number}` : ''
       }`,
@@ -105,6 +123,114 @@ export async function provisionClientFromConfig({
     req,
   })
 
+  // 5. Atualizar Global: Header
+  const fullAddress = `${config.contact.address.street}${
+    config.contact.address.number ? `, ${config.contact.address.number}` : ''
+  } - ${config.contact.address.neighborhood}, ${config.contact.address.city}/${config.contact.address.state}`
+  const regionalSummary = config.contact.citiesServed?.slice(0, 3).join(', ') || config.contact.address.city
+
+  try {
+    await payload.updateGlobal({
+      slug: 'header',
+      data: {
+        logo: {
+          type: 'text',
+          text: config.branding.name,
+          alt: config.branding.name,
+        },
+        contact: {
+          actionType: 'popup',
+          popupTitle: 'Atendimento & Diagnóstico',
+          popupItems: [
+            { label: 'Sede Operacional', value: fullAddress },
+            { label: 'Telefone / WhatsApp', value: config.contact.phone || config.contact.whatsapp },
+            { label: 'E-mail Institucional', value: config.contact.email },
+            { label: 'Atendimento Regional', value: regionalSummary },
+            { label: 'Horário de Atendimento', value: config.contact.operationalHours || 'Segunda a Sexta, 08h às 18h' },
+          ],
+        },
+        ordercall: {
+          actionType: 'link',
+          link: config.contact.whatsapp
+            ? `https://wa.me/${config.contact.whatsapp.replace(/\D/g, '')}`
+            : 'https://wa.me/',
+        },
+      },
+      req,
+    })
+  } catch (err) {
+    payload.logger.warn(`Aviso ao sincronizar Header no provisionamento: ${(err as Error).message}`)
+  }
+
+  // 6. Atualizar Global: Footer
+  try {
+    const footerSocial = [
+      ...(config.contact.whatsapp
+        ? [{ icon: 'fab fa-whatsapp', link: `https://wa.me/${config.contact.whatsapp.replace(/\D/g, '')}` }]
+        : []),
+      ...(config.contact.social.linkedin
+        ? [{ icon: 'fab fa-linkedin-in', link: config.contact.social.linkedin }]
+        : []),
+      ...(config.contact.social.github
+        ? [{ icon: 'fab fa-github', link: config.contact.social.github }]
+        : []),
+      ...(config.contact.social.instagram
+        ? [{ icon: 'fab fa-instagram', link: config.contact.social.instagram }]
+        : []),
+    ]
+
+    await payload.updateGlobal({
+      slug: 'footer',
+      data: {
+        copyright: `© ${new Date().getFullYear()} ${config.branding.legalName || config.branding.name}. Todos os direitos reservados. ${config.branding.document || ''}`,
+        createdBy: `${config.branding.name} | ${config.branding.tagline}`,
+        locations: [
+          {
+            title: 'Sede Operacional',
+            address: `${fullAddress}, CEP ${config.contact.address.zipCode}`,
+            phone: config.contact.phone || config.contact.whatsapp,
+          },
+          {
+            title: 'Atendimento Regional',
+            address: regionalSummary,
+            phone: config.contact.phone || config.contact.whatsapp,
+          },
+        ],
+        social: footerSocial,
+      },
+      req,
+    })
+  } catch (err) {
+    payload.logger.warn(`Aviso ao sincronizar Footer no provisionamento: ${(err as Error).message}`)
+  }
+
+  // 7. Provisionamento de Serviços do Template de Nicho (se fornecido)
+  let servicesCount = 0
+  if (templateData?.services && Array.isArray(templateData.services)) {
+    for (const s of templateData.services) {
+      const existing = await payload.find({
+        collection: 'services',
+        where: { title: { equals: s.title } },
+        limit: 1,
+        req,
+      })
+
+      if (existing.docs.length === 0) {
+        await payload.create({
+          collection: 'services',
+          draft: true,
+          data: {
+            title: s.title,
+            short: s.shortDescription || '',
+          },
+          req,
+        })
+        servicesCount++
+      }
+    }
+    payload.logger.info(`${servicesCount} serviços de nicho provisionados.`)
+  }
+
   payload.logger.info(`Provisionamento de ${config.branding.name} concluído com sucesso.`)
 
   return {
@@ -112,5 +238,6 @@ export async function provisionClientFromConfig({
     message: `Cliente ${config.branding.name} provisionado com sucesso.`,
     clientName: config.branding.name,
     timestamp: new Date().toISOString(),
+    servicesCount,
   }
 }

@@ -14,8 +14,9 @@ import { ErrorBoundary } from '@/components/ErrorBoundary'
 import { LocalBusinessJsonLd } from '@/components/LocalBusinessJsonLd'
 import { getCachedGlobal } from '@/utilities/getGlobals'
 import { getThemePreset, generateThemeCssVariables, DEFAULT_THEME_KEY } from '@/theme/presets'
+import { generateThemeCss } from '@/utilities/generateThemeCss'
 
-// Google Fonts (Squammata Design System v3.8)
+// Google Fonts (Squammata Core Fonts)
 import { Quicksand, Zilla_Slab, Space_Mono } from 'next/font/google'
 
 const quicksand = Quicksand({
@@ -67,6 +68,15 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const activeTheme = getThemePreset(themeSettings?.preset || DEFAULT_THEME_KEY, overrides)
   const dynamicCss = generateThemeCssVariables(activeTheme)
 
+  const engineCss = generateThemeCss({
+    primaryColor: themeSettings?.overridePrimary || defaultSiteConfig.theme.primaryColor,
+    secondaryColor: themeSettings?.overrideSecondary || defaultSiteConfig.theme.secondaryColor,
+    darkBg: themeSettings?.overrideDarkBg || defaultSiteConfig.theme.darkBg,
+    lightBg: themeSettings?.overrideLightBg || defaultSiteConfig.theme.lightBg,
+    radius: (themeSettings?.radiusPreset as 'organic' | 'modern' | 'sharp') || defaultSiteConfig.theme.radius,
+    fontPreset: defaultSiteConfig.theme.fontPreset,
+  })
+
   return (
     <html
       className={`${quicksand.variable} ${zillaSlab.variable} ${spaceMono.variable}`}
@@ -77,7 +87,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <InitTheme />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+          rel="stylesheet"
+        />
         <style id="squammata-theme-dynamic" dangerouslySetInnerHTML={{ __html: dynamicCss }} />
+        <style id="boilerplate-theme-engine" dangerouslySetInnerHTML={{ __html: engineCss }} />
         <LocalBusinessJsonLd />
       </head>
       <body>

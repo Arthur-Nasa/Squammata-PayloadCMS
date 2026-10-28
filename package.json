@@ -10,7 +10,9 @@
     "lint": "cross-env LD_PRELOAD= NODE_OPTIONS=--no-deprecation next lint",
     "generate:types": "cross-env LD_PRELOAD= NODE_OPTIONS=--no-deprecation payload generate:types",
     "generate:importmap": "cross-env LD_PRELOAD= NODE_OPTIONS=--no-deprecation payload generate:importmap",
-    "payload": "cross-env LD_PRELOAD= NODE_OPTIONS=--no-deprecation payload"
+    "payload": "cross-env LD_PRELOAD= NODE_OPTIONS=--no-deprecation payload",
+    "site:create": "cross-env LD_PRELOAD= node scripts/create-site.mjs",
+    "site:export": "cross-env LD_PRELOAD= node scripts/export-client.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

@@ -64,6 +64,8 @@ export interface ClientThemeConfig {
   border: string
   /** Estilo geométrico de curvatura de cantos */
   radius: 'organic' | 'modern' | 'sharp'
+  /** Preset tipográfico do site */
+  fontPreset?: 'editorial' | 'modern' | 'tech' | 'minimal'
   /** Estilo do divisor de seção entre blocos */
   dividerStyle: 'curve' | 'wave' | 'slant' | 'straight' | 'none'
   /** Exibição de marca d'água no fundo de seções */
@@ -146,6 +148,7 @@ export const defaultSiteConfig: SiteConfig = {
     cardBg: '#FFFFFF',
     border: '#D5CFC6',
     radius: 'organic',
+    fontPreset: 'editorial',
     dividerStyle: 'curve',
     enableWatermark: true,
   },

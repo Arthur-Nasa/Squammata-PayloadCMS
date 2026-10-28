@@ -6,6 +6,7 @@ import type { Footer as FooterType } from '@/payload-types'
 import { usePageContext } from '@/providers/PageProvider'
 import { Media } from '@/components/Media'
 import { sanitizeHTML } from '@/utilities/sanitizeHtml'
+import { defaultSiteConfig } from '@/site.config'
 
 interface FooterProps {
   data: FooterType | null | undefined
@@ -27,33 +28,42 @@ const defaultPolicyLinks = [
 ]
 
 const defaultSocial = [
-  { icon: 'fab fa-whatsapp', link: 'https://wa.me/5519993497819' },
-  { icon: 'fab fa-linkedin-in', link: 'https://www.linkedin.com/company/squammata' },
-  { icon: 'fab fa-github', link: 'https://github.com/Arthur-Nasa/Squammata-PayloadCMS' },
+  ...(defaultSiteConfig.contact.whatsapp
+    ? [{ icon: 'fab fa-whatsapp', link: `https://wa.me/${defaultSiteConfig.contact.whatsapp.replace(/\D/g, '')}` }]
+    : []),
+  ...(defaultSiteConfig.contact.social.linkedin
+    ? [{ icon: 'fab fa-linkedin-in', link: defaultSiteConfig.contact.social.linkedin }]
+    : []),
+  ...(defaultSiteConfig.contact.social.github
+    ? [{ icon: 'fab fa-github', link: defaultSiteConfig.contact.social.github }]
+    : []),
+  ...(defaultSiteConfig.contact.social.instagram
+    ? [{ icon: 'fab fa-instagram', link: defaultSiteConfig.contact.social.instagram }]
+    : []),
 ]
 
 const defaultFooterLinks = [
-  { label: 'Auditoria Fogo-Apagou', link: '/services' },
-  { label: 'Modelagem de DRE', link: '/projects' },
-  { label: 'Zeladoria de Infraestrutura', link: '/services' },
+  { label: 'Consultoria Estratégica', link: '/services' },
+  { label: 'Diagnóstico Operacional', link: '/services' },
+  { label: 'Soluções Integradas', link: '/projects' },
 ]
 
 const defaultLocations = [
   {
     title: 'Sede Operacional',
-    address: 'Rua Coronel Quirino, 1200 - Cambuí, Campinas/SP, CEP 13025-002',
-    phone: '+55 19 99349-7819',
+    address: `${defaultSiteConfig.contact.address.street}${defaultSiteConfig.contact.address.number ? `, ${defaultSiteConfig.contact.address.number}` : ''} - ${defaultSiteConfig.contact.address.neighborhood}, ${defaultSiteConfig.contact.address.city}/${defaultSiteConfig.contact.address.state}, CEP ${defaultSiteConfig.contact.address.zipCode}`,
+    phone: defaultSiteConfig.contact.phone || defaultSiteConfig.contact.whatsapp,
   },
   {
     title: 'Atendimento Regional',
-    address: 'Campinas e Região Metropolitana (RMC)',
-    phone: '+55 19 99349-7819',
+    address: defaultSiteConfig.contact.citiesServed?.slice(0, 4).join(', ') || defaultSiteConfig.contact.address.city,
+    phone: defaultSiteConfig.contact.phone || defaultSiteConfig.contact.whatsapp,
   },
 ]
 
-const defaultCopyright = '© 2026 Squammata Consultoria e Gestão de Projetos Ltda. Todos os direitos reservados. CNPJ sob consulta.'
-const defaultCreatedBy = 'Squammata | Engenharia de Operações & DRE'
-const defaultNewsletterPlaceholder = 'Cadastre seu e-mail corporativo para receber análises técnicas de DRE e gestão de estoque'
+const defaultCopyright = `© ${new Date().getFullYear()} ${defaultSiteConfig.branding.legalName || defaultSiteConfig.branding.name}. Todos os direitos reservados. ${defaultSiteConfig.branding.document || ''}`
+const defaultCreatedBy = `${defaultSiteConfig.branding.name} | ${defaultSiteConfig.branding.tagline}`
+const defaultNewsletterPlaceholder = `Cadastre seu e-mail corporativo para novidades e análises de ${defaultSiteConfig.branding.name}`
 
 export const FooterClient: React.FC<FooterProps> = ({ data }) => {
   const { footerLayout } = usePageContext()
@@ -111,8 +121,20 @@ export const FooterClient: React.FC<FooterProps> = ({ data }) => {
                     />
                   </Link>
                 ) : (
-                  <Link href="/" className="mil-logo mil-mb-4 mil-sm-mb-5">
-                    <Image src="/logo/squammata/squammata-lockup-horizontal-white.svg" alt="Squammata" width={180} height={38} priority />
+                  <Link href="/" className="mil-logo mil-mb-4 mil-sm-mb-5" data-no-swup>
+                    {defaultSiteConfig.branding.logos.light || defaultSiteConfig.branding.logos.dark ? (
+                      <Image
+                        src={defaultSiteConfig.branding.logos.light || defaultSiteConfig.branding.logos.dark}
+                        alt={defaultSiteConfig.branding.name}
+                        width={180}
+                        height={38}
+                        priority
+                      />
+                    ) : (
+                      <span style={{ fontSize: '1.6rem', fontWeight: 700, fontFamily: 'var(--font-heading)', color: '#FFFFFF' }}>
+                        {defaultSiteConfig.branding.name}
+                      </span>
+                    )}
                   </Link>
                 )}
                 {activeMainMenu && activeMainMenu.length > 0 && (
@@ -173,8 +195,20 @@ export const FooterClient: React.FC<FooterProps> = ({ data }) => {
                       />
                     </Link>
                   ) : (
-                    <Link href="/" className="mil-logo mil-mb-4">
-                      <Image src="/logo/squammata/squammata-lockup-horizontal.svg" alt="Squammata" width={180} height={38} priority />
+                    <Link href="/" className="mil-logo mil-mb-4" data-no-swup>
+                      {defaultSiteConfig.branding.logos.dark || defaultSiteConfig.branding.logos.light ? (
+                        <Image
+                          src={defaultSiteConfig.branding.logos.dark || defaultSiteConfig.branding.logos.light}
+                          alt={defaultSiteConfig.branding.name}
+                          width={180}
+                          height={38}
+                          priority
+                        />
+                      ) : (
+                        <span style={{ fontSize: '1.6rem', fontWeight: 700, fontFamily: 'var(--font-heading)' }}>
+                          {defaultSiteConfig.branding.name}
+                        </span>
+                      )}
                     </Link>
                   )}
                   <form action={ process.env.NEXT_PUBLIC_MAILCHIMP_ACTION_URL } className="mil-subscribe">

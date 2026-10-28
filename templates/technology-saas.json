@@ -1,0 +1,40 @@
+{
+  "niche": "technology-saas",
+  "name": "Tecnologia, SaaS & Engenharia de Software",
+  "description": "Template de alta conversão para empresas de software, produtos SaaS, APIs e consultorias de engenharia.",
+  "theme": {
+    "preset": "river",
+    "primaryColor": "#1D4ED8",
+    "primaryHover": "#1E40AF",
+    "radius": "modern",
+    "fontPreset": "tech",
+    "dividerStyle": "slant"
+  },
+  "services": [
+    {
+      "title": "Engenharia de Plataforma & Cloud",
+      "shortDescription": "Arquitetura resiliente em nuvem com alta disponibilidade e Kubernetes.",
+      "price": "Sob demanda"
+    },
+    {
+      "title": "Desenvolvimento de APIs & Microsserviços",
+      "shortDescription": "Sistemas modulares com alta vazão, latência previsível e tipagem estrita.",
+      "price": "Sob demanda"
+    },
+    {
+      "title": "Observabilidade e DevSecOps",
+      "shortDescription": "Pipelines automatizados de deploy com telemetria contínua e conformidade de segurança.",
+      "price": "Sob demanda"
+    }
+  ],
+  "faq": [
+    {
+      "question": "Como é estruturado o ciclo de entrega dos projetos?",
+      "answer": "Trabalhamos em sprints quinzenais com entregas incrementais validadas em ambiente de homologação."
+    },
+    {
+      "question": "Como garantimos a segurança e governança de dados na nuvem?",
+      "answer": "Adotamos padrões DevSecOps com análise estática de vulnerabilidades e isolamento estrito de ambientes."
+    }
+  ]
+}
