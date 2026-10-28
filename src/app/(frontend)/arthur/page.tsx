@@ -60,13 +60,13 @@ const personSchema = {
 }
 
 export const metadata: Metadata = {
-  title: 'Arthur Saggioratto | Executivo de E-commerce, Growth & SEO Técnico',
+  title: 'Arthur Saggioratto | Consultoria de E-commerce, Growth & SEO Técnico',
   description:
-    'Currículo executivo e consultoria estratégica de Arthur Saggioratto. 15 anos acelerando negócios digitais, arquitetura de e-commerce e crescimento com lucro real no DRE.',
+    'Currículo executivo e consultoria estratégica de Arthur Saggioratto. 15 anos acelerando negócios digitais, arquitetura de e-commerce e crescimento com lucro real no fechamento do DRE.',
   openGraph: {
-    title: 'Arthur Saggioratto | Executivo de E-commerce, Growth & SEO Técnico',
+    title: 'Arthur Saggioratto | Consultoria de E-commerce, Growth & SEO Técnico',
     description:
-      'Currículo online executivo, trajetória e consultoria estratégica. 15 anos acelerando operações digitais B2C, B2B e SaaS global.',
+      'Currículo online executivo, trajetória e consultoria estratégica de e-commerce no Brasil. 15 anos gerando resultados no varejo e indústria digital.',
     url: 'https://linkedin.com/in/arthurnasa',
     siteName: 'Arthur Saggioratto | Currículo Executivo & Consultoria',
     images: [
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
         url: '/arthur-saggioratto.jpg',
         width: 600,
         height: 600,
-        alt: 'Arthur Saggioratto - Executivo de E-commerce, Growth & SEO Técnico',
+        alt: 'Arthur Saggioratto - Consultor e Head de E-commerce, Growth & SEO Técnico',
       },
     ],
     locale: 'pt_BR',
@@ -82,9 +82,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary',
-    title: 'Arthur Saggioratto | Executivo de E-commerce, Growth & SEO Técnico',
+    title: 'Arthur Saggioratto | Consultoria de E-commerce, Growth & SEO Técnico',
     description:
-      '15 anos acelerando operações digitais B2C, B2B e SaaS global com SEO Técnico, CRO e Unit Economics.',
+      '15 anos acelerando e-commerces no Brasil com SEO Técnico, otimização de conversão e foco no lucro líquido real.',
     images: ['/arthur-saggioratto.jpg'],
   },
 }
