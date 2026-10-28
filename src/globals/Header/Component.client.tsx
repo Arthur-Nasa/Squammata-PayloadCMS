@@ -45,6 +45,16 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
     setOpen(false)
   }, [asPath])
 
+  // Suprime o Header da Squammata em rotas de portfolio/curriculo standalone
+  const isStandalone =
+    asPath === '/arthur' ||
+    asPath === '/portfolio' ||
+    asPath?.startsWith('/arthur/') ||
+    asPath?.startsWith('/portfolio/')
+  if (isStandalone) {
+    return null
+  }
+
   const logo = data?.logo
   const contact = data?.contact
   const ordercall = data?.ordercall

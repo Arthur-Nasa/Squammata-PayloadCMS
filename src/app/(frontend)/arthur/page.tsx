@@ -33,9 +33,10 @@ const personSchema = {
           name: 'Faculdade de Administração e Artes de Limeira (FAAL)',
         },
       ],
+      image: 'https://arthursaggioratto.com.br/arthur-saggioratto.jpg',
       worksFor: {
         '@type': 'Organization',
-        name: 'Squammata Consultoria',
+        name: 'Arthur Saggioratto Consultoria & Advisory',
         taxID: '31.384.814/0001-09',
       },
       knowsAbout: [
@@ -59,32 +60,32 @@ const personSchema = {
 }
 
 export const metadata: Metadata = {
-  title: 'Arthur Saggioratto | Head of E-commerce, Growth & Senior SEO/CRO Specialist',
+  title: 'Arthur Saggioratto | Executivo de E-commerce, Growth & SEO Técnico',
   description:
-    'Executivo de E-commerce, Growth e Performance com 15 anos de experiência a liderar operações digitais B2C, B2B e SaaS global. Especialista em SEO Técnico, GEO, CRO e Unit Economics.',
+    'Currículo executivo e consultoria estratégica de Arthur Saggioratto. 15 anos acelerando negócios digitais, arquitetura de e-commerce e crescimento com lucro real no DRE.',
   openGraph: {
-    title: 'Arthur Saggioratto | Head of E-commerce, Growth & Senior SEO/CRO Specialist',
+    title: 'Arthur Saggioratto | Executivo de E-commerce, Growth & SEO Técnico',
     description:
-      'Engenharia de Crescimento Orgânico, Arquitetura de E-commerce e Proteção de Margem Operacional. 15 anos a conectar dados e tecnologia ao DRE do negócio.',
+      'Currículo online executivo, trajetória e consultoria estratégica. 15 anos acelerando operações digitais B2C, B2B e SaaS global.',
     url: 'https://linkedin.com/in/arthurnasa',
-    siteName: 'Arthur Saggioratto | Executive Portfolio',
+    siteName: 'Arthur Saggioratto | Currículo Executivo & Consultoria',
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
-        width: 1200,
-        height: 630,
-        alt: 'Arthur Saggioratto - Executive E-commerce Portfolio',
+        url: '/arthur-saggioratto.jpg',
+        width: 600,
+        height: 600,
+        alt: 'Arthur Saggioratto - Executivo de E-commerce, Growth & SEO Técnico',
       },
     ],
     locale: 'pt_BR',
     type: 'profile',
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Arthur Saggioratto | Head of E-commerce, Growth & Senior SEO/CRO Specialist',
+    card: 'summary',
+    title: 'Arthur Saggioratto | Executivo de E-commerce, Growth & SEO Técnico',
     description:
-      '15 anos a liderar operações digitais B2C, B2B e SaaS global. Especialista em SEO Técnico, GEO, CRO e Unit Economics.',
-    images: ['https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80'],
+      '15 anos acelerando operações digitais B2C, B2B e SaaS global com SEO Técnico, CRO e Unit Economics.',
+    images: ['/arthur-saggioratto.jpg'],
   },
 }
 

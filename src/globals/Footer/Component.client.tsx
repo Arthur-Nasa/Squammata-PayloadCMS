@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import type { Footer as FooterType } from '@/payload-types'
 import { usePageContext } from '@/providers/PageProvider'
 import { Media } from '@/components/Media'
@@ -66,7 +67,18 @@ const defaultCreatedBy = `${defaultSiteConfig.branding.name} | ${defaultSiteConf
 const defaultNewsletterPlaceholder = `Cadastre seu e-mail corporativo para novidades e análises de ${defaultSiteConfig.branding.name}`
 
 export const FooterClient: React.FC<FooterProps> = ({ data }) => {
+  const asPath = usePathname()
   const { footerLayout } = usePageContext()
+
+  // Suprime o Footer da Squammata em rotas de portfolio/curriculo standalone
+  const isStandalone =
+    asPath === '/arthur' ||
+    asPath === '/portfolio' ||
+    asPath?.startsWith('/arthur/') ||
+    asPath?.startsWith('/portfolio/')
+  if (isStandalone) {
+    return null
+  }
 
   const {
     logo,
