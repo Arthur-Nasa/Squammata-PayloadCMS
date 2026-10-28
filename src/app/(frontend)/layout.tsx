@@ -12,6 +12,8 @@ import { draftMode } from 'next/headers'
 import { getServerSideURL } from '@/utilities/getURL'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
 import { LocalBusinessJsonLd } from '@/components/LocalBusinessJsonLd'
+import { getCachedGlobal } from '@/utilities/getGlobals'
+import { getThemePreset, generateThemeCssVariables, DEFAULT_THEME_KEY } from '@/theme/presets'
 
 // Google Fonts (Squammata Design System v3.8)
 import { Quicksand, Zilla_Slab, Space_Mono } from 'next/font/google'
@@ -53,6 +55,18 @@ import './globals.css'
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const { isEnabled } = await draftMode()
 
+  // Recupera configurações visuais do tema com fallback defensivo
+  const themeSettings = await getCachedGlobal('theme-settings', 1)()
+  const overrides = {
+    primary: themeSettings?.overridePrimary,
+    secondary: themeSettings?.overrideSecondary,
+    darkBg: themeSettings?.overrideDarkBg,
+    lightBg: themeSettings?.overrideLightBg,
+    radius: themeSettings?.radiusPreset,
+  }
+  const activeTheme = getThemePreset(themeSettings?.preset || DEFAULT_THEME_KEY, overrides)
+  const dynamicCss = generateThemeCssVariables(activeTheme)
+
   return (
     <html
       className={`${quicksand.variable} ${zillaSlab.variable} ${spaceMono.variable}`}
@@ -63,6 +77,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <InitTheme />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+        <style id="squammata-theme-dynamic" dangerouslySetInnerHTML={{ __html: dynamicCss }} />
         <LocalBusinessJsonLd />
       </head>
       <body>

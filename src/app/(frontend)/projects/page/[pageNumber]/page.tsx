@@ -38,12 +38,12 @@ export default async function Page({ params: paramsPromise }: Args) {
         <div className="container">
           <div className="row mil-aie mil-mb-10">
               <div className="col-12 col-md-6 mil-sm-mb-4">
-                  {projectsData.badge && <div className="mil-badge mil-mb-4">{projectsData.badge}</div>}
-                  {projectsData.title && <h2 className="mil-c-m-1" dangerouslySetInnerHTML={{ __html: sanitizeHTML(projectsData.title) }} />}
+                  <div className="mil-badge mil-mb-4">{projectsData.badge || 'Estudos de Caso & DRE'}</div>
+                  <h2 className="mil-c-m-1" dangerouslySetInnerHTML={{ __html: sanitizeHTML(projectsData.title || 'Operações Auditadas e <br><span class="mil-opacity-text">Resultados no DRE</span>') }} />
               </div>
               <div className="col-12 col-md-6">
                   <div className="mil-flex-column mil-jce">
-                      {projectsData.description && <p className="mil-c-m-2 mil-t-16" dangerouslySetInnerHTML={{ __html: sanitizeHTML(projectsData.description) }} />}
+                      <p className="mil-c-m-2 mil-t-16" dangerouslySetInnerHTML={{ __html: sanitizeHTML(projectsData.description || 'Análise aprofundada de gargalos operacionais solucionados na Região Metropolitana de Campinas com mensuração direta de margem de contribuição e eficiência técnica.') }} />
                   </div>
               </div>
           </div>
@@ -68,20 +68,24 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
   const projectsData: ProjectsPage = await getCachedGlobalMeta('projects_page', 1)()
 
   return {
-    title: `${projectsData.meta?.title} | Page ${pageNumber || ''} | Lumex Template`,
+    title: `${projectsData.meta?.title || 'Estudos de Caso'} | Página ${pageNumber || ''} | Squammata`,
   }
 }
 
 export async function generateStaticParams() {
-  const { totalDocs } = await queryProjectsTotalCount()
+  try {
+    const { totalDocs } = await queryProjectsTotalCount()
 
-  const totalPages = Math.ceil(totalDocs / 10)
+    const totalPages = Math.ceil((totalDocs || 0) / 10)
 
-  const pages: { pageNumber: string }[] = []
+    const pages: { pageNumber: string }[] = []
 
-  for (let i = 1; i <= totalPages; i++) {
-    pages.push({ pageNumber: String(i) })
+    for (let i = 1; i <= totalPages; i++) {
+      pages.push({ pageNumber: String(i) })
+    }
+
+    return pages
+  } catch (_e) {
+    return []
   }
-
-  return pages
 }

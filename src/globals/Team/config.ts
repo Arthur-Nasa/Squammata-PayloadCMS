@@ -31,14 +31,14 @@ export const TeamPage: GlobalConfig = {
               admin: {
                 initCollapsed: true,
               },
-              label: 'Layout Builder',
+              label: 'Construtor de Layout',
               labels: {
-                singular: 'Block',
-                plural: 'Blocks',
+                singular: 'Bloco',
+                plural: 'Blocos',
               },
             },
           ],
-          label: 'Layout (before)',
+          label: 'Blocos (Antes)',
         },
         {
           fields: [
@@ -53,14 +53,14 @@ export const TeamPage: GlobalConfig = {
               admin: {
                 initCollapsed: true,
               },
-              label: 'Layout Builder',
+              label: 'Construtor de Layout',
               labels: {
-                singular: 'Block',
-                plural: 'Blocks',
+                singular: 'Bloco',
+                plural: 'Blocos',
               },
             },
           ],
-          label: 'Layout (after)',
+          label: 'Blocos (Depois)',
         },
         {
           fields: [
@@ -68,19 +68,22 @@ export const TeamPage: GlobalConfig = {
               name: 'badge',
               type: 'text',
               label: 'Badge',
+              defaultValue: 'Equipe Técnica',
             },
             {
               name: 'title',
               type: 'textarea',
-              label: 'Title (use HTML like <br> for line breaks, use span like <span class="mil-opacity-text">TEXT</span> for highlighted text)',
+              label: 'Título (use <br> para quebra de linha ou span com class="mil-opacity-text")',
+              defaultValue: 'Especialistas em <br><span class="mil-opacity-text">Engenharia & Operações</span>',
             },
             {
               name: 'description',
               type: 'textarea',
-              label: 'Description (use HTML like <br> for line breaks)',
+              label: 'Descrição',
+              defaultValue: 'Profissionais dedicados à governança de dados, desenvolvimento headless, controladoria de DRE e gestão técnica de mídia.',
             },
           ],
-          label: 'Heading',
+          label: 'Cabeçalho da Página',
         },
         {
           name: 'meta',

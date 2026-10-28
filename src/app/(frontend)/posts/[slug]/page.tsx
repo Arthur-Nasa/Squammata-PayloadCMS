@@ -17,6 +17,7 @@ import { RenderBlocks } from '@/blocks/RenderBlocks'
 import { queryAllPosts, queryPostBySlug } from '@/app/_fetches'
 import { formatAuthors } from '@/utilities/formatAuthors'
 import { formatDateTime } from '@/utilities/formatDateTime'
+import { calculateReadingTime } from '@/utilities/calculateReadingTime'
 
 type Args = {
   params: Promise<{
@@ -33,10 +34,10 @@ export default async function Post({ params: paramsPromise }: Args) {
   const post = await getCachedPage(decodedSlug, draft)
   const blogData: Blog = await getCachedGlobal('blog', 0)()
 
+  if (!post) return <PayloadRedirects url={url} />
+
   const hasAuthors =
       post.populatedAuthors && post.populatedAuthors.length > 0 && formatAuthors(post.populatedAuthors) !== ''
-
-  if (!post) return <PayloadRedirects url={url} />
 
   return (
     <>
@@ -52,33 +53,38 @@ export default async function Post({ params: paramsPromise }: Args) {
       <div className="mil-sticky-section mil-bg-out-left-gray mil-md-white">
           <div className="mil-sticky-part mil-p-10-10 mil-angle mil-angle-lg">
               <div className="mil-fake-container-left">
-                  <div className="mil-badge mil-mb-4">Publication</div>
-                  <h2 className="mil-mb-5">Why Companies Choose <br className="mil-md-hidden" />Business Consulting</h2>
+                  <div className="mil-badge mil-mb-4">Artigo Técnico</div>
+                  <h2 className="mil-mb-5">{post.title}</h2>
                   <ul className="mil-half-list">
                       {post.publishedAt &&
                       <li className="mil-mb-3">
-                          <p className="mil-c-m-2">Date:</p>
+                          <p className="mil-c-m-2">Data:</p>
                           <div className="mil-dots"></div>
                           <p><time dateTime={post.publishedAt}>{formatDateTime(post.publishedAt)}</time></p>
                       </li>
                       }
+                      <li className="mil-mb-3">
+                          <p className="mil-c-m-2">Tempo de Leitura:</p>
+                          <div className="mil-dots"></div>
+                          <p>{calculateReadingTime(post.content)} min</p>
+                      </li>
                       {hasAuthors &&
                       <li className="mil-mb-3">
-                          <p className="mil-c-m-2">Author:</p>
+                          <p className="mil-c-m-2">Autor:</p>
                           <div className="mil-dots"></div>
                           <p>{formatAuthors(post.populatedAuthors)}</p>
                       </li>
                       }
                       {post.categories && post.categories.length > 0 &&
                       <li>
-                          <p className="mil-c-m-2">Category:</p>
+                          <p className="mil-c-m-2">Categoria:</p>
                           <div className="mil-dots"></div>
                           <span className="mil-dark">
                             {post.categories?.map((category : Category, index : number) => {
                               if (typeof category === 'object' && category !== null) {
                                 const { title: categoryTitle } = category
 
-                                const titleToUse = categoryTitle || 'Untitled category'
+                                const titleToUse = categoryTitle || 'Geral'
 
                                 const isLast = index === post.categories.length - 1
 
@@ -133,19 +139,22 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
 }
 
 export async function generateStaticParams() {
-  const getCachedPages = unstable_cache(queryAllPosts, ['allPosts'])
-  const pages = await getCachedPages()
-  
-  if (!Array.isArray(pages)) {
-    console.error('Expected an array of pages, but got:', pages);
-    return [];
-  }
+  try {
+    const getCachedPages = unstable_cache(queryAllPosts, ['allPosts'])
+    const pages = await getCachedPages()
+    
+    if (!Array.isArray(pages)) {
+      return []
+    }
 
-  return pages
-    .filter((page) => page?.slug)
-    .map(({ slug }) => {
-      return {
-        slug
-      }
-    })
+    return pages
+      .filter((page) => page?.slug)
+      .map(({ slug }) => {
+        return {
+          slug
+        }
+      })
+  } catch (_e) {
+    return []
+  }
 }

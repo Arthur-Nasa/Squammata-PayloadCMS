@@ -53,10 +53,15 @@ export const Services: CollectionConfig<'services'> = {
       }),
     useAsTitle: 'title',
   },
+  labels: {
+    singular: 'Serviço',
+    plural: 'Serviços',
+  },
   fields: [
     {
       name: 'title',
       type: 'text',
+      label: 'Título do Serviço',
       required: true,
     },
     {
@@ -67,25 +72,26 @@ export const Services: CollectionConfig<'services'> = {
             {
               name: 'short',
               type: 'textarea',
-              label: "Short Description"
+              label: 'Descrição Resumida (DRE / Operação)',
             },
             {
               name: 'list',
               type: 'array',
+              label: 'Entregáveis e Métricas',
               labels: {
-                singular: 'List item',
-                plural: 'List items',
+                singular: 'Entregável',
+                plural: 'Entregáveis',
               },
               fields: [
                 {
-                  name: "text",
-                  type: "text",
-                  label: "Value"
-                }
-              ]
+                  name: 'text',
+                  type: 'text',
+                  label: 'Descrição do Entregável',
+                },
+              ],
             },
           ],
-          label: 'Preview',
+          label: 'Apresentação (Card)',
         },
         {
           fields: [

@@ -31,6 +31,10 @@ import { slugField } from 'payload'
 
 export const Posts: CollectionConfig<'posts'> = {
   slug: 'posts',
+  labels: {
+    singular: 'Artigo / Publicação',
+    plural: 'Artigos / Publicações',
+  },
   access: {
     create: authenticated,
     delete: authenticated,
@@ -72,6 +76,7 @@ export const Posts: CollectionConfig<'posts'> = {
       name: 'title',
       type: 'text',
       required: true,
+      label: 'Título do Artigo',
     },
     {
       type: 'tabs',
@@ -82,6 +87,7 @@ export const Posts: CollectionConfig<'posts'> = {
               name: 'heroImage',
               type: 'upload',
               relationTo: 'media',
+              label: 'Imagem de Capa',
             },
             {
               name: 'content',
@@ -105,7 +111,7 @@ export const Posts: CollectionConfig<'posts'> = {
               required: true,
             },
           ],
-          label: 'Content',
+          label: 'Conteúdo',
         },
         {
           fields: [
@@ -124,6 +130,7 @@ export const Posts: CollectionConfig<'posts'> = {
               },
               hasMany: true,
               relationTo: 'posts',
+              label: 'Artigos Relacionados',
             },
             {
               name: 'categories',
@@ -133,9 +140,10 @@ export const Posts: CollectionConfig<'posts'> = {
               },
               hasMany: true,
               relationTo: 'categories',
+              label: 'Categorias',
             },
           ],
-          label: 'Meta',
+          label: 'Relacionamentos',
         },
         {
           name: 'meta',

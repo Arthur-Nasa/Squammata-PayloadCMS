@@ -69,19 +69,22 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
 }
 
 export async function generateStaticParams() {
-  const getCachedPages = unstable_cache(queryAllServices, ['allServices'])
-  const pages = await getCachedPages()
+  try {
+    const getCachedPages = unstable_cache(queryAllServices, ['allServices'])
+    const pages = await getCachedPages()
 
-  if (!Array.isArray(pages)) {
-    console.error('Expected an array of pages, but got:', pages);
-    return [];
+    if (!Array.isArray(pages)) {
+      return []
+    }
+
+    return pages
+      .filter((page) => page?.slug)
+      .map(({ slug }) => {
+        return {
+          slug
+        }
+      })
+  } catch (_e) {
+    return []
   }
-
-  return pages
-    .filter((page) => page?.slug)
-    .map(({ slug }) => {
-      return {
-        slug
-      }
-    })
 }

@@ -17,6 +17,10 @@ import { slugField } from 'payload'
 
 export const Projects: CollectionConfig<'projects'> = {
   slug: 'projects',
+  labels: {
+    singular: 'Estudo de Caso',
+    plural: 'Estudos de Caso',
+  },
   access: {
     create: authenticated,
     delete: authenticated,
@@ -58,6 +62,7 @@ export const Projects: CollectionConfig<'projects'> = {
       name: 'title',
       type: 'text',
       required: true,
+      label: 'Título do Estudo de Caso',
     },
     {
       type: 'tabs',
@@ -67,12 +72,12 @@ export const Projects: CollectionConfig<'projects'> = {
             {
               name: 'short_description',
               type: 'textarea',
-              label: 'Short Description',
+              label: 'Resumo Executivo (DRE / Gargalo)',
             },
             {
               name: 'price',
               type: 'text',
-              label: 'Price',
+              label: 'Impacto Principal / Métrica Chave (Ex: +18.4% Margem)',
             },
             {
               name: 'layout',
@@ -90,9 +95,10 @@ export const Projects: CollectionConfig<'projects'> = {
               admin: {
                 initCollapsed: true,
               },
+              label: 'Blocos de Conteúdo',
             },
           ],
-          label: 'Content',
+          label: 'Conteúdo',
         },
         {
           fields: [
@@ -111,6 +117,7 @@ export const Projects: CollectionConfig<'projects'> = {
               },
               hasMany: true,
               relationTo: 'projects',
+              label: 'Estudos de Caso Relacionados',
             },
             {
               name: 'categories',
@@ -120,9 +127,10 @@ export const Projects: CollectionConfig<'projects'> = {
               },
               hasMany: true,
               relationTo: 'categories',
+              label: 'Categorias do Setor',
             },
           ],
-          label: 'Meta',
+          label: 'Relacionamentos',
         },
         {
           name: 'meta',
@@ -156,6 +164,7 @@ export const Projects: CollectionConfig<'projects'> = {
     {
       name: 'order',
       type: 'number',
+      label: 'Ordem de Exibição',
       admin: {
         position: 'sidebar',
       }

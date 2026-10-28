@@ -10,50 +10,50 @@ export const Footer: GlobalConfig = {
     {
       name: 'layoutType',
       type: 'select',
-      label: 'Footer Layout',
+      label: 'Modelo de Rodapé',
       options: [
         {
-          label: 'Default',
+          label: 'Padrão',
           value: 'default',
         },
         {
-          label: 'Minimal',
+          label: 'Minimalista',
           value: 'minimal',
         },
       ],
       defaultValue: 'default',
       admin: {
-        description: 'Choose footer layout used site-wide. Pages can override this.',
+        description: 'Selecione o modelo de rodapé padrão do site. Páginas individuais podem sobrescrever esta opção.',
       },
     },
     {
       name: 'logo',
       type: 'upload',
       relationTo: 'media',
-      label: 'Logo',
-      required: true,
+      label: 'Logomarca (Escura)',
+      required: false,
     },
     {
       name: 'logoLight',
       type: 'upload',
       relationTo: 'media',
-      label: 'Logo (Light) - used for minimal layout',
+      label: 'Logomarca Negativa (Branca) - Usada no modelo minimalista',
     },
     {
       name: 'newsletter',
       type: 'group',
-      label: 'Newsletter',
+      label: 'Boletim Técnico / Newsletter',
       fields: [
         {
           name: 'placeholder',
           type: 'text',
-          label: 'Input Placeholder',
-          defaultValue: 'Subscribe our newsletter',
+          label: 'Texto de Orientação do Campo',
+          defaultValue: 'Cadastre seu e-mail corporativo para receber análises técnicas de DRE e gestão de estoque',
         },
         {
           name: 'buttonIcon',
           type: 'text',
-          label: 'Button Icon Class',
+          label: 'Classe do Ícone do Botão',
           defaultValue: 'fal fa-envelope',
         },
       ],
@@ -61,18 +61,25 @@ export const Footer: GlobalConfig = {
     {
       name: 'mainMenu',
       type: 'array',
-      label: 'Main Menu',
+      label: 'Menu Principal',
+      defaultValue: [
+        { label: 'Serviços', link: '/services' },
+        { label: 'Estudos de Caso', link: '/projects' },
+        { label: 'Metodologia', link: '/#metodologia' },
+        { label: 'Publicações Técnicas', link: '/posts' },
+        { label: 'Contato', link: '/contato' },
+      ],
       fields: [
         {
           name: 'label',
           type: 'text',
-          label: 'Label',
+          label: 'Rótulo',
           required: true,
         },
         {
           name: 'link',
           type: 'text',
-          label: 'Link',
+          label: 'Link de Destino',
           required: true,
         },
       ],
@@ -85,23 +92,28 @@ export const Footer: GlobalConfig = {
       name: 'backgroundImage',
       type: 'upload',
       relationTo: 'media',
-      label: 'Background Image (used by minimal layout)',
+      label: 'Imagem de Fundo (Modelo Minimalista)',
     },
     {
       name: 'policyLinks',
       type: 'array',
-      label: 'Policy Links',
+      label: 'Governança e Políticas',
+      defaultValue: [
+        { label: 'Termos de Uso', link: '/termos-de-uso' },
+        { label: 'Política de Privacidade', link: '/politica-de-privacidade' },
+        { label: 'Governança de Dados', link: '/governanca' },
+      ],
       fields: [
         {
           name: 'label',
           type: 'text',
-          label: 'Label',
+          label: 'Rótulo',
           required: true,
         },
         {
           name: 'link',
           type: 'text',
-          label: 'Link',
+          label: 'Link de Destino',
           required: true,
         },
       ],
@@ -113,18 +125,23 @@ export const Footer: GlobalConfig = {
     {
       name: 'social',
       type: 'array',
-      label: 'Social Links',
+      label: 'Canais Oficiais',
+      defaultValue: [
+        { icon: 'fab fa-whatsapp', link: 'https://wa.me/5519993497819' },
+        { icon: 'fab fa-linkedin-in', link: 'https://www.linkedin.com/company/squammata' },
+        { icon: 'fab fa-github', link: 'https://github.com/Arthur-Nasa/Squammata-PayloadCMS' },
+      ],
       fields: [
         {
           name: 'icon',
           type: 'text',
-          label: 'Icon Class',
+          label: 'Classe do Ícone',
           required: true,
         },
         {
           name: 'link',
           type: 'text',
-          label: 'Link',
+          label: 'Link de Destino',
           required: true,
         },
       ],
@@ -136,18 +153,23 @@ export const Footer: GlobalConfig = {
     {
       name: 'footerLinks',
       type: 'array',
-      label: 'Footer Links (License, Legal, etc)',
+      label: 'Soluções Técnicas',
+      defaultValue: [
+        { label: 'Auditoria Fogo-Apagou', link: '/services' },
+        { label: 'Modelagem de DRE', link: '/projects' },
+        { label: 'Zeladoria de Infraestrutura', link: '/services' },
+      ],
       fields: [
         {
           name: 'label',
           type: 'text',
-          label: 'Label',
+          label: 'Rótulo',
           required: true,
         },
         {
           name: 'link',
           type: 'text',
-          label: 'Link',
+          label: 'Link de Destino',
           required: true,
         },
       ],
@@ -159,24 +181,36 @@ export const Footer: GlobalConfig = {
     {
       name: 'locations',
       type: 'array',
-      label: 'Office Locations',
+      label: 'Unidades e Atendimento',
+      defaultValue: [
+        {
+          title: 'Sede Operacional',
+          address: 'Rua Coronel Quirino, 1200 - Cambuí, Campinas/SP, CEP 13025-002',
+          phone: '+55 19 99349-7819',
+        },
+        {
+          title: 'Atendimento Regional',
+          address: 'Campinas e Região Metropolitana (RMC)',
+          phone: '+55 19 99349-7819',
+        },
+      ],
       fields: [
         {
           name: 'title',
           type: 'text',
-          label: 'Location Title',
+          label: 'Título da Unidade',
           required: true,
         },
         {
           name: 'address',
           type: 'textarea',
-          label: 'Address',
+          label: 'Endereço Completo',
           required: true,
         },
         {
           name: 'phone',
           type: 'text',
-          label: 'Phone',
+          label: 'Telefone / WhatsApp',
           required: true,
         },
       ],
@@ -188,13 +222,14 @@ export const Footer: GlobalConfig = {
     {
       name: 'copyright',
       type: 'text',
-      label: 'Copyright Text',
-      defaultValue: '© Copyright 2024 - Your Company. All Rights Reserved.',
+      label: 'Direitos Autorais',
+      defaultValue: '© 2026 Squammata Consultoria e Gestão de Projetos Ltda. Todos os direitos reservados. CNPJ sob consulta.',
     },
     {
       name: 'createdBy',
       type: 'text',
-      label: 'Created By Text',
+      label: 'Assinatura Técnica',
+      defaultValue: 'Squammata | Engenharia de Operações & DRE',
     },
   ],
   hooks: {

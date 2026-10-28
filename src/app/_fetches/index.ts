@@ -6,22 +6,35 @@ let cachedPayload: any
 
 const getCachedPayload = async () => {
   if (!cachedPayload) {
-    cachedPayload = await getPayload({ config: configPromise })
+    try {
+      cachedPayload = await getPayload({ config: configPromise })
+    } catch (error) {
+      console.warn('[Payload Fetch] Database connection unavailable:', (error as Error)?.message || error)
+      return null
+    }
   }
   return cachedPayload
 }
 
-const logQueryExecution = async <T>(queryName: string, queryFn: () => Promise<T>): Promise<T> => {
+const logQueryExecution = async <T>(
+  queryName: string,
+  queryFn: (payload: any) => Promise<T>,
+  fallback: T,
+): Promise<T> => {
   const start = Date.now();
   try {
-    const result = await queryFn();
+    const payload = await getCachedPayload();
+    if (!payload) {
+      return fallback;
+    }
+    const result = await queryFn(payload);
     const duration = Date.now() - start;
     console.log(`[Query Log] ${queryName} executed in ${duration}ms`);
     return result;
   } catch (error) {
     const duration = Date.now() - start;
-    console.error(`[Query Log] ${queryName} failed after ${duration}ms`, error);
-    throw error;
+    console.warn(`[Query Log] ${queryName} failed after ${duration}ms (fallback applied):`, (error as Error)?.message || error);
+    return fallback;
   }
 };
 
@@ -30,18 +43,16 @@ const logQueryExecution = async <T>(queryName: string, queryFn: () => Promise<T>
 type Global = keyof Config['globals']
 
 export const getGlobal = async (slug: Global, depth = 0) => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load global: ' + '[' + slug + ']', async () => {
+  return logQueryExecution('-payload load global: ' + '[' + slug + ']', async (payload) => {
     return await payload.findGlobal({
       slug,
       depth,
     })
-  })
+  }, {} as any)
 }
 
 export const getGlobalMeta = async (slug: Global, depth = 0) => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load global meta: ' + '[' + slug + ']', async () => {
+  return logQueryExecution('-payload load global meta: ' + '[' + slug + ']', async (payload) => {
     return await payload.findGlobal({
       slug,
       depth,
@@ -49,14 +60,13 @@ export const getGlobalMeta = async (slug: Global, depth = 0) => {
         meta: true
       }
     })
-  })
+  }, {} as any)
 }
 
 /* pages */
 
 export const queryAllPages = async () => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load all pages slugs', async () => {
+  return logQueryExecution('-payload load all pages slugs', async (payload) => {
     const result = await payload.find({
       collection: 'pages',
       depth: 0,
@@ -66,12 +76,11 @@ export const queryAllPages = async () => {
       },
     })
     return result.docs
-  })
+  }, [])
 }
 
 export const queryPageBySlug = async (slug: string) => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load page layout: ' + '[' + slug + ']', async () => {
+  return logQueryExecution('-payload load page layout: ' + '[' + slug + ']', async (payload) => {
     const result = await payload.find({
       collection: 'pages',
       draft: false,
@@ -84,39 +93,36 @@ export const queryPageBySlug = async (slug: string) => {
           equals: slug,
         },
       },
-        // Select fields to match the generated `Page` type in `payload-types`
-        select: {
-          id: true,
+      select: {
+        id: true,
+        title: true,
+        layout: true,
+        meta: {
+          image: true,
+          description: true,
           title: true,
-          layout: true,
-          meta: {
-            image: true,
-            description: true,
-            title: true,
-          },
-          publishedAt: true,
-          headerStyle: true,
-          footerLayout: true,
-          slug: true,
-          updatedAt: true,
-          createdAt: true,
-          _status: true,
         },
-        // Populate media fields so `meta.image` resolves to `Media` object
-        populate: {
-          meta: {
-            image: true,
-          },
+        publishedAt: true,
+        headerStyle: true,
+        footerLayout: true,
+        slug: true,
+        updatedAt: true,
+        createdAt: true,
+        _status: true,
+      },
+      populate: {
+        meta: {
+          image: true,
         },
+      },
     })
     return result.docs?.[0] || null
-  })
+  }, null)
 }
 
 export const queryLayoutBlocks = async (id: string | number | ReusableContent) => {
-  const payload = await getCachedPayload();
   const docId = typeof id === 'object' && id !== null ? id.id : id;
-  return logQueryExecution('-payload load reusable content: ' + '[id: ' + docId + ']', async () => {
+  return logQueryExecution('-payload load reusable content: ' + '[id: ' + docId + ']', async (payload) => {
     const result = await payload.find({
       collection: 'reusable-content',
       draft: false,
@@ -131,14 +137,13 @@ export const queryLayoutBlocks = async (id: string | number | ReusableContent) =
       },
     })
     return result.docs?.[0]
-  })
+  }, undefined)
 }
 
 /* posts */
 
 export const queryPosts = async (page: number, limit: number) => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load posts collection: ' + '[page: ' + page + ', limit: '+ limit +']', async () => {
+  return logQueryExecution('-payload load posts collection: ' + '[page: ' + page + ', limit: '+ limit +']', async (payload) => {
     return await payload.find({
       collection: 'posts',
       depth: 1,
@@ -166,12 +171,11 @@ export const queryPosts = async (page: number, limit: number) => {
       },
       sort: '-publishedAt',
     })
-  })
+  }, { docs: [], totalDocs: 0, totalPages: 0, page, pagingCounter: 1, hasPrevPage: false, hasNextPage: false, prevPage: null, nextPage: null, limit } as any)
 }
 
 export const queryAllPosts = async () => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load all posts slugs', async () => {
+  return logQueryExecution('-payload load all posts slugs', async (payload) => {
     const result = await payload.find({
       collection: 'posts',
       depth: 0,
@@ -182,12 +186,11 @@ export const queryAllPosts = async () => {
       sort: '-publishedAt',
     })
     return result.docs
-  })
+  }, [])
 }
 
 export const queryPostBySlug = async (slug: string) => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load post: ' + '[' + slug + ']', async () => {
+  return logQueryExecution('-payload load post: ' + '[' + slug + ']', async (payload) => {
     const result = await payload.find({
       collection: 'posts',
       draft: false,
@@ -201,12 +204,11 @@ export const queryPostBySlug = async (slug: string) => {
       },
     })
     return result.docs?.[0] || null
-  })
+  }, null)
 }
 
 export const queryBlogArchivePosts = async (flattenedCategories: (string | undefined)[], limit: number) => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load block[archive] posts', async () => {
+  return logQueryExecution('-payload load block[archive] posts', async (payload) => {
     const result = await payload.find({
       collection: 'posts',
       sort: '-publishedAt',
@@ -247,12 +249,11 @@ export const queryBlogArchivePosts = async (flattenedCategories: (string | undef
       return cleanDoc;
     });
     return cleanedDocs;
-  })
+  }, [])
 }
 
 export const queryBlogRelatedPosts = async (selectedPostsIds: (string | number | undefined)[], limit: number) => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load block[related] posts', async () => {
+  return logQueryExecution('-payload load block[related] posts', async (payload) => {
     const result = await payload.find({
       collection: 'posts',
       depth: 1,
@@ -285,24 +286,22 @@ export const queryBlogRelatedPosts = async (selectedPostsIds: (string | number |
       },
     })
     return result.docs
-  })
+  }, [])
 }
 
 export const queryPostsTotalCount = async () => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load posts count', async () => {
+  return logQueryExecution('-payload load posts count', async (payload) => {
     return await payload.count({
       collection: 'posts',
       overrideAccess: false,
     })
-  })
+  }, { totalDocs: 0 } as any)
 }
 
 /* projects */
 
 export const queryProjects = async (page: number, limit: number) => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load projects collection: ' + '[page: ' + page + ', limit: '+ limit +']', async () => {
+  return logQueryExecution('-payload load projects collection: ' + '[page: ' + page + ', limit: '+ limit +']', async (payload) => {
     return await payload.find({
       collection: 'projects',
       depth: 1,
@@ -320,12 +319,11 @@ export const queryProjects = async (page: number, limit: number) => {
       },
       sort: 'order',
     })
-  })
+  }, { docs: [], totalDocs: 0, totalPages: 0, page, pagingCounter: 1, hasPrevPage: false, hasNextPage: false, prevPage: null, nextPage: null, limit } as any)
 }
 
 export const queryAllProjects = async () => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load all projects slugs', async () => {
+  return logQueryExecution('-payload load all projects slugs', async (payload) => {
     const result = await payload.find({
       collection: 'projects',
       limit: 50,
@@ -335,12 +333,11 @@ export const queryAllProjects = async () => {
       },
     })
     return result.docs
-  })
+  }, [])
 }
 
-export const queryProjectBySlug = async ( slug: string ) => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load project: ' + '[' + slug + ']', async () => {
+export const queryProjectBySlug = async (slug: string) => {
+  return logQueryExecution('-payload load project: ' + '[' + slug + ']', async (payload) => {
     const result = await payload.find({
       collection: 'projects',
       draft: false,
@@ -378,14 +375,12 @@ export const queryProjectBySlug = async ( slug: string ) => {
     });
 
     doc.relatedProjects = related.docs;
-    
     return doc;
-  })
+  }, null)
 }
 
 export const queryProjectsGridBlock = async (flattenedCategories: (string | undefined)[], limit: number) => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load block[portfolio grid] projects', async () => {
+  return logQueryExecution('-payload load block[portfolio grid] projects', async (payload) => {
     const result = await payload.find({
       collection: 'projects',
       depth: 1,
@@ -412,12 +407,11 @@ export const queryProjectsGridBlock = async (flattenedCategories: (string | unde
       },
     })
     return result.docs
-  })
+  }, [])
 }
 
 export const queryProjectsRelatedPosts = async (selectedPostsIds: (string | number | undefined)[], limit: number) => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load block[related] projects', async () => {
+  return logQueryExecution('-payload load block[related] projects', async (payload) => {
     const result = await payload.find({
       collection: 'projects',
       depth: 1,
@@ -440,24 +434,22 @@ export const queryProjectsRelatedPosts = async (selectedPostsIds: (string | numb
       sort: 'order',
     })
     return result.docs
-  })
+  }, [])
 }
 
 export const queryProjectsTotalCount = async () => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load projects count', async () => {
+  return logQueryExecution('-payload load projects count', async (payload) => {
     return await payload.count({
       collection: 'projects',
       overrideAccess: false,
     })
-  })
+  }, { totalDocs: 0 } as any)
 }
 
 /* services */
 
 export const queryServices = async (page: number, limit: number) => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load services collection: ' + '[page: ' + page + ', limit: '+ limit +']', async () => {
+  return logQueryExecution('-payload load services collection: ' + '[page: ' + page + ', limit: '+ limit +']', async (payload) => {
     return await payload.find({
       collection: 'services',
       depth: 0,
@@ -475,12 +467,11 @@ export const queryServices = async (page: number, limit: number) => {
       },
       sort: 'order',
     })
-  })
+  }, { docs: [], totalDocs: 0, totalPages: 0, page, pagingCounter: 1, hasPrevPage: false, hasNextPage: false, prevPage: null, nextPage: null, limit } as any)
 }
 
 export const queryServiceBySlug = async (slug: string) => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load service: ' + '[' + slug + ']', async () => {
+  return logQueryExecution('-payload load service: ' + '[' + slug + ']', async (payload) => {
     const result = await payload.find({
       collection: 'services',
       draft: false,
@@ -506,7 +497,7 @@ export const queryServiceBySlug = async (slug: string) => {
     const related = await payload.find({
       collection: 'services',
       where: {
-        id: { in: doc.relatedServices }, // масив ID
+        id: { in: doc.relatedServices },
       },
       depth: 1,
       select: {
@@ -518,14 +509,12 @@ export const queryServiceBySlug = async (slug: string) => {
     });
 
     doc.relatedServices = related.docs;
-
     return doc;
-  })
+  }, null)
 }
 
 export const queryAllServices = async () => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load all services slugs', async () => {
+  return logQueryExecution('-payload load all services slugs', async (payload) => {
     const result = await payload.find({
       collection: 'services',
       limit: 50,
@@ -535,12 +524,11 @@ export const queryAllServices = async () => {
       },
     })
     return result.docs
-  })
+  }, [])
 }
 
 export const queryServicesRelatedPosts = async (selectedPostsIds: (string | number | undefined)[], limit: number) => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load block[related] services', async () => {
+  return logQueryExecution('-payload load block[related] services', async (payload) => {
     const result = await payload.find({
       collection: 'services',
       depth: 1,
@@ -562,24 +550,22 @@ export const queryServicesRelatedPosts = async (selectedPostsIds: (string | numb
       sort: 'order',
     })
     return result.docs
-  })
+  }, [])
 }
 
 export const queryServicesTotalCount = async () => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load services count', async () => {
+  return logQueryExecution('-payload load services count', async (payload) => {
     return await payload.count({
       collection: 'services',
       overrideAccess: false,
     })
-  })
+  }, { totalDocs: 0 } as any)
 }
 
 /* team */
 
 export const queryTeam = async (page: number, limit: number) => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load team collection: ' + '[page: ' + page + ', limit: '+ limit +']', async () => {
+  return logQueryExecution('-payload load team collection: ' + '[page: ' + page + ', limit: '+ limit +']', async (payload) => {
     return await payload.find({
       collection: 'team',
       depth: 0,
@@ -596,12 +582,11 @@ export const queryTeam = async (page: number, limit: number) => {
       },
       sort: 'order',
     })
-  })
+  }, { docs: [], totalDocs: 0, totalPages: 0, page, pagingCounter: 1, hasPrevPage: false, hasNextPage: false, prevPage: null, nextPage: null, limit } as any)
 }
 
 export const queryTeamBySlug = async (slug: string) => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load team: ' + '[' + slug + ']', async () => {
+  return logQueryExecution('-payload load team: ' + '[' + slug + ']', async (payload) => {
     const result = await payload.find({
       collection: 'team',
       draft: false,
@@ -639,14 +624,12 @@ export const queryTeamBySlug = async (slug: string) => {
     });
 
     doc.relatedTeam = related.docs;
-
     return doc;
-  })
+  }, null)
 }
 
 export const queryAllTeam = async () => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load all team slugs', async () => {
+  return logQueryExecution('-payload load all team slugs', async (payload) => {
     const result = await payload.find({
       collection: 'team',
       limit: 50,
@@ -656,12 +639,11 @@ export const queryAllTeam = async () => {
       },
     })
     return result.docs
-  })
+  }, [])
 }
 
 export const queryTeamBlock = async (flattenedCategories: (string | undefined)[], limit: number) => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load block[team block] team', async () => {
+  return logQueryExecution('-payload load block[team block] team', async (payload) => {
     const result = await payload.find({
       collection: 'team',
       depth: 1,
@@ -686,12 +668,11 @@ export const queryTeamBlock = async (flattenedCategories: (string | undefined)[]
       },
     })
     return result.docs
-  })
+  }, [])
 }
 
 export const queryTeamRelatedPosts = async (selectedPostsIds: (string | number | undefined)[], limit: number) => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load block[related] team', async () => {
+  return logQueryExecution('-payload load block[related] team', async (payload) => {
     const result = await payload.find({
       collection: 'team',
       depth: 1,
@@ -712,17 +693,16 @@ export const queryTeamRelatedPosts = async (selectedPostsIds: (string | number |
       sort: 'order',
     })
     return result.docs
-  })
+  }, [])
 }
 
 export const queryTeamTotalCount = async () => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load team count', async () => {
+  return logQueryExecution('-payload load team count', async (payload) => {
     return await payload.count({
       collection: 'team',
       overrideAccess: false,
     })
-  })
+  }, { totalDocs: 0 } as any)
 }
 
 /* document */
@@ -730,8 +710,7 @@ export const queryTeamTotalCount = async () => {
 type Collection = keyof Config['collections']
 
 export const getDocument = async (collection: Collection, slug: string, depth = 0) => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load document: ' + '[' + slug + ']', async () => {
+  return logQueryExecution('-payload load document: ' + '[' + slug + ']', async (payload) => {
     const page = await payload.find({
       collection,
       depth,
@@ -742,14 +721,13 @@ export const getDocument = async (collection: Collection, slug: string, depth = 
       },
     })
     return page.docs[0]
-  })
+  }, null as any)
 }
 
 /* redirects */
 
 export const getRedirects = async (depth = 1) => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load redirects', async () => {
+  return logQueryExecution('-payload load redirects', async (payload) => {
     const { docs: redirects } = await payload.find({
       collection: 'redirects',
       depth,
@@ -757,14 +735,13 @@ export const getRedirects = async (depth = 1) => {
       pagination: false,
     })
     return redirects
-  })
+  }, [])
 }
 
 /* sitemap */
 
 export const queryPagesSitemap = async () => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load pages sitemap', async () => {
+  return logQueryExecution('-payload load pages sitemap', async (payload) => {
     return await payload.find({
       collection: 'pages',
       overrideAccess: false,
@@ -782,12 +759,11 @@ export const queryPagesSitemap = async () => {
         updatedAt: true,
       },
     })
-  })
+  }, { docs: [] } as any)
 }
 
 export const queryPostsSitemap = async () => {
-  const payload = await getCachedPayload();
-  return logQueryExecution('-payload load posts sitemap', async () => {
+  return logQueryExecution('-payload load posts sitemap', async (payload) => {
     return await payload.find({
       collection: 'pages',
       overrideAccess: false,
@@ -805,5 +781,5 @@ export const queryPostsSitemap = async () => {
         updatedAt: true,
       },
     })
-  })
+  }, { docs: [] } as any)
 }

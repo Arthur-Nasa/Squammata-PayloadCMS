@@ -10,7 +10,7 @@ import {
 
 export const ProjectsPage: GlobalConfig = {
   slug: 'projects_page',
-  label: 'Projects',
+  label: 'Página de Projetos e Estudos de Caso',
   access: {
     read: () => true,
   },
@@ -31,14 +31,14 @@ export const ProjectsPage: GlobalConfig = {
               admin: {
                 initCollapsed: true,
               },
-              label: 'Layout Builder',
+              label: 'Construtor de Layout',
               labels: {
-                singular: 'Block',
-                plural: 'Blocks',
+                singular: 'Bloco',
+                plural: 'Blocos',
               },
             },
           ],
-          label: 'Layout (before)',
+          label: 'Blocos (Antes)',
         },
         {
           fields: [
@@ -53,14 +53,14 @@ export const ProjectsPage: GlobalConfig = {
               admin: {
                 initCollapsed: true,
               },
-              label: 'Layout Builder',
+              label: 'Construtor de Layout',
               labels: {
-                singular: 'Block',
-                plural: 'Blocks',
+                singular: 'Bloco',
+                plural: 'Blocos',
               },
             },
           ],
-          label: 'Layout (after)',
+          label: 'Blocos (Depois)',
         },
         {
           fields: [
@@ -68,19 +68,22 @@ export const ProjectsPage: GlobalConfig = {
               name: 'badge',
               type: 'text',
               label: 'Badge',
+              defaultValue: 'Estudos de Caso & DRE',
             },
             {
               name: 'title',
               type: 'textarea',
-              label: 'Title (use HTML like <br> for line breaks, use span like <span class="mil-opacity-text">TEXT</span> for highlighted text)',
+              label: 'Título (use <br> para quebra de linha ou span com class="mil-opacity-text")',
+              defaultValue: 'Operações Auditadas e <br><span class="mil-opacity-text">Resultados no DRE</span>',
             },
             {
               name: 'description',
               type: 'textarea',
-              label: 'Description (use HTML like <br> for line breaks)',
+              label: 'Descrição',
+              defaultValue: 'Análise aprofundada de gargalos operacionais solucionados na Região Metropolitana de Campinas com mensuração direta de margem de contribuição e eficiência técnica.',
             },
           ],
-          label: 'Heading',
+          label: 'Cabeçalho da Página',
         },
         {
           name: 'meta',

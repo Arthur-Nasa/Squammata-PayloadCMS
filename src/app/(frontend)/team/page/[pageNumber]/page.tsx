@@ -40,12 +40,12 @@ export default async function Page({ params: paramsPromise }: Args) {
         <div className="container">
             <div className="row mil-aie mil-mb-10">
                 <div className="col-12 col-md-6 mil-sm-mb-4">
-                    {teamData.badge && <div className="mil-badge mil-mb-4">{teamData.badge}</div>}
-                    {teamData.title && <h2 className="mil-c-m-1" dangerouslySetInnerHTML={{ __html: sanitizeHTML(teamData.title) }} />}
+                    <div className="mil-badge mil-mb-4">{teamData.badge || 'Equipe Técnica'}</div>
+                    <h2 className="mil-c-m-1" dangerouslySetInnerHTML={{ __html: sanitizeHTML(teamData.title || 'Especialistas em <br><span class="mil-opacity-text">Engenharia & Operações</span>') }} />
                 </div>
                 <div className="col-12 col-md-6">
                     <div className="mil-flex-column mil-jce">
-                        {teamData.description && <p className="mil-c-m-2 mil-t-16" dangerouslySetInnerHTML={{ __html: sanitizeHTML(teamData.description) }} />}
+                        <p className="mil-c-m-2 mil-t-16" dangerouslySetInnerHTML={{ __html: sanitizeHTML(teamData.description || 'Profissionais dedicados à governança de dados, desenvolvimento headless, controladoria de DRE e gestão técnica de mídia.') }} />
                     </div>
                 </div>
             </div>
@@ -70,20 +70,24 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
   const teamData: TeamPage = await getCachedGlobalMeta('team_page', 1)()
   
   return {
-    title: `${teamData.meta?.title} | Page ${pageNumber || ''} | Lumex Template`,
+    title: `${teamData.meta?.title || 'Equipe Técnica'} | Página ${pageNumber || ''} | Squammata`,
   }
 }
 
 export async function generateStaticParams() {
-  const { totalDocs } = await queryTeamTotalCount()
+  try {
+    const { totalDocs } = await queryTeamTotalCount()
 
-  const totalPages = Math.ceil(totalDocs / 10)
+    const totalPages = Math.ceil((totalDocs || 0) / 10)
 
-  const pages: { pageNumber: string }[] = []
+    const pages: { pageNumber: string }[] = []
 
-  for (let i = 1; i <= totalPages; i++) {
-    pages.push({ pageNumber: String(i) })
+    for (let i = 1; i <= totalPages; i++) {
+      pages.push({ pageNumber: String(i) })
+    }
+
+    return pages
+  } catch (_e) {
+    return []
   }
-
-  return pages
 }

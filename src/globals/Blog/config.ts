@@ -10,6 +10,7 @@ import {
 
 export const Blog: GlobalConfig = {
   slug: 'blog',
+  label: 'Página de Publicações Técnicas',
   access: {
     read: () => true,
   },
@@ -30,14 +31,14 @@ export const Blog: GlobalConfig = {
               admin: {
                 initCollapsed: true,
               },
-              label: 'Layout Builder',
+              label: 'Construtor de Layout',
               labels: {
-                singular: 'Block',
-                plural: 'Blocks',
+                singular: 'Bloco',
+                plural: 'Blocos',
               },
             },
           ],
-          label: 'Layout (before)',
+          label: 'Blocos (Antes)',
         },
         {
           fields: [
@@ -52,14 +53,14 @@ export const Blog: GlobalConfig = {
               admin: {
                 initCollapsed: true,
               },
-              label: 'Layout Builder',
+              label: 'Construtor de Layout',
               labels: {
-                singular: 'Block',
-                plural: 'Blocks',
+                singular: 'Bloco',
+                plural: 'Blocos',
               },
             },
           ],
-          label: 'Layout (after)',
+          label: 'Blocos (Depois)',
         },
         {
           fields: [
@@ -67,19 +68,22 @@ export const Blog: GlobalConfig = {
               name: 'badge',
               type: 'text',
               label: 'Badge',
+              defaultValue: 'Artigos & Engenharia',
             },
             {
               name: 'title',
               type: 'textarea',
-              label: 'Title (use HTML like <br> for line breaks, use span like <span class="mil-opacity-text">TEXT</span> for highlighted text)',
+              label: 'Título (use <br> para quebra de linha ou span com class="mil-opacity-text")',
+              defaultValue: 'Publicações Técnicas & <br><span class="mil-opacity-text">Análise Operacional</span>',
             },
             {
               name: 'description',
               type: 'textarea',
-              label: 'Description (use HTML like <br> for line breaks)',
+              label: 'Descrição',
+              defaultValue: 'Artigos analíticos sobre estruturação de DRE, arquitetura headless, autoridade semântica e logística avançada no interior paulista.',
             },
           ],
-          label: 'Heading',
+          label: 'Cabeçalho da Página',
         },
         {
           fields: [
@@ -94,14 +98,14 @@ export const Blog: GlobalConfig = {
               admin: {
                 initCollapsed: true,
               },
-              label: 'Layout Builder',
+              label: 'Construtor de Layout',
               labels: {
-                singular: 'Block',
-                plural: 'Blocks',
+                singular: 'Bloco',
+                plural: 'Blocos',
               },
             },
           ],
-          label: 'Post Layout (after)',
+          label: 'Blocos no Fim do Artigo',
         },
         {
           name: 'meta',

@@ -40,12 +40,12 @@ export default async function Page({ params: paramsPromise }: Args) {
         <div className="container">
             <div className="row mil-aie mil-mb-10">
                 <div className="col-12 col-md-6 mil-sm-mb-4">
-                    {servicesData.badge && <div className="mil-badge mil-mb-4">{servicesData.badge}</div>}
-                    {servicesData.title && <h2 className="mil-c-m-1" dangerouslySetInnerHTML={{ __html: sanitizeHTML(servicesData.title) }} />}
+                    <div className="mil-badge mil-badge-forest mil-mb-4">{(servicesData?.badge || 'Catálogo de Soluções').replace(/\s*V6\b/gi, '')}</div>
+                    <h2 className="mil-c-m-1" dangerouslySetInnerHTML={{ __html: sanitizeHTML(servicesData.title || 'Engenharia de Operações & <br><span class="mil-opacity-text">Gestão Técnica</span>') }} />
                 </div>
                 <div className="col-12 col-md-6">
                     <div className="mil-flex-column mil-jce">
-                        {servicesData.description && <p className="mil-c-m-2 mil-t-16" dangerouslySetInnerHTML={{ __html: sanitizeHTML(servicesData.description) }} />}
+                        <p className="mil-c-m-2 mil-t-16" dangerouslySetInnerHTML={{ __html: sanitizeHTML(servicesData.description || 'Intervenções pragmáticas com foco em margem de contribuição, redução de CAC e infraestrutura headless para médias empresas.') }} />
                     </div>
                 </div>
             </div>
@@ -69,20 +69,24 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
   const servicesData: ServicesPage = await getCachedGlobalMeta('services_page', 1)()
   
   return {
-    title: `${servicesData.meta?.title} | Page ${pageNumber || ''} | Lumex Template`,
+    title: `${servicesData.meta?.title || 'Serviços Técnicos'} | Página ${pageNumber || ''} | Squammata`,
   }
 }
 
 export async function generateStaticParams() {
-  const { totalDocs } = await queryServicesTotalCount()
+  try {
+    const { totalDocs } = await queryServicesTotalCount()
 
-  const totalPages = Math.ceil(totalDocs / 10)
+    const totalPages = Math.ceil((totalDocs || 0) / 10)
 
-  const pages: { pageNumber: string }[] = []
+    const pages: { pageNumber: string }[] = []
 
-  for (let i = 1; i <= totalPages; i++) {
-    pages.push({ pageNumber: String(i) })
+    for (let i = 1; i <= totalPages; i++) {
+      pages.push({ pageNumber: String(i) })
+    }
+
+    return pages
+  } catch (_e) {
+    return []
   }
-
-  return pages
 }

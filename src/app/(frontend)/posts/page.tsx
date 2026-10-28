@@ -13,29 +13,33 @@ import { generateMeta } from '@/utilities/generateMeta'
 
 import { queryPosts } from '@/app/_fetches'
 
+import { IntroBlock } from '@/blocks/Intro/Component'
+
 export default async function Page() {
   const blogData: Blog = await getCachedGlobal('blog', 0)()
   const limit = 6;
-  const posts = await getCachedPosts(limit);
+  const posts = await queryPosts(1, limit);
 
   return (
     <>
       <PageClient />
       
-      {blogData.layout_before &&
-      <RenderBlocks blocks={blogData.layout_before} />
-      }
+      {blogData?.layout_before ? (
+        <RenderBlocks blocks={blogData.layout_before} />
+      ) : (
+        <IntroBlock blockType="intro" short_title="Publicações" title="Publicações Técnicas & Análise Operacional" />
+      )}
       
       <div className="mil-section mil-gray-section mil-p-10-10">
         <div className="container">
           <div className="row mil-aie mil-mb-10">
               <div className="col-12 col-md-6 mil-sm-mb-4">
-                  {blogData.badge && <div className="mil-badge mil-mb-4">{blogData.badge}</div>}
-                  {blogData.title && <h2 className="mil-c-m-1" dangerouslySetInnerHTML={{ __html: sanitizeHTML(blogData.title) }} />}
+                  <div className="mil-badge mil-mb-4">{blogData.badge || 'Artigos & Engenharia'}</div>
+                  <h2 className="mil-c-m-1" dangerouslySetInnerHTML={{ __html: sanitizeHTML(blogData.title || 'Publicações Técnicas & <br><span class="mil-opacity-text">Análise Operacional</span>') }} />
               </div>
               <div className="col-12 col-md-6">
                   <div className="mil-flex-column mil-jce">
-                      {blogData.description && <p className="mil-c-m-2 mil-t-16" dangerouslySetInnerHTML={{ __html: sanitizeHTML(blogData.description) }} />}
+                      <p className="mil-c-m-2 mil-t-16" dangerouslySetInnerHTML={{ __html: sanitizeHTML(blogData.description || 'Artigos analíticos sobre estruturação de DRE, arquitetura headless, autoridade semântica e logística avançada no interior paulista.') }} />
                   </div>
               </div>
           </div>

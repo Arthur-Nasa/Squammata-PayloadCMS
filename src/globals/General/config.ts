@@ -10,31 +10,34 @@ export const General: GlobalConfig = {
       type: 'tabs',
       tabs: [
         {
+          name: 'not_found',
+          label: 'Página 404 (Não Localizada)',
           fields: [
             {
               name: 'bgImage',
               type: 'upload',
               relationTo: 'media',
-              label: 'Background Image',
+              label: 'Imagem de Fundo',
             },
             {
               name: 'subtitle',
               type: 'textarea',
-              label: 'Subtitle',
+              label: 'Subtítulo',
+              defaultValue: 'Erro 404 | Recurso Não Indexado',
             },
             {
               name: 'title',
               type: 'textarea',
-              label: 'Title (use HTML like <br> for line breaks, use span like <span class="mil-opacity-text">TEXT</span> for highlighted text)',
+              label: 'Título',
+              defaultValue: 'Página Não Localizada',
             },
             {
               name: 'description',
               type: 'textarea',
-              label: 'Description (use HTML like <br> for line breaks)',
+              label: 'Descrição',
+              defaultValue: 'O endereço solicitado foi descontinuado, transferido ou não consta em nossa esteira técnica. Retorne à página inicial ou consulte nossos estudos de caso e publicações.',
             },
           ],
-          name: 'not_found',
-          label: '404 Page',
         },
       ],
     },

@@ -31,14 +31,14 @@ export const ServicesPage: GlobalConfig = {
               admin: {
                 initCollapsed: true,
               },
-              label: 'Layout Builder',
+              label: 'Construtor de Blocos (Antes da Lista)',
               labels: {
-                singular: 'Block',
-                plural: 'Blocks',
+                singular: 'Bloco',
+                plural: 'Blocos',
               },
             },
           ],
-          label: 'Layout (before)',
+          label: 'Layout (Antes)',
         },
         {
           fields: [
@@ -53,34 +53,37 @@ export const ServicesPage: GlobalConfig = {
               admin: {
                 initCollapsed: true,
               },
-              label: 'Layout Builder',
+              label: 'Construtor de Blocos (Depois da Lista)',
               labels: {
-                singular: 'Block',
-                plural: 'Blocks',
+                singular: 'Bloco',
+                plural: 'Blocos',
               },
             },
           ],
-          label: 'Layout (after)',
+          label: 'Layout (Depois)',
         },
         {
           fields: [
             {
               name: 'badge',
               type: 'text',
-              label: 'Badge',
+              label: 'Etiqueta / Badge',
+              defaultValue: 'Catálogo de Soluções V6',
             },
             {
               name: 'title',
               type: 'textarea',
-              label: 'Title (use HTML like <br> for line breaks, use span like <span class="mil-opacity-text">TEXT</span> for highlighted text)',
+              label: 'Título Principal',
+              defaultValue: 'Engenharia de Operações & Gestão Técnica',
             },
             {
               name: 'description',
               type: 'textarea',
-              label: 'Description (use HTML like <br> for line breaks)',
+              label: 'Descrição Institucional',
+              defaultValue: 'Intervenções cirúrgicas de auditoria e esteiras contínuas de gestão para pequenas e médias empresas. Foco estrito em processos, margem de contribuição e sustentabilidade no DRE.',
             },
           ],
-          label: 'Heading',
+          label: 'Cabeçalho da Página',
         },
         {
           name: 'meta',

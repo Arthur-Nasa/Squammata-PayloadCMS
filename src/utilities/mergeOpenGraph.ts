@@ -6,7 +6,7 @@ const defaultOpenGraph: Metadata['openGraph'] = {
   description: 'Consultoria de gestão de projetos focada em e-commerce e transformação digital para pequenas e médias empresas na Região Metropolitana de Campinas.',
   images: [
     {
-      url: `${getServerSideURL()}/website-template-OG.webp`,
+      url: `${getServerSideURL()}/logo/squammata/still-capa.jpg`,
     },
   ],
   siteName: 'Squammata',

@@ -11,29 +11,33 @@ import { sanitizeHTML } from '@/utilities/sanitizeHtml'
 import { generateMeta } from '@/utilities/generateMeta'
 import { queryServices } from '@/app/_fetches'
 
+import { IntroBlock } from '@/blocks/Intro/Component'
+
 export default async function Page() {
   const servicesData: ServicesPage = await getCachedGlobal('services_page', 0)()
   const limit = 9;
-  const services = await getCachedServices(limit);
+  const services = await queryServices(1, limit);
 
   return (
     <>
       <PageClient />
 
-      {servicesData.layout_before &&
-      <RenderBlocks blocks={servicesData.layout_before} />
-      }
+      {servicesData?.layout_before ? (
+        <RenderBlocks blocks={servicesData.layout_before} />
+      ) : (
+        <IntroBlock blockType="intro" short_title="Serviços" title="Soluções Técnicas & Gestão" />
+      )}
 
       <div className="mil-section mil-gray-section mil-p-10-8">
         <div className="container">
             <div className="row mil-aie mil-mb-10">
                 <div className="col-12 col-md-6 mil-sm-mb-4">
-                    {servicesData.badge && <div className="mil-badge mil-mb-4">{servicesData.badge}</div>}
-                    {servicesData.title && <h2 className="mil-c-m-1" dangerouslySetInnerHTML={{ __html: sanitizeHTML(servicesData.title) }} />}
+                    <div className="mil-badge mil-badge-forest mil-mb-4">{(servicesData?.badge || 'Catálogo de Soluções').replace(/\s*V6\b/gi, '')}</div>
+                    <h2 className="mil-c-m-1" dangerouslySetInnerHTML={{ __html: sanitizeHTML(servicesData?.title || 'Engenharia de Operações & Gestão Técnica') }} />
                 </div>
                 <div className="col-12 col-md-6">
                     <div className="mil-flex-column mil-jce">
-                        {servicesData.description && <p className="mil-c-m-2 mil-t-16" dangerouslySetInnerHTML={{ __html: sanitizeHTML(servicesData.description) }} />}
+                        <p className="mil-c-m-2 mil-t-16" dangerouslySetInnerHTML={{ __html: sanitizeHTML(servicesData?.description || 'Intervenções cirúrgicas de auditoria e esteiras contínuas de gestão para pequenas e médias empresas. Foco estrito em processos, margem de contribuição e sustentabilidade no DRE.') }} />
                     </div>
                 </div>
             </div>

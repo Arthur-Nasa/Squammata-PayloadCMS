@@ -18,7 +18,12 @@ export const getMediaUrl = (url: string | null | undefined, cacheTag?: string | 
     return cacheTag ? `${url}?${cacheTag}` : url
   }
 
-  // Otherwise prepend client-side URL
-  const baseUrl = getClientSideURL()
-  return cacheTag ? `${baseUrl}${url}?${cacheTag}` : `${baseUrl}${url}`
+  // If URL is a relative path (e.g. /api/media/file/...), keep it relative.
+  // This allows same-origin image requests to resolve naturally across localhost, LAN IPs, or domain names
+  // without triggering Next.js Image invalid src / remotePatterns errors.
+  if (url.startsWith('/')) {
+    return cacheTag ? `${url}?${cacheTag}` : url
+  }
+
+  return cacheTag ? `/${url}?${cacheTag}` : `/${url}`
 }
