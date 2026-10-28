@@ -1,0 +1,39 @@
+{
+  "niche": "local-services",
+  "name": "Serviços Especializados & Negócios Locais",
+  "description": "Template otimizado para escritórios de advocacia, clínicas de saúde, arquitetura e contabilidade regional.",
+  "theme": {
+    "preset": "corporate-blue",
+    "primaryColor": "#244558",
+    "primaryHover": "#183241",
+    "radius": "modern",
+    "dividerStyle": "slant"
+  },
+  "services": [
+    {
+      "title": "Atendimento Consultivo Especializado",
+      "shortDescription": "Diagnóstico inicial e orientação personalizada.",
+      "price": "Sob Consulta"
+    },
+    {
+      "title": "Acompanhamento Contínuo & Assessoria",
+      "shortDescription": "Suporte mensal contínuo para pessoas jurídicas e físicas.",
+      "price": "Planos Mensais"
+    },
+    {
+      "title": "Perícia e Planejamento Estratégico",
+      "shortDescription": "Análise técnica documental e relatórios regulatórios.",
+      "price": "Sob Proposta"
+    }
+  ],
+  "faq": [
+    {
+      "question": "Como agendar uma reunião inicial?",
+      "answer": "Basta preencher o formulário de diagnóstico ou acionar nosso canal direto via WhatsApp."
+    },
+    {
+      "question": "Qual é o tempo médio de resposta para novos atendimentos?",
+      "answer": "Nossa equipe técnica retorna contatos comerciais em até duas horas úteis."
+    }
+  ]
+}

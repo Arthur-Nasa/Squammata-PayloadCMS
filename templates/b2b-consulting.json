@@ -1,0 +1,39 @@
+{
+  "niche": "b2b-consulting",
+  "name": "Consultoria e Gestão Operacional",
+  "description": "Template refinado para consultorias de gestão, controladoria, auditoria de processos e reestruturação operacional.",
+  "theme": {
+    "preset": "terracotta",
+    "primaryColor": "#7A4207",
+    "primaryHover": "#9E5509",
+    "radius": "organic",
+    "dividerStyle": "curve"
+  },
+  "services": [
+    {
+      "title": "Auditoria de Processos e Gargalos",
+      "shortDescription": "Mapeamento 360 das operações e fluxo de caixa.",
+      "price": "R$ 3.500,00"
+    },
+    {
+      "title": "Reestruturação Financeira e DRE",
+      "shortDescription": "Diagnóstico de margem de contribuição e corte de ineficiências.",
+      "price": "R$ 5.000,00/mês"
+    },
+    {
+      "title": "Governança e Gestão de Canais",
+      "shortDescription": "Alinhamento operacional de liderança e equipes.",
+      "price": "R$ 6.500,00/mês"
+    }
+  ],
+  "faq": [
+    {
+      "question": "Como funciona o período de diagnóstico inicial?",
+      "answer": "Realizamos uma imersão técnica de 14 dias para analisar sistemas, fluxo de caixa e gargalos operacionais."
+    },
+    {
+      "question": "Quais entregáveis são apresentados ao final da auditoria?",
+      "answer": "Um relatório analítico completo com plano de ação priorizado e cálculo de impacto financeiro."
+    }
+  ]
+}

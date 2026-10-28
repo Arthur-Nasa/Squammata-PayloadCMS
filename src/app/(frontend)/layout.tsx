@@ -121,17 +121,19 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   )
 }
 
+import { defaultSiteConfig } from '@/site.config'
+
 export const metadata: Metadata = {
   metadataBase: new URL(getServerSideURL()),
   title: {
-    default: 'Squammata | Consultoria de E-commerce & Transformação Digital',
-    template: '%s | Squammata',
+    default: `${defaultSiteConfig.branding.name} | ${defaultSiteConfig.branding.tagline}`,
+    template: `%s | ${defaultSiteConfig.branding.name}`,
   },
-  description:
-    'Consultoria de gestão de projetos focada em e-commerce e transformação digital para pequenas e médias empresas na Região Metropolitana de Campinas.',
+  description: defaultSiteConfig.branding.description,
   openGraph: mergeOpenGraph(),
   twitter: {
     card: 'summary_large_image',
-    creator: '@squammata',
+    creator: `@${defaultSiteConfig.branding.name.toLowerCase()}`,
   },
 }
+
