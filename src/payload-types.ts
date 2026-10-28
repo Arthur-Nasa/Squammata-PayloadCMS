@@ -157,6 +157,7 @@ export interface Config {
   };
   fallbackLocale: null;
   globals: {
+    'theme-settings': ThemeSetting;
     header: Header;
     footer: Footer;
     'site-settings': SiteSetting;
@@ -168,6 +169,7 @@ export interface Config {
     general: General;
   };
   globalsSelect: {
+    'theme-settings': ThemeSettingsSelect<false> | ThemeSettingsSelect<true>;
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
     'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
@@ -727,8 +729,40 @@ export interface HeroOneBlock {
   description?: string | null;
   button1_text?: string | null;
   button1_url?: string | null;
+  /**
+   * Tonalidade Squammata aplicada ao botão.
+   */
+  button1_color?: ('terracota' | 'cafe' | 'floresta' | 'ambar' | 'rio' | 'argila' | 'niemeyer' | 'outline') | null;
+  /**
+   * Curvatura dos cantos (reto, suave, orgânico ou cápsula).
+   */
+  button1_radius?: ('default' | 'sharp' | 'sm' | 'md' | 'lg' | 'pill') | null;
+  /**
+   * Aplica chanfro triangular decorativo (.mil-angle) no canto do botão.
+   */
+  button1_has_triangle?: boolean | null;
+  /**
+   * Alterna a presença do ícone de seta triangular rotacionada (fa-arrow-right).
+   */
+  button1_show_icon?: boolean | null;
   button2_text?: string | null;
   button2_url?: string | null;
+  /**
+   * Tonalidade Squammata aplicada ao botão.
+   */
+  button2_color?: ('terracota' | 'cafe' | 'floresta' | 'ambar' | 'rio' | 'argila' | 'niemeyer' | 'outline') | null;
+  /**
+   * Curvatura dos cantos (reto, suave, orgânico ou cápsula).
+   */
+  button2_radius?: ('default' | 'sharp' | 'sm' | 'md' | 'lg' | 'pill') | null;
+  /**
+   * Aplica chanfro triangular decorativo (.mil-angle) no canto do botão.
+   */
+  button2_has_triangle?: boolean | null;
+  /**
+   * Alterna a presença do ícone de seta triangular rotacionada (fa-arrow-right).
+   */
+  button2_show_icon?: boolean | null;
   counter1_upper?: string | null;
   counter1_lower?: string | null;
   counter1_value?: string | null;
@@ -754,6 +788,22 @@ export interface HeroTwoBlock {
   description?: string | null;
   button_text?: string | null;
   button_url?: string | null;
+  /**
+   * Tonalidade Squammata aplicada ao botão.
+   */
+  button_color?: ('terracota' | 'cafe' | 'floresta' | 'ambar' | 'rio' | 'argila' | 'niemeyer' | 'outline') | null;
+  /**
+   * Curvatura dos cantos (reto, suave, orgânico ou cápsula).
+   */
+  button_radius?: ('default' | 'sharp' | 'sm' | 'md' | 'lg' | 'pill') | null;
+  /**
+   * Aplica chanfro triangular decorativo (.mil-angle) no canto do botão.
+   */
+  button_has_triangle?: boolean | null;
+  /**
+   * Alterna a presença do ícone de seta triangular rotacionada (fa-arrow-right).
+   */
+  button_show_icon?: boolean | null;
   bgImage?: (number | null) | Media;
   id?: string | null;
   blockName?: string | null;
@@ -922,8 +972,40 @@ export interface AboutUsThreeBlock {
   left_description?: string | null;
   button1_text?: string | null;
   button1_url?: string | null;
+  /**
+   * Tonalidade Squammata aplicada ao botão.
+   */
+  button1_color?: ('terracota' | 'cafe' | 'floresta' | 'ambar' | 'rio' | 'argila' | 'niemeyer' | 'outline') | null;
+  /**
+   * Curvatura dos cantos (reto, suave, orgânico ou cápsula).
+   */
+  button1_radius?: ('default' | 'sharp' | 'sm' | 'md' | 'lg' | 'pill') | null;
+  /**
+   * Aplica chanfro triangular decorativo (.mil-angle) no canto do botão.
+   */
+  button1_has_triangle?: boolean | null;
+  /**
+   * Alterna a presença do ícone de seta triangular rotacionada (fa-arrow-right).
+   */
+  button1_show_icon?: boolean | null;
   button2_text?: string | null;
   button2_url?: string | null;
+  /**
+   * Tonalidade Squammata aplicada ao botão.
+   */
+  button2_color?: ('terracota' | 'cafe' | 'floresta' | 'ambar' | 'rio' | 'argila' | 'niemeyer' | 'outline') | null;
+  /**
+   * Curvatura dos cantos (reto, suave, orgânico ou cápsula).
+   */
+  button2_radius?: ('default' | 'sharp' | 'sm' | 'md' | 'lg' | 'pill') | null;
+  /**
+   * Aplica chanfro triangular decorativo (.mil-angle) no canto do botão.
+   */
+  button2_has_triangle?: boolean | null;
+  /**
+   * Alterna a presença do ícone de seta triangular rotacionada (fa-arrow-right).
+   */
+  button2_show_icon?: boolean | null;
   right_description1?: {
     root: {
       type: string;
@@ -1011,8 +1093,40 @@ export interface AboutUsFourBlock {
     | null;
   button1_text?: string | null;
   button1_url?: string | null;
+  /**
+   * Tonalidade Squammata aplicada ao botão.
+   */
+  button1_color?: ('terracota' | 'cafe' | 'floresta' | 'ambar' | 'rio' | 'argila' | 'niemeyer' | 'outline') | null;
+  /**
+   * Curvatura dos cantos (reto, suave, orgânico ou cápsula).
+   */
+  button1_radius?: ('default' | 'sharp' | 'sm' | 'md' | 'lg' | 'pill') | null;
+  /**
+   * Aplica chanfro triangular decorativo (.mil-angle) no canto do botão.
+   */
+  button1_has_triangle?: boolean | null;
+  /**
+   * Alterna a presença do ícone de seta triangular rotacionada (fa-arrow-right).
+   */
+  button1_show_icon?: boolean | null;
   button2_text?: string | null;
   button2_url?: string | null;
+  /**
+   * Tonalidade Squammata aplicada ao botão.
+   */
+  button2_color?: ('terracota' | 'cafe' | 'floresta' | 'ambar' | 'rio' | 'argila' | 'niemeyer' | 'outline') | null;
+  /**
+   * Curvatura dos cantos (reto, suave, orgânico ou cápsula).
+   */
+  button2_radius?: ('default' | 'sharp' | 'sm' | 'md' | 'lg' | 'pill') | null;
+  /**
+   * Aplica chanfro triangular decorativo (.mil-angle) no canto do botão.
+   */
+  button2_has_triangle?: boolean | null;
+  /**
+   * Alterna a presença do ícone de seta triangular rotacionada (fa-arrow-right).
+   */
+  button2_show_icon?: boolean | null;
   image?: (number | null) | Media;
   counters?:
     | {
@@ -1076,7 +1190,21 @@ export interface CountersTwoBlock {
         title: string;
         description?: string | null;
         bgImage?: (number | null) | Media;
-        card_style?: ('mil-gray-card' | 'mil-angle-gray') | null;
+        card_style?:
+          | ('mil-gray-card' | 'mil-angle-gray' | 'default' | 'terracota' | 'floresta' | 'cafe' | 'dark' | 'outline')
+          | null;
+        card_radius?: ('default' | 'sharp' | 'sm' | 'md' | 'lg' | 'pill') | null;
+        card_triangle?:
+          | (
+              | 'triangle'
+              | 'triangle_lg'
+              | 'triangle_terracota'
+              | 'triangle_floresta'
+              | 'triangle_cafe'
+              | 'triangle_argila'
+              | 'none'
+            )
+          | null;
         id?: string | null;
       }[]
     | null;
@@ -1216,8 +1344,40 @@ export interface CallToActionBlock {
   description?: string | null;
   button1_text?: string | null;
   button1_url?: string | null;
+  /**
+   * Tonalidade Squammata aplicada ao botão.
+   */
+  button1_color?: ('terracota' | 'cafe' | 'floresta' | 'ambar' | 'rio' | 'argila' | 'niemeyer' | 'outline') | null;
+  /**
+   * Curvatura dos cantos (reto, suave, orgânico ou cápsula).
+   */
+  button1_radius?: ('default' | 'sharp' | 'sm' | 'md' | 'lg' | 'pill') | null;
+  /**
+   * Aplica chanfro triangular decorativo (.mil-angle) no canto do botão.
+   */
+  button1_has_triangle?: boolean | null;
+  /**
+   * Alterna a presença do ícone de seta triangular rotacionada (fa-arrow-right).
+   */
+  button1_show_icon?: boolean | null;
   button2_text?: string | null;
   button2_url?: string | null;
+  /**
+   * Tonalidade Squammata aplicada ao botão.
+   */
+  button2_color?: ('terracota' | 'cafe' | 'floresta' | 'ambar' | 'rio' | 'argila' | 'niemeyer' | 'outline') | null;
+  /**
+   * Curvatura dos cantos (reto, suave, orgânico ou cápsula).
+   */
+  button2_radius?: ('default' | 'sharp' | 'sm' | 'md' | 'lg' | 'pill') | null;
+  /**
+   * Aplica chanfro triangular decorativo (.mil-angle) no canto do botão.
+   */
+  button2_has_triangle?: boolean | null;
+  /**
+   * Alterna a presença do ícone de seta triangular rotacionada (fa-arrow-right).
+   */
+  button2_show_icon?: boolean | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'call_to_action';
@@ -1347,8 +1507,40 @@ export interface CallToAction2Block {
   title?: string | null;
   button1_text?: string | null;
   button1_url?: string | null;
+  /**
+   * Tonalidade Squammata aplicada ao botão.
+   */
+  button1_color?: ('terracota' | 'cafe' | 'floresta' | 'ambar' | 'rio' | 'argila' | 'niemeyer' | 'outline') | null;
+  /**
+   * Curvatura dos cantos (reto, suave, orgânico ou cápsula).
+   */
+  button1_radius?: ('default' | 'sharp' | 'sm' | 'md' | 'lg' | 'pill') | null;
+  /**
+   * Aplica chanfro triangular decorativo (.mil-angle) no canto do botão.
+   */
+  button1_has_triangle?: boolean | null;
+  /**
+   * Alterna a presença do ícone de seta triangular rotacionada (fa-arrow-right).
+   */
+  button1_show_icon?: boolean | null;
   button2_text?: string | null;
   button2_url?: string | null;
+  /**
+   * Tonalidade Squammata aplicada ao botão.
+   */
+  button2_color?: ('terracota' | 'cafe' | 'floresta' | 'ambar' | 'rio' | 'argila' | 'niemeyer' | 'outline') | null;
+  /**
+   * Curvatura dos cantos (reto, suave, orgânico ou cápsula).
+   */
+  button2_radius?: ('default' | 'sharp' | 'sm' | 'md' | 'lg' | 'pill') | null;
+  /**
+   * Aplica chanfro triangular decorativo (.mil-angle) no canto do botão.
+   */
+  button2_has_triangle?: boolean | null;
+  /**
+   * Alterna a presença do ícone de seta triangular rotacionada (fa-arrow-right).
+   */
+  button2_show_icon?: boolean | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'call_to_action_2';
@@ -1563,6 +1755,22 @@ export interface PricesBlock {
   description?: string | null;
   button_text?: string | null;
   button_url?: string | null;
+  /**
+   * Tonalidade Squammata aplicada ao botão.
+   */
+  button_color?: ('terracota' | 'cafe' | 'floresta' | 'ambar' | 'rio' | 'argila' | 'niemeyer' | 'outline') | null;
+  /**
+   * Curvatura dos cantos (reto, suave, orgânico ou cápsula).
+   */
+  button_radius?: ('default' | 'sharp' | 'sm' | 'md' | 'lg' | 'pill') | null;
+  /**
+   * Aplica chanfro triangular decorativo (.mil-angle) no canto do botão.
+   */
+  button_has_triangle?: boolean | null;
+  /**
+   * Alterna a presença do ícone de seta triangular rotacionada (fa-arrow-right).
+   */
+  button_show_icon?: boolean | null;
   plans?:
     | {
         name?: string | null;
@@ -1578,6 +1786,31 @@ export interface PricesBlock {
           | null;
         button_text?: string | null;
         button_url?: string | null;
+        /**
+         * Tonalidade Squammata aplicada ao botão.
+         */
+        button_color?: ('terracota' | 'cafe' | 'floresta' | 'ambar' | 'rio' | 'argila' | 'niemeyer' | 'outline') | null;
+        /**
+         * Curvatura dos cantos (reto, suave, orgânico ou cápsula).
+         */
+        button_radius?: ('default' | 'sharp' | 'sm' | 'md' | 'lg' | 'pill') | null;
+        /**
+         * Aplica chanfro triangular decorativo (.mil-angle) no canto do botão.
+         */
+        button_has_triangle?: boolean | null;
+        /**
+         * Alterna a presença do ícone de seta triangular rotacionada (fa-arrow-right).
+         */
+        button_show_icon?: boolean | null;
+        /**
+         * Tonalidade de fundo e superfície do card.
+         */
+        card_color?:
+          ('default' | 'argila' | 'terracota' | 'floresta' | 'cafe' | 'dark' | 'outline' | 'transparent') | null;
+        /**
+         * Chanfro triangular decorativo (.mil-angle) no canto superior do card.
+         */
+        card_color_has_triangle?: boolean | null;
         button_style?: ('mil-light' | 'mil-accent' | 'mil-soft' | 'mil-dark') | null;
         card_style?: ('' | 'mil-gray-card' | 'mil-angle-gray') | null;
         id?: string | null;
@@ -1597,6 +1830,22 @@ export interface PricesTwoBlock {
   description?: string | null;
   button_text?: string | null;
   button_url?: string | null;
+  /**
+   * Tonalidade Squammata aplicada ao botão.
+   */
+  button_color?: ('terracota' | 'cafe' | 'floresta' | 'ambar' | 'rio' | 'argila' | 'niemeyer' | 'outline') | null;
+  /**
+   * Curvatura dos cantos (reto, suave, orgânico ou cápsula).
+   */
+  button_radius?: ('default' | 'sharp' | 'sm' | 'md' | 'lg' | 'pill') | null;
+  /**
+   * Aplica chanfro triangular decorativo (.mil-angle) no canto do botão.
+   */
+  button_has_triangle?: boolean | null;
+  /**
+   * Alterna a presença do ícone de seta triangular rotacionada (fa-arrow-right).
+   */
+  button_show_icon?: boolean | null;
   plans?:
     | {
         name?: string | null;
@@ -1604,10 +1853,35 @@ export interface PricesTwoBlock {
         price_suffix?: string | null;
         description?: string | null;
         bgImage?: (number | null) | Media;
-        card_style?: ('mil-gray-card' | 'mil-angle-gray') | null;
-        button_style?: ('mil-light' | 'mil-accent' | 'mil-soft') | null;
         button_text?: string | null;
         button_url?: string | null;
+        /**
+         * Tonalidade Squammata aplicada ao botão.
+         */
+        button_color?: ('terracota' | 'cafe' | 'floresta' | 'ambar' | 'rio' | 'argila' | 'niemeyer' | 'outline') | null;
+        /**
+         * Curvatura dos cantos (reto, suave, orgânico ou cápsula).
+         */
+        button_radius?: ('default' | 'sharp' | 'sm' | 'md' | 'lg' | 'pill') | null;
+        /**
+         * Aplica chanfro triangular decorativo (.mil-angle) no canto do botão.
+         */
+        button_has_triangle?: boolean | null;
+        /**
+         * Alterna a presença do ícone de seta triangular rotacionada (fa-arrow-right).
+         */
+        button_show_icon?: boolean | null;
+        /**
+         * Tonalidade de fundo e superfície do card.
+         */
+        card_color?:
+          ('default' | 'argila' | 'terracota' | 'floresta' | 'cafe' | 'dark' | 'outline' | 'transparent') | null;
+        /**
+         * Chanfro triangular decorativo (.mil-angle) no canto superior do card.
+         */
+        card_color_has_triangle?: boolean | null;
+        button_style?: ('mil-light' | 'mil-accent' | 'mil-soft') | null;
+        card_style?: ('mil-gray-card' | 'mil-angle-gray') | null;
         id?: string | null;
       }[]
     | null;
@@ -1697,7 +1971,7 @@ export interface AboutServiceBlock {
  * via the `definition` "AboutTeamBlock".
  */
 export interface AboutTeamBlock {
-  portrait: number | Media;
+  portrait?: (number | null) | Media;
   name: string;
   position?: string | null;
   contact_items?:
@@ -1804,13 +2078,54 @@ export interface FeaturesBlock {
   } | null;
   button1_text?: string | null;
   button1_url?: string | null;
+  /**
+   * Tonalidade Squammata aplicada ao botão.
+   */
+  button1_color?: ('terracota' | 'cafe' | 'floresta' | 'ambar' | 'rio' | 'argila' | 'niemeyer' | 'outline') | null;
+  /**
+   * Curvatura dos cantos (reto, suave, orgânico ou cápsula).
+   */
+  button1_radius?: ('default' | 'sharp' | 'sm' | 'md' | 'lg' | 'pill') | null;
+  /**
+   * Aplica chanfro triangular decorativo (.mil-angle) no canto do botão.
+   */
+  button1_has_triangle?: boolean | null;
+  /**
+   * Alterna a presença do ícone de seta triangular rotacionada (fa-arrow-right).
+   */
+  button1_show_icon?: boolean | null;
   button2_text?: string | null;
   button2_url?: string | null;
+  /**
+   * Tonalidade Squammata aplicada ao botão.
+   */
+  button2_color?: ('terracota' | 'cafe' | 'floresta' | 'ambar' | 'rio' | 'argila' | 'niemeyer' | 'outline') | null;
+  /**
+   * Curvatura dos cantos (reto, suave, orgânico ou cápsula).
+   */
+  button2_radius?: ('default' | 'sharp' | 'sm' | 'md' | 'lg' | 'pill') | null;
+  /**
+   * Aplica chanfro triangular decorativo (.mil-angle) no canto do botão.
+   */
+  button2_has_triangle?: boolean | null;
+  /**
+   * Alterna a presença do ícone de seta triangular rotacionada (fa-arrow-right).
+   */
+  button2_show_icon?: boolean | null;
   features?:
     | {
         icon?: (number | null) | Media;
         title?: string | null;
         description?: string | null;
+        /**
+         * Tonalidade de fundo e superfície do card.
+         */
+        item_style?:
+          ('default' | 'argila' | 'terracota' | 'floresta' | 'cafe' | 'dark' | 'outline' | 'transparent') | null;
+        /**
+         * Chanfro triangular decorativo (.mil-angle) no canto superior do card.
+         */
+        item_has_triangle?: boolean | null;
         id?: string | null;
       }[]
     | null;
@@ -1828,11 +2143,36 @@ export interface FeaturesTwoBlock {
   description?: string | null;
   button_text?: string | null;
   button_url?: string | null;
+  /**
+   * Tonalidade Squammata aplicada ao botão.
+   */
+  button_color?: ('terracota' | 'cafe' | 'floresta' | 'ambar' | 'rio' | 'argila' | 'niemeyer' | 'outline') | null;
+  /**
+   * Curvatura dos cantos (reto, suave, orgânico ou cápsula).
+   */
+  button_radius?: ('default' | 'sharp' | 'sm' | 'md' | 'lg' | 'pill') | null;
+  /**
+   * Aplica chanfro triangular decorativo (.mil-angle) no canto do botão.
+   */
+  button_has_triangle?: boolean | null;
+  /**
+   * Alterna a presença do ícone de seta triangular rotacionada (fa-arrow-right).
+   */
+  button_show_icon?: boolean | null;
   features?:
     | {
         icon?: (number | null) | Media;
         title?: string | null;
         description?: string | null;
+        /**
+         * Tonalidade de fundo e superfície do card.
+         */
+        card_style?:
+          ('default' | 'argila' | 'terracota' | 'floresta' | 'cafe' | 'dark' | 'outline' | 'transparent') | null;
+        /**
+         * Chanfro triangular decorativo (.mil-angle) no canto superior do card.
+         */
+        card_has_triangle?: boolean | null;
         id?: string | null;
       }[]
     | null;
@@ -2887,6 +3227,33 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   createdAt?: T;
 }
 /**
+ * Gerenciamento visual centralizado: esquemas de cores, tokens biofílicos e geometria orgânica para o site e painel de controle.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "theme-settings".
+ */
+export interface ThemeSetting {
+  id: number;
+  /**
+   * Selecione um dos 6 esquemas biofílicos canônicos da Squammata ou escolha Personalizado para ajustar valores individuais.
+   */
+  preset: 'terracotta' | 'forest' | 'river' | 'amber' | 'coffee' | 'clay' | 'custom';
+  /**
+   * Define a intensidade dos raios de curvatura orgânica nos botões, cards e contêineres.
+   */
+  radiusPreset: 'organic' | 'modern' | 'sharp';
+  /**
+   * Escolha se o painel administrativo mantém o Café Torrado corporativo estrito ou se acompanha o tema ativo do site.
+   */
+  adminThematization: 'brand-locked' | 'sync-active-theme';
+  overridePrimary?: string | null;
+  overrideSecondary?: string | null;
+  overrideDarkBg?: string | null;
+  overrideLightBg?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header".
  */
@@ -2987,7 +3354,7 @@ export interface Header {
       }[]
     | null;
   /**
-   * Default header style. Can be overridden per page.
+   * Estilo padrão do cabeçalho. Pode ser substituído individualmente por página.
    */
   headerStyle?: ('default' | 'invert') | null;
   updatedAt?: string | null;
@@ -3000,10 +3367,10 @@ export interface Header {
 export interface Footer {
   id: number;
   /**
-   * Choose footer layout used site-wide. Pages can override this.
+   * Selecione o modelo de rodapé padrão do site. Páginas individuais podem sobrescrever esta opção.
    */
   layoutType?: ('default' | 'minimal') | null;
-  logo: number | Media;
+  logo?: (number | null) | Media;
   logoLight?: (number | null) | Media;
   newsletter?: {
     placeholder?: string | null;
@@ -3215,6 +3582,22 @@ export interface General {
   };
   updatedAt?: string | null;
   createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "theme-settings_select".
+ */
+export interface ThemeSettingsSelect<T extends boolean = true> {
+  preset?: T;
+  radiusPreset?: T;
+  adminThematization?: T;
+  overridePrimary?: T;
+  overrideSecondary?: T;
+  overrideDarkBg?: T;
+  overrideLightBg?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

@@ -33,19 +33,23 @@ Thumbs.db
 *.swp
 *.swo
 
-# Debug
+# Debug & Temporary
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+*.log
+.ff_home/
+*.test.css.map
 
-# AI & LLM specific files (Antigravity, Gemini, Claude, Cursor, Prompts & Phase Handoffs)
+# AI & LLM operational artifacts
 .antigravity/
 skills
 *skills_master_manual*.md
-docs/phases/
 .gemini/
 .claude/
 .cursor/
 .agent/
 .copilot/
 *.prompt.md
+
+

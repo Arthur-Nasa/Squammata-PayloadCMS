@@ -7,9 +7,9 @@ import './index.scss'
 
 const SuccessMessage: React.FC = () => (
   <div>
-    Database seeded! You can now{' '}
+    Banco de dados populado com sucesso! Você já pode{' '}
     <a target="_blank" href="/">
-      visit your website
+      visitar o site
     </a>
   </div>
 )
@@ -24,15 +24,15 @@ export const SeedButton: React.FC = () => {
       e.preventDefault()
 
       if (seeded) {
-        toast.info('Database already seeded.')
+        toast.info('O banco de dados já foi inicializado.')
         return
       }
       if (loading) {
-        toast.info('Seeding already in progress.')
+        toast.info('Inicialização já em andamento.')
         return
       }
       if (error) {
-        toast.error(`An error occurred, please refresh and try again.`)
+        toast.error(`Ocorreu um erro, recarregue e tente novamente.`)
         return
       }
 
@@ -48,7 +48,7 @@ export const SeedButton: React.FC = () => {
                     resolve(true)
                     setSeeded(true)
                   } else {
-                    reject('An error occurred while seeding.')
+                    reject('Ocorreu um erro durante a inicialização.')
                   }
                 })
                 .catch((error) => {
@@ -59,9 +59,9 @@ export const SeedButton: React.FC = () => {
             }
           }),
           {
-            loading: 'Seeding with data....',
+            loading: 'Populando banco com conteúdo Squammata...',
             success: <SuccessMessage />,
-            error: 'An error occurred while seeding.',
+            error: 'Ocorreu um erro durante a inicialização.',
           },
         )
       } catch (err) {
@@ -73,14 +73,14 @@ export const SeedButton: React.FC = () => {
   )
 
   let message = ''
-  if (loading) message = ' (seeding...)'
-  if (seeded) message = ' (done!)'
-  if (error) message = ` (error: ${error})`
+  if (loading) message = ' (populando...)'
+  if (seeded) message = ' (concluído!)'
+  if (error) message = ` (erro: ${error})`
 
   return (
     <Fragment>
       <button className="seedButton" onClick={handleClick}>
-        Seed your database
+        Inicializar Conteúdo Squammata
       </button>
       {message}
     </Fragment>

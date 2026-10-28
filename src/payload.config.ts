@@ -4,6 +4,10 @@ import { buildConfig } from 'payload'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import sharp from 'sharp'
 
+// Previne race condition e crash de asserção no libvips/sharp em uploads concorrentes no Linux
+sharp.cache(false)
+sharp.concurrency(1)
+
 // Coleções da Squammata e do ecossistema de blocos
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
@@ -17,7 +21,7 @@ import { Projects } from './collections/Projects'
 import { Team } from './collections/Team'
 import { ReusableContent } from './collections/ReusableContent'
 
-// Globals da Squammata e do tema Lumex
+// Globals da Squammata
 import { SiteSettings } from './globals/SiteSettings'
 import { LocalSEO } from './globals/LocalSEO'
 import { Header } from './globals/Header/config'
@@ -27,6 +31,7 @@ import { ServicesPage } from './globals/Services/config'
 import { ProjectsPage } from './globals/Projects/config'
 import { TeamPage } from './globals/Team/config'
 import { General } from './globals/General/config'
+import { ThemeSettings } from './globals/ThemeSettings'
 
 // Blocos visuais modulares
 import { Archive } from './blocks/ArchiveBlock/config'
@@ -58,6 +63,7 @@ import { PricesBlock } from './blocks/PricesBlock/config'
 import { PricesTwo } from './blocks/PricesTwo/config'
 import { IntroBlock } from './blocks/Intro/config'
 import { PortfolioGrid } from './blocks/PortfolioGrid/config'
+import { designTokensEndpoint } from './endpoints/designTokens'
 import { AboutProject } from './blocks/AboutProject/config'
 import { AboutService } from './blocks/AboutService/config'
 import { Features } from './blocks/Features/config'
@@ -78,6 +84,12 @@ export default buildConfig({
     user: Users.slug,
     importMap: {
       baseDir: path.resolve(dirname),
+    },
+    components: {
+      graphics: {
+        Logo: '@/components/admin/Logo#Logo',
+        Icon: '@/components/admin/Icon#Icon',
+      },
     },
     meta: {
       titleSuffix: ' | Squammata CMS',
@@ -144,6 +156,7 @@ export default buildConfig({
     ReusableContent,
   ],
   globals: [
+    ThemeSettings,
     Header,
     Footer,
     SiteSettings,
@@ -157,7 +170,14 @@ export default buildConfig({
   plugins: [
     ...plugins,
   ],
-  cors: [getServerSideURL()].filter(Boolean),
+  endpoints: [
+    designTokensEndpoint,
+  ],
+  cors: [getServerSideURL(), 'http://192.168.15.10:3000', 'http://192.168.15.9:3000', 'http://127.0.0.1:3000', 'http://localhost:3000'].filter(Boolean),
+  csrf:
+    process.env.NODE_ENV === 'development'
+      ? []
+      : [getServerSideURL(), 'http://192.168.15.10:3000', 'http://192.168.15.9:3000', 'http://127.0.0.1:3000', 'http://localhost:3000'].filter(Boolean),
   secret: process.env.PAYLOAD_SECRET || '',
   sharp,
   typescript: {
@@ -166,9 +186,9 @@ export default buildConfig({
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URI || '',
-      max: 10,
+      max: 25,
       idleTimeoutMillis: 30000,
-      connectionTimeoutMillis: 5000,
+      connectionTimeoutMillis: 30000,
     },
     push: process.env.NODE_ENV === 'development',
     migrationDir: path.resolve(dirname, 'migrations'),

@@ -1,2 +1,468 @@
-// Squammata Admin Panel Overrides
-// Preserva identidade visual no painel administrativo
+/* ============================================================================
+   Squammata Admin Panel (Payload CMS 3.0)
+   Design System v4.2 - Biofilia Paulista & Anti-AI-Slop
+   ============================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Zilla+Slab:wght@400;500;600;700&display=swap');
+
+/* --- Tokens Canônicos do Admin Squammata --- */
+:root {
+  /* Tipografia Canônica */
+  --font-squammata-heading: 'Zilla Slab', Georgia, serif;
+  --font-squammata-body: 'Quicksand', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-squammata-mono: 'Space Mono', Monaco, Menlo, monospace;
+
+  /* Cores Canônicas da Marca */
+  --squammata-terracota: #C15C3D;
+  --squammata-terracota-hover: #A84C30;
+  --squammata-terracota-subtle: rgba(193, 92, 61, 0.12);
+  --squammata-cafe: #3A2313;
+  --squammata-cafe-dark: #1A110B;
+  --squammata-niemeyer: #FAF9F6;
+  --squammata-argila: #F3EFE6;
+  --squammata-borda: #D5CFC6;
+  --squammata-borda-forte: #4E3220;
+  --squammata-carvao: #1A1A1A;
+  --squammata-chumbo: #3E3731;
+  --squammata-floresta: #244735;
+  --squammata-ambar: #B87514;
+  --squammata-rio: #244558;
+
+  /* Curvatura Orgânica (Squammata Curvature) */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 100px;
+
+  /* Sombras Telúricas (sem preto artificial 0,0,0) */
+  --admin-shadow-card: 0 10px 30px -6px rgba(58, 35, 19, 0.08), 0 4px 12px -2px rgba(62, 55, 49, 0.05);
+  --admin-shadow-hover: 0 18px 40px -8px rgba(58, 35, 19, 0.14), 0 6px 16px -3px rgba(193, 92, 61, 0.08);
+
+  /* Payload 3.0 CSS Variable Overrides (Base / Light Mode) */
+  --color-base-0: #FAF9F6;
+  --color-base-50: #F3EFE6;
+  --color-base-100: #EAE3D6;
+  --color-base-150: #DDD4C7;
+  --color-base-200: #D5CFC6;
+  --color-base-250: #BCB4A8;
+  --color-base-300: #A3998C;
+  --color-base-350: #8A7F72;
+  --color-base-400: #736B63;
+  --color-base-450: #5C554D;
+  --color-base-500: #49423B;
+  --color-base-600: #3E3731;
+  --color-base-700: #322A24;
+  --color-base-800: #27201B;
+  --color-base-850: #1F1914;
+  --color-base-900: #1A1A1A;
+  --color-base-950: #110B07;
+  --color-base-1000: #0A0604;
+
+  /* Acentos de Ação / Primária */
+  --color-success-500: #C15C3D;
+  --color-success-600: #A84C30;
+  --color-success-400: #D98260;
+  --theme-success-500: #C15C3D;
+  --theme-success-600: #A84C30;
+  --theme-success-400: #D98260;
+  --color-blue-500: #C15C3D;
+  --color-blue-600: #A84C30;
+
+  --theme-border-color: #D5CFC6;
+  --theme-input-border: #D5CFC6;
+  --theme-elevation-0: #FAF9F6;
+  --theme-elevation-50: #F3EFE6;
+  --theme-elevation-100: #EAE3D6;
+  --theme-elevation-150: #DDD4C7;
+  --theme-elevation-200: #D5CFC6;
+}
+
+/* Modo Escuro do Payload (Café Torrado Noturno - Alto Contraste WCAG AAA) */
+html[data-theme='dark'] {
+  /* Escala Invertida do Payload 3.0: 0 = Fundo Escuro, 1000 = Texto Off-White */
+  --color-base-0: #140D08;
+  --color-base-50: #1C120B;
+  --color-base-100: #23160F;
+  --color-base-150: #2C1D14;
+  --color-base-200: #38251A;
+  --color-base-250: #452D20;
+  --color-base-300: #553828;
+  --color-base-350: #684632;
+  --color-base-400: #7E563E;
+  --color-base-450: #96674B;
+  --color-base-500: #B07C5B;
+  --color-base-550: #C49272;
+  --color-base-600: #D4A98C;
+  --color-base-650: #DFC0A8;
+  --color-base-700: #EAD5C5;
+  --color-base-750: #F2E4D8;
+  --color-base-800: #F6ECE4;
+  --color-base-850: #FAF4EE;
+  --color-base-900: #FCF8F5;
+  --color-base-950: #FFFFFF;
+  --color-base-1000: #FFFFFF;
+
+  --theme-text: #FAF9F6;
+  --theme-border-color: #4A2E1D;
+  --theme-input-border: #623E27;
+  --theme-input-bg: #22140C;
+
+  --theme-elevation-0: #140D08;
+  --theme-elevation-50: #1C120B;
+  --theme-elevation-100: #23160F;
+  --theme-elevation-150: #2E1D13;
+  --theme-elevation-200: #3A2519;
+  --theme-elevation-250: #462D1F;
+  --theme-elevation-300: #543726;
+  --theme-elevation-350: #63412E;
+  --theme-elevation-400: #734D36;
+  --theme-elevation-450: #84593F;
+  --theme-elevation-500: #966649;
+  --theme-elevation-600: #B88564;
+  --theme-elevation-700: #D4A98C;
+  --theme-elevation-800: #EAD5C5;
+  --theme-elevation-900: #FAF4EE;
+  --theme-elevation-1000: #FFFFFF;
+
+  .squammata-admin-logo-light {
+    display: none !important;
+  }
+  .squammata-admin-logo-dark {
+    display: block !important;
+  }
+}
+
+/* Modo Claro do Payload */
+html[data-theme='light'] {
+  .squammata-admin-logo-light {
+    display: block !important;
+  }
+  .squammata-admin-logo-dark {
+    display: none !important;
+  }
+}
+
+/* --- Aplicação Global de Fontes e Suavização --- */
+body, .payload-default {
+  font-family: var(--font-squammata-body) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, .doc-header__title, .collection-list__title {
+  font-family: var(--font-squammata-heading) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em;
+}
+
+code, pre, .id-label, .field-type.code {
+  font-family: var(--font-squammata-mono) !important;
+}
+
+/* --- Barra de Navegação Lateral (Sidebar) --- */
+.nav {
+  border-right: 1px solid var(--theme-border-color) !important;
+  background-color: var(--theme-elevation-0) !important;
+
+  .nav__header {
+    padding: 20px 24px !important;
+    border-bottom: 1px solid var(--theme-border-color);
+  }
+
+  .nav__group-label {
+    font-family: var(--font-squammata-mono) !important;
+    font-size: 0.72rem !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    color: var(--squammata-chumbo) !important;
+    padding: 16px 20px 8px !important;
+    font-weight: 700 !important;
+  }
+
+  .nav__link {
+    border-radius: var(--radius-sm) !important;
+    margin: 2px 12px !important;
+    padding: 8px 14px !important;
+    font-weight: 500 !important;
+    transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1) !important;
+
+    &:hover {
+      background-color: var(--squammata-terracota-subtle) !important;
+      color: var(--squammata-terracota) !important;
+    }
+
+    &--active {
+      background-color: var(--squammata-terracota) !important;
+      color: #FFFFFF !important;
+      font-weight: 600 !important;
+
+      svg {
+        fill: #FFFFFF !important;
+      }
+    }
+  }
+}
+
+/* --- Botões Canônicos da Squammata --- */
+.btn, button.btn {
+  border-radius: var(--radius-sm) !important;
+  font-family: var(--font-squammata-body) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em !important;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1) !important;
+
+  &--style-primary {
+    background-color: var(--squammata-terracota) !important;
+    border-color: var(--squammata-terracota) !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 14px rgba(193, 92, 61, 0.22) !important;
+
+    &:hover:not(:disabled) {
+      background-color: var(--squammata-terracota-hover) !important;
+      border-color: var(--squammata-terracota-hover) !important;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(193, 92, 61, 0.32) !important;
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+  }
+
+  &--style-secondary {
+    background-color: var(--theme-elevation-50) !important;
+    border: 1px solid var(--theme-border-color) !important;
+    color: var(--color-base-900) !important;
+
+    &:hover:not(:disabled) {
+      background-color: var(--theme-elevation-100) !important;
+      border-color: var(--squammata-terracota) !important;
+      color: var(--squammata-terracota) !important;
+    }
+  }
+}
+
+/* --- Labels, Campos e Formulários de Alto Contraste (WCAG AAA) --- */
+.field-label,
+label.field-label,
+.render-fields label,
+.field-type label,
+.field-type > label {
+  color: var(--color-base-900) !important;
+  font-weight: 600 !important;
+  font-size: 0.88rem !important;
+  letter-spacing: 0.015em !important;
+  margin-bottom: 6px !important;
+  display: block !important;
+  opacity: 1 !important;
+}
+
+.field-label .required,
+label .required {
+  color: var(--squammata-terracota) !important;
+  font-weight: 700 !important;
+  margin-left: 2px;
+}
+
+.field-description,
+.field-type .field-description {
+  color: var(--color-base-650) !important;
+  font-size: 0.82rem !important;
+  line-height: 1.45 !important;
+  margin-top: 5px !important;
+  margin-bottom: 2px !important;
+}
+
+/* Apenas inputs reais de formulário, excluindo inputs internos de dropdowns */
+input[type='text']:not([class*='react-select']):not([id*='react-select']),
+input[type='email'],
+input[type='password'],
+input[type='number'],
+textarea,
+select:not([class*='react-select']) {
+  background-color: var(--theme-elevation-100) !important;
+  color: var(--color-base-950) !important;
+  border-radius: var(--radius-sm) !important;
+  border: 1px solid var(--theme-input-border, var(--theme-border-color)) !important;
+  font-family: var(--font-squammata-body) !important;
+  font-size: 0.94rem !important;
+  padding: 10px 14px !important;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease !important;
+
+  &::placeholder {
+    color: var(--color-base-500) !important;
+  }
+
+  &:focus {
+    border-color: var(--squammata-terracota) !important;
+    background-color: var(--theme-elevation-150) !important;
+    box-shadow: 0 0 0 3px rgba(193, 92, 61, 0.22) !important;
+    outline: none !important;
+  }
+}
+
+/* Reset explícito para inputs internos do react-select */
+.react-select input,
+.react-select__input,
+.react-select__input-container input,
+.rs__input,
+[class*='react-select'] input,
+[class*='rs__'] input {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  outline: none !important;
+  color: inherit !important;
+}
+
+.react-select__control,
+.rs__control {
+  background-color: var(--theme-elevation-100) !important;
+  border-radius: var(--radius-sm) !important;
+  border: 1px solid var(--theme-input-border, var(--theme-border-color)) !important;
+  font-family: var(--font-squammata-body) !important;
+  font-size: 0.94rem !important;
+  min-height: 44px !important;
+  padding: 2px 6px !important;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease !important;
+
+  .react-select__value-container,
+  .rs__value-container {
+    padding: 2px 8px !important;
+  }
+
+  .react-select__single-value,
+  .rs__single-value {
+    color: var(--color-base-950) !important;
+    font-weight: 500 !important;
+  }
+
+  .react-select__placeholder,
+  .rs__placeholder {
+    color: var(--color-base-500) !important;
+  }
+
+  &--is-focused,
+  &.rs__control--is-focused {
+    border-color: var(--squammata-terracota) !important;
+    box-shadow: 0 0 0 3px rgba(193, 92, 61, 0.22) !important;
+    outline: none !important;
+  }
+}
+
+.react-select__menu,
+.rs__menu {
+  background-color: var(--theme-elevation-150) !important;
+  border: 1px solid var(--theme-border-color) !important;
+  border-radius: var(--radius-sm) !important;
+  box-shadow: var(--admin-shadow-hover) !important;
+  overflow: hidden !important;
+  z-index: 9999 !important;
+}
+
+.react-select__option,
+.rs__option {
+  color: var(--color-base-900) !important;
+  font-size: 0.9rem !important;
+  padding: 8px 12px !important;
+  cursor: pointer !important;
+
+  &--is-focused,
+  &.rs__option--is-focused {
+    background-color: var(--squammata-terracota-subtle) !important;
+    color: var(--squammata-terracota) !important;
+  }
+
+  &--is-selected,
+  &.rs__option--is-selected {
+    background-color: var(--squammata-terracota) !important;
+    color: #FFFFFF !important;
+  }
+}
+
+/* Títulos de Blocos e Seções */
+.collapsible__toggle,
+.block-row__title,
+.block-row__header,
+.section-title {
+  color: var(--color-base-950) !important;
+  font-weight: 600 !important;
+}
+
+/* --- Badges, Tags e Pílulas --- */
+.pill, .badge, .status, [class*='pill--'] {
+  border-radius: var(--radius-pill) !important;
+  font-family: var(--font-squammata-mono) !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.05em !important;
+  padding: 3px 10px !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+}
+
+/* --- Cartões e Painéis --- */
+.card, .dashboard__card, .collection-list {
+  border-radius: var(--radius-md) !important;
+  border: 1px solid var(--theme-border-color) !important;
+  box-shadow: var(--admin-shadow-card) !important;
+  background-color: var(--theme-elevation-0) !important;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+/* --- Tela de Login / Template Minimal --- */
+.template-minimal {
+  background-color: var(--squammata-niemeyer) !important;
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(193, 92, 61, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(58, 35, 19, 0.05) 0%, transparent 45%) !important;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__wrap {
+    background-color: #FFFFFF !important;
+    border: 1px solid var(--squammata-borda) !important;
+    border-radius: var(--radius-md) !important;
+    padding: 44px 38px !important;
+    box-shadow: var(--admin-shadow-card) !important;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: 'SQUAMMATA CMS v4.2 · BIOFILIA PAULISTA';
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      font-family: var(--font-squammata-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      color: var(--squammata-chumbo);
+      opacity: 0.6;
+    }
+  }
+
+  .form--login {
+    h1 {
+      font-family: var(--font-squammata-heading) !important;
+      font-size: 2rem !important;
+      color: var(--squammata-cafe) !important;
+      margin-bottom: 8px !important;
+    }
+
+    p {
+      color: var(--squammata-chumbo) !important;
+      font-size: 0.95rem !important;
+      margin-bottom: 24px !important;
+    }
+  }
+}
+
+/* --- Banner de Destaque para o Global Sistema de Design --- */
+.collection-list__header {
+  border-bottom: 1px solid var(--theme-border-color) !important;
+  padding-bottom: 18px !important;
+  margin-bottom: 24px !important;
+}
