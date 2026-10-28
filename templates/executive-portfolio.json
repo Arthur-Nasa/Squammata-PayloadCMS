@@ -1,0 +1,50 @@
+{
+  "niche": "executive-portfolio",
+  "name": "Portfólio Executivo & Consultoria de Crescimento",
+  "description": "Template executivo de alta densidade técnica para lideranças de e-commerce, especialistas em SEO técnico, CRO e arquitetura de dados.",
+  "theme": {
+    "preset": "forest",
+    "primaryColor": "#2E6F40",
+    "primaryHover": "#245833",
+    "secondaryColor": "#C87D55",
+    "darkBg": "#0F1412",
+    "lightBg": "#F7F6F2",
+    "cardBg": "#18201D",
+    "border": "#2A3631",
+    "radius": "modern",
+    "fontPreset": "editorial",
+    "dividerStyle": "curve"
+  },
+  "services": [
+    {
+      "title": "SEO Técnico, Semântico & IA Generativa (GEO / AEO)",
+      "shortDescription": "Engenharia de entidades, topic clusters, grafos JSON-LD e controle rigoroso de indexação para busca tradicional e motores generativos.",
+      "price": "Sob consulta executiva"
+    },
+    {
+      "title": "Otimização da Taxa de Conversão (CRO) & UX Transacional",
+      "shortDescription": "Diagnóstico de fricção em funis transacionais, testes A/B empiricamente validados e aumento de ticket médio orientado a dados.",
+      "price": "Sob consulta executiva"
+    },
+    {
+      "title": "Arquitetura de E-commerce, Marketplaces & Infraestrutura",
+      "shortDescription": "Direção de plataformas Shopify Plus, Magento e VTEX com integração ERP, logística e esteiras comerciais assistidas.",
+      "price": "Sob consulta executiva"
+    },
+    {
+      "title": "Mídia de Performance, Retail Media & Unit Economics",
+      "shortDescription": "Gestão de tráfego ancorada no DRE: cálculo estrito de CAC, LTV, ROAS real, POAS e margem de contribuição.",
+      "price": "Sob consulta executiva"
+    }
+  ],
+  "faq": [
+    {
+      "question": "Como é conduzido o diagnóstico estratégico inicial?",
+      "answer": "Realizamos uma imersão profunda nos dados analíticos (GA4, GSC, logs de servidor) e no DRE contábil para identificar vazamentos de margem e gargalos operacionais."
+    },
+    {
+      "question": "Qual o diferencial da abordagem sociotécnica em e-commerce?",
+      "answer": "Combinamos rigor analítico de dados com a compreensão dos padrões de consumo e comportamento de rede, promovendo crescimento financeiramente sustentável."
+    }
+  ]
+}
