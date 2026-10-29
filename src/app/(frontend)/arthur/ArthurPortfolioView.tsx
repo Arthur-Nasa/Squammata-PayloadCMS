@@ -241,38 +241,50 @@ export const ArthurPortfolioView: React.FC = () => {
             </div>
             <div className={styles.logoGrid}>
               <a href="https://ruadocafe.com.br/" target="_blank" rel="noopener noreferrer" className={styles.logoItem}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://icon.horse/icon/ruadocafe.com.br" alt="Rua do Café" loading="lazy" />
+                <span className={styles.logoBadge}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="https://ruadocafe.com.br/cdn/shop/files/logo.svg?v=1747747002" alt="Rua do Café" loading="lazy" />
+                </span>
                 <span>Rua do Café</span>
               </a>
 
               <a href="https://www.sheetgo.com/" target="_blank" rel="noopener noreferrer" className={styles.logoItem}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://icon.horse/icon/sheetgo.com" alt="Sheetgo" loading="lazy" />
+                <span className={styles.logoBadge}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="https://static.sheetgo.com/wp-content/uploads/2020/05/sheetgo-logo-20200521.svg" alt="Sheetgo" loading="lazy" />
+                </span>
                 <span>Sheetgo</span>
               </a>
 
               <a href="https://www.maquinasecafe.com.br/" target="_blank" rel="noopener noreferrer" className={styles.logoItem}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://www.maquinasecafe.com.br/cdn/shop/files/logo.ai.svg?height=50&v=1768592788" alt="Máquinas & Café" loading="lazy" />
+                <span className={styles.logoBadge}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="https://www.maquinasecafe.com.br/cdn/shop/files/logo.ai.svg?height=50&v=1768592788" alt="Máquinas & Café" loading="lazy" />
+                </span>
                 <span>Máquinas & Café</span>
               </a>
 
               <a href="https://www.lojas360.com.br/" target="_blank" rel="noopener noreferrer" className={styles.logoItem}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://icon.horse/icon/lojas360.com.br" alt="Lojas 360" loading="lazy" />
+                <span className={styles.logoBadge}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="https://images.tcdn.com.br/files/859641/themes/665/img/settings/Lojas-360-Azul-2.png" alt="Lojas 360" loading="lazy" />
+                </span>
                 <span>Lojas 360 EPI</span>
               </a>
 
               <a href="https://www.calcadoscope.com.br/" target="_blank" rel="noopener noreferrer" className={styles.logoItem}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://cdn.awsli.com.br/400x300/1242/1242395/logo/266232342c.jpeg" alt="Cope Calçados" loading="lazy" />
+                <span className={styles.logoBadge}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="https://cdn.awsli.com.br/400x300/1242/1242395/logo/266232342c.jpeg" alt="Cope Calçados" loading="lazy" />
+                </span>
                 <span>Cope Calçados</span>
               </a>
 
               <a href="https://www.unicamp.br/" target="_blank" rel="noopener noreferrer" className={styles.logoItem}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://icon.horse/icon/unicamp.br" alt="UNICAMP" loading="lazy" />
+                <span className={styles.logoBadge}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="https://upload.wikimedia.org/wikipedia/pt/b/b2/UNICAMP_logo.svg" alt="UNICAMP" loading="lazy" />
+                </span>
                 <span>UNICAMP</span>
               </a>
             </div>
@@ -391,7 +403,11 @@ export const ArthurPortfolioView: React.FC = () => {
                   Looker Studio
                 </span>
                 <span className={styles.stackBadge}>POAS & Margem Real</span>
-                <span className={styles.stackBadge}>GA4 & Métricas de Funil</span>
+                <span className={styles.stackBadge}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="https://cdn.simpleicons.org/googleanalytics/E37400" alt="GA4" />
+                  GA4 & Métricas de Funil
+                </span>
               </div>
             </div>
 
@@ -417,7 +433,11 @@ export const ArthurPortfolioView: React.FC = () => {
                   <img src="https://cdn.simpleicons.org/semrush/FF642D" alt="Semrush" />
                   Semrush
                 </span>
-                <span className={styles.stackBadge}>Ahrefs</span>
+                <span className={styles.stackBadge}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="https://static.ahrefs.com/favicon-32x32.png" alt="Ahrefs" />
+                  Ahrefs
+                </span>
                 <span className={styles.stackBadge}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src="https://cdn.simpleicons.org/googlesearchconsole/458CF5" alt="GSC" />
@@ -451,14 +471,26 @@ export const ArthurPortfolioView: React.FC = () => {
                   <img src="https://cdn.simpleicons.org/shopify/95BF47" alt="Shopify" />
                   Shopify Plus
                 </span>
-                <span className={styles.stackBadge}>VTEX</span>
+                <span className={styles.stackBadge}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="https://cdn.simpleicons.org/vtex/FF3366" alt="VTEX" />
+                  VTEX
+                </span>
                 <span className={styles.stackBadge}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src="https://cdn.simpleicons.org/woocommerce/96588A" alt="WooCommerce" />
                   WooCommerce
                 </span>
-                <span className={styles.stackBadge}>Next.js & React</span>
-                <span className={styles.stackBadge}>Bling e Tiny ERP</span>
+                <span className={styles.stackBadge}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="https://cdn.simpleicons.org/nextdotjs/FFFFFF" alt="Next.js" />
+                  Next.js & React
+                </span>
+                <span className={styles.stackBadge}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="https://www.bling.com.br/favicon.ico" alt="Bling ERP" />
+                  Bling e Tiny ERP
+                </span>
                 <span className={styles.stackBadge}>Core Web Vitals & CRO</span>
               </div>
             </div>
@@ -507,8 +539,10 @@ export const ArthurPortfolioView: React.FC = () => {
 
           <div className={styles.servicesGrid}>
             {/* Modelo 1 */}
-            <div className={styles.serviceCard}>
-              <span className={`${styles.serviceDurationBadge} ${styles.monoFont}`}>Sprint de 3 a 4 Semanas</span>
+            <div className={`${styles.serviceCard} ${styles.serviceCardAudit}`}>
+              <div className={styles.serviceHeaderTop}>
+                <span className={`${styles.serviceDurationBadge} ${styles.monoFont}`}>Sprint de 3 a 4 Semanas</span>
+              </div>
               <h3 className={`${styles.serviceTitle} ${styles.headingFont}`}>Diagnóstico Completo dos 4 Pilares</h3>
               <p className={styles.serviceOverview}>
                 Raio-X prático em tráfego, SEO/GEO, tecnologia e catálogo para estancar perdas e priorizar retornos rápidos ao caixa.
@@ -531,7 +565,10 @@ export const ArthurPortfolioView: React.FC = () => {
 
             {/* Modelo 2: Destaque */}
             <div className={`${styles.serviceCard} ${styles.serviceFeaturedCard}`}>
-              <span className={`${styles.serviceDurationBadge} ${styles.monoFont}`}>Acompanhamento Mensal Contínuo</span>
+              <div className={styles.serviceHeaderTop}>
+                <span className={`${styles.serviceDurationBadge} ${styles.monoFont}`}>Acompanhamento Mensal</span>
+                <span className={`${styles.featuredBadge} ${styles.monoFont}`}>Mais Procurado</span>
+              </div>
               <h3 className={`${styles.serviceTitle} ${styles.headingFont}`}>Consultoria Prática com Acompanhamento</h3>
               <p className={styles.serviceOverview}>
                 Atuação direta com sua equipe para executar as melhorias dos 4 pilares e aumentar o lucro líquido mês a mês.
@@ -546,16 +583,17 @@ export const ArthurPortfolioView: React.FC = () => {
                 href={`https://wa.me/5519993497819?text=${encodeURIComponent('Olá Arthur, gostaria de entender a Consultoria Contínua para o meu negócio.')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.btnServiceCta}
-                style={{ backgroundColor: '#2E6F40', borderColor: '#2E6F40' }}
+                className={`${styles.btnServiceCta} ${styles.btnServiceFeatured}`}
               >
                 Contratar Consultoria ↗
               </a>
             </div>
 
             {/* Modelo 3 */}
-            <div className={styles.serviceCard}>
-              <span className={`${styles.serviceDurationBadge} ${styles.monoFont}`}>Atuação Trimestral ou Semestral</span>
+            <div className={`${styles.serviceCard} ${styles.serviceCardLeadership}`}>
+              <div className={styles.serviceHeaderTop}>
+                <span className={`${styles.serviceDurationBadge} ${styles.monoFont}`}>Atuação Trimestral ou Semestral</span>
+              </div>
               <h3 className={`${styles.serviceTitle} ${styles.headingFont}`}>Liderança de E-commerce Fracionada</h3>
               <p className={styles.serviceOverview}>
                 Direção executiva gerenciando os 4 pilares de ponta a ponta sem o alto custo fixo de um diretor em tempo integral.

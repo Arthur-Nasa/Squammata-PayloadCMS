@@ -449,30 +449,42 @@
 .logoItem {
   display: inline-flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.75rem;
   text-decoration: none;
-  color: #CDC6B8;
+  color: #DDD7CD;
   font-size: 1.1rem;
   font-weight: 600;
-  padding: 0.65rem 1.1rem;
+  padding: 0.55rem 0.95rem;
   border-radius: 6px;
-  background-color: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   transition: background-color 0.2s ease, border-color 0.2s ease;
-
-  img {
-    height: 26px;
-    max-height: 26px;
-    width: auto;
-    max-width: 90px;
-    border-radius: 4px;
-    object-fit: contain;
-  }
 
   &:hover {
     color: #FFFFFF;
-    border-color: rgba(255, 255, 255, 0.16);
-    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.06);
+  }
+}
+
+.logoBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF;
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  height: 32px;
+  min-width: 40px;
+
+  img {
+    height: 22px;
+    max-height: 22px;
+    width: auto;
+    max-width: 85px;
+    object-fit: contain;
+    display: block;
+    border-radius: 0;
   }
 }
 
@@ -555,57 +567,95 @@
 /* --- 4. MODELOS DE ATUAÇÃO E SERVIÇOS (VENDÁVEL) --- */
 .servicesSection {
   padding: 5.5rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background-color: #0E1310;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #0C100E;
 }
 
 .servicesGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1.75rem;
+  align-items: stretch;
 }
 
 .serviceCard {
-  background-color: #141A16;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #141C17;
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 8px;
   padding: 2.4rem 2rem;
   display: flex;
   flex-direction: column;
   position: relative;
   box-shadow: none;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
 
   &:hover {
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.28);
+    background-color: #17221B;
     transform: none;
     box-shadow: none;
   }
 }
 
+.serviceCardAudit {
+  border-top: 4px solid #C87D55;
+}
+
 .serviceFeaturedCard {
-  border-color: #2E6F40;
-  background-color: #16201A;
+  border-top: 4px solid #4E9B60;
+  border-color: rgba(78, 155, 96, 0.5);
+  background-color: #17241D;
   box-shadow: none;
 
   &:hover {
-    border-color: #38844D;
+    border-color: #4E9B60;
+    background-color: #1A2A21;
     box-shadow: none;
   }
 }
 
+.serviceCardLeadership {
+  border-top: 4px solid #D4AF37;
+}
+
+.serviceHeaderTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.1rem;
+}
+
 .serviceDurationBadge {
-  display: inline-block;
-  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.88rem;
   font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #DDD7CD;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+}
+
+.featuredBadge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #C87D55;
-  margin-bottom: 0.75rem;
+  background-color: #2E6F40;
+  color: #FFFFFF;
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
 }
 
 .serviceTitle {
-  font-size: 1.8rem;
+  font-size: 1.85rem;
   font-weight: 700;
   color: #FFFFFF;
   margin-bottom: 0.85rem;
@@ -615,24 +665,24 @@
 .serviceOverview {
   font-size: 1.25rem;
   color: #CDC6B8;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.6rem;
   line-height: 1.65;
 }
 
 .serviceList {
   list-style: none;
   padding: 0;
-  margin: 0 0 2rem 0;
+  margin: 0 0 2.2rem 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.85rem;
   flex-grow: 1;
 
   li {
     font-size: 1.18rem;
-    color: #F4F0E8;
+    color: #FFFFFF;
     position: relative;
-    padding-left: 1.6rem;
+    padding-left: 1.65rem;
     line-height: 1.55;
 
     &::before {
@@ -640,7 +690,8 @@
       position: absolute;
       left: 0;
       color: #4E9B60;
-      font-weight: 700;
+      font-weight: 800;
+      font-size: 1.2rem;
     }
   }
 }
@@ -650,15 +701,15 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.04);
+  background-color: #202C24;
   color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  padding: 1.05rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  padding: 1.15rem 1.6rem;
   border-radius: 6px;
-  font-weight: 600;
-  font-size: 1.15rem;
+  font-weight: 700;
+  font-size: 1.18rem;
   text-decoration: none;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   margin-top: auto;
   box-shadow: none;
 
@@ -668,6 +719,16 @@
     color: #FFFFFF;
     transform: none;
     box-shadow: none;
+  }
+}
+
+.btnServiceFeatured {
+  background-color: #2E6F40;
+  border-color: #38844D;
+
+  &:hover {
+    background-color: #38844D;
+    border-color: #4E9B60;
   }
 }
 
@@ -748,18 +809,28 @@
 .stackBadge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.025);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  gap: 0.55rem;
+  background-color: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   padding: 0.45rem 0.95rem;
   border-radius: 6px;
   font-size: 1rem;
   color: #DDD7CD;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
 
   img {
     width: 18px;
     height: 18px;
     object-fit: contain;
+    border-radius: 2px;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.18);
+    background-color: rgba(255, 255, 255, 0.06);
+    color: #FFFFFF;
   }
 }
 
