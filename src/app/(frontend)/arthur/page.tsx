@@ -10,9 +10,9 @@ const personSchema = {
       '@id': 'https://linkedin.com/in/arthurnasa#person',
       name: 'Arthur Saggioratto',
       alternateName: ['Arthur Saggioratto Neto', 'Arthur Nasa'],
-      jobTitle: 'Head of E-commerce, Growth & Senior SEO/CRO Specialist',
+      jobTitle: 'Executivo de E-commerce | Tráfego, SEO & GEO, Tecnologia e Marca',
       description:
-        'Executivo de E-commerce, Growth e Performance com 15 anos de experiência a liderar operações digitais B2C, B2B e SaaS global, especialista em SEO Técnico, GEO, CRO e Retail Media.',
+        'Executivo de E-commerce e Consultor com 15 anos de atuação estruturada em 4 pilares: Gestão de Tráfego, SEO/GEO e Conteúdo, Implementação e Tecnologia, e Desenvolvimento de Marca e Produto.',
       url: 'https://linkedin.com/in/arthurnasa',
       email: 'mailto:arthur.saggioratto@gmail.com',
       telephone: '+55-19-99349-7819',
@@ -40,15 +40,13 @@ const personSchema = {
         taxID: '31.384.814/0001-09',
       },
       knowsAbout: [
-        'Technical SEO',
-        'Generative Engine Optimization (GEO)',
+        'E-commerce Strategy & Management',
+        'Gestão de Tráfego e Mídia de Performance (Google Ads, Meta Ads)',
+        'SEO Técnico, GEO (Generative Engine Optimization) e Estratégia de Conteúdo',
+        'Implementação e Tecnologia de E-commerce (Shopify Plus, VTEX, Next.js)',
+        'Desenvolvimento de Marca e Produto (Branding, Catálogo e Private Label)',
         'Conversion Rate Optimization (CRO)',
-        'E-commerce Architecture',
-        'Shopify Plus',
-        'Magento',
-        'VTEX',
-        'Retail Media',
-        'Unit Economics',
+        'Unit Economics, POAS e Otimização de Margem',
         'Schema.org JSON-LD',
       ],
       sameAs: [
@@ -61,22 +59,22 @@ const personSchema = {
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Arthur Saggioratto | Consultoria de E-commerce, Growth & SEO Técnico',
+    absolute: 'Arthur Saggioratto | E-commerce: Tráfego, SEO & GEO, Tecnologia e Marca',
   },
   description:
-    'Currículo executivo e consultoria estratégica de Arthur Saggioratto. 15 anos acelerando negócios digitais, arquitetura de e-commerce e crescimento com lucro real no fechamento do DRE.',
+    'Portfólio executivo e consultoria de Arthur Saggioratto. 15 anos acelerando e-commerces em 4 pilares: Gestão de Tráfego, SEO/GEO & Conteúdo, Implementação & Tecnologia e Desenvolvimento de Marca & Produto.',
   openGraph: {
-    title: 'Arthur Saggioratto | Consultoria de E-commerce, Growth & SEO Técnico',
+    title: 'Arthur Saggioratto | E-commerce: Tráfego, SEO & GEO, Tecnologia e Marca',
     description:
-      'Currículo online executivo, trajetória e consultoria estratégica de e-commerce no Brasil. 15 anos gerando resultados no varejo e indústria digital.',
+      'Portfólio executivo e consultoria de e-commerce no Brasil. Atuação integrada em Tráfego Pago, SEO/GEO, Tecnologia e Desenvolvimento de Marca e Produto.',
     url: 'https://linkedin.com/in/arthurnasa',
-    siteName: 'Arthur Saggioratto | Currículo Executivo & Consultoria',
+    siteName: 'Arthur Saggioratto | Portfólio Executivo & Consultoria',
     images: [
       {
         url: '/arthur-saggioratto.jpg',
         width: 600,
         height: 600,
-        alt: 'Arthur Saggioratto - Consultor e Head de E-commerce, Growth & SEO Técnico',
+        alt: 'Arthur Saggioratto - Consultor e Head de E-commerce',
       },
     ],
     locale: 'pt_BR',
@@ -84,9 +82,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary',
-    title: 'Arthur Saggioratto | Consultoria de E-commerce, Growth & SEO Técnico',
+    title: 'Arthur Saggioratto | E-commerce: Tráfego, SEO & GEO, Tecnologia e Marca',
     description:
-      '15 anos acelerando e-commerces no Brasil com SEO Técnico, otimização de conversão e foco no lucro líquido real.',
+      '15 anos acelerando e-commerces em 4 pilares: Tráfego, SEO & GEO, Tecnologia e Marca.',
     images: ['/arthur-saggioratto.jpg'],
   },
 }

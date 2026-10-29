@@ -62,17 +62,17 @@ export const ArthurPortfolioView: React.FC = () => {
               </div>
               <div className={styles.navBrandText}>
                 <span className={`${styles.navBrandName} ${styles.headingFont}`}>Arthur Saggioratto</span>
-                <span className={`${styles.navBrandRole} ${styles.monoFont}`}>E-commerce & Growth</span>
+                <span className={`${styles.navBrandRole} ${styles.monoFont}`}>E-commerce & 4 Pilares</span>
               </div>
             </a>
 
             {/* Links Centrais de Navegação */}
             <div className={styles.navLinks}>
               <a href="#sobre" className={styles.navLinkItem}>Sobre</a>
-              <a href="#curriculo" className={styles.navLinkItem}>Currículo</a>
-              <a href="#impacto" className={styles.navLinkItem}>Impacto</a>
-              <a href="#especialidades" className={styles.navLinkItem}>Especialidades</a>
-              <a href="#servicos" className={styles.navLinkItem}>Consultoria & Advisory</a>
+              <a href="#pilares" className={styles.navLinkItem}>4 Pilares</a>
+              <a href="#impacto" className={styles.navLinkItem}>Resultados</a>
+              <a href="#curriculo" className={styles.navLinkItem}>Trajetória & Casos</a>
+              <a href="#servicos" className={styles.navLinkItem}>Como Contratar</a>
               <a href="#publicacoes" className={styles.navLinkItem}>Formação</a>
             </div>
 
@@ -115,15 +115,15 @@ export const ArthurPortfolioView: React.FC = () => {
             {/* Coluna 1: Posicionamento e Proposta de Valor Concreta */}
             <div className={styles.heroTextCol}>
               <div className={styles.editorialBadge}>
-                <span className={styles.monoFont}>15 ANOS NO E-COMMERCE BRASILEIRO • INTERIOR DE SP • FORMAÇÃO UNICAMP</span>
+                <span className={styles.monoFont}>E-COMMERCE • TRÁFEGO • SEO & GEO • TECNOLOGIA • MARCA & PRODUTO</span>
               </div>
 
               <h1 className={`${styles.heroTitle} ${styles.headingFont}`}>
-                Mais Vendas e Lucro Real no E-commerce: SEO, Loja Virtual e Gestão de Anúncios sem Desperdício
+                E-commerce Estruturado em 4 Pilares: Tráfego, SEO & GEO, Tecnologia e Marca
               </h1>
 
               <p className={`${styles.heroSubtitle} ${styles.bodyFont}`}>
-                Faturamento alto não adianta se o lucro não sobra. Ajudo lojistas a venderem mais pelo Google, cortarem desperdícios em anúncios pagos, destravarem o frete e aumentarem as vendas pelo WhatsApp.
+                Minha carreira é focada em e-commerce com uma atuação completa: atrair tráfego qualificado, dominar buscas no Google e nas novas IAs, implementar plataformas ágeis e desenvolver marcas e produtos com margem real e clientes fiéis.
               </p>
 
               <div className={styles.ctaGroup}>
@@ -141,17 +141,17 @@ export const ArthurPortfolioView: React.FC = () => {
                 </a>
 
                 <a
-                  href="#curriculo"
+                  href="#pilares"
                   className={`${styles.btnSecondary} ${styles.headingFont}`}
                 >
-                  <span>Ver Casos Reais e Trajetória</span>
+                  <span>Conhecer os 4 Pilares</span>
                 </a>
 
                 <a
-                  href="#servicos"
+                  href="#curriculo"
                   className={`${styles.btnSecondary} ${styles.headingFont}`}
                 >
-                  <span>Como Funciona a Consultoria</span>
+                  <span>Ver Trajetória e Casos</span>
                 </a>
               </div>
             </div>
@@ -178,22 +178,22 @@ export const ArthurPortfolioView: React.FC = () => {
                   </div>
 
                   <h2 className={`${styles.profileName} ${styles.headingFont}`}>Arthur Saggioratto</h2>
-                  <p className={styles.profileTitle}>Especialista em E-commerce, Vendas Online & Crescimento com Lucro</p>
+                  <p className={styles.profileTitle}>Executivo de E-commerce | Tráfego, SEO & GEO, Tecnologia e Marca</p>
                   <p className={`${styles.profileLocation} ${styles.monoFont}`}>Santa Bárbara d&apos;Oeste / Campinas, SP</p>
                 </div>
 
                 <div className={styles.profileStatsGrid}>
                   <div className={styles.statItem}>
                     <div className={`${styles.statItemValue} ${styles.monoFont}`}>15 Anos</div>
-                    <div className={styles.statItemLabel}>Experiência Prática</div>
+                    <div className={styles.statItemLabel}>No E-commerce</div>
+                  </div>
+                  <div className={styles.statItem}>
+                    <div className={`${styles.statItemValue} ${styles.monoFont}`}>4 Pilares</div>
+                    <div className={styles.statItemLabel}>Atuação 360°</div>
                   </div>
                   <div className={styles.statItem}>
                     <div className={`${styles.statItemValue} ${styles.monoFont}`}>B2C & B2B</div>
                     <div className={styles.statItemLabel}>Varejo e Indústria</div>
-                  </div>
-                  <div className={styles.statItem}>
-                    <div className={`${styles.statItemValue} ${styles.monoFont}`}>+100 Lojas</div>
-                    <div className={styles.statItemLabel}>Marcas Integradas</div>
                   </div>
                   <div className={styles.statItem}>
                     <div className={`${styles.statItemValue} ${styles.monoFont}`}>UNICAMP</div>
@@ -339,16 +339,169 @@ export const ArthurPortfolioView: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. MODELOS DE ATUAÇÃO E SERVIÇOS (COMO TRABALHAMOS) */}
+      {/* 4. OS 4 PILARES PROFISSIONAIS DE ATUAÇÃO */}
+      <section className={styles.pillarsSection} id="pilares">
+        <div className={styles.container}>
+          <div className={styles.sectionHeader}>
+            <div className={`${styles.sectionBadge} ${styles.monoFont}`}>Especialidades Integradas</div>
+            <h2 className={`${styles.sectionTitle} ${styles.headingFont}`}>
+              Os 4 Pilares da Minha Atuação no E-commerce
+            </h2>
+            <p className={styles.sectionDesc}>
+              Uma trajetória sólida no varejo digital não se apoia em uma única habilidade. Conecto aquisição de tráfego, autoridade orgânica, infraestrutura tecnológica e construção de marca para garantir crescimento sustentável e lucro líquido no caixa.
+            </p>
+          </div>
+
+          <div className={styles.bentoGrid}>
+            {/* Pilar 1 */}
+            <div className={styles.pillarCard}>
+              <div className={styles.pillarHeader}>
+                <span className={`${styles.pillarNumber} ${styles.monoFont}`}>PILAR 01 &bull; AQUISIÇÃO & RENTABILIDADE</span>
+              </div>
+              <h3 className={`${styles.pillarTitle} ${styles.headingFont}`}>
+                Gestão de Tráfego & Mídia de Performance
+              </h3>
+              <div className={styles.pillarBody}>
+                <p>
+                  Planejamento e gestão de mídia paga com foco obsessivo em margem de contribuição (POAS e ROAS real). Chega de comemorar números inflados em relatórios enquanto o dinheiro não sobra no banco.
+                </p>
+                <p>
+                  Execução técnica em Google Ads (Search, Shopping e PMax), Meta Ads e Marketplaces (Mercado Ads). Corte cirúrgico de termos que queimam verba, esteiras de retargeting e reativação de clientes antigos com baixo CAC.
+                </p>
+              </div>
+              <div className={styles.stackList}>
+                <span className={styles.stackBadge}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="https://cdn.simpleicons.org/googleads/4285F4" alt="Google Ads" />
+                  Google Ads (Search & Shopping)
+                </span>
+                <span className={styles.stackBadge}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="https://cdn.simpleicons.org/meta/0081FB" alt="Meta Ads" />
+                  Meta Ads
+                </span>
+                <span className={styles.stackBadge}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="https://cdn.simpleicons.org/mercadopago/FFE600" alt="Mercado Ads" />
+                  Mercado Ads
+                </span>
+                <span className={styles.stackBadge}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="https://cdn.simpleicons.org/looker/4285F4" alt="Looker" />
+                  Looker Studio
+                </span>
+                <span className={styles.stackBadge}>POAS & Margem Real</span>
+                <span className={styles.stackBadge}>GA4 & Métricas de Funil</span>
+              </div>
+            </div>
+
+            {/* Pilar 2 */}
+            <div className={styles.pillarCard}>
+              <div className={styles.pillarHeader}>
+                <span className={`${styles.pillarNumber} ${styles.monoFont}`}>PILAR 02 &bull; BUSCA ORGÂNICA & IA</span>
+              </div>
+              <h3 className={`${styles.pillarTitle} ${styles.headingFont}`}>
+                SEO, GEO e Estratégia de Conteúdo
+              </h3>
+              <div className={styles.pillarBody}>
+                <p>
+                  Domínio e visibilidade em pesquisas tradicionais (Google Search) e nos novos mecanismos de busca por inteligência artificial generativa (Generative Engine Optimization / GEO para Google AI Overviews, ChatGPT e Perplexity).
+                </p>
+                <p>
+                  Arquitetura de informação escalável para categorias e produtos, topic clusters editoriais e dados estruturados avançados que educam o consumidor e geram vendas consistentes sem depender de pagar pedágio por clique.
+                </p>
+              </div>
+              <div className={styles.stackList}>
+                <span className={styles.stackBadge}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="https://cdn.simpleicons.org/semrush/FF642D" alt="Semrush" />
+                  Semrush
+                </span>
+                <span className={styles.stackBadge}>Ahrefs</span>
+                <span className={styles.stackBadge}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="https://cdn.simpleicons.org/googlesearchconsole/458CF5" alt="GSC" />
+                  Google Search Console
+                </span>
+                <span className={styles.stackBadge}>GEO (AI Search & LLMs)</span>
+                <span className={styles.stackBadge}>Schema.org JSON-LD</span>
+                <span className={styles.stackBadge}>Topic Clusters</span>
+              </div>
+            </div>
+
+            {/* Pilar 3 */}
+            <div className={styles.pillarCard}>
+              <div className={styles.pillarHeader}>
+                <span className={`${styles.pillarNumber} ${styles.monoFont}`}>PILAR 03 &bull; ENGENHARIA & PLATAFORMA</span>
+              </div>
+              <h3 className={`${styles.pillarTitle} ${styles.headingFont}`}>
+                Implementação e Tecnologia de E-commerce
+              </h3>
+              <div className={styles.pillarBody}>
+                <p>
+                  Engenharia e infraestrutura de e-commerce robusta, rápida e estável. Implantação e customização em Shopify Plus, VTEX, WooCommerce e ecossistemas modernos (Next.js e PayloadCMS).
+                </p>
+                <p>
+                  Integração sem falhas entre loja virtual, ERPs (Bling, Tiny) e operadores logísticos. Destravamento do checkout, eliminação de atrito no frete e Core Web Vitals no verde para elevar a taxa de conversão (CRO).
+                </p>
+              </div>
+              <div className={styles.stackList}>
+                <span className={styles.stackBadge}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="https://cdn.simpleicons.org/shopify/95BF47" alt="Shopify" />
+                  Shopify Plus
+                </span>
+                <span className={styles.stackBadge}>VTEX</span>
+                <span className={styles.stackBadge}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="https://cdn.simpleicons.org/woocommerce/96588A" alt="WooCommerce" />
+                  WooCommerce
+                </span>
+                <span className={styles.stackBadge}>Next.js & React</span>
+                <span className={styles.stackBadge}>Bling e Tiny ERP</span>
+                <span className={styles.stackBadge}>Core Web Vitals & CRO</span>
+              </div>
+            </div>
+
+            {/* Pilar 4 */}
+            <div className={styles.pillarCard}>
+              <div className={styles.pillarHeader}>
+                <span className={`${styles.pillarNumber} ${styles.monoFont}`}>PILAR 04 &bull; BRANDING, CATÁLOGO & LTV</span>
+              </div>
+              <h3 className={`${styles.pillarTitle} ${styles.headingFont}`}>
+                Desenvolvimento de Marca e Produto
+              </h3>
+              <div className={styles.pillarBody}>
+                <p>
+                  Construção de marca com proposta de valor clara, posicionamento competitivo e diferenciação para não virar commodity em guerra predatória de preços.
+                </p>
+                <p>
+                  Curadoria e expansão de mix de catálogo, desenvolvimento de linhas próprias (private label), precificação estratégica e experiência de unboxing e pós-venda para transformar compradores esporádicos em clientes fiéis de alto LTV.
+                </p>
+              </div>
+              <div className={styles.stackList}>
+                <span className={styles.stackBadge}>Branding & Posicionamento</span>
+                <span className={styles.stackBadge}>Curadoria de Catálogo</span>
+                <span className={styles.stackBadge}>Marca Própria (Private Label)</span>
+                <span className={styles.stackBadge}>Precificação Estratégica</span>
+                <span className={styles.stackBadge}>Experiência & Unboxing</span>
+                <span className={styles.stackBadge}>Retenção & LTV</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. MODELOS DE ATUAÇÃO E SERVIÇOS (COMO TRABALHAMOS) */}
       <section className={styles.servicesSection} id="servicos">
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
             <div className={`${styles.sectionBadge} ${styles.monoFont}`}>Formatos de Contratação</div>
             <h2 className={`${styles.sectionTitle} ${styles.headingFont}`}>
-              Como Podemos Trabalhar Juntos
+              Como Contratar Minha Atuação
             </h2>
             <p className={styles.sectionDesc}>
-              Formatos práticos e focados em retorno rápido, adaptados ao momento da sua empresa.
+              Modelos flexíveis para aplicar os 4 pilares no seu negócio, seja em auditorias pontuais, acompanhamento contínuo ou liderança executiva fracionada.
             </p>
           </div>
 
@@ -356,18 +509,18 @@ export const ArthurPortfolioView: React.FC = () => {
             {/* Modelo 1 */}
             <div className={styles.serviceCard}>
               <span className={`${styles.serviceDurationBadge} ${styles.monoFont}`}>Sprint de 3 a 4 Semanas</span>
-              <h3 className={`${styles.serviceTitle} ${styles.headingFont}`}>Diagnóstico Completo da Loja Virtual</h3>
+              <h3 className={`${styles.serviceTitle} ${styles.headingFont}`}>Diagnóstico Completo dos 4 Pilares</h3>
               <p className={styles.serviceOverview}>
-                Raio-X prático para parar de queimar dinheiro em anúncios e descobrir por que os clientes desistem da compra.
+                Raio-X prático em tráfego, SEO/GEO, tecnologia e catálogo para estancar perdas e priorizar retornos rápidos ao caixa.
               </p>
               <ul className={styles.serviceList}>
-                <li>Auditoria no Google: destravar páginas e produtos para ranquear no topo</li>
-                <li>Gargalos de checkout: frete que assusta, lentidão e abandono no carrinho</li>
-                <li>Revisão de anúncios: corte imediato de verba desperdiçada em cliques sem venda</li>
-                <li>Plano prático priorizado: lista direta do que traz retorno rápido ao caixa</li>
+                <li>Auditoria de Mídia: corte imediato de verba desperdiçada em anúncios sem venda</li>
+                <li>Auditoria de SEO & GEO: destravar categorias e produtos para buscas tradicionais e de IA</li>
+                <li>Revisão Técnica & Checkout: frete, velocidade mobile e atritos no carrinho</li>
+                <li>Análise de Catálogo & Margem: ajuste de mix, precificação e oportunidades de produto</li>
               </ul>
               <a
-                href={`https://wa.me/5519993497819?text=${encodeURIComponent('Olá Arthur, tenho interesse no Diagnóstico Completo para minha loja virtual.')}`}
+                href={`https://wa.me/5519993497819?text=${encodeURIComponent('Olá Arthur, tenho interesse no Diagnóstico Completo dos 4 Pilares para o meu e-commerce.')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.btnServiceCta}
@@ -379,15 +532,15 @@ export const ArthurPortfolioView: React.FC = () => {
             {/* Modelo 2: Destaque */}
             <div className={`${styles.serviceCard} ${styles.serviceFeaturedCard}`}>
               <span className={`${styles.serviceDurationBadge} ${styles.monoFont}`}>Acompanhamento Mensal Contínuo</span>
-              <h3 className={`${styles.serviceTitle} ${styles.headingFont}`}>Consultoria com Acompanhamento Prático</h3>
+              <h3 className={`${styles.serviceTitle} ${styles.headingFont}`}>Consultoria Prática com Acompanhamento</h3>
               <p className={styles.serviceOverview}>
-                Atuação direta com sua equipe para executar as melhorias e aumentar o lucro líquido mês a mês.
+                Atuação direta com sua equipe para executar as melhorias dos 4 pilares e aumentar o lucro líquido mês a mês.
               </p>
               <ul className={styles.serviceList}>
-                <li>Reuniões quinzenais para analisar vendas, margem real e eficiência de mídia</li>
-                <li>Otimização de Google Ads e Meta Ads para reduzir o custo de aquisição</li>
-                <li>Melhorias no carrinho e implantação de vendas assistidas via WhatsApp</li>
-                <li>Criação de páginas que atraem compradores no Google sem custo por clique</li>
+                <li>Otimização contínua de Google Ads, Meta Ads e canais de tráfego com foco em POAS</li>
+                <li>Criação e expansão de páginas orgânicas e conteúdos técnicos para Google e IAs</li>
+                <li>Melhorias na plataforma, integrações de ERP e vendas assistidas via WhatsApp</li>
+                <li>Refinamento de catálogo, experiência de unboxing e estratégias de recompra</li>
               </ul>
               <a
                 href={`https://wa.me/5519993497819?text=${encodeURIComponent('Olá Arthur, gostaria de entender a Consultoria Contínua para o meu negócio.')}`}
@@ -405,13 +558,13 @@ export const ArthurPortfolioView: React.FC = () => {
               <span className={`${styles.serviceDurationBadge} ${styles.monoFont}`}>Atuação Trimestral ou Semestral</span>
               <h3 className={`${styles.serviceTitle} ${styles.headingFont}`}>Liderança de E-commerce Fracionada</h3>
               <p className={styles.serviceOverview}>
-                Direção executiva e estratégica para o seu e-commerce sem o alto custo fixo de um diretor em tempo integral.
+                Direção executiva gerenciando os 4 pilares de ponta a ponta sem o alto custo fixo de um diretor em tempo integral.
               </p>
               <ul className={styles.serviceList}>
-                <li>Planejamento de metas de vendas, canais comerciais e posicionamento</li>
-                <li>Liderança na escolha ou migração de plataformas (Shopify, Nuvemshop, VTEX)</li>
-                <li>Gestão e cobrança técnica de fornecedores, agências parceiras e equipe</li>
-                <li>Relatórios diretos de vendas e rentabilidade para sócios e investidores</li>
+                <li>Planejamento estratégico de metas de vendas, canais comerciais e posicionamento</li>
+                <li>Liderança na escolha ou migração de plataformas (Shopify, VTEX, ERPs e parceiros)</li>
+                <li>Gestão e cobrança técnica de equipes internas, agências e desenvolvedores</li>
+                <li>Relatórios claros de rentabilidade, margem e unit economics para sócios e investidores</li>
               </ul>
               <a
                 href={`https://wa.me/5519993497819?text=${encodeURIComponent('Olá Arthur, quero conversar sobre o formato de Liderança Fracionada para minha empresa.')}`}
@@ -421,160 +574,6 @@ export const ArthurPortfolioView: React.FC = () => {
               >
                 Alinhar Liderança Fracionada ↗
               </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. OS 4 PILARES PRÁTICOS DE ESPECIALIDADE */}
-      <section className={styles.pillarsSection} id="especialidades">
-        <div className={styles.container}>
-          <div className={styles.sectionHeader}>
-            <div className={`${styles.sectionBadge} ${styles.monoFont}`}>O Que Faço na Prática</div>
-            <h2 className={`${styles.sectionTitle} ${styles.headingFont}`}>
-              Os 4 Pilares de um E-commerce Lucrativo
-            </h2>
-            <p className={styles.sectionDesc}>
-              A união entre técnica sólida, facilidade para o cliente comprar e foco rigoroso no lucro da sua empresa.
-            </p>
-          </div>
-
-          <div className={styles.bentoGrid}>
-            {/* Pilar 1 */}
-            <div className={styles.pillarCard}>
-              <div className={styles.pillarHeader}>
-                <span className={`${styles.pillarNumber} ${styles.monoFont}`}>PILAR 01</span>
-              </div>
-              <h3 className={`${styles.pillarTitle} ${styles.headingFont}`}>
-                Sua Loja no Topo do Google (SEO)
-              </h3>
-              <div className={styles.pillarBody}>
-                <p>
-                  Estruturo categorias e páginas de produto para você ranquear nas primeiras posições quando o cliente pesquisa para comprar. Mais vendas constantes sem pagar por clique.
-                </p>
-                <p>
-                  Otimização técnica para mecanismos de busca tradicionais e novos motores de resposta por inteligência artificial (Google AI e ChatGPT).
-                </p>
-              </div>
-              <div className={styles.stackList}>
-                <span className={styles.stackBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://cdn.simpleicons.org/googlesearchconsole/458CF5" alt="GSC" />
-                  Google Search Console
-                </span>
-                <span className={styles.stackBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://cdn.simpleicons.org/semrush/FF642D" alt="Semrush" />
-                  Semrush
-                </span>
-                <span className={styles.stackBadge}>Ahrefs</span>
-                <span className={styles.stackBadge}>Schema.org JSON-LD</span>
-                <span className={styles.stackBadge}>Core Web Vitals</span>
-              </div>
-            </div>
-
-            {/* Pilar 2 */}
-            <div className={styles.pillarCard}>
-              <div className={styles.pillarHeader}>
-                <span className={`${styles.pillarNumber} ${styles.monoFont}`}>PILAR 02</span>
-              </div>
-              <h3 className={`${styles.pillarTitle} ${styles.headingFont}`}>
-                Facilidade de Compra e Conversão (CRO)
-              </h3>
-              <div className={styles.pillarBody}>
-                <p>
-                  Elimino os gargalos que fazem o visitante desistir da compra: frete com cálculo assustador, checkout confuso ou lentidão na versão mobile.
-                </p>
-                <p>
-                  Mais pedidos fechados e maior ticket médio aproveitando melhor o tráfego que sua loja já recebe.
-                </p>
-              </div>
-              <div className={styles.stackList}>
-                <span className={styles.stackBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://cdn.simpleicons.org/googleanalytics/E37400" alt="GA4" />
-                  Google Analytics 4
-                </span>
-                <span className={styles.stackBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://cdn.simpleicons.org/googletagmanager/246FDB" alt="GTM" />
-                  Tag Manager
-                </span>
-                <span className={styles.stackBadge}>Mapas de Calor</span>
-                <span className={styles.stackBadge}>Testes A/B</span>
-              </div>
-            </div>
-
-            {/* Pilar 3 */}
-            <div className={styles.pillarCard}>
-              <div className={styles.pillarHeader}>
-                <span className={`${styles.pillarNumber} ${styles.monoFont}`}>PILAR 03</span>
-              </div>
-              <h3 className={`${styles.pillarTitle} ${styles.headingFont}`}>
-                Estoque, ERP e Logística Integrada
-              </h3>
-              <div className={styles.pillarBody}>
-                <p>
-                  Conexão direta da loja aos sistemas de gestão (Bling, Tiny) e operadores logísticos para envio rápido, sem atrasos e sem erros de estoque.
-                </p>
-                <p>
-                  Canais de atendimento ágil com fechamento pelo WhatsApp para produtos de valor mais alto e pedidos corporativos faturados no boleto.
-                </p>
-              </div>
-              <div className={styles.stackList}>
-                <span className={styles.stackBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://cdn.simpleicons.org/shopify/95BF47" alt="Shopify" />
-                  Shopify Plus
-                </span>
-                <span className={styles.stackBadge}>VTEX</span>
-                <span className={styles.stackBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://cdn.simpleicons.org/woocommerce/96588A" alt="WooCommerce" />
-                  WooCommerce
-                </span>
-                <span className={styles.stackBadge}>Bling e Tiny ERP</span>
-              </div>
-            </div>
-
-            {/* Pilar 4 */}
-            <div className={styles.pillarCard}>
-              <div className={styles.pillarHeader}>
-                <span className={`${styles.pillarNumber} ${styles.monoFont}`}>PILAR 04</span>
-              </div>
-              <h3 className={`${styles.pillarTitle} ${styles.headingFont}`}>
-                Anúncios Focados no Lucro Real
-              </h3>
-              <div className={styles.pillarBody}>
-                <p>
-                  Gestão estratégica de Google Ads, Meta Ads e Marketplaces sem queimar verba em cliques que não viram pedidos.
-                </p>
-                <p>
-                  Foco absoluto em margem de lucro, corte de palavras caras e campanhas eficientes para fazer clientes antigos voltarem a comprar.
-                </p>
-              </div>
-              <div className={styles.stackList}>
-                <span className={styles.stackBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://cdn.simpleicons.org/googleads/4285F4" alt="Google Ads" />
-                  Google Ads (Busca e Shopping)
-                </span>
-                <span className={styles.stackBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://cdn.simpleicons.org/meta/0081FB" alt="Meta Ads" />
-                  Meta Ads
-                </span>
-                <span className={styles.stackBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://cdn.simpleicons.org/mercadopago/FFE600" alt="Mercado Ads" />
-                  Mercado Ads
-                </span>
-                <span className={styles.stackBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://cdn.simpleicons.org/looker/4285F4" alt="Looker" />
-                  Looker Studio
-                </span>
-              </div>
             </div>
           </div>
         </div>
@@ -607,6 +606,12 @@ export const ArthurPortfolioView: React.FC = () => {
                 <div className={`${styles.caseMeta} ${styles.monoFont}`}>Janeiro 2024 a Presente | Atuação Híbrida</div>
                 <h3 className={`${styles.caseTitle} ${styles.headingFont}`}>Rua do Café</h3>
                 <div className={`${styles.caseRole} ${styles.monoFont}`}>Head de Marketing & E-commerce</div>
+                <div className={styles.stackList} style={{ marginBottom: '1.25rem' }}>
+                  <span className={styles.stackBadge}>Gestão de Tráfego</span>
+                  <span className={styles.stackBadge}>SEO, GEO & Conteúdo</span>
+                  <span className={styles.stackBadge}>Implementação & Tecnologia</span>
+                  <span className={styles.stackBadge}>Desenvolvimento de Marca</span>
+                </div>
                 <div className={styles.caseBody}>
                   <ul>
                     <li>
@@ -644,6 +649,12 @@ export const ArthurPortfolioView: React.FC = () => {
                 <div className={`${styles.caseMeta} ${styles.monoFont}`}>Janeiro 2024 a Outubro 2024 | Operação Internacional Remota</div>
                 <h3 className={`${styles.caseTitle} ${styles.headingFont}`}>Sheetgo</h3>
                 <div className={`${styles.caseRole} ${styles.monoFont}`}>Especialista Sênior em SEO & Conversão (Software Global B2B)</div>
+                <div className={styles.stackList} style={{ marginBottom: '1.25rem' }}>
+                  <span className={styles.stackBadge}>SEO Internacional</span>
+                  <span className={styles.stackBadge}>GEO & IA Search</span>
+                  <span className={styles.stackBadge}>Estratégia de Conteúdo</span>
+                  <span className={styles.stackBadge}>Conversão & CRO</span>
+                </div>
                 <div className={styles.caseBody}>
                   <ul>
                     <li>
@@ -678,6 +689,13 @@ export const ArthurPortfolioView: React.FC = () => {
                 <div className={`${styles.caseMeta} ${styles.monoFont}`}>Janeiro 2014 a Janeiro 2024 | 10 Anos de Liderança Contínua</div>
                 <h3 className={`${styles.caseTitle} ${styles.headingFont}`}>Máquinas & Café</h3>
                 <div className={`${styles.caseRole} ${styles.monoFont}`}>Gerente Geral de E-commerce & Operações</div>
+                <div className={styles.stackList} style={{ marginBottom: '1.25rem' }}>
+                  <span className={styles.stackBadge}>Liderança 360°</span>
+                  <span className={styles.stackBadge}>Gestão de Tráfego</span>
+                  <span className={styles.stackBadge}>SEO & Conteúdo</span>
+                  <span className={styles.stackBadge}>Tecnologia & ERP</span>
+                  <span className={styles.stackBadge}>Curadoria de Catálogo</span>
+                </div>
                 <div className={styles.caseBody}>
                   <ul>
                     <li>
@@ -722,6 +740,12 @@ export const ArthurPortfolioView: React.FC = () => {
                 <div className={`${styles.caseMeta} ${styles.monoFont}`}>2018 a Presente | Consultoria & Gestão de Projetos</div>
                 <h3 className={`${styles.caseTitle} ${styles.headingFont}`}>Squammata Consultoria & Gestão (Cope Calçados & Lojas 360 EPI)</h3>
                 <div className={`${styles.caseRole} ${styles.monoFont}`}>Trabalho executado através da Squammata, liderado por Arthur Saggioratto</div>
+                <div className={styles.stackList} style={{ marginBottom: '1.25rem' }}>
+                  <span className={styles.stackBadge}>Tráfego focado em Margem</span>
+                  <span className={styles.stackBadge}>Tecnologia & Checkout</span>
+                  <span className={styles.stackBadge}>Catálogo B2B e B2C</span>
+                  <span className={styles.stackBadge}>Vendas Assistidas WhatsApp</span>
+                </div>
                 <div className={styles.caseBody}>
                   <ul>
                     <li>
@@ -876,7 +900,7 @@ export const ArthurPortfolioView: React.FC = () => {
             </div>
 
             <div className={`${styles.entityInfo} ${styles.monoFont}`}>
-              <div><strong>Arthur Saggioratto</strong> | Consultor e Head de E-commerce, Growth & SEO Técnico</div>
+              <div><strong>Arthur Saggioratto</strong> | Executivo de E-commerce &bull; Tráfego, SEO/GEO, Tecnologia e Marca</div>
               <div>Razão Cadastral: 31.384.814 ARTHUR SAGGIORATTO NETO (CNPJ: 31.384.814/0001-09)</div>
               <div>Base Operacional: Santa Bárbara d&apos;Oeste e Campinas, SP (Atendimento Nacional e Global)</div>
               <div style={{ marginTop: '0.5rem', color: '#4E9B60' }}>
