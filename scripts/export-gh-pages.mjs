@@ -166,10 +166,9 @@ adaptedHtml = adaptedHtml.replace(
   '',
 )
 
-// Substituir menções e logotipos residuais da Squammata para garantir autonomia 100% standalone
+// Substituir menções e logotipos residuais institucionais da Squammata no layout global
 adaptedHtml = adaptedHtml
   .replaceAll('Squammata Consultoria e Gestão de Projetos Ltda.', 'Arthur Saggioratto Consultoria & Advisory')
-  .replaceAll('Squammata', 'Arthur Saggioratto')
   .replaceAll('/logo/squammata/squammata-lockup-horizontal-white.svg', './arthur-saggioratto.jpg')
   .replaceAll('id="squammata-theme-dynamic"', 'id="portfolio-theme-dynamic"')
   .replaceAll('Squammata Dynamic Theme Active Preset', 'Executive Dynamic Theme Active Preset')
