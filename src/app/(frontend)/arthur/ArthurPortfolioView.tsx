@@ -3,64 +3,10 @@
 import React, { useState, useEffect } from 'react'
 import styles from './arthur.module.scss'
 
-const SCHEMA_CODE = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'Person',
-      '@id': 'https://linkedin.com/in/arthurnasa#person',
-      name: 'Arthur Saggioratto',
-      alternateName: ['Arthur Saggioratto Neto', 'Arthur Nasa'],
-      jobTitle: 'Head of E-commerce, SEO & Growth',
-      description:
-        'Executivo de E-commerce, Growth e Especialista Sênior em SEO Técnico & CRO. Atuação focada na escala sustentável de receita (GMV) e saúde financeira (DRE/P&L), conectando arquitetura semântica, Inteligência Artificial Generativa (GEO/AEO), experimentação de conversão e mídia de performance.',
-      url: 'https://linkedin.com/in/arthurnasa',
-      email: 'mailto:arthur.saggioratto@gmail.com',
-      telephone: '+55-19-99349-7819',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: "Santa Bárbara d'Oeste",
-        addressRegion: 'SP',
-        addressCountry: 'BR',
-      },
-      alumniOf: [
-        {
-          '@type': 'CollegeOrUniversity',
-          name: 'Universidade Estadual de Campinas (UNICAMP)',
-          sameAs: 'https://www.unicamp.br/',
-        },
-        {
-          '@type': 'CollegeOrUniversity',
-          name: 'Faculdade de Administração e Artes de Limeira (FAAL)',
-        },
-      ],
-      worksFor: {
-        '@type': 'Organization',
-        name: 'Squammata Consultoria & Operações Estratégicas',
-        taxID: '31.384.814/0001-09',
-      },
-      knowsAbout: [
-        'SEO Técnico e Semântico',
-        'GEO (Generative Engine Optimization) e AEO',
-        'Conversion Rate Optimization (CRO)',
-        'Arquitetura de Plataformas de E-commerce (Shopify Plus, Magento, VTEX)',
-        'Mídia de Performance e Retail Media (Google Ads, Meta Ads, Mercado Ads)',
-        'Governança Financeira de E-commerce, Unit Economics, POAS e DRE/P&L',
-        'Schema.org JSON-LD e Web Semântica',
-        'Sociologia da Técnica e do Consumo',
-      ],
-      sameAs: [
-        'https://linkedin.com/in/arthurnasa',
-        'https://blog.ruadocafe.com.br/author/arthur/',
-      ],
-    },
-  ],
-}
+const CURRICULO_PDF_URL = 'https://drive.google.com/file/d/1kqXFuC4SN-vlFMez0RtELHqUe9Wk7RMr/view?usp=sharing'
 
 export const ArthurPortfolioView: React.FC = () => {
   const [avatarSrc, setAvatarSrc] = useState('./arthur-saggioratto.jpg')
-  const [isSchemaModalOpen, setIsSchemaModalOpen] = useState(false)
-  const [copied, setCopied] = useState(false)
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -73,16 +19,6 @@ export const ArthurPortfolioView: React.FC = () => {
     }
   }, [])
 
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isSchemaModalOpen) {
-        setIsSchemaModalOpen(false)
-      }
-    }
-    window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [isSchemaModalOpen])
-
   const handleImageFallback = (e: React.SyntheticEvent<HTMLImageElement>) => {
     const target = e.currentTarget
     if (!target.dataset.fallbackTried) {
@@ -92,16 +28,6 @@ export const ArthurPortfolioView: React.FC = () => {
       } else {
         target.src = './arthur-saggioratto.jpg'
       }
-    }
-  }
-
-  const handleCopySchema = async () => {
-    try {
-      await navigator.clipboard.writeText(JSON.stringify(SCHEMA_CODE, null, 2))
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2500)
-    } catch {
-      // Fallback silencioso
     }
   }
 
@@ -127,14 +53,14 @@ export const ArthurPortfolioView: React.FC = () => {
           </nav>
 
           <div className={styles.headerActions}>
-            <button
-              type="button"
-              onClick={() => setIsSchemaModalOpen(true)}
-              className={`${styles.btnSchema} ${styles.monoFont}`}
-              aria-label="Abrir especificações Schema.org JSON-LD"
+            <a
+              href={CURRICULO_PDF_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${styles.btnSecondary} ${styles.monoFont}`}
             >
-              <span>[ &#123; &#125; JSON-LD Schema ]</span>
-            </button>
+              <span>Imprimir Currículo (PDF) ↗</span>
+            </a>
 
             <a
               href="https://wa.me/5519993497819"
@@ -175,6 +101,15 @@ export const ArthurPortfolioView: React.FC = () => {
                     className={styles.btnHeroSolid}
                   >
                     <span>Iniciar Conversa Executiva (WhatsApp) ↗</span>
+                  </a>
+
+                  <a
+                    href={CURRICULO_PDF_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.btnHeroEditorial}
+                  >
+                    <span>Imprimir Currículo (PDF) ↗</span>
                   </a>
 
                   <a
@@ -237,7 +172,7 @@ export const ArthurPortfolioView: React.FC = () => {
                   <div className={styles.specRow}>
                     <span className={`${styles.specLabel} ${styles.monoFont}`}>Core Stack:</span>
                     <span className={`${styles.specValue} ${styles.monoFont}`}>
-                      Shopify Plus &bull; Magento &bull; VTEX &bull; GA4 &bull; GSC &bull; Screaming Frog &bull; Schema JSON-LD
+                      Shopify Plus &bull; Magento &bull; VTEX &bull; GA4 &bull; GSC &bull; Semrush &bull; Ahrefs &bull; Schema JSON-LD
                     </span>
                   </div>
                 </div>
@@ -289,15 +224,6 @@ export const ArthurPortfolioView: React.FC = () => {
                   className={styles.logoBadgeLink}
                 >
                   <span className={`${styles.logoSealText} ${styles.monoFont}`}>LOJAS 360 EPI</span>
-                </a>
-
-                <a
-                  href="https://www.midea.com/br"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.logoBadgeLink}
-                >
-                  <span className={`${styles.logoSealText} ${styles.monoFont}`}>MIDEA CARRIER</span>
                 </a>
 
                 <a
@@ -458,10 +384,9 @@ export const ArthurPortfolioView: React.FC = () => {
                       STACK &amp; ENTREGÁVEIS
                     </h4>
                     <div className={styles.tagsFlex}>
-                      <span className={`${styles.tagItem} ${styles.monoFont}`}>Screaming Frog</span>
-                      <span className={`${styles.tagItem} ${styles.monoFont}`}>Google Search Console</span>
+                      <span className={`${styles.tagItem} ${styles.monoFont}`}>Semrush</span>
                       <span className={`${styles.tagItem} ${styles.monoFont}`}>Ahrefs</span>
-                      <span className={`${styles.tagItem} ${styles.monoFont}`}>SEMrush</span>
+                      <span className={`${styles.tagItem} ${styles.monoFont}`}>Google Search Console</span>
                       <span className={`${styles.tagItem} ${styles.monoFont}`}>Core Web Vitals (LCP, INP, CLS)</span>
                       <span className={`${styles.tagItem} ${styles.monoFont}`}>JSON-LD</span>
                     </div>
@@ -722,7 +647,7 @@ export const ArthurPortfolioView: React.FC = () => {
                   </div>
                   <ul className={`${styles.caseBulletList} ${styles.bodyFont}`}>
                     <li>
-                      Condução da expansão internacional do tráfego orgânico voltado para o ecossistema de software B2B de automação de dados através de auditorias técnicas profundas com Screaming Frog, engenharia de Schema Markup e redes estruturadas de <em>Topic Clusters</em>.
+                      Condução da expansão internacional do tráfego orgânico voltado para o ecossistema de software B2B de automação de dados através de auditorias técnicas profundas com <strong>Semrush</strong> e <strong>Ahrefs</strong>, engenharia de Schema Markup e redes estruturadas de <em>Topic Clusters</em>.
                     </li>
                     <li>
                       Aumento de <strong>20% na duração média de sessão (<em>Average Session Duration</em>)</strong> mediante redesign de usabilidade, otimização de interfaces de produto e refinamento contínuo da jornada de ativação do usuário.
@@ -753,8 +678,8 @@ export const ArthurPortfolioView: React.FC = () => {
                     </div>
                   </div>
                   <div className={styles.caseStackTags}>
-                    <span className={`${styles.miniTag} ${styles.monoFont}`}>Screaming Frog</span>
-                    <span className={`${styles.miniTag} ${styles.monoFont}`}>Ahrefs &amp; Semrush</span>
+                    <span className={`${styles.miniTag} ${styles.monoFont}`}>Semrush</span>
+                    <span className={`${styles.miniTag} ${styles.monoFont}`}>Ahrefs</span>
                     <span className={`${styles.miniTag} ${styles.monoFont}`}>Heatmaps</span>
                     <span className={`${styles.miniTag} ${styles.monoFont}`}>Testes A/B</span>
                   </div>
@@ -884,7 +809,7 @@ export const ArthurPortfolioView: React.FC = () => {
                   </div>
                   <ul className={`${styles.caseBulletList} ${styles.bodyFont}`}>
                     <li>
-                      Atuação consultiva estratégica para operações de varejo e indústria como <strong>Lojas 360 EPI</strong>, <strong>Midea</strong> e <strong>Cope Calçados</strong>.
+                      Atuação consultiva estratégica para operações de varejo e indústria como <strong>Lojas 360 EPI</strong> e <strong>Cope Calçados</strong>.
                     </li>
                     <li>
                       Diagnóstico avançado de <em>Unit Economics</em> e DRE, reestruturação de campanhas de Google Ads (Performance Max, Demand Gen e Search) com negativação semântica rigorosa e alocação orientada à margem de contribuição.
@@ -1137,6 +1062,15 @@ export const ArthurPortfolioView: React.FC = () => {
               </a>
 
               <a
+                href={CURRICULO_PDF_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.btnSecondary}
+              >
+                <span>Imprimir Currículo em PDF ↗</span>
+              </a>
+
+              <a
                 href="https://linkedin.com/in/arthurnasa"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -1144,14 +1078,6 @@ export const ArthurPortfolioView: React.FC = () => {
               >
                 <span>LinkedIn Oficial (/in/arthurnasa) ↗</span>
               </a>
-
-              <button
-                type="button"
-                onClick={() => setIsSchemaModalOpen(true)}
-                className={`${styles.btnSecondary} ${styles.monoFont}`}
-              >
-                <span>[ &#123; &#125; JSON-LD Schema ]</span>
-              </button>
             </div>
           </div>
 
@@ -1165,80 +1091,6 @@ export const ArthurPortfolioView: React.FC = () => {
           </div>
         </div>
       </footer>
-
-      {/* MODAL INTERATIVO DE INSPEÇÃO DE SCHEMA.ORG (JSON-LD) */}
-      {isSchemaModalOpen && (
-        <div
-          className={styles.modalOverlay}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="schema-modal-title"
-          onClick={() => setIsSchemaModalOpen(false)}
-        >
-          <div
-            className={styles.modalCard}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className={styles.modalHeader}>
-              <div className={styles.modalTitleBlock}>
-                <span className={`${styles.modalBadge} ${styles.monoFont}`}>METADADOS ESTRUTURADOS</span>
-                <h3 id="schema-modal-title" className={`${styles.modalTitle} ${styles.headingFont}`}>
-                  Schema.org JSON-LD (Entidade Person: Arthur Saggioratto)
-                </h3>
-              </div>
-
-              <div className={styles.modalActions}>
-                <button
-                  type="button"
-                  onClick={handleCopySchema}
-                  className={`${styles.btnModalAction} ${styles.monoFont}`}
-                >
-                  {copied ? '✓ Código Copiado' : 'Copiar JSON-LD'}
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setIsSchemaModalOpen(false)}
-                  className={styles.btnModalClose}
-                  aria-label="Fechar modal"
-                >
-                  ✕
-                </button>
-              </div>
-            </div>
-
-            <div className={styles.modalBody}>
-              <pre className={`${styles.codeBlock} ${styles.monoFont}`}>
-                <code>{JSON.stringify(SCHEMA_CODE, null, 2)}</code>
-              </pre>
-            </div>
-
-            <div className={styles.modalFooter}>
-              <div className={`${styles.modalHelpText} ${styles.monoFont}`}>
-                Testado e validado conforme diretrizes da W3C e Google Rich Results.
-              </div>
-              <div className={styles.validatorLinks}>
-                <a
-                  href="https://validator.schema.org/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.validatorLink}
-                >
-                  Schema Validator ↗
-                </a>
-                <a
-                  href="https://search.google.com/test/rich-results"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.validatorLink}
-                >
-                  Google Rich Results Test ↗
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   )
 }
