@@ -57,7 +57,7 @@ export const ArthurPortfolioView: React.FC = () => {
               href={CURRICULO_PDF_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${styles.btnSecondary} ${styles.monoFont}`}
+              className={`${styles.btnSecondary} ${styles.headerCurriculoBtn} ${styles.monoFont}`}
             >
               <span>Imprimir Currículo (PDF) ↗</span>
             </a>
