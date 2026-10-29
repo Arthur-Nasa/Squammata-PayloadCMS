@@ -12,7 +12,7 @@ const personSchema = {
       alternateName: ['Arthur Saggioratto Neto', 'Arthur Nasa'],
       jobTitle: 'Head of E-commerce, SEO & Growth',
       description:
-        'Executivo de E-commerce, Growth e Especialista Sênior em SEO Técnico & CRO com 15 anos de trajetória em B2C, B2B e Global SaaS. Atuação focada na escala sustentável de receita (GMV) e saúde financeira (DRE/P&L), conectando arquitetura semântica, Inteligência Artificial Generativa (GEO/AEO), experimentação de conversão e mídia de performance.',
+        'Há 15 anos estruturo e lidero operações digitais de ponta a ponta: integrando engenharia de SEO e visibilidade em IA (GEO), otimização de conversão (CRO) e mídia de performance para escalar receita subordinada à saúde financeira do negócio (DRE/P&L).',
       url: 'https://linkedin.com/in/arthurnasa',
       email: 'mailto:arthur.saggioratto@gmail.com',
       telephone: '+55-19-99349-7819',
@@ -63,11 +63,11 @@ export const metadata: Metadata = {
     absolute: 'Arthur Saggioratto | Head of E-commerce, SEO & Growth',
   },
   description:
-    'Portfólio executivo e consultoria de Arthur Saggioratto. 15 anos de trajetória em B2C, B2B e Global SaaS: Engenharia de Crescimento Orgânico, Arquitetura de E-commerce e Proteção de Margem Operacional (DRE/P&L).',
+    'Portfólio executivo de Arthur Saggioratto. 15 anos liderando operações digitais: Arquitetura de E-commerce, Crescimento Orgânico e Proteção de Margem Operacional (DRE/P&L).',
   openGraph: {
     title: 'Arthur Saggioratto | Head of E-commerce, SEO & Growth',
     description:
-      'Executivo de E-commerce, Growth e Especialista Sênior em SEO Técnico & CRO. Escala sustentável de receita (GMV) e saúde financeira (DRE/P&L).',
+      'Arquitetura de E-commerce, Crescimento Orgânico e Proteção de Margem Operacional. Integração de SEO, GEO, CRO e mídia subordinados ao P&L.',
     url: 'https://linkedin.com/in/arthurnasa',
     siteName: 'Arthur Saggioratto | Portfólio Executivo Editorial',
     images: [

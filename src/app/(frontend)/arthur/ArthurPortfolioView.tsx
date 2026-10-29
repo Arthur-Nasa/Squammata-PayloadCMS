@@ -82,15 +82,15 @@ export const ArthurPortfolioView: React.FC = () => {
               {/* Coluna Esquerda: 8 Colunas */}
               <div className={styles.heroLeftCol}>
                 <div className={`${styles.heroEyebrow} ${styles.monoFont}`}>
-                  15 ANOS DE TRAJETÓRIA &bull; B2C, B2B &amp; GLOBAL SAAS &bull; CAMPINAS / SP
+                  15 ANOS DE OPERAÇÃO &bull; B2C, B2B &amp; GLOBAL SAAS &bull; CAMPINAS / SP
                 </div>
 
                 <h1 className={`${styles.heroH1} ${styles.headingFont}`}>
-                  Engenharia de Crescimento Orgânico, Arquitetura de E-commerce e Proteção de Margem Operacional.
+                  Arquitetura de E-commerce, Crescimento Orgânico e Proteção de Margem Operacional.
                 </h1>
 
                 <p className={`${styles.heroLead} ${styles.bodyFont}`}>
-                  Executivo de E-commerce, Growth e Especialista Sênior em SEO Técnico &amp; CRO. Atuação focada na escala sustentável de receita (GMV) e saúde financeira (DRE/P&amp;L), conectando arquitetura semântica, Inteligência Artificial Generativa (GEO/AEO), experimentação de conversão e mídia de performance.
+                  Há 15 anos estruturo e lidero operações digitais de ponta a ponta. Meu trabalho consiste em subordinar a tecnologia e a aquisição de tráfego à saúde financeira do negócio (DRE): integro engenharia de SEO e visibilidade em IA (GEO), otimização de conversão (CRO) e mídia de performance para escalar a receita sem corroer a margem de contribuição.
                 </p>
 
                 <div className={styles.heroActions}>
@@ -246,11 +246,11 @@ export const ArthurPortfolioView: React.FC = () => {
               <div>
                 <span className={`${styles.sectionEyebrow} ${styles.monoFont}`}>INDICADORES AUDITADOS</span>
                 <h2 className={`${styles.sectionTitle} ${styles.headingFont}`}>
-                  Performance Financeira, Escala de GMV e Eficiência Operacional
+                  Indicadores Auditados de Operação e Margem
                 </h2>
               </div>
               <p className={`${styles.sectionSubtext} ${styles.bodyFont}`}>
-                Métricas históricas de impacto direto em faturamento bruto, margem de contribuição e consolidação mercadológica.
+                Métricas consolidadas de impacto direto em faturamento, margem de contribuição e eficiência operacional.
               </p>
             </div>
 
@@ -264,7 +264,7 @@ export const ArthurPortfolioView: React.FC = () => {
                   ESCALA DE RECEITA &bull; RUA DO CAFÉ
                 </div>
                 <p className={`${styles.tabularDesc} ${styles.bodyFont}`}>
-                  Crescimento sustentado mês a mês viabilizado pela administração integral do orçamento de aquisição digital (Google Ads e Meta Ads) combinada à arquitetura de conversão.
+                  Escala mensal sustentada na Rua do Café. Resultado direto da alocação orçamentária em Google e Meta Ads ancorada em margem de contribuição e ajustes contínuos de conversão no funil.
                 </p>
               </div>
 
@@ -277,7 +277,7 @@ export const ArthurPortfolioView: React.FC = () => {
                   PROTEÇÃO DE MARGEM &bull; SEO TÉCNICO
                 </div>
                 <p className={`${styles.tabularDesc} ${styles.bodyFont}`}>
-                  Fatia do faturamento em pico sazonal gerada exclusivamente pelo canal orgânico via SEO Técnico e Arquitetura Semântica, reduzindo a dependência de leilões inflacionados.
+                  Participação da busca orgânica no faturamento de pico sazonal. Na prática, a maturidade semântica do catálogo blindou o caixa da operação contra a inflação do CPC no leilão de mídia paga.
                 </p>
               </div>
 
@@ -290,7 +290,7 @@ export const ArthurPortfolioView: React.FC = () => {
                   LIDERANÇA NACIONAL &bull; MÁQUINAS &amp; CAFÉ
                 </div>
                 <p className={`${styles.tabularDesc} ${styles.bodyFont}`}>
-                  Consolidação da marca como líder nacional em e-commerce B2C e B2B de máquinas de espresso, mantendo crescimento linear de 20% ao ano durante uma década (2014 a 2024).
+                  Uma década de crescimento linear de 20% ao ano na Máquinas &amp; Café (2014 a 2024), consolidando a operação B2C e B2B no mercado nacional de máquinas de espresso e equipamentos.
                 </p>
               </div>
 
@@ -303,33 +303,33 @@ export const ArthurPortfolioView: React.FC = () => {
                   EFICIÊNCIA DE FUNIL &bull; AQUISIÇÃO &amp; CRO
                 </div>
                 <p className={`${styles.tabularDesc} ${styles.bodyFont}`}>
-                  Incremento simultâneo de tráfego qualificado (+50%) e taxa de conversão geral (+30%) mediante automação de fluxos de captação e otimização transacional de loja virtual.
+                  Tração sem diluição de eficiência. A automação dos fluxos de aquisição ampliou o tráfego qualificado em 50%, enquanto a remoção de atritos no checkout elevou a conversão global em 30%.
                 </p>
               </div>
 
               {/* Célula 5 */}
               <div className={styles.tabularCell}>
                 <div className={`${styles.tabularValue} ${styles.monoFont}`}>
-                  +20% Session Duration
+                  +20% em Retenção de Sessão
                 </div>
                 <div className={`${styles.tabularLabel} ${styles.monoFont}`}>
                   RETENÇÃO B2B SAAS &bull; SHEETGO (GLOBAL)
                 </div>
                 <p className={`${styles.tabularDesc} ${styles.bodyFont}`}>
-                  Elevação da duração média de sessão em software B2B global através de redesign de usabilidade, análise de mapas de calor (heatmaps) e CRO orientado à jornada do usuário.
+                  Aumento no tempo médio de sessão na multinacional SaaS Sheetgo. O redesenho da interface, guiado por mapas de calor e testes A/B, reduziu a fricção na jornada de ativação do software.
                 </p>
               </div>
 
               {/* Célula 6 */}
               <div className={styles.tabularCell}>
                 <div className={`${styles.tabularValue} ${styles.monoFont}`}>
-                  +100 Sellers Integrados
+                  +100 Lojistas Integrados
                 </div>
                 <div className={`${styles.tabularLabel} ${styles.monoFont}`}>
-                  MARKETPLACE &bull; OMNIK, ERP &amp; SPLIT EM SHOPIFY
+                  ECOSSISTEMA MARKETPLACE &bull; SHOPIFY PLUS &amp; OMNIK
                 </div>
                 <p className={`${styles.tabularDesc} ${styles.bodyFont}`}>
-                  Onboarding de mais de 100 vendedores parceiros via Seller Center Omnik integrado ao ERP de cada seller, além de arquitetura e solução para split payment nativo em Shopify.
+                  Estruturação técnica e comercial de ecossistema B2B2C em Shopify Plus com Seller Center Omnik, conectando mais de uma centena de varejistas parceiros com sincronização automatizada de estoque e pedidos via ERP.
                 </p>
               </div>
             </div>
@@ -368,13 +368,13 @@ export const ArthurPortfolioView: React.FC = () => {
                     </h4>
                     <ul className={`${styles.editorialList} ${styles.bodyFont}`}>
                       <li>
-                        <strong>Engenharia de Catálogo e Indexação:</strong> Taxonomia escalável de categorias (PLPs) e produtos (PDPs), mitigação de canibalização de URLs, gestão de filtros facetados, controle de canonical tags e otimização de <em>crawl budget</em>.
+                        <strong>Engenharia de Catálogo e Indexação:</strong> Arquitetura de categorias (PLPs) e páginas de produto (PDPs) desenhada para evitar canibalização de URLs e desperdício de <em>crawl budget</em> em filtros facetados.
                       </li>
                       <li>
-                        <strong>Autoridade Tópica e Grafos Semânticos:</strong> Estruturação de <em>Topic Clusters</em>, <em>Topical Maps</em>, alinhamento de <em>Search Intent</em> (E-E-A-T) e implementação avançada de dados estruturados em <strong>Schema.org / JSON-LD</strong> (<code>Product</code>, <code>Offer</code>, <code>AggregateRating</code>, <code>Organization</code>, <code>FAQPage</code>, <code>Article</code>).
+                        <strong>Autoridade Tópica e Dados Estruturados:</strong> Construção de <em>Topic Clusters</em> orientados à intenção real de busca (E-E-A-T) e implementação de grafos conectados em <strong>Schema.org / JSON-LD</strong> (<code>Product</code>, <code>Offer</code>, <code>Organization</code>, <code>FAQPage</code>, <code>Article</code>).
                       </li>
                       <li>
-                        <strong>Visibilidade em Motores Generativos (GEO):</strong> Modelagem de entidades para citação direta em Google AI Overviews, ChatGPT Search e Perplexity.
+                        <strong>Visibilidade em Motores Generativos (GEO):</strong> Modelagem semântica de entidades para garantir que a marca seja compreendida, citada e recomendada por sistemas como Google AI Overviews, Perplexity e ChatGPT Search.
                       </li>
                     </ul>
                   </div>
@@ -410,13 +410,13 @@ export const ArthurPortfolioView: React.FC = () => {
                     </h4>
                     <ul className={`${styles.editorialList} ${styles.bodyFont}`}>
                       <li>
-                        <strong>Diagnóstico de Fricção e Funil:</strong> Mapeamento analítico de gargalos desde a página inicial, vitrines (PLPs) e páginas de produto (PDPs) até o carrinho e esteira de checkout transparente.
+                        <strong>Diagnóstico de Fricção no Funil:</strong> Auditoria quantitativa e comportamental desde a vitrine até o checkout transparente, identificando onde a interface gera dúvida ou abandono de carrinho.
                       </li>
                       <li>
-                        <strong>Metodologia de Experimentação:</strong> Testes A/B estruturados sobre hipóteses causais claras, validação estatística de impacto no ticket médio, taxa de adição ao carrinho (<em>Add-to-Cart</em>) e conversão final.
+                        <strong>Experimentação Estruturada:</strong> Execução de testes A/B baseados em hipóteses causais claras. O foco não é alterar cores de botões, mas validar intervenções que elevem a taxa de adição ao carrinho e o ticket médio.
                       </li>
                       <li>
-                        <strong>Comportamento e Mensuração Ética:</strong> Análise de mapas de calor (<em>heatmaps</em>), gravações de sessão, parametrização avançada de eventos e mensuração <em>privacy-first</em>.
+                        <strong>Mensuração e Privacidade:</strong> Rastreamento <em>server-side</em> via Google Tag Manager e GA4, aliado a ferramentas <em>privacy-first</em> (Plausible, Matomo) e análise de mapas de calor.
                       </li>
                     </ul>
                   </div>
@@ -453,13 +453,13 @@ export const ArthurPortfolioView: React.FC = () => {
                     </h4>
                     <ul className={`${styles.editorialList} ${styles.bodyFont}`}>
                       <li>
-                        <strong>Infraestrutura e Migrações:</strong> Gestão operacional <em>end-to-end</em>, migração de plataformas, integração bidirecional com sistemas ERP (catálogo, estoque multi-CD, faturamento e logística) e precificação dinâmica.
+                        <strong>Infraestrutura e Integração Operacional:</strong> Gestão <em>end-to-end</em> de lojas virtuais e migrações de plataforma, amarrando catálogo, estoque multi-CD, regras fiscais e logística diretamente aos sistemas ERP.
                       </li>
                       <li>
-                        <strong>Marketplace, Seller Center &amp; Split Payment:</strong> Concepção de arquitetura para ecossistemas de marketplace, integração de lojistas por Seller Center Omnik conectado ao ERP dos sellers e implementação de soluções de split payment em Shopify.
+                        <strong>Marketplaces, Seller Center &amp; Split Payment:</strong> Concepção de arquitetura para ecossistemas de marketplace, integração de lojistas por Seller Center Omnik conectado ao ERP dos sellers e implementação de soluções de split payment em Shopify.
                       </li>
                       <li>
-                        <strong>Operação de Marketplaces e Venda Assistida:</strong> Gestão estratégica de canais em Mercado Livre (Fulfillment e Mercado Ads), Shopee, Amazon e TikTok Shop (operação e afiliados), além de esteiras híbridas via WhatsApp e CRM para alto ticket e B2B.
+                        <strong>Operação de Marketplaces e Venda Assistida:</strong> Operação estratégica em Mercado Livre (Fulfillment e Mercado Ads), Shopee, Amazon e TikTok Shop, combinada a esteiras comerciais via WhatsApp e CRM para vendas B2B ou produtos de ticket elevado.
                       </li>
                     </ul>
                   </div>
@@ -498,10 +498,10 @@ export const ArthurPortfolioView: React.FC = () => {
                     </h4>
                     <ul className={`${styles.editorialList} ${styles.bodyFont}`}>
                       <li>
-                        <strong>Gestão Orientada a P&amp;L e Margem:</strong> Alocação orçamentária ancorada no Demonstrativo de Resultados do Exercício (DRE), cálculo estrito de CAC, LTV, ROAS real versus <em>Blended ROAS</em>, e otimização por <strong>POAS (<em>Profit on Ad Spend</em>)</strong>.
+                        <strong>Tráfego Subordinado ao P&amp;L:</strong> Mídia paga gerida pelo Demonstrativo de Resultados (DRE), e não por métricas isoladas de painel. Controle rigoroso de CAC, LTV, ROAS real versus <em>Blended ROAS</em> e otimização por <strong>POAS (<em>Profit on Ad Spend</em>)</strong>.
                       </li>
                       <li>
-                        <strong>Aquisição Full-Funnel e Retail Media:</strong> Estruturação granular de campanhas por intenção de compra, negativação semântica rigorosa e proteção de margem de contribuição em períodos de alta concorrência.
+                        <strong>Eficiência de Leilão e Retail Media:</strong> Estruturação de campanhas em Google Ads (Search, PMax, Demand Gen, Shopping), Meta Ads e Retail Media com negativação semântica contínua para proteger a margem líquida.
                       </li>
                     </ul>
                   </div>
@@ -581,16 +581,13 @@ export const ArthurPortfolioView: React.FC = () => {
                   </div>
                   <ul className={`${styles.caseBulletList} ${styles.bodyFont}`}>
                     <li>
-                      Administração integral do orçamento de aquisição digital focado nos canais de tração (Google Ads e Meta Ads), viabilizando crescimento sustentado de <strong>66% mês a mês (MoM) em GMV</strong>.
+                      Assumi a direção integral da operação digital e do orçamento de aquisição (Google Ads e Meta Ads), reestruturando a alocação de capital por margem e intenção de compra. Como resultado, a operação sustentou um crescimento de <strong>66% mês a mês (MoM) em GMV</strong>.
                     </li>
                     <li>
-                      Implementação de arquitetura semântica avançada, engenharia de dados estruturados (Schema Markup em JSON-LD) e <em>Topic Clusters</em> sobre cafés especiais e Indicações Geográficas, expandindo a fatia orgânica e o posicionamento em motores de IA generativa (GEO/AEO).
+                      Na frente orgânica, estruturei a arquitetura semântica do portal, os grafos de dados em JSON-LD e os <em>Topic Clusters</em> voltados a cafés especiais e Indicações Geográficas. Essa base reduziu o custo de aquisição agregado e posicionou a marca nas respostas de motores de IA generativa (GEO/AEO).
                     </li>
                     <li>
-                      Integração e onboarding de <strong>mais de 100 vendedores parceiros</strong> através de <strong>Seller Center Omnik</strong> com integração direta ao ERP de cada seller, viabilizando sincronização automática de estoques, catálogo e esteiras de despacho logístico.
-                    </li>
-                    <li>
-                      Desenvolvimento de <strong>arquitetura e solução para split payment nativo em Shopify</strong>, garantindo divisão automatizada de recebíveis entre marketplace e sellers parceiros, com conciliação financeira e conformidade fiscal.
+                      Liderei a arquitetura e o onboarding técnico de <strong>mais de 100 lojistas parceiros</strong> através do <strong>Seller Center Omnik</strong> com integração direta ao ERP de cada seller, além de conceber a solução técnica para <strong>split payment nativo em Shopify</strong> e coordenar ativações omnichannel no setor cafeeiro.
                     </li>
                   </ul>
                 </div>
@@ -607,7 +604,7 @@ export const ArthurPortfolioView: React.FC = () => {
                     </div>
                     <div className={styles.metricCalloutItem}>
                       <span className={`${styles.calloutValue} ${styles.monoFont}`}>+100</span>
-                      <span className={`${styles.calloutLabel} ${styles.monoFont}`}>Sellers Omnik &amp; ERP</span>
+                      <span className={`${styles.calloutLabel} ${styles.monoFont}`}>Lojistas Omnik &amp; ERP</span>
                     </div>
                     <div className={styles.metricCalloutItem}>
                       <span className={`${styles.calloutValue} ${styles.monoFont}`}>Split Payment</span>
@@ -657,13 +654,13 @@ export const ArthurPortfolioView: React.FC = () => {
                   </div>
                   <ul className={`${styles.caseBulletList} ${styles.bodyFont}`}>
                     <li>
-                      Condução da expansão internacional do tráfego orgânico voltado para o ecossistema de software B2B de automação de dados através de auditorias técnicas profundas com <strong>Semrush</strong> e <strong>Ahrefs</strong>, engenharia de Schema Markup e redes estruturadas de <em>Topic Clusters</em>.
+                      Atuando 100% em inglês junto aos times globais de produto e engenharia, conduzi a expansão internacional do tráfego orgânico da plataforma B2B por meio de auditorias técnicas com <strong>Semrush</strong> e <strong>Ahrefs</strong>, implementação de Schema Markup e redes de <em>Topic Clusters</em> voltadas a automação de dados.
                     </li>
                     <li>
-                      Aumento de <strong>20% na duração média de sessão (<em>Average Session Duration</em>)</strong> mediante redesign de usabilidade, otimização de interfaces de produto e refinamento contínuo da jornada de ativação do usuário.
+                      Através do mapeamento comportamental por mapas de calor (<em>heatmaps</em>), gravações de sessão e testes A/B, redesenhamos pontos críticos de usabilidade e da jornada de ativação, elevando em <strong>20% o tempo médio de sessão (<em>Average Session Duration</em>)</strong>.
                     </li>
                     <li>
-                      Alinhamento direto entre o roadmap de conteúdo orgânico e o roadmap de produto junto aos times internacionais, fundamentado em testes A/B estruturados e mapeamento comportamental por mapas de calor (<em>heatmaps</em>).
+                      Estabeleci a integração contínua entre o roadmap de aquisição orgânica e o roadmap de funcionalidades do software, garantindo que o conteúdo técnico respondesse diretamente às dores reais de conversão dos usuários B2B.
                     </li>
                   </ul>
                 </div>
@@ -676,7 +673,7 @@ export const ArthurPortfolioView: React.FC = () => {
                   <div className={styles.metricCallouts}>
                     <div className={styles.metricCalloutItem}>
                       <span className={`${styles.calloutValue} ${styles.monoFont}`}>+20%</span>
-                      <span className={`${styles.calloutLabel} ${styles.monoFont}`}>Session Duration</span>
+                      <span className={`${styles.calloutLabel} ${styles.monoFont}`}>Retenção de Sessão</span>
                     </div>
                     <div className={styles.metricCalloutItem}>
                       <span className={`${styles.calloutValue} ${styles.monoFont}`}>100% EN</span>
@@ -736,13 +733,13 @@ export const ArthurPortfolioView: React.FC = () => {
                   </div>
                   <ul className={`${styles.caseBulletList} ${styles.bodyFont}`}>
                     <li>
-                      Direção operacional <em>end-to-end</em> (catálogo, estoque, logística, atendimento e infraestrutura tecnológica), consolidando a empresa como líder nacional no comércio eletrônico B2C e B2B de máquinas de café espresso e acessórios.
+                      Dirigi a operação digital de ponta a ponta durante dez anos (catálogo, estoque, logística, atendimento e infraestrutura tecnológica), consolidando a empresa no mercado nacional B2C e B2B de máquinas de café espresso com <strong>crescimento linear de 20% ao ano (YoY)</strong>.
                     </li>
                     <li>
-                      Migração e gestão do ecossistema Magento integrado a sistemas de precificação dinâmica e ERPs, sustentando <strong>crescimento linear de 20% ao ano (YoY) ao longo de uma década</strong>.
+                      Conduzi a migração e a evolução do ecossistema Magento integrado a regras de precificação dinâmica e ERPs, criando estabilidade operacional para escalar tanto a loja própria quanto os canais de marketplace.
                     </li>
                     <li>
-                      Automação de fluxos de aquisição e CRO que resultaram em <strong>+50% de tráfego qualificado</strong>, <strong>+30% na taxa de conversão geral</strong> e <strong>45% do faturamento de Black Friday gerado pelo canal orgânico</strong>.
+                      A combinação entre automação de fluxos de captação, conteúdo técnico proprietário e CRO gerou <strong>+50% em tráfego qualificado</strong>, <strong>+30% na taxa de conversão geral</strong> e garantiu que <strong>45% do faturamento de Black Friday viesse exclusivamente do canal orgânico</strong>.
                     </li>
                   </ul>
                   <blockquote className={`${styles.caseQuote} ${styles.bodyFont}`}>
@@ -819,13 +816,13 @@ export const ArthurPortfolioView: React.FC = () => {
                   </div>
                   <ul className={`${styles.caseBulletList} ${styles.bodyFont}`}>
                     <li>
-                      Atuação consultiva estratégica para operações de varejo e indústria como <strong>Lojas 360 EPI</strong> e <strong>Cope Calçados</strong>.
+                      Consultoria executiva e diagnóstico operacional para marcas de varejo e indústria, incluindo <strong>Lojas 360 EPI</strong> e <strong>Cope Calçados</strong>.
                     </li>
                     <li>
-                      Diagnóstico avançado de <em>Unit Economics</em> e DRE, reestruturação de campanhas de Google Ads (Performance Max, Demand Gen e Search) com negativação semântica rigorosa e alocação orientada à margem de contribuição.
+                      Auditoria financeira de mídia paga e <em>Unit Economics</em> (DRE), reestruturando campanhas de Google Ads (PMax, Demand Gen e Search) com higienização rigorosa de termos de busca e alocação focada em lucro líquido sobre o investimento (POAS).
                     </li>
                     <li>
-                      Estruturação de esteiras comerciais híbridas e assistidas (WhatsApp comercial integrado a CRM) para produtos técnicos e B2B, além de gestão de catálogos e anúncios em canais de Retail Media (Mercado Livre, Shopee e Amazon Ads).
+                      Desenho de esteiras comerciais assistidas integrando tráfego pago, WhatsApp comercial e CRM para vendas consultivas e B2B, além da gestão de catálogos e rentabilidade em Retail Media (Mercado Livre, Shopee e Amazon Ads).
                     </li>
                   </ul>
                 </div>
@@ -891,7 +888,7 @@ export const ArthurPortfolioView: React.FC = () => {
                     Bacharelado em Ciências Sociais (Sociologia)
                   </h4>
                   <p className={`${styles.degreeDesc} ${styles.bodyFont}`}>
-                    Aplicação de sociologia da técnica e do consumo, teoria ator-rede, governança responsável (<em>steward-ownership</em>) e sustentabilidade digital (paradigma das empresas Zebra) à arquitetura de negócios digitais.
+                    Pesquisa e aplicação prática da sociologia da técnica e do consumo à arquitetura de negócios digitais. Analiso plataformas, algoritmos e funis de conversão como sistemas sociotécnicos, priorizando governança ética de dados (<em>privacy-first</em>), autonomia operacional e crescimento financeiramente sustentável (modelo de empresas Zebra).
                   </p>
                 </div>
 
@@ -980,14 +977,14 @@ export const ArthurPortfolioView: React.FC = () => {
           </div>
         </section>
 
-        {/* SEÇÃO 7: OPÇÕES DE CONSULTORIA & FOOTER EXECUTIVO */}
-        <section className={styles.engagementSection} id="consultoria">
+        {/* SEÇÃO 7: FORMATOS DE ATUAÇÃO E PARCERIA & FOOTER EXECUTIVO */}
+        <section className={styles.engagementSection} id="atuacao">
           <div className={styles.editorialContainer}>
             <div className={styles.sectionHeadingRow}>
               <div>
                 <span className={`${styles.sectionEyebrow} ${styles.monoFont}`}>MODELOS DE ATUAÇÃO</span>
                 <h2 className={`${styles.sectionTitle} ${styles.headingFont}`}>
-                  Opções de Consultoria
+                  Formatos de Atuação e Parceria
                 </h2>
               </div>
               <p className={`${styles.sectionSubtext} ${styles.bodyFont}`}>
@@ -1048,7 +1045,7 @@ export const ArthurPortfolioView: React.FC = () => {
           <div className={styles.footerMainBlock}>
             <div className={styles.footerTextCol}>
               <h2 className={`${styles.footerCallout} ${styles.headingFont}`}>
-                Disponível para posições executivas estratégicas, conselhos consultivos e diagnósticos de alta complexidade.
+                Aberto a conversas para posições de liderança executiva (Head/Diretoria), conselhos consultivos e projetos de reestruturação de e-commerce e SEO.
               </h2>
               <div className={`${styles.footerMetaList} ${styles.monoFont}`}>
                 <div><strong>Arthur Saggioratto Neto</strong> &bull; Santa Bárbara d&apos;Oeste / Campinas, SP</div>
