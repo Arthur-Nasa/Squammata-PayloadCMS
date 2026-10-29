@@ -119,13 +119,11 @@ export const ArthurPortfolioView: React.FC = () => {
               </div>
 
               <h1 className={`${styles.heroTitle} ${styles.headingFont}`}>
-                Mais Vendas e Lucro Real no E-commerce: SEO, Melhoria de Loja e Gestão de Anúncios sem Queimar Dinheiro
+                Mais Vendas e Lucro Real no E-commerce: SEO, Loja Virtual e Gestão de Anúncios sem Desperdício
               </h1>
 
               <p className={`${styles.heroSubtitle} ${styles.bodyFont}`}>
-                Faturamento alto não adianta se o lucro não sobra no bolso. Ajudo empresários e donos de lojas virtuais a
-                venderem mais pelo Google, reduzirem custos com anúncios, destravarem gargalos de frete e aumentarem as
-                vendas pelo WhatsApp: fazendo o dinheiro sobrar no caixa no final do mês.
+                Faturamento alto não adianta se o lucro não sobra. Ajudo lojistas a venderem mais pelo Google, cortarem desperdícios em anúncios pagos, destravarem o frete e aumentarem as vendas pelo WhatsApp.
               </p>
 
               <div className={styles.ctaGroup}>
@@ -256,7 +254,7 @@ export const ArthurPortfolioView: React.FC = () => {
 
               <a href="https://www.maquinasecafe.com.br/" target="_blank" rel="noopener noreferrer" className={styles.logoItem}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://icon.horse/icon/maquinasecafe.com.br" alt="Máquinas & Café" loading="lazy" />
+                <img src="https://www.maquinasecafe.com.br/cdn/shop/files/logo.ai.svg?height=50&v=1768592788" alt="Máquinas & Café" loading="lazy" />
                 <span>Máquinas & Café</span>
               </a>
 
@@ -266,11 +264,11 @@ export const ArthurPortfolioView: React.FC = () => {
                 <span>Lojas 360 EPI</span>
               </a>
 
-              <span className={styles.logoItem} style={{ cursor: 'default' }}>
+              <a href="https://www.calcadoscope.com.br/" target="_blank" rel="noopener noreferrer" className={styles.logoItem}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://icon.horse/icon/copecalcados.com.br" alt="Cope Calçados" loading="lazy" />
+                <img src="https://cdn.awsli.com.br/400x300/1242/1242395/logo/266232342c.jpeg" alt="Cope Calçados" loading="lazy" />
                 <span>Cope Calçados</span>
-              </span>
+              </a>
 
               <a href="https://www.unicamp.br/" target="_blank" rel="noopener noreferrer" className={styles.logoItem}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -291,7 +289,7 @@ export const ArthurPortfolioView: React.FC = () => {
               Impacto Direto no Lucro e nas Vendas
             </h2>
             <p className={styles.sectionDesc}>
-              Números conquistados no dia a dia das operações: menos desperdício de verba, processos organizados e caixa protegido.
+              Resultados comprovados no dia a dia: menos desperdício de verba, processos organizados e caixa protegido.
             </p>
           </div>
 
@@ -299,42 +297,42 @@ export const ArthurPortfolioView: React.FC = () => {
             <div className={styles.numberCard}>
               <div className={`${styles.metricValue} ${styles.monoFont}`}>+66% ao Mês</div>
               <p className={styles.metricDesc}>
-                Crescimento contínuo de vendas na Rua do Café, organizando a loja e atraindo clientes qualificados pelo Google e anúncios.
+                Crescimento sustentado de vendas na Rua do Café unindo SEO e anúncios com lucro protegido.
               </p>
             </div>
 
             <div className={styles.numberCard}>
               <div className={`${styles.metricValue} ${styles.monoFont}`}>45% no Orgânico</div>
               <p className={styles.metricDesc}>
-                Quase metade do faturamento da Black Friday sem gastar nada com anúncios pagos, apenas com clientes que encontraram a loja no Google.
+                Quase metade das vendas da Black Friday vindas direto do Google, sem pagar nenhum anúncio por clique.
               </p>
             </div>
 
             <div className={styles.numberCard}>
               <div className={`${styles.metricValue} ${styles.monoFont}`}>10 Anos (+20% ao Ano)</div>
               <p className={styles.metricDesc}>
-                Uma década à frente da Máquinas & Café com crescimento contínuo de 20% ao ano, tornando a empresa referência nacional no setor.
+                Uma década liderando a Máquinas & Café com crescimento contínuo de 20% ao ano e liderança nacional.
               </p>
             </div>
 
             <div className={styles.numberCard}>
-              <div className={`${styles.metricValue} ${styles.monoFont}`}>+50% Visitas / +30% Compras</div>
+              <div className={`${styles.metricValue} ${styles.monoFont}`}>+50% Visitas / +30% Pedidos</div>
               <p className={styles.metricDesc}>
-                Mais clientes visitando a loja e menos desistências na hora de pagar, facilitando o cálculo de frete e o fechamento do pedido.
+                Mais visitantes qualificados e menos desistência de compra com frete ágil e checkout simplificado.
               </p>
             </div>
 
             <div className={styles.numberCard}>
               <div className={`${styles.metricValue} ${styles.monoFont}`}>+20% Tempo no Site</div>
               <p className={styles.metricDesc}>
-                Usuários navegando por mais tempo na multinacional de software Sheetgo, tirando dúvidas com facilidade e gerando novos cadastros.
+                Maior retenção de usuários e aceleração de cadastros corporativos na plataforma internacional Sheetgo.
               </p>
             </div>
 
             <div className={styles.numberCard}>
               <div className={`${styles.metricValue} ${styles.monoFont}`}>+100 Fornecedores</div>
               <p className={styles.metricDesc}>
-                Mais de cem marcas e fornecedores integrados em loja Shopify sem dor de cabeça com estoque, conectados direto ao sistema da empresa (ERP).
+                Catálogo multimarca integrado em Shopify Plus sem ruptura de estoque, conectado direto ao ERP.
               </p>
             </div>
           </div>
@@ -350,7 +348,7 @@ export const ArthurPortfolioView: React.FC = () => {
               Como Podemos Trabalhar Juntos
             </h2>
             <p className={styles.sectionDesc}>
-              Sem enrolação nem relatórios complicados: formatos práticos adaptados ao momento e às necessidades do seu negócio.
+              Formatos práticos e focados em retorno rápido, adaptados ao momento da sua empresa.
             </p>
           </div>
 
@@ -360,13 +358,13 @@ export const ArthurPortfolioView: React.FC = () => {
               <span className={`${styles.serviceDurationBadge} ${styles.monoFont}`}>Sprint de 3 a 4 Semanas</span>
               <h3 className={`${styles.serviceTitle} ${styles.headingFont}`}>Diagnóstico Completo da Loja Virtual</h3>
               <p className={styles.serviceOverview}>
-                Um raio-X prático para parar de queimar dinheiro em anúncios ruins, descobrir por que os clientes desistem no carrinho e saber exatamente o que corrigir primeiro.
+                Raio-X prático para parar de queimar dinheiro em anúncios e descobrir por que os clientes desistem da compra.
               </p>
               <ul className={styles.serviceList}>
-                <li>Auditoria no Google: por que seus produtos não aparecem nas primeiras posições quando alguém pesquisa</li>
-                <li>Gargalos de compra: susto com frete, cadastro difícil, lentidão ou checkout confuso</li>
-                <li>Revisão dos anúncios (Google e Meta): corte imediato de verba desperdiçada em cliques sem venda</li>
-                <li>Plano de ação direto ao ponto: lista priorizada do que traz retorno rápido para o caixa</li>
+                <li>Auditoria no Google: destravar páginas e produtos para ranquear no topo</li>
+                <li>Gargalos de checkout: frete que assusta, lentidão e abandono no carrinho</li>
+                <li>Revisão de anúncios: corte imediato de verba desperdiçada em cliques sem venda</li>
+                <li>Plano prático priorizado: lista direta do que traz retorno rápido ao caixa</li>
               </ul>
               <a
                 href={`https://wa.me/5519993497819?text=${encodeURIComponent('Olá Arthur, tenho interesse no Diagnóstico Completo para minha loja virtual.')}`}
@@ -383,13 +381,13 @@ export const ArthurPortfolioView: React.FC = () => {
               <span className={`${styles.serviceDurationBadge} ${styles.monoFont}`}>Acompanhamento Mensal Contínuo</span>
               <h3 className={`${styles.serviceTitle} ${styles.headingFont}`}>Consultoria com Acompanhamento Prático</h3>
               <p className={styles.serviceOverview}>
-                Trabalho lado a lado com sua equipe ou agência para colocar as melhorias em prática, cobrar resultados rápidos e aumentar o lucro mês a mês.
+                Atuação direta com sua equipe para executar as melhorias e aumentar o lucro líquido mês a mês.
               </p>
               <ul className={styles.serviceList}>
-                <li>Reuniões quinzenais para analisar vendas, custos com anúncios e margem real que sobra no caixa</li>
-                <li>Supervisão das campanhas de tráfego pago para você pagar menos por cada venda fechada</li>
-                <li>Melhorias contínuas na loja e criação de atendimento ágil com fechamento pelo WhatsApp</li>
-                <li>Criação de páginas e conteúdos que atraem compradores no Google sem custo por clique</li>
+                <li>Reuniões quinzenais para analisar vendas, margem real e eficiência de mídia</li>
+                <li>Otimização de Google Ads e Meta Ads para reduzir o custo de aquisição</li>
+                <li>Melhorias no carrinho e implantação de vendas assistidas via WhatsApp</li>
+                <li>Criação de páginas que atraem compradores no Google sem custo por clique</li>
               </ul>
               <a
                 href={`https://wa.me/5519993497819?text=${encodeURIComponent('Olá Arthur, gostaria de entender a Consultoria Contínua para o meu negócio.')}`}
@@ -407,13 +405,13 @@ export const ArthurPortfolioView: React.FC = () => {
               <span className={`${styles.serviceDurationBadge} ${styles.monoFont}`}>Atuação Trimestral ou Semestral</span>
               <h3 className={`${styles.serviceTitle} ${styles.headingFont}`}>Liderança de E-commerce Fracionada</h3>
               <p className={styles.serviceOverview}>
-                Um executivo experiente cuidando da estratégia do seu e-commerce diretamente com os donos, sem o alto custo fixo de um diretor em tempo integral.
+                Direção executiva e estratégica para o seu e-commerce sem o alto custo fixo de um diretor em tempo integral.
               </p>
               <ul className={styles.serviceList}>
-                <li>Planejamento de vendas na internet, metas da equipe e escolha dos melhores canais</li>
-                <li>Apoio e liderança na escolha ou migração de plataformas (Shopify, Nuvemshop, VTEX)</li>
-                <li>Seleção, contratação e alinhamento de fornecedores, agências parceiras e colaboradores</li>
-                <li>Relatórios diretos e claros para sócios, conselho e investidores</li>
+                <li>Planejamento de metas de vendas, canais comerciais e posicionamento</li>
+                <li>Liderança na escolha ou migração de plataformas (Shopify, Nuvemshop, VTEX)</li>
+                <li>Gestão e cobrança técnica de fornecedores, agências parceiras e equipe</li>
+                <li>Relatórios diretos de vendas e rentabilidade para sócios e investidores</li>
               </ul>
               <a
                 href={`https://wa.me/5519993497819?text=${encodeURIComponent('Olá Arthur, quero conversar sobre o formato de Liderança Fracionada para minha empresa.')}`}
@@ -437,7 +435,7 @@ export const ArthurPortfolioView: React.FC = () => {
               Os 4 Pilares de um E-commerce Lucrativo
             </h2>
             <p className={styles.sectionDesc}>
-              A união entre técnica bem-feita, facilidade para o cliente comprar e cuidado rigoroso com o dinheiro da sua empresa.
+              A união entre técnica sólida, facilidade para o cliente comprar e foco rigoroso no lucro da sua empresa.
             </p>
           </div>
 
@@ -452,10 +450,10 @@ export const ArthurPortfolioView: React.FC = () => {
               </h3>
               <div className={styles.pillarBody}>
                 <p>
-                  Organizo as categorias e páginas de produto para você aparecer nas primeiras posições quando o cliente pesquisar no Google para comprar. O cliente clica, entra e compra sem você precisar pagar por clique.
+                  Estruturo categorias e páginas de produto para você ranquear nas primeiras posições quando o cliente pesquisa para comprar. Mais vendas constantes sem pagar por clique.
                 </p>
                 <p>
-                  Configuração técnica moderna para que seus produtos também sejam recomendados nas respostas dos novos assistentes de Inteligência Artificial (Google AI e ChatGPT).
+                  Otimização técnica para mecanismos de busca tradicionais e novos motores de resposta por inteligência artificial (Google AI e ChatGPT).
                 </p>
               </div>
               <div className={styles.stackList}>
@@ -469,9 +467,9 @@ export const ArthurPortfolioView: React.FC = () => {
                   <img src="https://cdn.simpleicons.org/semrush/FF642D" alt="Semrush" />
                   Semrush
                 </span>
-                <span className={styles.stackBadge}>Screaming Frog</span>
+                <span className={styles.stackBadge}>Ahrefs</span>
                 <span className={styles.stackBadge}>Schema.org JSON-LD</span>
-                <span className={styles.stackBadge}>Velocidade de Página</span>
+                <span className={styles.stackBadge}>Core Web Vitals</span>
               </div>
             </div>
 
@@ -481,14 +479,14 @@ export const ArthurPortfolioView: React.FC = () => {
                 <span className={`${styles.pillarNumber} ${styles.monoFont}`}>PILAR 02</span>
               </div>
               <h3 className={`${styles.pillarTitle} ${styles.headingFont}`}>
-                Facilitar a Compra e Vender Mais (CRO)
+                Facilidade de Compra e Conversão (CRO)
               </h3>
               <div className={styles.pillarBody}>
                 <p>
-                  Descubro exatamente por que as pessoas entram na sua loja e vão embora sem comprar: frete que assusta no final, fotos lentas, botões confusos no celular ou desconfiança no pagamento.
+                  Elimino os gargalos que fazem o visitante desistir da compra: frete com cálculo assustador, checkout confuso ou lentidão na versão mobile.
                 </p>
                 <p>
-                  Simplifico o caminho até o pagamento e ajusto as páginas de produto para tirar as dúvidas antes da compra e aumentar o valor médio de cada pedido.
+                  Mais pedidos fechados e maior ticket médio aproveitando melhor o tráfego que sua loja já recebe.
                 </p>
               </div>
               <div className={styles.stackList}>
@@ -502,7 +500,7 @@ export const ArthurPortfolioView: React.FC = () => {
                   <img src="https://cdn.simpleicons.org/googletagmanager/246FDB" alt="GTM" />
                   Tag Manager
                 </span>
-                <span className={styles.stackBadge}>Mapas de Calor e Gravações</span>
+                <span className={styles.stackBadge}>Mapas de Calor</span>
                 <span className={styles.stackBadge}>Testes A/B</span>
               </div>
             </div>
@@ -513,14 +511,14 @@ export const ArthurPortfolioView: React.FC = () => {
                 <span className={`${styles.pillarNumber} ${styles.monoFont}`}>PILAR 03</span>
               </div>
               <h3 className={`${styles.pillarTitle} ${styles.headingFont}`}>
-                Estoque, Sistemas (ERP) e Logística sem Estresse
+                Estoque, ERP e Logística Integrada
               </h3>
               <div className={styles.pillarBody}>
                 <p>
-                  Conecto a loja virtual ao sistema da sua empresa (Bling, Tiny e outros ERPs) para garantir que o estoque esteja sempre certo, as notas fiscais saiam rápido e os pedidos sejam despachados sem atraso.
+                  Conexão direta da loja aos sistemas de gestão (Bling, Tiny) e operadores logísticos para envio rápido, sem atrasos e sem erros de estoque.
                 </p>
                 <p>
-                  Estruturo também canais de venda rápida pelo WhatsApp para produtos de valor mais alto e pedidos corporativos faturados no boleto.
+                  Canais de atendimento ágil com fechamento pelo WhatsApp para produtos de valor mais alto e pedidos corporativos faturados no boleto.
                 </p>
               </div>
               <div className={styles.stackList}>
@@ -529,7 +527,6 @@ export const ArthurPortfolioView: React.FC = () => {
                   <img src="https://cdn.simpleicons.org/shopify/95BF47" alt="Shopify" />
                   Shopify Plus
                 </span>
-                <span className={styles.stackBadge}>Magento</span>
                 <span className={styles.stackBadge}>VTEX</span>
                 <span className={styles.stackBadge}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -546,14 +543,14 @@ export const ArthurPortfolioView: React.FC = () => {
                 <span className={`${styles.pillarNumber} ${styles.monoFont}`}>PILAR 04</span>
               </div>
               <h3 className={`${styles.pillarTitle} ${styles.headingFont}`}>
-                Anúncios Focados no que Sobra no Bolso
+                Anúncios Focados no Lucro Real
               </h3>
               <div className={styles.pillarBody}>
                 <p>
-                  Gerencio anúncios no Google Ads, Meta (Instagram e Facebook) e marketplaces com foco no lucro real. O objetivo não é mostrar relatórios bonitos com termos complicados, mas garantir que a operação coloque dinheiro de verdade no caixa.
+                  Gestão estratégica de Google Ads, Meta Ads e Marketplaces sem queimar verba em cliques que não viram pedidos.
                 </p>
                 <p>
-                  Foco nos clientes que têm real intenção de compra, corto palavras caras que não trazem resultado e crio campanhas para quem já comprou voltar a comprar.
+                  Foco absoluto em margem de lucro, corte de palavras caras e campanhas eficientes para fazer clientes antigos voltarem a comprar.
                 </p>
               </div>
               <div className={styles.stackList}>
@@ -575,7 +572,7 @@ export const ArthurPortfolioView: React.FC = () => {
                 <span className={styles.stackBadge}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src="https://cdn.simpleicons.org/looker/4285F4" alt="Looker" />
-                  Painéis no Looker Studio
+                  Looker Studio
                 </span>
               </div>
             </div>
@@ -589,7 +586,7 @@ export const ArthurPortfolioView: React.FC = () => {
           <div className={styles.sectionHeader}>
             <div className={`${styles.sectionBadge} ${styles.monoFont}`}>Trajetória Profissional</div>
             <h2 className={`${styles.sectionTitle} ${styles.headingFont}`}>
-              Experiência no Varejo Digital e Casos de Sucesso
+              Experiência no Varejo Digital e Casos Reais
             </h2>
             <p className={styles.sectionDesc}>
               Operações reais onde atuei diretamente, com desafios superados e resultados comprovados no caixa.
@@ -613,13 +610,13 @@ export const ArthurPortfolioView: React.FC = () => {
                 <div className={styles.caseBody}>
                   <ul>
                     <li>
-                      Gestão responsável das verbas de Google Ads e Meta Ads, viabilizando expansão contínua de <strong>+66% ao mês em volume de vendas</strong> com margem e lucro protegidos.
+                      Gestão responsável de Google Ads e Meta Ads gerando expansão sustentada de <strong>+66% ao mês em vendas</strong> com margem e lucro protegidos.
                     </li>
                     <li>
-                      Conteúdo educativo sobre cafés especiais e métodos de preparo que atrai clientes apaixonados pelo Google sem custo de anúncio por clique.
+                      Estratégia de SEO com conteúdos sobre métodos e cafés especiais atraindo compradores pelo Google sem custo de anúncio por clique.
                     </li>
                     <li>
-                      Integração de <strong>mais de 100 produtores e marcas parceiras</strong> em ecossistema Shopify Plus conectado ao sistema de gestão (ERP).
+                      Integração de <strong>mais de 100 marcas e produtores parceiros</strong> em ecossistema Shopify Plus sincronizado ao ERP.
                     </li>
                   </ul>
                 </div>
@@ -650,13 +647,13 @@ export const ArthurPortfolioView: React.FC = () => {
                 <div className={styles.caseBody}>
                   <ul>
                     <li>
-                      Expansão do tráfego orgânico para empresa internacional de software que conecta planilhas e dados corporativos, em atuação conduzida 100% em inglês com clientes nos Estados Unidos e Europa.
+                      Expansão de tráfego orgânico global e auditorias técnicas avançadas utilizando <strong>Semrush</strong> e <strong>Ahrefs</strong> em operação internacional 100% em inglês (EUA e Europa).
                     </li>
                     <li>
-                      Organização das páginas do site e criação de conteúdos focados em empresas que buscam soluções de produtividade no Google.
+                      Reestruturação de páginas do produto e criação de conteúdos técnicos direcionados a decisores corporativos de TI e operações.
                     </li>
                     <li>
-                      Aumento de <strong>+20% no tempo em que os usuários navegam no site</strong>, simplificando a navegação e facilitando novos cadastros.
+                      Aumento de <strong>+20% no tempo de navegação no site</strong> e aceleração na geração de cadastros corporativos qualificados.
                     </li>
                   </ul>
                 </div>
@@ -684,18 +681,18 @@ export const ArthurPortfolioView: React.FC = () => {
                 <div className={styles.caseBody}>
                   <ul>
                     <li>
-                      Gestão completa de toda a empresa (máquinas importadas de café, peças de reposição, expedição e tecnologia), consolidando a loja como líder nacional para pessoas físicas e empresas.
+                      Liderança geral da operação (máquinas importadas de café, peças, logística e e-commerce), tornando a empresa referência nacional B2C e B2B.
                     </li>
                     <li>
-                      Loja virtual integrada ao sistema de gestão com <strong>crescimento médio de 20% ao ano durante 10 anos consecutivos</strong>.
+                      Operação digital integrada ao ERP com <strong>crescimento médio de 20% ao ano durante 10 anos consecutivos</strong>.
                     </li>
                     <li>
-                      Posicionamento forte no Google e melhorias no carrinho que geraram <strong>+50% de visitas</strong>, <strong>+30% nas compras</strong> e garantiram que <strong>45% das vendas da Black Friday viessem do Google sem pagar por anúncio</strong>.
+                      Forte presença no Google gerando <strong>+50% de visitas</strong>, <strong>+30% nas compras</strong> e <strong>45% das vendas da Black Friday sem gastar com anúncios pagos</strong>.
                     </li>
                   </ul>
 
                   <div className={styles.caseQuote}>
-                    &ldquo;A estratégia de SEO aliada à produção de conteúdos de qualidade tem impulsionado não só o nosso crescimento orgânico, como o da loja como um todo, reduzindo a dependência de mídia paga.&rdquo;
+                    &ldquo;A estratégia de SEO aliada a conteúdos de qualidade impulsionou nosso crescimento na loja como um todo, reduzindo a dependência de mídia paga.&rdquo;
                     <div style={{ marginTop: '0.4rem', fontSize: '0.82rem', color: '#A39E93' }}>
                       Depoimento registrado publicamente pela consultoria parceira Bridge SEO
                     </div>
@@ -728,14 +725,17 @@ export const ArthurPortfolioView: React.FC = () => {
                 <div className={styles.caseBody}>
                   <ul>
                     <li>
-                      <strong>Cope Calçados:</strong> Consultoria realizada pela Squammata com foco no lucro real do varejo de moda e calçados. Reestruturação dos anúncios no Google e Meta para parar de queimar verba em palavras caras que não vendiam, criação de atendimento rápido com fechamento pelo WhatsApp e campanhas direcionadas para fazer os clientes antigos comprarem novamente.
+                      <strong>Cope Calçados:</strong> Consultoria realizada pela Squammata com reestruturação dos anúncios no Google e Meta, corte de termos caros sem venda, atendimento ágil com fechamento via WhatsApp e campanhas focadas na recompra de clientes antigos.
                     </li>
                     <li>
-                      <strong>Lojas 360 EPI:</strong> Consultoria da Squammata na estruturação comercial e digital para o setor de Equipamentos de Proteção Individual (B2B e B2C). Organização de catálogo técnico com certificados de aprovação (CA), estratégias inteligentes de frete para entrega em todo o Brasil, anúncios focados em empresas com urgência de compra e facilitação de pagamento faturado no boleto.
+                      <strong>Lojas 360 EPI:</strong> Consultoria realizada pela Squammata na estruturação comercial digital para equipamentos de proteção (B2B e B2C), catálogo com Certificados de Aprovação (CA), estratégias de frete nacional e facilitação de faturamento corporativo no boleto.
                     </li>
                   </ul>
                 </div>
                 <div className={styles.caseLinks}>
+                  <a href="https://www.calcadoscope.com.br/" target="_blank" rel="noopener noreferrer" className={styles.linkExternal}>
+                    Loja Oficial Cope Calçados ↗
+                  </a>
                   <a href="https://www.lojas360.com.br/" target="_blank" rel="noopener noreferrer" className={styles.linkExternal}>
                     Lojas 360 EPI Oficial ↗
                   </a>
@@ -755,7 +755,7 @@ export const ArthurPortfolioView: React.FC = () => {
               Formação Acadêmica & Produção de Conteúdo
             </h2>
             <p className={styles.sectionDesc}>
-              A base em Ciências Sociais na UNICAMP unida à prática de mercado: compreender a fundo o comportamento do consumidor para criar lojas virtuais sólidas e duradouras.
+              A formação em Ciências Sociais na UNICAMP aplicada ao varejo digital: compreender hábitos de consumo reais para construir lojas virtuais duradouras.
             </p>
           </div>
 
@@ -766,7 +766,7 @@ export const ArthurPortfolioView: React.FC = () => {
                 Análises de Mercado e Cafeicultura Especial
               </h3>
               <p className={styles.articleDesc}>
-                Artigos práticos que analisam hábitos de compra, métodos de preparo e agregação de valor para o mercado cafeeiro brasileiro, servindo de referência para compradores no Google.
+                Artigos sobre comportamento de compra, métodos de preparo e agregação de valor no mercado de café brasileiro.
               </p>
               <a
                 href="https://blog.ruadocafe.com.br/author/arthur/"
@@ -784,7 +784,7 @@ export const ArthurPortfolioView: React.FC = () => {
                 Muzambinho e o Sudoeste de Minas
               </h3>
               <p className={styles.articleDesc}>
-                Estudo detalhado das regiões produtoras de café especial, valorizando a história dos produtores e melhorando as descrições dos produtos para aumentar as vendas.
+                Estudo de regiões produtoras e valorização de terroir em páginas de produto para aumentar a conversão.
               </p>
               <a
                 href="https://blog.ruadocafe.com.br/tag/sudoeste-de-minas/"
@@ -802,7 +802,7 @@ export const ArthurPortfolioView: React.FC = () => {
                 Indicações Geográficas no Estado de São Paulo
               </h3>
               <p className={styles.articleDesc}>
-                Mapeamento das regiões cafeeiras paulistas com certificados de qualidade, ensinando o cliente a reconhecer produtos superiores e aumentando o valor médio das compras.
+                Mapeamento de certificações regionais e qualidade para educar o consumidor e elevar o ticket médio.
               </p>
               <a
                 href="https://blog.ruadocafe.com.br/tag/sao-paulo/"
@@ -837,7 +837,7 @@ export const ArthurPortfolioView: React.FC = () => {
               Pronto para Destravar as Vendas e o Lucro da sua Loja?
             </h2>
             <p className={styles.footerSubtitle}>
-              Disponível para diagnósticos práticos, consultoria mensal contínua e liderança de e-commerce fracionada para operações em todo o Brasil.
+              Disponível para diagnósticos rápidos, consultoria mensal contínua e liderança fracionada de e-commerce em todo o Brasil.
             </p>
 
             <div className={styles.ctaGroup} style={{ justifyContent: 'center', marginBottom: '1.5rem' }}>
