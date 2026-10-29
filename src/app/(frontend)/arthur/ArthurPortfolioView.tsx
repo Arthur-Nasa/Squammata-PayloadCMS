@@ -323,13 +323,13 @@ export const ArthurPortfolioView: React.FC = () => {
               {/* Célula 6 */}
               <div className={styles.tabularCell}>
                 <div className={`${styles.tabularValue} ${styles.monoFont}`}>
-                  +100 Lojistas Integrados
+                  +100 Sellers Integrados
                 </div>
                 <div className={`${styles.tabularLabel} ${styles.monoFont}`}>
-                  ECOSSISTEMA B2B2C &bull; SHOPIFY PLUS &amp; ERP
+                  MARKETPLACE &bull; OMNIK, ERP &amp; SPLIT EM SHOPIFY
                 </div>
                 <p className={`${styles.tabularDesc} ${styles.bodyFont}`}>
-                  Liderança técnica e operacional no onboarding de mais de 100 varejistas parceiros em arquitetura Shopify Plus com integração automatizada de catálogo e pedidos via ERP.
+                  Onboarding de mais de 100 vendedores parceiros via Seller Center Omnik integrado ao ERP de cada seller, além de arquitetura e solução para split payment nativo em Shopify.
                 </p>
               </div>
             </div>
@@ -456,6 +456,9 @@ export const ArthurPortfolioView: React.FC = () => {
                         <strong>Infraestrutura e Migrações:</strong> Gestão operacional <em>end-to-end</em>, migração de plataformas, integração bidirecional com sistemas ERP (catálogo, estoque multi-CD, faturamento e logística) e precificação dinâmica.
                       </li>
                       <li>
+                        <strong>Marketplace, Seller Center &amp; Split Payment:</strong> Concepção de arquitetura para ecossistemas de marketplace, integração de lojistas por Seller Center Omnik conectado ao ERP dos sellers e implementação de soluções de split payment em Shopify.
+                      </li>
+                      <li>
                         <strong>Operação de Marketplaces e Venda Assistida:</strong> Gestão estratégica de canais em Mercado Livre (Fulfillment e Mercado Ads), Shopee, Amazon e TikTok Shop (operação e afiliados), além de esteiras híbridas via WhatsApp e CRM para alto ticket e B2B.
                       </li>
                     </ul>
@@ -467,6 +470,8 @@ export const ArthurPortfolioView: React.FC = () => {
                     </h4>
                     <div className={styles.tagsFlex}>
                       <span className={`${styles.tagItem} ${styles.monoFont}`}>Shopify Plus</span>
+                      <span className={`${styles.tagItem} ${styles.monoFont}`}>Seller Center Omnik</span>
+                      <span className={`${styles.tagItem} ${styles.monoFont}`}>Split Payment (Shopify)</span>
                       <span className={`${styles.tagItem} ${styles.monoFont}`}>Magento (Adobe Commerce)</span>
                       <span className={`${styles.tagItem} ${styles.monoFont}`}>VTEX</span>
                       <span className={`${styles.tagItem} ${styles.monoFont}`}>WooCommerce</span>
@@ -582,7 +587,10 @@ export const ArthurPortfolioView: React.FC = () => {
                       Implementação de arquitetura semântica avançada, engenharia de dados estruturados (Schema Markup em JSON-LD) e <em>Topic Clusters</em> sobre cafés especiais e Indicações Geográficas, expandindo a fatia orgânica e o posicionamento em motores de IA generativa (GEO/AEO).
                     </li>
                     <li>
-                      Liderança técnica e operacional do onboarding de <strong>mais de 100 lojistas parceiros</strong> no ecossistema Shopify Plus com integrações automatizadas via ERP, além da direção de squads multidisciplinares em projetos omnichannel e eventos nacionais do setor.
+                      Integração e onboarding de <strong>mais de 100 vendedores parceiros</strong> através de <strong>Seller Center Omnik</strong> com integração direta ao ERP de cada seller, viabilizando sincronização automática de estoques, catálogo e esteiras de despacho logístico.
+                    </li>
+                    <li>
+                      Desenvolvimento de <strong>arquitetura e solução para split payment nativo em Shopify</strong>, garantindo divisão automatizada de recebíveis entre marketplace e sellers parceiros, com conciliação financeira e conformidade fiscal.
                     </li>
                   </ul>
                 </div>
@@ -599,15 +607,17 @@ export const ArthurPortfolioView: React.FC = () => {
                     </div>
                     <div className={styles.metricCalloutItem}>
                       <span className={`${styles.calloutValue} ${styles.monoFont}`}>+100</span>
-                      <span className={`${styles.calloutLabel} ${styles.monoFont}`}>Lojistas B2B2C Onboarded</span>
+                      <span className={`${styles.calloutLabel} ${styles.monoFont}`}>Sellers Omnik &amp; ERP</span>
                     </div>
                     <div className={styles.metricCalloutItem}>
-                      <span className={`${styles.calloutValue} ${styles.monoFont}`}>GEO / AEO</span>
-                      <span className={`${styles.calloutLabel} ${styles.monoFont}`}>Autoridade em IA Search</span>
+                      <span className={`${styles.calloutValue} ${styles.monoFont}`}>Split Payment</span>
+                      <span className={`${styles.calloutLabel} ${styles.monoFont}`}>Solução em Shopify</span>
                     </div>
                   </div>
                   <div className={styles.caseStackTags}>
                     <span className={`${styles.miniTag} ${styles.monoFont}`}>Shopify Plus</span>
+                    <span className={`${styles.miniTag} ${styles.monoFont}`}>Seller Center Omnik</span>
+                    <span className={`${styles.miniTag} ${styles.monoFont}`}>Split Payment</span>
                     <span className={`${styles.miniTag} ${styles.monoFont}`}>Google Ads</span>
                     <span className={`${styles.miniTag} ${styles.monoFont}`}>Meta Ads</span>
                     <span className={`${styles.miniTag} ${styles.monoFont}`}>JSON-LD Schema</span>
@@ -970,14 +980,14 @@ export const ArthurPortfolioView: React.FC = () => {
           </div>
         </section>
 
-        {/* SEÇÃO 7: FORMATOS DE ENGAJAMENTO & FOOTER EXECUTIVO */}
-        <section className={styles.engagementSection} id="engajamento">
+        {/* SEÇÃO 7: OPÇÕES DE CONSULTORIA & FOOTER EXECUTIVO */}
+        <section className={styles.engagementSection} id="consultoria">
           <div className={styles.editorialContainer}>
             <div className={styles.sectionHeadingRow}>
               <div>
                 <span className={`${styles.sectionEyebrow} ${styles.monoFont}`}>MODELOS DE ATUAÇÃO</span>
                 <h2 className={`${styles.sectionTitle} ${styles.headingFont}`}>
-                  Formatos de Engajamento Executivo
+                  Opções de Consultoria
                 </h2>
               </div>
               <p className={`${styles.sectionSubtext} ${styles.bodyFont}`}>

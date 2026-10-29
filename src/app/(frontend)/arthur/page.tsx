@@ -45,6 +45,8 @@ const personSchema = {
         'Arquitetura de Plataformas de E-commerce (Shopify Plus, Magento, VTEX)',
         'Mídia de Performance e Retail Media (Google Ads, Meta Ads, Mercado Ads)',
         'Governança Financeira de E-commerce, Unit Economics, POAS e DRE/P&L',
+        'Marketplace Seller Center (Omnik) e Integração de ERPs',
+        'Arquitetura de Split Payment em Shopify',
         'Schema.org JSON-LD e Web Semântica',
         'Sociologia da Técnica e do Consumo',
       ],
