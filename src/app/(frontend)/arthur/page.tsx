@@ -10,9 +10,9 @@ const personSchema = {
       '@id': 'https://linkedin.com/in/arthurnasa#person',
       name: 'Arthur Saggioratto',
       alternateName: ['Arthur Saggioratto Neto', 'Arthur Nasa'],
-      jobTitle: 'Executivo de E-commerce | Tráfego, SEO & GEO, Tecnologia e Marca',
+      jobTitle: 'Head of E-commerce, SEO & Growth',
       description:
-        'Executivo de E-commerce e Consultor com 15 anos de atuação estruturada em 4 pilares: Gestão de Tráfego, SEO/GEO e Conteúdo, Implementação e Tecnologia, e Desenvolvimento de Marca e Produto.',
+        'Executivo de E-commerce, Growth e Especialista Sênior em SEO Técnico & CRO com 15 anos de trajetória em B2C, B2B e Global SaaS. Atuação focada na escala sustentável de receita (GMV) e saúde financeira (DRE/P&L), conectando arquitetura semântica, Inteligência Artificial Generativa (GEO/AEO), experimentação de conversão e mídia de performance.',
       url: 'https://linkedin.com/in/arthurnasa',
       email: 'mailto:arthur.saggioratto@gmail.com',
       telephone: '+55-19-99349-7819',
@@ -33,21 +33,20 @@ const personSchema = {
           name: 'Faculdade de Administração e Artes de Limeira (FAAL)',
         },
       ],
-      image: 'https://arthursaggioratto.com.br/arthur-saggioratto.jpg',
       worksFor: {
         '@type': 'Organization',
-        name: 'Arthur Saggioratto Consultoria & Advisory',
+        name: 'Squammata Consultoria & Operações Estratégicas',
         taxID: '31.384.814/0001-09',
       },
       knowsAbout: [
-        'E-commerce Strategy & Management',
-        'Gestão de Tráfego e Mídia de Performance (Google Ads, Meta Ads)',
-        'SEO Técnico, GEO (Generative Engine Optimization) e Estratégia de Conteúdo',
-        'Implementação e Tecnologia de E-commerce (Shopify Plus, VTEX, Next.js)',
-        'Desenvolvimento de Marca e Produto (Branding, Catálogo e Private Label)',
+        'SEO Técnico e Semântico',
+        'GEO (Generative Engine Optimization) e AEO',
         'Conversion Rate Optimization (CRO)',
-        'Unit Economics, POAS e Otimização de Margem',
-        'Schema.org JSON-LD',
+        'Arquitetura de Plataformas de E-commerce (Shopify Plus, Magento, VTEX)',
+        'Mídia de Performance e Retail Media (Google Ads, Meta Ads, Mercado Ads)',
+        'Governança Financeira de E-commerce, Unit Economics, POAS e DRE/P&L',
+        'Schema.org JSON-LD e Web Semântica',
+        'Sociologia da Técnica e do Consumo',
       ],
       sameAs: [
         'https://linkedin.com/in/arthurnasa',
@@ -59,22 +58,22 @@ const personSchema = {
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Arthur Saggioratto | E-commerce: Tráfego, SEO & GEO, Tecnologia e Marca',
+    absolute: 'Arthur Saggioratto | Head of E-commerce, SEO & Growth',
   },
   description:
-    'Portfólio executivo e consultoria de Arthur Saggioratto. 15 anos acelerando e-commerces em 4 pilares: Gestão de Tráfego, SEO/GEO & Conteúdo, Implementação & Tecnologia e Desenvolvimento de Marca & Produto.',
+    'Portfólio executivo e consultoria de Arthur Saggioratto. 15 anos de trajetória em B2C, B2B e Global SaaS: Engenharia de Crescimento Orgânico, Arquitetura de E-commerce e Proteção de Margem Operacional (DRE/P&L).',
   openGraph: {
-    title: 'Arthur Saggioratto | E-commerce: Tráfego, SEO & GEO, Tecnologia e Marca',
+    title: 'Arthur Saggioratto | Head of E-commerce, SEO & Growth',
     description:
-      'Portfólio executivo e consultoria de e-commerce no Brasil. Atuação integrada em Tráfego Pago, SEO/GEO, Tecnologia e Desenvolvimento de Marca e Produto.',
+      'Executivo de E-commerce, Growth e Especialista Sênior em SEO Técnico & CRO. Escala sustentável de receita (GMV) e saúde financeira (DRE/P&L).',
     url: 'https://linkedin.com/in/arthurnasa',
-    siteName: 'Arthur Saggioratto | Portfólio Executivo & Consultoria',
+    siteName: 'Arthur Saggioratto | Portfólio Executivo Editorial',
     images: [
       {
         url: '/arthur-saggioratto.jpg',
         width: 600,
         height: 600,
-        alt: 'Arthur Saggioratto - Consultor e Head de E-commerce',
+        alt: 'Arthur Saggioratto - Head of E-commerce, SEO & Growth',
       },
     ],
     locale: 'pt_BR',
@@ -82,9 +81,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary',
-    title: 'Arthur Saggioratto | E-commerce: Tráfego, SEO & GEO, Tecnologia e Marca',
+    title: 'Arthur Saggioratto | Head of E-commerce, SEO & Growth',
     description:
-      '15 anos acelerando e-commerces em 4 pilares: Tráfego, SEO & GEO, Tecnologia e Marca.',
+      'Engenharia de Crescimento Orgânico, Arquitetura de E-commerce e Proteção de Margem Operacional.',
     images: ['/arthur-saggioratto.jpg'],
   },
 }

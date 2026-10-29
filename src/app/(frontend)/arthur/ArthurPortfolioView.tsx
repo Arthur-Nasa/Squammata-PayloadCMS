@@ -3,9 +3,64 @@
 import React, { useState, useEffect } from 'react'
 import styles from './arthur.module.scss'
 
+const SCHEMA_CODE = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': 'https://linkedin.com/in/arthurnasa#person',
+      name: 'Arthur Saggioratto',
+      alternateName: ['Arthur Saggioratto Neto', 'Arthur Nasa'],
+      jobTitle: 'Head of E-commerce, SEO & Growth',
+      description:
+        'Executivo de E-commerce, Growth e Especialista Sênior em SEO Técnico & CRO. Atuação focada na escala sustentável de receita (GMV) e saúde financeira (DRE/P&L), conectando arquitetura semântica, Inteligência Artificial Generativa (GEO/AEO), experimentação de conversão e mídia de performance.',
+      url: 'https://linkedin.com/in/arthurnasa',
+      email: 'mailto:arthur.saggioratto@gmail.com',
+      telephone: '+55-19-99349-7819',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: "Santa Bárbara d'Oeste",
+        addressRegion: 'SP',
+        addressCountry: 'BR',
+      },
+      alumniOf: [
+        {
+          '@type': 'CollegeOrUniversity',
+          name: 'Universidade Estadual de Campinas (UNICAMP)',
+          sameAs: 'https://www.unicamp.br/',
+        },
+        {
+          '@type': 'CollegeOrUniversity',
+          name: 'Faculdade de Administração e Artes de Limeira (FAAL)',
+        },
+      ],
+      worksFor: {
+        '@type': 'Organization',
+        name: 'Squammata Consultoria & Operações Estratégicas',
+        taxID: '31.384.814/0001-09',
+      },
+      knowsAbout: [
+        'SEO Técnico e Semântico',
+        'GEO (Generative Engine Optimization) e AEO',
+        'Conversion Rate Optimization (CRO)',
+        'Arquitetura de Plataformas de E-commerce (Shopify Plus, Magento, VTEX)',
+        'Mídia de Performance e Retail Media (Google Ads, Meta Ads, Mercado Ads)',
+        'Governança Financeira de E-commerce, Unit Economics, POAS e DRE/P&L',
+        'Schema.org JSON-LD e Web Semântica',
+        'Sociologia da Técnica e do Consumo',
+      ],
+      sameAs: [
+        'https://linkedin.com/in/arthurnasa',
+        'https://blog.ruadocafe.com.br/author/arthur/',
+      ],
+    },
+  ],
+}
+
 export const ArthurPortfolioView: React.FC = () => {
-  // Resolução dinâmica e defensiva do caminho do avatar para compatibilidade universal
   const [avatarSrc, setAvatarSrc] = useState('./arthur-saggioratto.jpg')
+  const [isSchemaModalOpen, setIsSchemaModalOpen] = useState(false)
+  const [copied, setCopied] = useState(false)
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -17,6 +72,16 @@ export const ArthurPortfolioView: React.FC = () => {
       }
     }
   }, [])
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isSchemaModalOpen) {
+        setIsSchemaModalOpen(false)
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [isSchemaModalOpen])
 
   const handleImageFallback = (e: React.SyntheticEvent<HTMLImageElement>) => {
     const target = e.currentTarget
@@ -30,927 +95,1150 @@ export const ArthurPortfolioView: React.FC = () => {
     }
   }
 
-  const handlePrint = () => {
-    if (typeof window !== 'undefined') {
-      window.print()
+  const handleCopySchema = async () => {
+    try {
+      await navigator.clipboard.writeText(JSON.stringify(SCHEMA_CODE, null, 2))
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2500)
+    } catch {
+      // Fallback silencioso
     }
   }
 
-  const whatsappMessage = encodeURIComponent(
-    'Olá Arthur, vi seu currículo executivo e gostaria de conversar sobre um projeto para o meu e-commerce.'
-  )
-
   return (
-    <div className={styles.portfolioPage} data-portfolio-standalone="true">
-      {/* 1. NAVBAR STANDALONE FIXA COM AVATAR / LOGO */}
-      <nav className={styles.standaloneNavbar} aria-label="Navegação Principal do Portfólio">
-        <div className={styles.container}>
-          <div className={styles.navInner}>
-            {/* Brand / Logo com Foto e Status */}
-            <a href="#sobre" className={styles.navBrand}>
-              <div className={styles.navAvatarWrapper}>
-                <img
-                  src={avatarSrc}
-                  alt="Arthur Saggioratto"
-                  width={44}
-                  height={44}
-                  className={styles.navAvatar}
-                  onError={handleImageFallback}
-                  loading="eager"
-                />
-                <span className={styles.navStatusDot} title="Disponível para novos projetos e consultoria" />
-              </div>
-              <div className={styles.navBrandText}>
-                <span className={`${styles.navBrandName} ${styles.headingFont}`}>Arthur Saggioratto</span>
-                <span className={`${styles.navBrandRole} ${styles.monoFont}`}>E-commerce & 4 Pilares</span>
-              </div>
+    <div className={styles.portfolioPage} data-portfolio-editorial="true">
+      {/* 1. HEADER FIXO, MINIMALISTA COM BORDA INFERIOR DE 1PX */}
+      <header className={styles.editorialHeader}>
+        <div className={styles.headerContainer}>
+          <div className={styles.headerBrand}>
+            <a href="#inicio" className={styles.brandTitle}>
+              ARTHUR SAGGIORATTO
             </a>
-
-            {/* Links Centrais de Navegação */}
-            <div className={styles.navLinks}>
-              <a href="#sobre" className={styles.navLinkItem}>Sobre</a>
-              <a href="#pilares" className={styles.navLinkItem}>4 Pilares</a>
-              <a href="#impacto" className={styles.navLinkItem}>Resultados</a>
-              <a href="#curriculo" className={styles.navLinkItem}>Trajetória & Casos</a>
-              <a href="#servicos" className={styles.navLinkItem}>Como Contratar</a>
-              <a href="#publicacoes" className={styles.navLinkItem}>Formação</a>
-            </div>
-
-            {/* Ações Rápidas */}
-            <div className={styles.navActions}>
-              <button
-                type="button"
-                onClick={handlePrint}
-                className={`${styles.btnNavPrint} ${styles.monoFont}`}
-                title="Salvar ou Imprimir Versão em PDF"
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="6 9 6 2 18 2 18 9"></polyline>
-                  <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
-                  <rect x="6" y="14" width="12" height="8"></rect>
-                </svg>
-                <span>Versão CV</span>
-              </button>
-
-              <a
-                href={`https://wa.me/5519993497819?text=${whatsappMessage}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.btnNavWhatsApp}
-              >
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-                </svg>
-                <span>Conversar no WhatsApp</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      {/* 2. HERO SECTION COM PERFIL EXECUTIVO HUMANIZADO */}
-      <header className={styles.heroSection} id="sobre">
-        <div className={styles.container}>
-          <div className={styles.heroGrid}>
-            {/* Coluna 1: Posicionamento e Proposta de Valor Concreta */}
-            <div className={styles.heroTextCol}>
-              <div className={styles.editorialBadge}>
-                <span className={styles.monoFont}>E-COMMERCE • TRÁFEGO • SEO & GEO • TECNOLOGIA • MARCA & PRODUTO</span>
-              </div>
-
-              <h1 className={`${styles.heroTitle} ${styles.headingFont}`}>
-                E-commerce Estruturado em 4 Pilares: Tráfego, SEO & GEO, Tecnologia e Marca
-              </h1>
-
-              <p className={`${styles.heroSubtitle} ${styles.bodyFont}`}>
-                Minha carreira é focada em e-commerce com uma atuação completa: atrair tráfego qualificado, dominar buscas no Google e nas novas IAs, implementar plataformas ágeis e desenvolver marcas e produtos com margem real e clientes fiéis.
-              </p>
-
-              <div className={styles.ctaGroup}>
-                <a
-                  href={`https://wa.me/5519993497819?text=${whatsappMessage}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${styles.btnPrimary} ${styles.headingFont}`}
-                >
-                  <span>Chamar no WhatsApp (+55 19 99349-7819)</span>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </a>
-
-                <a
-                  href="#pilares"
-                  className={`${styles.btnSecondary} ${styles.headingFont}`}
-                >
-                  <span>Conhecer os 4 Pilares</span>
-                </a>
-
-                <a
-                  href="#curriculo"
-                  className={`${styles.btnSecondary} ${styles.headingFont}`}
-                >
-                  <span>Ver Trajetória e Casos</span>
-                </a>
-              </div>
-            </div>
-
-            {/* Coluna 2: Cartão de Perfil Executivo em Destaque */}
-            <div className={styles.heroCardCol}>
-              <div className={styles.profileCard}>
-                <div className={styles.profileCardHeader}>
-                  <div className={styles.profilePhotoWrapper}>
-                    <img
-                      src={avatarSrc}
-                      alt="Arthur Saggioratto"
-                      width={124}
-                      height={124}
-                      className={styles.profilePhoto}
-                      onError={handleImageFallback}
-                      loading="eager"
-                    />
-                  </div>
-
-                  <div className={styles.profileStatusBadge}>
-                    <span className={styles.pulseDot} />
-                    <span>Disponível para Consultoria e Projetos</span>
-                  </div>
-
-                  <h2 className={`${styles.profileName} ${styles.headingFont}`}>Arthur Saggioratto</h2>
-                  <p className={styles.profileTitle}>Executivo de E-commerce | Tráfego, SEO & GEO, Tecnologia e Marca</p>
-                  <p className={`${styles.profileLocation} ${styles.monoFont}`}>Santa Bárbara d&apos;Oeste / Campinas, SP</p>
-                </div>
-
-                <div className={styles.profileStatsGrid}>
-                  <div className={styles.statItem}>
-                    <div className={`${styles.statItemValue} ${styles.monoFont}`}>15 Anos</div>
-                    <div className={styles.statItemLabel}>No E-commerce</div>
-                  </div>
-                  <div className={styles.statItem}>
-                    <div className={`${styles.statItemValue} ${styles.monoFont}`}>4 Pilares</div>
-                    <div className={styles.statItemLabel}>Atuação 360°</div>
-                  </div>
-                  <div className={styles.statItem}>
-                    <div className={`${styles.statItemValue} ${styles.monoFont}`}>B2C & B2B</div>
-                    <div className={styles.statItemLabel}>Varejo e Indústria</div>
-                  </div>
-                  <div className={styles.statItem}>
-                    <div className={`${styles.statItemValue} ${styles.monoFont}`}>UNICAMP</div>
-                    <div className={styles.statItemLabel}>Ciências Sociais</div>
-                  </div>
-                </div>
-
-                <div className={styles.profileChips}>
-                  <a
-                    href="https://linkedin.com/in/arthurnasa"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.profileChipLink}
-                  >
-                    <span>LinkedIn: /in/arthurnasa</span>
-                    <span>↗</span>
-                  </a>
-
-                  <a
-                    href="mailto:arthur.saggioratto@gmail.com"
-                    className={styles.profileChipLink}
-                  >
-                    <span>arthur.saggioratto@gmail.com</span>
-                    <span>✉</span>
-                  </a>
-
-                  <a
-                    href="https://wa.me/5519993497819"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.profileChipLink}
-                  >
-                    <span>WhatsApp Direto: (19) 99349-7819</span>
-                    <span>💬</span>
-                  </a>
-                </div>
-              </div>
-            </div>
+            <span className={`${styles.brandTag} ${styles.monoFont}`}>
+              HEAD OF E-COMMERCE, SEO &amp; GROWTH
+            </span>
           </div>
 
-          {/* Logo Wall de Operações Reais Brasileiras */}
-          <div className={styles.logoWall}>
-            <div className={`${styles.logoWallTitle} ${styles.monoFont}`}>
-              Operações, Marcas e Instituições Onde Atuei Diretamente
-            </div>
-            <div className={styles.logoGrid}>
-              <a href="https://ruadocafe.com.br/" target="_blank" rel="noopener noreferrer" className={styles.logoItem}>
-                <span className={styles.logoBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://ruadocafe.com.br/cdn/shop/files/logo.svg?v=1747747002" alt="Rua do Café" loading="lazy" />
-                </span>
-                <span>Rua do Café</span>
-              </a>
+          <nav className={styles.headerNav} aria-label="Navegação Editorial">
+            <a href="#impacto" className={styles.navLink}>Impacto &amp; DRE</a>
+            <a href="#matriz" className={styles.navLink}>Matriz Técnica</a>
+            <a href="#casos" className={styles.navLink}>Estudos de Caso</a>
+            <a href="#formacao" className={styles.navLink}>Formação &amp; Artigos</a>
+          </nav>
 
-              <a href="https://www.sheetgo.com/" target="_blank" rel="noopener noreferrer" className={styles.logoItem}>
-                <span className={styles.logoBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://static.sheetgo.com/wp-content/uploads/2020/05/sheetgo-logo-20200521.svg" alt="Sheetgo" loading="lazy" />
-                </span>
-                <span>Sheetgo</span>
-              </a>
+          <div className={styles.headerActions}>
+            <button
+              type="button"
+              onClick={() => setIsSchemaModalOpen(true)}
+              className={`${styles.btnSchema} ${styles.monoFont}`}
+              aria-label="Abrir especificações Schema.org JSON-LD"
+            >
+              <span>[ &#123; &#125; JSON-LD Schema ]</span>
+            </button>
 
-              <a href="https://www.maquinasecafe.com.br/" target="_blank" rel="noopener noreferrer" className={styles.logoItem}>
-                <span className={styles.logoBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://www.maquinasecafe.com.br/cdn/shop/files/logo.ai.svg?height=50&v=1768592788" alt="Máquinas & Café" loading="lazy" />
-                </span>
-                <span>Máquinas & Café</span>
-              </a>
-
-              <a href="https://www.lojas360.com.br/" target="_blank" rel="noopener noreferrer" className={styles.logoItem}>
-                <span className={styles.logoBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://images.tcdn.com.br/files/859641/themes/665/img/settings/Lojas-360-Azul-2.png" alt="Lojas 360" loading="lazy" />
-                </span>
-                <span>Lojas 360 EPI</span>
-              </a>
-
-              <a href="https://www.calcadoscope.com.br/" target="_blank" rel="noopener noreferrer" className={styles.logoItem}>
-                <span className={styles.logoBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://cdn.awsli.com.br/400x300/1242/1242395/logo/266232342c.jpeg" alt="Cope Calçados" loading="lazy" />
-                </span>
-                <span>Cope Calçados</span>
-              </a>
-
-              <a href="https://www.unicamp.br/" target="_blank" rel="noopener noreferrer" className={styles.logoItem}>
-                <span className={styles.logoBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://upload.wikimedia.org/wikipedia/pt/b/b2/UNICAMP_logo.svg" alt="UNICAMP" loading="lazy" />
-                </span>
-                <span>UNICAMP</span>
-              </a>
-            </div>
+            <a
+              href="https://wa.me/5519993497819"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.btnPrimary}
+            >
+              <span>Contato Executivo ↗</span>
+            </a>
           </div>
         </div>
       </header>
 
-      {/* 3. PAINEL DE BIG NUMBERS (NÚMEROS REAIS DE OPERAÇÃO) */}
-      <section className={styles.numbersSection} id="impacto">
-        <div className={styles.container}>
-          <div className={styles.sectionHeader}>
-            <div className={`${styles.sectionBadge} ${styles.monoFont}`}>Resultados Reais</div>
-            <h2 className={`${styles.sectionTitle} ${styles.headingFont}`}>
-              Impacto Direto no Lucro e nas Vendas
-            </h2>
-            <p className={styles.sectionDesc}>
-              Resultados comprovados no dia a dia: menos desperdício de verba, processos organizados e caixa protegido.
-            </p>
-          </div>
-
-          <div className={styles.numbersGrid}>
-            <div className={styles.numberCard}>
-              <div className={`${styles.metricValue} ${styles.monoFont}`}>+66% ao Mês</div>
-              <p className={styles.metricDesc}>
-                Crescimento sustentado de vendas na Rua do Café unindo SEO e anúncios com lucro protegido.
-              </p>
-            </div>
-
-            <div className={styles.numberCard}>
-              <div className={`${styles.metricValue} ${styles.monoFont}`}>45% no Orgânico</div>
-              <p className={styles.metricDesc}>
-                Quase metade das vendas da Black Friday vindas direto do Google, sem pagar nenhum anúncio por clique.
-              </p>
-            </div>
-
-            <div className={styles.numberCard}>
-              <div className={`${styles.metricValue} ${styles.monoFont}`}>10 Anos (+20% ao Ano)</div>
-              <p className={styles.metricDesc}>
-                Uma década liderando a Máquinas & Café com crescimento contínuo de 20% ao ano e liderança nacional.
-              </p>
-            </div>
-
-            <div className={styles.numberCard}>
-              <div className={`${styles.metricValue} ${styles.monoFont}`}>+50% Visitas / +30% Pedidos</div>
-              <p className={styles.metricDesc}>
-                Mais visitantes qualificados e menos desistência de compra com frete ágil e checkout simplificado.
-              </p>
-            </div>
-
-            <div className={styles.numberCard}>
-              <div className={`${styles.metricValue} ${styles.monoFont}`}>+20% Tempo no Site</div>
-              <p className={styles.metricDesc}>
-                Maior retenção de usuários e aceleração de cadastros corporativos na plataforma internacional Sheetgo.
-              </p>
-            </div>
-
-            <div className={styles.numberCard}>
-              <div className={`${styles.metricValue} ${styles.monoFont}`}>+100 Fornecedores</div>
-              <p className={styles.metricDesc}>
-                Catálogo multimarca integrado em Shopify Plus sem ruptura de estoque, conectado direto ao ERP.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. OS 4 PILARES PROFISSIONAIS DE ATUAÇÃO */}
-      <section className={styles.pillarsSection} id="pilares">
-        <div className={styles.container}>
-          <div className={styles.sectionHeader}>
-            <div className={`${styles.sectionBadge} ${styles.monoFont}`}>Especialidades Integradas</div>
-            <h2 className={`${styles.sectionTitle} ${styles.headingFont}`}>
-              Os 4 Pilares da Minha Atuação no E-commerce
-            </h2>
-            <p className={styles.sectionDesc}>
-              Uma trajetória sólida no varejo digital não se apoia em uma única habilidade. Conecto aquisição de tráfego, autoridade orgânica, infraestrutura tecnológica e construção de marca para garantir crescimento sustentável e lucro líquido no caixa.
-            </p>
-          </div>
-
-          <div className={styles.bentoGrid}>
-            {/* Pilar 1 */}
-            <div className={styles.pillarCard}>
-              <div className={styles.pillarHeader}>
-                <span className={`${styles.pillarNumber} ${styles.monoFont}`}>PILAR 01 &bull; AQUISIÇÃO & RENTABILIDADE</span>
-              </div>
-              <h3 className={`${styles.pillarTitle} ${styles.headingFont}`}>
-                Gestão de Tráfego & Mídia de Performance
-              </h3>
-              <div className={styles.pillarBody}>
-                <p>
-                  Planejamento e gestão de mídia paga com foco obsessivo em margem de contribuição (POAS e ROAS real). Chega de comemorar números inflados em relatórios enquanto o dinheiro não sobra no banco.
-                </p>
-                <p>
-                  Execução técnica em Google Ads (Search, Shopping e PMax), Meta Ads e Marketplaces (Mercado Ads). Corte cirúrgico de termos que queimam verba, esteiras de retargeting e reativação de clientes antigos com baixo CAC.
-                </p>
-              </div>
-              <div className={styles.stackList}>
-                <span className={styles.stackBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://cdn.simpleicons.org/googleads/4285F4" alt="Google Ads" />
-                  Google Ads (Search & Shopping)
-                </span>
-                <span className={styles.stackBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://cdn.simpleicons.org/meta/0081FB" alt="Meta Ads" />
-                  Meta Ads
-                </span>
-                <span className={styles.stackBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://cdn.simpleicons.org/mercadopago/FFE600" alt="Mercado Ads" />
-                  Mercado Ads
-                </span>
-                <span className={styles.stackBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://cdn.simpleicons.org/looker/4285F4" alt="Looker" />
-                  Looker Studio
-                </span>
-                <span className={styles.stackBadge}>POAS & Margem Real</span>
-                <span className={styles.stackBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://cdn.simpleicons.org/googleanalytics/E37400" alt="GA4" />
-                  GA4 & Métricas de Funil
-                </span>
-              </div>
-            </div>
-
-            {/* Pilar 2 */}
-            <div className={styles.pillarCard}>
-              <div className={styles.pillarHeader}>
-                <span className={`${styles.pillarNumber} ${styles.monoFont}`}>PILAR 02 &bull; BUSCA ORGÂNICA & IA</span>
-              </div>
-              <h3 className={`${styles.pillarTitle} ${styles.headingFont}`}>
-                SEO, GEO e Estratégia de Conteúdo
-              </h3>
-              <div className={styles.pillarBody}>
-                <p>
-                  Domínio e visibilidade em pesquisas tradicionais (Google Search) e nos novos mecanismos de busca por inteligência artificial generativa (Generative Engine Optimization / GEO para Google AI Overviews, ChatGPT e Perplexity).
-                </p>
-                <p>
-                  Arquitetura de informação escalável para categorias e produtos, topic clusters editoriais e dados estruturados avançados que educam o consumidor e geram vendas consistentes sem depender de pagar pedágio por clique.
-                </p>
-              </div>
-              <div className={styles.stackList}>
-                <span className={styles.stackBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://cdn.simpleicons.org/semrush/FF642D" alt="Semrush" />
-                  Semrush
-                </span>
-                <span className={styles.stackBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://static.ahrefs.com/favicon-32x32.png" alt="Ahrefs" />
-                  Ahrefs
-                </span>
-                <span className={styles.stackBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://cdn.simpleicons.org/googlesearchconsole/458CF5" alt="GSC" />
-                  Google Search Console
-                </span>
-                <span className={styles.stackBadge}>GEO (AI Search & LLMs)</span>
-                <span className={styles.stackBadge}>Schema.org JSON-LD</span>
-                <span className={styles.stackBadge}>Topic Clusters</span>
-              </div>
-            </div>
-
-            {/* Pilar 3 */}
-            <div className={styles.pillarCard}>
-              <div className={styles.pillarHeader}>
-                <span className={`${styles.pillarNumber} ${styles.monoFont}`}>PILAR 03 &bull; ENGENHARIA & PLATAFORMA</span>
-              </div>
-              <h3 className={`${styles.pillarTitle} ${styles.headingFont}`}>
-                Implementação e Tecnologia de E-commerce
-              </h3>
-              <div className={styles.pillarBody}>
-                <p>
-                  Engenharia e infraestrutura de e-commerce robusta, rápida e estável. Implantação e customização em Shopify Plus, VTEX, WooCommerce e ecossistemas modernos (Next.js e PayloadCMS).
-                </p>
-                <p>
-                  Integração sem falhas entre loja virtual, ERPs (Bling, Tiny) e operadores logísticos. Destravamento do checkout, eliminação de atrito no frete e Core Web Vitals no verde para elevar a taxa de conversão (CRO).
-                </p>
-              </div>
-              <div className={styles.stackList}>
-                <span className={styles.stackBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://cdn.simpleicons.org/shopify/95BF47" alt="Shopify" />
-                  Shopify Plus
-                </span>
-                <span className={styles.stackBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://cdn.simpleicons.org/vtex/FF3366" alt="VTEX" />
-                  VTEX
-                </span>
-                <span className={styles.stackBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://cdn.simpleicons.org/woocommerce/96588A" alt="WooCommerce" />
-                  WooCommerce
-                </span>
-                <span className={styles.stackBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://cdn.simpleicons.org/nextdotjs/FFFFFF" alt="Next.js" />
-                  Next.js & React
-                </span>
-                <span className={styles.stackBadge}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://www.bling.com.br/favicon.ico" alt="Bling ERP" />
-                  Bling e Tiny ERP
-                </span>
-                <span className={styles.stackBadge}>Core Web Vitals & CRO</span>
-              </div>
-            </div>
-
-            {/* Pilar 4 */}
-            <div className={styles.pillarCard}>
-              <div className={styles.pillarHeader}>
-                <span className={`${styles.pillarNumber} ${styles.monoFont}`}>PILAR 04 &bull; BRANDING, CATÁLOGO & LTV</span>
-              </div>
-              <h3 className={`${styles.pillarTitle} ${styles.headingFont}`}>
-                Desenvolvimento de Marca e Produto
-              </h3>
-              <div className={styles.pillarBody}>
-                <p>
-                  Construção de marca com proposta de valor clara, posicionamento competitivo e diferenciação para não virar commodity em guerra predatória de preços.
-                </p>
-                <p>
-                  Curadoria e expansão de mix de catálogo, desenvolvimento de linhas próprias (private label), precificação estratégica e experiência de unboxing e pós-venda para transformar compradores esporádicos em clientes fiéis de alto LTV.
-                </p>
-              </div>
-              <div className={styles.stackList}>
-                <span className={styles.stackBadge}>Branding & Posicionamento</span>
-                <span className={styles.stackBadge}>Curadoria de Catálogo</span>
-                <span className={styles.stackBadge}>Marca Própria (Private Label)</span>
-                <span className={styles.stackBadge}>Precificação Estratégica</span>
-                <span className={styles.stackBadge}>Experiência & Unboxing</span>
-                <span className={styles.stackBadge}>Retenção & LTV</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. MODELOS DE ATUAÇÃO E SERVIÇOS (COMO TRABALHAMOS) */}
-      <section className={styles.servicesSection} id="servicos">
-        <div className={styles.container}>
-          <div className={styles.sectionHeader}>
-            <div className={`${styles.sectionBadge} ${styles.monoFont}`}>Formatos de Contratação</div>
-            <h2 className={`${styles.sectionTitle} ${styles.headingFont}`}>
-              Como Contratar Minha Atuação
-            </h2>
-            <p className={styles.sectionDesc}>
-              Modelos flexíveis para aplicar os 4 pilares no seu negócio, seja em auditorias pontuais, acompanhamento contínuo ou liderança executiva fracionada.
-            </p>
-          </div>
-
-          <div className={styles.servicesGrid}>
-            {/* Modelo 1 */}
-            <div className={`${styles.serviceCard} ${styles.serviceCardAudit}`}>
-              <div className={styles.serviceHeaderTop}>
-                <span className={`${styles.serviceDurationBadge} ${styles.monoFont}`}>Sprint de 3 a 4 Semanas</span>
-              </div>
-              <h3 className={`${styles.serviceTitle} ${styles.headingFont}`}>Diagnóstico Completo dos 4 Pilares</h3>
-              <p className={styles.serviceOverview}>
-                Raio-X prático em tráfego, SEO/GEO, tecnologia e catálogo para estancar perdas e priorizar retornos rápidos ao caixa.
-              </p>
-              <ul className={styles.serviceList}>
-                <li>Auditoria de Mídia: corte imediato de verba desperdiçada em anúncios sem venda</li>
-                <li>Auditoria de SEO & GEO: destravar categorias e produtos para buscas tradicionais e de IA</li>
-                <li>Revisão Técnica & Checkout: frete, velocidade mobile e atritos no carrinho</li>
-                <li>Análise de Catálogo & Margem: ajuste de mix, precificação e oportunidades de produto</li>
-              </ul>
-              <a
-                href={`https://wa.me/5519993497819?text=${encodeURIComponent('Olá Arthur, tenho interesse no Diagnóstico Completo dos 4 Pilares para o meu e-commerce.')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.btnServiceCta}
-              >
-                Solicitar Diagnóstico ↗
-              </a>
-            </div>
-
-            {/* Modelo 2: Destaque */}
-            <div className={`${styles.serviceCard} ${styles.serviceFeaturedCard}`}>
-              <div className={styles.serviceHeaderTop}>
-                <span className={`${styles.serviceDurationBadge} ${styles.monoFont}`}>Acompanhamento Mensal</span>
-                <span className={`${styles.featuredBadge} ${styles.monoFont}`}>Mais Procurado</span>
-              </div>
-              <h3 className={`${styles.serviceTitle} ${styles.headingFont}`}>Consultoria Prática com Acompanhamento</h3>
-              <p className={styles.serviceOverview}>
-                Atuação direta com sua equipe para executar as melhorias dos 4 pilares e aumentar o lucro líquido mês a mês.
-              </p>
-              <ul className={styles.serviceList}>
-                <li>Otimização contínua de Google Ads, Meta Ads e canais de tráfego com foco em POAS</li>
-                <li>Criação e expansão de páginas orgânicas e conteúdos técnicos para Google e IAs</li>
-                <li>Melhorias na plataforma, integrações de ERP e vendas assistidas via WhatsApp</li>
-                <li>Refinamento de catálogo, experiência de unboxing e estratégias de recompra</li>
-              </ul>
-              <a
-                href={`https://wa.me/5519993497819?text=${encodeURIComponent('Olá Arthur, gostaria de entender a Consultoria Contínua para o meu negócio.')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${styles.btnServiceCta} ${styles.btnServiceFeatured}`}
-              >
-                Contratar Consultoria ↗
-              </a>
-            </div>
-
-            {/* Modelo 3 */}
-            <div className={`${styles.serviceCard} ${styles.serviceCardLeadership}`}>
-              <div className={styles.serviceHeaderTop}>
-                <span className={`${styles.serviceDurationBadge} ${styles.monoFont}`}>Atuação Trimestral ou Semestral</span>
-              </div>
-              <h3 className={`${styles.serviceTitle} ${styles.headingFont}`}>Liderança de E-commerce Fracionada</h3>
-              <p className={styles.serviceOverview}>
-                Direção executiva gerenciando os 4 pilares de ponta a ponta sem o alto custo fixo de um diretor em tempo integral.
-              </p>
-              <ul className={styles.serviceList}>
-                <li>Planejamento estratégico de metas de vendas, canais comerciais e posicionamento</li>
-                <li>Liderança na escolha ou migração de plataformas (Shopify, VTEX, ERPs e parceiros)</li>
-                <li>Gestão e cobrança técnica de equipes internas, agências e desenvolvedores</li>
-                <li>Relatórios claros de rentabilidade, margem e unit economics para sócios e investidores</li>
-              </ul>
-              <a
-                href={`https://wa.me/5519993497819?text=${encodeURIComponent('Olá Arthur, quero conversar sobre o formato de Liderança Fracionada para minha empresa.')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.btnServiceCta}
-              >
-                Alinhar Liderança Fracionada ↗
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. CURRÍCULO ONLINE / TRAJETÓRIA E ESTUDOS DE CASO */}
-      <section className={styles.casesSection} id="curriculo">
-        <div className={styles.container}>
-          <div className={styles.sectionHeader}>
-            <div className={`${styles.sectionBadge} ${styles.monoFont}`}>Trajetória Profissional</div>
-            <h2 className={`${styles.sectionTitle} ${styles.headingFont}`}>
-              Experiência no Varejo Digital e Casos Reais
-            </h2>
-            <p className={styles.sectionDesc}>
-              Operações reais onde atuei diretamente, com desafios superados e resultados comprovados no caixa.
-            </p>
-          </div>
-
-          <div className={styles.casesTimeline}>
-            {/* Caso 1: Rua do Café */}
-            <article className={styles.caseCard}>
-              <div
-                className={styles.caseMedia}
-                style={{
-                  backgroundImage:
-                    'url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80")',
-                }}
-              />
-              <div className={styles.caseContent}>
-                <div className={`${styles.caseMeta} ${styles.monoFont}`}>Janeiro 2024 a Presente | Atuação Híbrida</div>
-                <h3 className={`${styles.caseTitle} ${styles.headingFont}`}>Rua do Café</h3>
-                <div className={`${styles.caseRole} ${styles.monoFont}`}>Head de Marketing & E-commerce</div>
-                <div className={styles.stackList} style={{ marginBottom: '1.25rem' }}>
-                  <span className={styles.stackBadge}>Gestão de Tráfego</span>
-                  <span className={styles.stackBadge}>SEO, GEO & Conteúdo</span>
-                  <span className={styles.stackBadge}>Implementação & Tecnologia</span>
-                  <span className={styles.stackBadge}>Desenvolvimento de Marca</span>
+      <main id="inicio">
+        {/* SEÇÃO 1: HERO SECTION ASSIMÉTRICO (8 COLUNAS / 4 COLUNAS) */}
+        <section className={styles.heroSection}>
+          <div className={styles.editorialContainer}>
+            <div className={styles.heroGrid}>
+              {/* Coluna Esquerda: 8 Colunas */}
+              <div className={styles.heroLeftCol}>
+                <div className={`${styles.heroEyebrow} ${styles.monoFont}`}>
+                  15 ANOS DE TRAJETÓRIA &bull; B2C, B2B &amp; GLOBAL SAAS &bull; CAMPINAS / SP
                 </div>
-                <div className={styles.caseBody}>
-                  <ul>
-                    <li>
-                      Gestão responsável de Google Ads e Meta Ads gerando expansão sustentada de <strong>+66% ao mês em vendas</strong> com margem e lucro protegidos.
-                    </li>
-                    <li>
-                      Estratégia de SEO com conteúdos sobre métodos e cafés especiais atraindo compradores pelo Google sem custo de anúncio por clique.
-                    </li>
-                    <li>
-                      Integração de <strong>mais de 100 marcas e produtores parceiros</strong> em ecossistema Shopify Plus sincronizado ao ERP.
-                    </li>
-                  </ul>
-                </div>
-                <div className={styles.caseLinks}>
-                  <a href="https://ruadocafe.com.br/" target="_blank" rel="noopener noreferrer" className={styles.linkExternal}>
-                    Loja Oficial da Rua do Café ↗
+
+                <h1 className={`${styles.heroH1} ${styles.headingFont}`}>
+                  Engenharia de Crescimento Orgânico, Arquitetura de E-commerce e Proteção de Margem Operacional.
+                </h1>
+
+                <p className={`${styles.heroLead} ${styles.bodyFont}`}>
+                  Executivo de E-commerce, Growth e Especialista Sênior em SEO Técnico &amp; CRO. Atuação focada na escala sustentável de receita (GMV) e saúde financeira (DRE/P&amp;L), conectando arquitetura semântica, Inteligência Artificial Generativa (GEO/AEO), experimentação de conversão e mídia de performance.
+                </p>
+
+                <div className={styles.heroActions}>
+                  <a
+                    href="https://wa.me/5519993497819"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.btnHeroSolid}
+                  >
+                    <span>Iniciar Conversa Executiva (WhatsApp) ↗</span>
                   </a>
-                  <a href="https://blog.ruadocafe.com.br/author/arthur/" target="_blank" rel="noopener noreferrer" className={styles.linkExternal}>
-                    Artigos Técnicos Publicados ↗
+
+                  <a
+                    href="https://linkedin.com/in/arthurnasa"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.btnHeroEditorial}
+                  >
+                    <span>LinkedIn Oficial (/in/arthurnasa) ↗</span>
+                  </a>
+
+                  <a
+                    href="mailto:arthur.saggioratto@gmail.com"
+                    className={`${styles.heroEmailLink} ${styles.monoFont}`}
+                  >
+                    arthur.saggioratto@gmail.com
                   </a>
                 </div>
               </div>
-            </article>
 
-            {/* Caso 2: Sheetgo */}
-            <article className={styles.caseCard}>
-              <div
-                className={styles.caseMedia}
-                style={{
-                  backgroundImage:
-                    'url("https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80")',
-                }}
-              />
-              <div className={styles.caseContent}>
-                <div className={`${styles.caseMeta} ${styles.monoFont}`}>Janeiro 2024 a Outubro 2024 | Operação Internacional Remota</div>
-                <h3 className={`${styles.caseTitle} ${styles.headingFont}`}>Sheetgo</h3>
-                <div className={`${styles.caseRole} ${styles.monoFont}`}>Especialista Sênior em SEO & Conversão (Software Global B2B)</div>
-                <div className={styles.stackList} style={{ marginBottom: '1.25rem' }}>
-                  <span className={styles.stackBadge}>SEO Internacional</span>
-                  <span className={styles.stackBadge}>GEO & IA Search</span>
-                  <span className={styles.stackBadge}>Estratégia de Conteúdo</span>
-                  <span className={styles.stackBadge}>Conversão & CRO</span>
+              {/* Coluna Direita: 4 Colunas (Dossiê e Especificações Executivas) */}
+              <aside className={styles.heroRightCol}>
+                <div className={styles.portraitWrapper}>
+                  <img
+                    src={avatarSrc}
+                    alt="Arthur Saggioratto"
+                    width={400}
+                    height={500}
+                    className={styles.editorialPortrait}
+                    onError={handleImageFallback}
+                    loading="eager"
+                  />
+                  <div className={`${styles.portraitCaption} ${styles.monoFont}`}>
+                    ARTHUR SAGGIORATTO &bull; BASE SÃO PAULO
+                  </div>
                 </div>
-                <div className={styles.caseBody}>
-                  <ul>
-                    <li>
-                      Expansão de tráfego orgânico global e auditorias técnicas avançadas utilizando <strong>Semrush</strong> e <strong>Ahrefs</strong> em operação internacional 100% em inglês (EUA e Europa).
-                    </li>
-                    <li>
-                      Reestruturação de páginas do produto e criação de conteúdos técnicos direcionados a decisores corporativos de TI e operações.
-                    </li>
-                    <li>
-                      Aumento de <strong>+20% no tempo de navegação no site</strong> e aceleração na geração de cadastros corporativos qualificados.
-                    </li>
-                  </ul>
+
+                <div className={styles.dossierSpecs}>
+                  <div className={styles.specRow}>
+                    <span className={`${styles.specLabel} ${styles.monoFont}`}>Entidade / PJ:</span>
+                    <span className={styles.specValue}>
+                      31.384.814 ARTHUR SAGGIORATTO NETO - ME (Consultoria Squammata)
+                    </span>
+                  </div>
+
+                  <div className={styles.specRow}>
+                    <span className={`${styles.specLabel} ${styles.monoFont}`}>Formação Dupla:</span>
+                    <span className={styles.specValue}>
+                      Ciências Sociais / Sociologia (UNICAMP) &amp; Marketing e Gestão de Vendas (FAAL)
+                    </span>
+                  </div>
+
+                  <div className={styles.specRow}>
+                    <span className={`${styles.specLabel} ${styles.monoFont}`}>Fluência Operacional:</span>
+                    <span className={styles.specValue}>
+                      Português (Nativo) | Inglês (C2 Proficient para operações globais)
+                    </span>
+                  </div>
+
+                  <div className={styles.specRow}>
+                    <span className={`${styles.specLabel} ${styles.monoFont}`}>Core Stack:</span>
+                    <span className={`${styles.specValue} ${styles.monoFont}`}>
+                      Shopify Plus &bull; Magento &bull; VTEX &bull; GA4 &bull; GSC &bull; Screaming Frog &bull; Schema JSON-LD
+                    </span>
+                  </div>
                 </div>
-                <div className={styles.caseLinks}>
-                  <a href="https://www.sheetgo.com/" target="_blank" rel="noopener noreferrer" className={styles.linkExternal}>
-                    Plataforma Oficial da Sheetgo ↗
-                  </a>
-                </div>
+              </aside>
+            </div>
+          </div>
+        </section>
+
+        {/* SEÇÃO 2: BARRA DE CREDENCIAIS E OPERAÇÕES (LOGO STRIP) */}
+        <section className={styles.logoStripSection}>
+          <div className={styles.editorialContainer}>
+            <div className={styles.logoStripInner}>
+              <div className={`${styles.logoStripTitle} ${styles.monoFont}`}>
+                OPERAÇÕES E PROJETOS IMPULSIONADOS:
               </div>
-            </article>
 
-            {/* Caso 3: Máquinas & Café */}
-            <article className={styles.caseCard}>
-              <div
-                className={styles.caseMedia}
-                style={{
-                  backgroundImage:
-                    'url("https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80")',
-                }}
-              />
-              <div className={styles.caseContent}>
-                <div className={`${styles.caseMeta} ${styles.monoFont}`}>Janeiro 2014 a Janeiro 2024 | 10 Anos de Liderança Contínua</div>
-                <h3 className={`${styles.caseTitle} ${styles.headingFont}`}>Máquinas & Café</h3>
-                <div className={`${styles.caseRole} ${styles.monoFont}`}>Gerente Geral de E-commerce & Operações</div>
-                <div className={styles.stackList} style={{ marginBottom: '1.25rem' }}>
-                  <span className={styles.stackBadge}>Liderança 360°</span>
-                  <span className={styles.stackBadge}>Gestão de Tráfego</span>
-                  <span className={styles.stackBadge}>SEO & Conteúdo</span>
-                  <span className={styles.stackBadge}>Tecnologia & ERP</span>
-                  <span className={styles.stackBadge}>Curadoria de Catálogo</span>
+              <div className={styles.logoStripItems}>
+                <a
+                  href="https://ruadocafe.com.br/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.logoBadgeLink}
+                >
+                  <span className={`${styles.logoSealText} ${styles.monoFont}`}>RUA DO CAFÉ</span>
+                </a>
+
+                <a
+                  href="https://www.sheetgo.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.logoBadgeLink}
+                >
+                  <span className={`${styles.logoSealText} ${styles.monoFont}`}>SHEETGO (GLOBAL SAAS)</span>
+                </a>
+
+                <a
+                  href="https://www.maquinasecafe.com.br/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.logoBadgeLink}
+                >
+                  <span className={`${styles.logoSealText} ${styles.monoFont}`}>MÁQUINAS &amp; CAFÉ</span>
+                </a>
+
+                <a
+                  href="https://www.lojas360.com.br/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.logoBadgeLink}
+                >
+                  <span className={`${styles.logoSealText} ${styles.monoFont}`}>LOJAS 360 EPI</span>
+                </a>
+
+                <a
+                  href="https://www.midea.com/br"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.logoBadgeLink}
+                >
+                  <span className={`${styles.logoSealText} ${styles.monoFont}`}>MIDEA CARRIER</span>
+                </a>
+
+                <a
+                  href="https://www.unicamp.br/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.logoBadgeLink}
+                >
+                  <span className={`${styles.logoSealText} ${styles.monoFont}`}>UNICAMP</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SEÇÃO 3: INDICADORES AUDITADOS DE NEGÓCIO (GRADE TABULAR 2x3) */}
+        <section className={styles.bigNumbersSection} id="impacto">
+          <div className={styles.editorialContainer}>
+            <div className={styles.sectionHeadingRow}>
+              <div>
+                <span className={`${styles.sectionEyebrow} ${styles.monoFont}`}>INDICADORES AUDITADOS</span>
+                <h2 className={`${styles.sectionTitle} ${styles.headingFont}`}>
+                  Performance Financeira, Escala de GMV e Eficiência Operacional
+                </h2>
+              </div>
+              <p className={`${styles.sectionSubtext} ${styles.bodyFont}`}>
+                Métricas históricas de impacto direto em faturamento bruto, margem de contribuição e consolidação mercadológica.
+              </p>
+            </div>
+
+            <div className={styles.tabularGrid}>
+              {/* Célula 1 */}
+              <div className={styles.tabularCell}>
+                <div className={`${styles.tabularValue} ${styles.monoFont}`}>
+                  +66% MoM em GMV
                 </div>
-                <div className={styles.caseBody}>
-                  <ul>
-                    <li>
-                      Liderança geral da operação (máquinas importadas de café, peças, logística e e-commerce), tornando a empresa referência nacional B2C e B2B.
-                    </li>
-                    <li>
-                      Operação digital integrada ao ERP com <strong>crescimento médio de 20% ao ano durante 10 anos consecutivos</strong>.
-                    </li>
-                    <li>
-                      Forte presença no Google gerando <strong>+50% de visitas</strong>, <strong>+30% nas compras</strong> e <strong>45% das vendas da Black Friday sem gastar com anúncios pagos</strong>.
-                    </li>
-                  </ul>
+                <div className={`${styles.tabularLabel} ${styles.monoFont}`}>
+                  ESCALA DE RECEITA &bull; RUA DO CAFÉ
+                </div>
+                <p className={`${styles.tabularDesc} ${styles.bodyFont}`}>
+                  Crescimento sustentado mês a mês viabilizado pela administração integral do orçamento de aquisição digital (Google Ads e Meta Ads) combinada à arquitetura de conversão.
+                </p>
+              </div>
 
-                  <div className={styles.caseQuote}>
-                    &ldquo;A estratégia de SEO aliada a conteúdos de qualidade impulsionou nosso crescimento na loja como um todo, reduzindo a dependência de mídia paga.&rdquo;
-                    <div style={{ marginTop: '0.4rem', fontSize: '0.82rem', color: '#A39E93' }}>
-                      Depoimento registrado publicamente pela consultoria parceira Bridge SEO
+              {/* Célula 2 */}
+              <div className={styles.tabularCell}>
+                <div className={`${styles.tabularValue} ${styles.monoFont}`}>
+                  45% na Black Friday via Orgânico
+                </div>
+                <div className={`${styles.tabularLabel} ${styles.monoFont}`}>
+                  PROTEÇÃO DE MARGEM &bull; SEO TÉCNICO
+                </div>
+                <p className={`${styles.tabularDesc} ${styles.bodyFont}`}>
+                  Fatia do faturamento em pico sazonal gerada exclusivamente pelo canal orgânico via SEO Técnico e Arquitetura Semântica, reduzindo a dependência de leilões inflacionados.
+                </p>
+              </div>
+
+              {/* Célula 3 */}
+              <div className={styles.tabularCell}>
+                <div className={`${styles.tabularValue} ${styles.monoFont}`}>
+                  10 Anos (+20% YoY)
+                </div>
+                <div className={`${styles.tabularLabel} ${styles.monoFont}`}>
+                  LIDERANÇA NACIONAL &bull; MÁQUINAS &amp; CAFÉ
+                </div>
+                <p className={`${styles.tabularDesc} ${styles.bodyFont}`}>
+                  Consolidação da marca como líder nacional em e-commerce B2C e B2B de máquinas de espresso, mantendo crescimento linear de 20% ao ano durante uma década (2014 a 2024).
+                </p>
+              </div>
+
+              {/* Célula 4 */}
+              <div className={styles.tabularCell}>
+                <div className={`${styles.tabularValue} ${styles.monoFont}`}>
+                  +50% Tráfego / +30% Conversão
+                </div>
+                <div className={`${styles.tabularLabel} ${styles.monoFont}`}>
+                  EFICIÊNCIA DE FUNIL &bull; AQUISIÇÃO &amp; CRO
+                </div>
+                <p className={`${styles.tabularDesc} ${styles.bodyFont}`}>
+                  Incremento simultâneo de tráfego qualificado (+50%) e taxa de conversão geral (+30%) mediante automação de fluxos de captação e otimização transacional de loja virtual.
+                </p>
+              </div>
+
+              {/* Célula 5 */}
+              <div className={styles.tabularCell}>
+                <div className={`${styles.tabularValue} ${styles.monoFont}`}>
+                  +20% Session Duration
+                </div>
+                <div className={`${styles.tabularLabel} ${styles.monoFont}`}>
+                  RETENÇÃO B2B SAAS &bull; SHEETGO (GLOBAL)
+                </div>
+                <p className={`${styles.tabularDesc} ${styles.bodyFont}`}>
+                  Elevação da duração média de sessão em software B2B global através de redesign de usabilidade, análise de mapas de calor (heatmaps) e CRO orientado à jornada do usuário.
+                </p>
+              </div>
+
+              {/* Célula 6 */}
+              <div className={styles.tabularCell}>
+                <div className={`${styles.tabularValue} ${styles.monoFont}`}>
+                  +100 Lojistas Integrados
+                </div>
+                <div className={`${styles.tabularLabel} ${styles.monoFont}`}>
+                  ECOSSISTEMA B2B2C &bull; SHOPIFY PLUS &amp; ERP
+                </div>
+                <p className={`${styles.tabularDesc} ${styles.bodyFont}`}>
+                  Liderança técnica e operacional no onboarding de mais de 100 varejistas parceiros em arquitetura Shopify Plus com integração automatizada de catálogo e pedidos via ERP.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SEÇÃO 4: MATRIZ DE COMPETÊNCIAS E ENGENHARIA (ÍNDICE TÉCNICO 01 A 04) */}
+        <section className={styles.matrixSection} id="matriz">
+          <div className={styles.editorialContainer}>
+            <div className={styles.sectionHeadingRow}>
+              <div>
+                <span className={`${styles.sectionEyebrow} ${styles.monoFont}`}>SISTEMA DE ESPECIALIDADES</span>
+                <h2 className={`${styles.sectionTitle} ${styles.headingFont}`}>
+                  Matriz de Competências e Engenharia de E-commerce
+                </h2>
+              </div>
+              <p className={`${styles.sectionSubtext} ${styles.bodyFont}`}>
+                Quatro pilares integrados de atuação técnica: semântica de busca, conversão de interface, infraestrutura transacional e governança de margem operacional.
+              </p>
+            </div>
+
+            <div className={styles.matrixIndex}>
+              {/* Pilar 01 */}
+              <article className={styles.matrixRow}>
+                <div className={styles.matrixMeta}>
+                  <span className={`${styles.matrixNumber} ${styles.monoFont}`}>01</span>
+                  <h3 className={`${styles.matrixTitle} ${styles.headingFont}`}>
+                    SEO Técnico, Semântico, Conteúdo &amp; IA Generativa (GEO / AEO)
+                  </h3>
+                </div>
+
+                <div className={styles.matrixContent}>
+                  <div className={styles.matrixMethodology}>
+                    <h4 className={`${styles.methodologyHeading} ${styles.monoFont}`}>
+                      ARQUITETURA &amp; MÉTODO
+                    </h4>
+                    <ul className={`${styles.editorialList} ${styles.bodyFont}`}>
+                      <li>
+                        <strong>Engenharia de Catálogo e Indexação:</strong> Taxonomia escalável de categorias (PLPs) e produtos (PDPs), mitigação de canibalização de URLs, gestão de filtros facetados, controle de canonical tags e otimização de <em>crawl budget</em>.
+                      </li>
+                      <li>
+                        <strong>Autoridade Tópica e Grafos Semânticos:</strong> Estruturação de <em>Topic Clusters</em>, <em>Topical Maps</em>, alinhamento de <em>Search Intent</em> (E-E-A-T) e implementação avançada de dados estruturados em <strong>Schema.org / JSON-LD</strong> (<code>Product</code>, <code>Offer</code>, <code>AggregateRating</code>, <code>Organization</code>, <code>FAQPage</code>, <code>Article</code>).
+                      </li>
+                      <li>
+                        <strong>Visibilidade em Motores Generativos (GEO):</strong> Modelagem de entidades para citação direta em Google AI Overviews, ChatGPT Search e Perplexity.
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className={styles.matrixDeliverables}>
+                    <h4 className={`${styles.methodologyHeading} ${styles.monoFont}`}>
+                      STACK &amp; ENTREGÁVEIS
+                    </h4>
+                    <div className={styles.tagsFlex}>
+                      <span className={`${styles.tagItem} ${styles.monoFont}`}>Screaming Frog</span>
+                      <span className={`${styles.tagItem} ${styles.monoFont}`}>Google Search Console</span>
+                      <span className={`${styles.tagItem} ${styles.monoFont}`}>Ahrefs</span>
+                      <span className={`${styles.tagItem} ${styles.monoFont}`}>SEMrush</span>
+                      <span className={`${styles.tagItem} ${styles.monoFont}`}>Core Web Vitals (LCP, INP, CLS)</span>
+                      <span className={`${styles.tagItem} ${styles.monoFont}`}>JSON-LD</span>
                     </div>
                   </div>
                 </div>
-                <div className={styles.caseLinks}>
-                  <a href="https://www.maquinasecafe.com.br/" target="_blank" rel="noopener noreferrer" className={styles.linkExternal}>
-                    Loja Virtual Máquinas & Café ↗
-                  </a>
-                  <a href="https://bridgeseo.com.br/consultoria-de-seo-para-e-commerce/" target="_blank" rel="noopener noreferrer" className={styles.linkExternal}>
-                    Ver Prova Social Pública (Bridge SEO) ↗
-                  </a>
-                </div>
-              </div>
-            </article>
+              </article>
 
-            {/* Caso 4: Squammata Consultoria & Gestão (Cope Calçados e Lojas 360 EPI) */}
-            <article className={styles.caseCard}>
-              <div
-                className={styles.caseMedia}
-                style={{
-                  backgroundImage:
-                    'url("https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80")',
-                }}
-              />
-              <div className={styles.caseContent}>
-                <div className={`${styles.caseMeta} ${styles.monoFont}`}>2018 a Presente | Consultoria & Gestão de Projetos</div>
-                <h3 className={`${styles.caseTitle} ${styles.headingFont}`}>Squammata Consultoria & Gestão (Cope Calçados & Lojas 360 EPI)</h3>
-                <div className={`${styles.caseRole} ${styles.monoFont}`}>Trabalho executado através da Squammata, liderado por Arthur Saggioratto</div>
-                <div className={styles.stackList} style={{ marginBottom: '1.25rem' }}>
-                  <span className={styles.stackBadge}>Tráfego focado em Margem</span>
-                  <span className={styles.stackBadge}>Tecnologia & Checkout</span>
-                  <span className={styles.stackBadge}>Catálogo B2B e B2C</span>
-                  <span className={styles.stackBadge}>Vendas Assistidas WhatsApp</span>
+              {/* Pilar 02 */}
+              <article className={styles.matrixRow}>
+                <div className={styles.matrixMeta}>
+                  <span className={`${styles.matrixNumber} ${styles.monoFont}`}>02</span>
+                  <h3 className={`${styles.matrixTitle} ${styles.headingFont}`}>
+                    Otimização da Taxa de Conversão (CRO) &amp; UX Transacional
+                  </h3>
                 </div>
-                <div className={styles.caseBody}>
-                  <ul>
+
+                <div className={styles.matrixContent}>
+                  <div className={styles.matrixMethodology}>
+                    <h4 className={`${styles.methodologyHeading} ${styles.monoFont}`}>
+                      ARQUITETURA &amp; MÉTODO
+                    </h4>
+                    <ul className={`${styles.editorialList} ${styles.bodyFont}`}>
+                      <li>
+                        <strong>Diagnóstico de Fricção e Funil:</strong> Mapeamento analítico de gargalos desde a página inicial, vitrines (PLPs) e páginas de produto (PDPs) até o carrinho e esteira de checkout transparente.
+                      </li>
+                      <li>
+                        <strong>Metodologia de Experimentação:</strong> Testes A/B estruturados sobre hipóteses causais claras, validação estatística de impacto no ticket médio, taxa de adição ao carrinho (<em>Add-to-Cart</em>) e conversão final.
+                      </li>
+                      <li>
+                        <strong>Comportamento e Mensuração Ética:</strong> Análise de mapas de calor (<em>heatmaps</em>), gravações de sessão, parametrização avançada de eventos e mensuração <em>privacy-first</em>.
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className={styles.matrixDeliverables}>
+                    <h4 className={`${styles.methodologyHeading} ${styles.monoFont}`}>
+                      STACK &amp; ENTREGÁVEIS
+                    </h4>
+                    <div className={styles.tagsFlex}>
+                      <span className={`${styles.tagItem} ${styles.monoFont}`}>GA4</span>
+                      <span className={`${styles.tagItem} ${styles.monoFont}`}>Google Tag Manager (Server-Side)</span>
+                      <span className={`${styles.tagItem} ${styles.monoFont}`}>Heatmaps &amp; Session Recording</span>
+                      <span className={`${styles.tagItem} ${styles.monoFont}`}>Plausible</span>
+                      <span className={`${styles.tagItem} ${styles.monoFont}`}>Matomo</span>
+                      <span className={`${styles.tagItem} ${styles.monoFont}`}>Testes A/B</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              {/* Pilar 03 */}
+              <article className={styles.matrixRow}>
+                <div className={styles.matrixMeta}>
+                  <span className={`${styles.matrixNumber} ${styles.monoFont}`}>03</span>
+                  <h3 className={`${styles.matrixTitle} ${styles.headingFont}`}>
+                    Arquitetura de Plataformas de E-commerce, B2B &amp; Marketplaces
+                  </h3>
+                </div>
+
+                <div className={styles.matrixContent}>
+                  <div className={styles.matrixMethodology}>
+                    <h4 className={`${styles.methodologyHeading} ${styles.monoFont}`}>
+                      ARQUITETURA &amp; MÉTODO
+                    </h4>
+                    <ul className={`${styles.editorialList} ${styles.bodyFont}`}>
+                      <li>
+                        <strong>Infraestrutura e Migrações:</strong> Gestão operacional <em>end-to-end</em>, migração de plataformas, integração bidirecional com sistemas ERP (catálogo, estoque multi-CD, faturamento e logística) e precificação dinâmica.
+                      </li>
+                      <li>
+                        <strong>Operação de Marketplaces e Venda Assistida:</strong> Gestão estratégica de canais em Mercado Livre (Fulfillment e Mercado Ads), Shopee, Amazon e TikTok Shop (operação e afiliados), além de esteiras híbridas via WhatsApp e CRM para alto ticket e B2B.
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className={styles.matrixDeliverables}>
+                    <h4 className={`${styles.methodologyHeading} ${styles.monoFont}`}>
+                      STACK &amp; ENTREGÁVEIS
+                    </h4>
+                    <div className={styles.tagsFlex}>
+                      <span className={`${styles.tagItem} ${styles.monoFont}`}>Shopify Plus</span>
+                      <span className={`${styles.tagItem} ${styles.monoFont}`}>Magento (Adobe Commerce)</span>
+                      <span className={`${styles.tagItem} ${styles.monoFont}`}>VTEX</span>
+                      <span className={`${styles.tagItem} ${styles.monoFont}`}>WooCommerce</span>
+                      <span className={`${styles.tagItem} ${styles.monoFont}`}>Bling &amp; Tiny ERP</span>
+                      <span className={`${styles.tagItem} ${styles.monoFont}`}>Mercado Livre / Shopee / Amazon</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              {/* Pilar 04 */}
+              <article className={styles.matrixRow}>
+                <div className={styles.matrixMeta}>
+                  <span className={`${styles.matrixNumber} ${styles.monoFont}`}>04</span>
+                  <h3 className={`${styles.matrixTitle} ${styles.headingFont}`}>
+                    Mídia de Performance, Retail Media &amp; Governança Financeira (DRE)
+                  </h3>
+                </div>
+
+                <div className={styles.matrixContent}>
+                  <div className={styles.matrixMethodology}>
+                    <h4 className={`${styles.methodologyHeading} ${styles.monoFont}`}>
+                      ARQUITETURA &amp; MÉTODO
+                    </h4>
+                    <ul className={`${styles.editorialList} ${styles.bodyFont}`}>
+                      <li>
+                        <strong>Gestão Orientada a P&amp;L e Margem:</strong> Alocação orçamentária ancorada no Demonstrativo de Resultados do Exercício (DRE), cálculo estrito de CAC, LTV, ROAS real versus <em>Blended ROAS</em>, e otimização por <strong>POAS (<em>Profit on Ad Spend</em>)</strong>.
+                      </li>
+                      <li>
+                        <strong>Aquisição Full-Funnel e Retail Media:</strong> Estruturação granular de campanhas por intenção de compra, negativação semântica rigorosa e proteção de margem de contribuição em períodos de alta concorrência.
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className={styles.matrixDeliverables}>
+                    <h4 className={`${styles.methodologyHeading} ${styles.monoFont}`}>
+                      STACK &amp; ENTREGÁVEIS
+                    </h4>
+                    <div className={styles.tagsFlex}>
+                      <span className={`${styles.tagItem} ${styles.monoFont}`}>Google Ads (Search, PMax, Demand Gen, Shopping)</span>
+                      <span className={`${styles.tagItem} ${styles.monoFont}`}>Meta Ads</span>
+                      <span className={`${styles.tagItem} ${styles.monoFont}`}>TikTok Ads</span>
+                      <span className={`${styles.tagItem} ${styles.monoFont}`}>Mercado Ads</span>
+                      <span className={`${styles.tagItem} ${styles.monoFont}`}>Shopee Ads</span>
+                      <span className={`${styles.tagItem} ${styles.monoFont}`}>Looker Studio</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        {/* SEÇÃO 5: TRAJETÓRIA EXECUTIVA & ESTUDOS DE CASO (DOSSIÊ TÉCNICO EM 3 ZONAS) */}
+        <section className={styles.casesSection} id="casos">
+          <div className={styles.editorialContainer}>
+            <div className={styles.sectionHeadingRow}>
+              <div>
+                <span className={`${styles.sectionEyebrow} ${styles.monoFont}`}>HISTÓRICO OPERACIONAL AUDITÁVEL</span>
+                <h2 className={`${styles.sectionTitle} ${styles.headingFont}`}>
+                  Estudos de Caso e Trajetória Executiva
+                </h2>
+              </div>
+              <p className={`${styles.sectionSubtext} ${styles.bodyFont}`}>
+                Dossiê analítico detalhando desafios de negócios, intervenção arquitetural e evidências auditáveis de resultado.
+              </p>
+            </div>
+
+            <div className={styles.casesDossier}>
+              {/* Case 01: Rua do Café */}
+              <article className={styles.caseDossierRow}>
+                {/* Zona A: Metadados */}
+                <div className={styles.zoneA}>
+                  <div className={`${styles.casePeriod} ${styles.monoFont}`}>
+                    Janeiro 2024 a Maio 2026
+                  </div>
+                  <h3 className={`${styles.caseCompany} ${styles.headingFont}`}>
+                    Rua do Café
+                  </h3>
+                  <div className={`${styles.caseRole} ${styles.monoFont}`}>
+                    Head of Marketing &amp; E-commerce
+                  </div>
+                  <div className={styles.caseAuditLinks}>
+                    <a
+                      href="https://ruadocafe.com.br/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.auditLink}
+                    >
+                      Website Oficial (ruadocafe.com.br) ↗
+                    </a>
+                    <a
+                      href="https://blog.ruadocafe.com.br/author/arthur/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.auditLink}
+                    >
+                      Repositório de Artigos &amp; Autoridade Semântica ↗
+                    </a>
+                  </div>
+                </div>
+
+                {/* Zona B: Intervenção & Resultados */}
+                <div className={styles.zoneB}>
+                  <div className={`${styles.zoneHeaderLabel} ${styles.monoFont}`}>
+                    INTERVENÇÃO ARQUITETURAL &amp; RESULTADOS
+                  </div>
+                  <ul className={`${styles.caseBulletList} ${styles.bodyFont}`}>
                     <li>
-                      <strong>Cope Calçados:</strong> Consultoria realizada pela Squammata com reestruturação dos anúncios no Google e Meta, corte de termos caros sem venda, atendimento ágil com fechamento via WhatsApp e campanhas focadas na recompra de clientes antigos.
+                      Administração integral do orçamento de aquisição digital focado nos canais de tração (Google Ads e Meta Ads), viabilizando crescimento sustentado de <strong>66% mês a mês (MoM) em GMV</strong>.
                     </li>
                     <li>
-                      <strong>Lojas 360 EPI:</strong> Consultoria realizada pela Squammata na estruturação comercial digital para equipamentos de proteção (B2B e B2C), catálogo com Certificados de Aprovação (CA), estratégias de frete nacional e facilitação de faturamento corporativo no boleto.
+                      Implementação de arquitetura semântica avançada, engenharia de dados estruturados (Schema Markup em JSON-LD) e <em>Topic Clusters</em> sobre cafés especiais e Indicações Geográficas, expandindo a fatia orgânica e o posicionamento em motores de IA generativa (GEO/AEO).
+                    </li>
+                    <li>
+                      Liderança técnica e operacional do onboarding de <strong>mais de 100 lojistas parceiros</strong> no ecossistema Shopify Plus com integrações automatizadas via ERP, além da direção de squads multidisciplinares em projetos omnichannel e eventos nacionais do setor.
                     </li>
                   </ul>
                 </div>
-                <div className={styles.caseLinks}>
-                  <a href="https://www.calcadoscope.com.br/" target="_blank" rel="noopener noreferrer" className={styles.linkExternal}>
-                    Loja Oficial Cope Calçados ↗
-                  </a>
-                  <a href="https://www.lojas360.com.br/" target="_blank" rel="noopener noreferrer" className={styles.linkExternal}>
-                    Lojas 360 EPI Oficial ↗
-                  </a>
+
+                {/* Zona C: Painel de Métricas & Stack */}
+                <div className={styles.zoneC}>
+                  <div className={`${styles.zoneHeaderLabel} ${styles.monoFont}`}>
+                    PAINEL DE MÉTRICAS DO CASE
+                  </div>
+                  <div className={styles.metricCallouts}>
+                    <div className={styles.metricCalloutItem}>
+                      <span className={`${styles.calloutValue} ${styles.monoFont}`}>+66% MoM</span>
+                      <span className={`${styles.calloutLabel} ${styles.monoFont}`}>Crescimento de GMV</span>
+                    </div>
+                    <div className={styles.metricCalloutItem}>
+                      <span className={`${styles.calloutValue} ${styles.monoFont}`}>+100</span>
+                      <span className={`${styles.calloutLabel} ${styles.monoFont}`}>Lojistas B2B2C Onboarded</span>
+                    </div>
+                    <div className={styles.metricCalloutItem}>
+                      <span className={`${styles.calloutValue} ${styles.monoFont}`}>GEO / AEO</span>
+                      <span className={`${styles.calloutLabel} ${styles.monoFont}`}>Autoridade em IA Search</span>
+                    </div>
+                  </div>
+                  <div className={styles.caseStackTags}>
+                    <span className={`${styles.miniTag} ${styles.monoFont}`}>Shopify Plus</span>
+                    <span className={`${styles.miniTag} ${styles.monoFont}`}>Google Ads</span>
+                    <span className={`${styles.miniTag} ${styles.monoFont}`}>Meta Ads</span>
+                    <span className={`${styles.miniTag} ${styles.monoFont}`}>JSON-LD Schema</span>
+                  </div>
+                </div>
+              </article>
+
+              {/* Case 02: Sheetgo */}
+              <article className={styles.caseDossierRow}>
+                {/* Zona A: Metadados */}
+                <div className={styles.zoneA}>
+                  <div className={`${styles.casePeriod} ${styles.monoFont}`}>
+                    Janeiro 2024 a Outubro 2024
+                  </div>
+                  <h3 className={`${styles.caseCompany} ${styles.headingFont}`}>
+                    Sheetgo
+                  </h3>
+                  <div className={`${styles.caseRole} ${styles.monoFont}`}>
+                    SEO &amp; CRO Optimization Specialist (Operação Global 100% em Inglês)
+                  </div>
+                  <div className={styles.caseAuditLinks}>
+                    <a
+                      href="https://www.sheetgo.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.auditLink}
+                    >
+                      Website Oficial (sheetgo.com) ↗
+                    </a>
+                  </div>
+                </div>
+
+                {/* Zona B: Intervenção & Resultados */}
+                <div className={styles.zoneB}>
+                  <div className={`${styles.zoneHeaderLabel} ${styles.monoFont}`}>
+                    INTERVENÇÃO ARQUITETURAL &amp; RESULTADOS
+                  </div>
+                  <ul className={`${styles.caseBulletList} ${styles.bodyFont}`}>
+                    <li>
+                      Condução da expansão internacional do tráfego orgânico voltado para o ecossistema de software B2B de automação de dados através de auditorias técnicas profundas com Screaming Frog, engenharia de Schema Markup e redes estruturadas de <em>Topic Clusters</em>.
+                    </li>
+                    <li>
+                      Aumento de <strong>20% na duração média de sessão (<em>Average Session Duration</em>)</strong> mediante redesign de usabilidade, otimização de interfaces de produto e refinamento contínuo da jornada de ativação do usuário.
+                    </li>
+                    <li>
+                      Alinhamento direto entre o roadmap de conteúdo orgânico e o roadmap de produto junto aos times internacionais, fundamentado em testes A/B estruturados e mapeamento comportamental por mapas de calor (<em>heatmaps</em>).
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Zona C: Painel de Métricas & Stack */}
+                <div className={styles.zoneC}>
+                  <div className={`${styles.zoneHeaderLabel} ${styles.monoFont}`}>
+                    PAINEL DE MÉTRICAS DO CASE
+                  </div>
+                  <div className={styles.metricCallouts}>
+                    <div className={styles.metricCalloutItem}>
+                      <span className={`${styles.calloutValue} ${styles.monoFont}`}>+20%</span>
+                      <span className={`${styles.calloutLabel} ${styles.monoFont}`}>Session Duration</span>
+                    </div>
+                    <div className={styles.metricCalloutItem}>
+                      <span className={`${styles.calloutValue} ${styles.monoFont}`}>100% EN</span>
+                      <span className={`${styles.calloutLabel} ${styles.monoFont}`}>Global B2B SaaS</span>
+                    </div>
+                    <div className={styles.metricCalloutItem}>
+                      <span className={`${styles.calloutValue} ${styles.monoFont}`}>CRO &amp; A/B</span>
+                      <span className={`${styles.calloutLabel} ${styles.monoFont}`}>Otimização de Ativação</span>
+                    </div>
+                  </div>
+                  <div className={styles.caseStackTags}>
+                    <span className={`${styles.miniTag} ${styles.monoFont}`}>Screaming Frog</span>
+                    <span className={`${styles.miniTag} ${styles.monoFont}`}>Ahrefs &amp; Semrush</span>
+                    <span className={`${styles.miniTag} ${styles.monoFont}`}>Heatmaps</span>
+                    <span className={`${styles.miniTag} ${styles.monoFont}`}>Testes A/B</span>
+                  </div>
+                </div>
+              </article>
+
+              {/* Case 03: Máquinas & Café */}
+              <article className={styles.caseDossierRow}>
+                {/* Zona A: Metadados */}
+                <div className={styles.zoneA}>
+                  <div className={`${styles.casePeriod} ${styles.monoFont}`}>
+                    Janeiro 2014 a Janeiro 2024 (10 Anos)
+                  </div>
+                  <h3 className={`${styles.caseCompany} ${styles.headingFont}`}>
+                    Máquinas &amp; Café
+                  </h3>
+                  <div className={`${styles.caseRole} ${styles.monoFont}`}>
+                    E-commerce &amp; Marketplaces Manager
+                  </div>
+                  <div className={styles.caseAuditLinks}>
+                    <a
+                      href="https://www.maquinasecafe.com.br/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.auditLink}
+                    >
+                      Website Oficial (maquinasecafe.com.br) ↗
+                    </a>
+                    <a
+                      href="https://bridgeseo.com.br/consultoria-de-seo-para-e-commerce/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.auditLink}
+                    >
+                      Depoimento de Case na Bridge SEO ↗
+                    </a>
+                  </div>
+                </div>
+
+                {/* Zona B: Intervenção & Resultados */}
+                <div className={styles.zoneB}>
+                  <div className={`${styles.zoneHeaderLabel} ${styles.monoFont}`}>
+                    INTERVENÇÃO ARQUITETURAL &amp; RESULTADOS
+                  </div>
+                  <ul className={`${styles.caseBulletList} ${styles.bodyFont}`}>
+                    <li>
+                      Direção operacional <em>end-to-end</em> (catálogo, estoque, logística, atendimento e infraestrutura tecnológica), consolidando a empresa como líder nacional no comércio eletrônico B2C e B2B de máquinas de café espresso e acessórios.
+                    </li>
+                    <li>
+                      Migração e gestão do ecossistema Magento integrado a sistemas de precificação dinâmica e ERPs, sustentando <strong>crescimento linear de 20% ao ano (YoY) ao longo de uma década</strong>.
+                    </li>
+                    <li>
+                      Automação de fluxos de aquisição e CRO que resultaram em <strong>+50% de tráfego qualificado</strong>, <strong>+30% na taxa de conversão geral</strong> e <strong>45% do faturamento de Black Friday gerado pelo canal orgânico</strong>.
+                    </li>
+                  </ul>
+                  <blockquote className={`${styles.caseQuote} ${styles.bodyFont}`}>
+                    &ldquo;A estratégia de SEO aliada à produção de conteúdos de qualidade tem impulsionado não só o nosso crescimento orgânico, como o da loja como um todo, reduzindo a dependência de mídia paga.&rdquo;
+                    <footer className={styles.monoFont}>CITAÇÃO VERIFICADA DE MERCADO &bull; BRIDGE SEO</footer>
+                  </blockquote>
+                </div>
+
+                {/* Zona C: Painel de Métricas & Stack */}
+                <div className={styles.zoneC}>
+                  <div className={`${styles.zoneHeaderLabel} ${styles.monoFont}`}>
+                    PAINEL DE MÉTRICAS DO CASE
+                  </div>
+                  <div className={styles.metricCallouts}>
+                    <div className={styles.metricCalloutItem}>
+                      <span className={`${styles.calloutValue} ${styles.monoFont}`}>10 Anos</span>
+                      <span className={`${styles.calloutLabel} ${styles.monoFont}`}>+20% YoY Linear</span>
+                    </div>
+                    <div className={styles.metricCalloutItem}>
+                      <span className={`${styles.calloutValue} ${styles.monoFont}`}>45% BF</span>
+                      <span className={`${styles.calloutLabel} ${styles.monoFont}`}>Receita via Orgânico</span>
+                    </div>
+                    <div className={styles.metricCalloutItem}>
+                      <span className={`${styles.calloutValue} ${styles.monoFont}`}>+30%</span>
+                      <span className={`${styles.calloutLabel} ${styles.monoFont}`}>Taxa de Conversão</span>
+                    </div>
+                  </div>
+                  <div className={styles.caseStackTags}>
+                    <span className={`${styles.miniTag} ${styles.monoFont}`}>Magento</span>
+                    <span className={`${styles.miniTag} ${styles.monoFont}`}>SEO E-commerce</span>
+                    <span className={`${styles.miniTag} ${styles.monoFont}`}>Bling ERP</span>
+                    <span className={`${styles.miniTag} ${styles.monoFont}`}>Mercado Livre</span>
+                  </div>
+                </div>
+              </article>
+
+              {/* Case 04: Squammata Consultoria */}
+              <article className={styles.caseDossierRow}>
+                {/* Zona A: Metadados */}
+                <div className={styles.zoneA}>
+                  <div className={`${styles.casePeriod} ${styles.monoFont}`}>
+                    2018 a Presente
+                  </div>
+                  <h3 className={`${styles.caseCompany} ${styles.headingFont}`}>
+                    Squammata Consultoria &amp; Operações Estratégicas
+                  </h3>
+                  <div className={`${styles.caseRole} ${styles.monoFont}`}>
+                    Consultor Sênior de E-commerce, Growth, SEO Técnico &amp; Retail Media
+                  </div>
+                  <div className={styles.caseAuditLinks}>
+                    <a
+                      href="https://www.lojas360.com.br/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.auditLink}
+                    >
+                      Lojas 360 EPI (lojas360.com.br) ↗
+                    </a>
+                    <a
+                      href="https://empresas.serasaexperian.com.br/consulta-gratis/31384814-ARTHUR-SAGGIORATTO-NETO-ME-31384814000109"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.auditLink}
+                    >
+                      Registro PJ (31.384.814/0001-09) ↗
+                    </a>
+                  </div>
+                </div>
+
+                {/* Zona B: Intervenção & Resultados */}
+                <div className={styles.zoneB}>
+                  <div className={`${styles.zoneHeaderLabel} ${styles.monoFont}`}>
+                    INTERVENÇÃO ARQUITETURAL &amp; RESULTADOS
+                  </div>
+                  <ul className={`${styles.caseBulletList} ${styles.bodyFont}`}>
+                    <li>
+                      Atuação consultiva estratégica para operações de varejo e indústria como <strong>Lojas 360 EPI</strong>, <strong>Midea</strong> e <strong>Cope Calçados</strong>.
+                    </li>
+                    <li>
+                      Diagnóstico avançado de <em>Unit Economics</em> e DRE, reestruturação de campanhas de Google Ads (Performance Max, Demand Gen e Search) com negativação semântica rigorosa e alocação orientada à margem de contribuição.
+                    </li>
+                    <li>
+                      Estruturação de esteiras comerciais híbridas e assistidas (WhatsApp comercial integrado a CRM) para produtos técnicos e B2B, além de gestão de catálogos e anúncios em canais de Retail Media (Mercado Livre, Shopee e Amazon Ads).
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Zona C: Painel de Métricas & Stack */}
+                <div className={styles.zoneC}>
+                  <div className={`${styles.zoneHeaderLabel} ${styles.monoFont}`}>
+                    PAINEL DE MÉTRICAS DO CASE
+                  </div>
+                  <div className={styles.metricCallouts}>
+                    <div className={styles.metricCalloutItem}>
+                      <span className={`${styles.calloutValue} ${styles.monoFont}`}>POAS</span>
+                      <span className={`${styles.calloutLabel} ${styles.monoFont}`}>Foco em Lucro Real</span>
+                    </div>
+                    <div className={styles.metricCalloutItem}>
+                      <span className={`${styles.calloutValue} ${styles.monoFont}`}>B2B &amp; B2C</span>
+                      <span className={`${styles.calloutLabel} ${styles.monoFont}`}>Retail Media Multi-canal</span>
+                    </div>
+                    <div className={styles.metricCalloutItem}>
+                      <span className={`${styles.calloutValue} ${styles.monoFont}`}>DRE / P&amp;L</span>
+                      <span className={`${styles.calloutLabel} ${styles.monoFont}`}>Auditoria Técnica Rigorosa</span>
+                    </div>
+                  </div>
+                  <div className={styles.caseStackTags}>
+                    <span className={`${styles.miniTag} ${styles.monoFont}`}>Google Ads</span>
+                    <span className={`${styles.miniTag} ${styles.monoFont}`}>Retail Media</span>
+                    <span className={`${styles.miniTag} ${styles.monoFont}`}>WhatsApp CRM</span>
+                    <span className={`${styles.miniTag} ${styles.monoFont}`}>Unit Economics</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        {/* SEÇÃO 6: FUNDAMENTAÇÃO ACADÊMICA, SOCIOLOGIA DA TÉCNICA & PRODUÇÃO EDITORIAL */}
+        <section className={styles.academicSection} id="formacao">
+          <div className={styles.editorialContainer}>
+            <div className={styles.sectionHeadingRow}>
+              <div>
+                <span className={`${styles.sectionEyebrow} ${styles.monoFont}`}>BAGAGEM EPISTEMOLÓGICA &amp; PRODUÇÃO</span>
+                <h2 className={`${styles.sectionTitle} ${styles.headingFont}`}>
+                  Fundamentação Acadêmica, Sociologia da Técnica &amp; Publicações
+                </h2>
+              </div>
+              <p className={`${styles.sectionSubtext} ${styles.bodyFont}`}>
+                Compreensão profunda das dimensões sociotécnicas, ecossistemas de confiança e autoridade semântica para negócios duradouros.
+              </p>
+            </div>
+
+            <div className={styles.academicGrid}>
+              {/* Bloco Esquerdo: Formação e Epistemologia */}
+              <div className={styles.academicLeftBlock}>
+                <h3 className={`${styles.blockHeading} ${styles.headingFont}`}>
+                  Formação Acadêmica &amp; Epistemologia
+                </h3>
+
+                <div className={styles.institutionItem}>
+                  <div className={`${styles.institutionMeta} ${styles.monoFont}`}>
+                    UNICAMP &bull; UNIVERSIDADE ESTADUAL DE CAMPINAS (2026)
+                  </div>
+                  <h4 className={`${styles.degreeTitle} ${styles.headingFont}`}>
+                    Bacharelado em Ciências Sociais (Sociologia)
+                  </h4>
+                  <p className={`${styles.degreeDesc} ${styles.bodyFont}`}>
+                    Aplicação de sociologia da técnica e do consumo, teoria ator-rede, governança responsável (<em>steward-ownership</em>) e sustentabilidade digital (paradigma das empresas Zebra) à arquitetura de negócios digitais.
+                  </p>
+                </div>
+
+                <div className={styles.institutionItem}>
+                  <div className={`${styles.institutionMeta} ${styles.monoFont}`}>
+                    FAAL &bull; FACULDADE DE ADMINISTRAÇÃO E ARTES DE LIMEIRA (2015)
+                  </div>
+                  <h4 className={`${styles.degreeTitle} ${styles.headingFont}`}>
+                    Bacharelado em Marketing e Gestão de Vendas
+                  </h4>
+                  <p className={`${styles.degreeDesc} ${styles.bodyFont}`}>
+                    Formação clássica de gestão de canais de distribuição, precificação estratégica, pesquisa de mercado quantitativa e estruturação de forças de vendas comerciais.
+                  </p>
                 </div>
               </div>
-            </article>
-          </div>
-        </div>
-      </section>
 
-      {/* 7. FORMAÇÃO ACADÊMICA E PRODUÇÃO INTELECTUAL */}
-      <section className={styles.intellectSection} id="publicacoes">
-        <div className={styles.container}>
-          <div className={styles.sectionHeader}>
-            <div className={`${styles.sectionBadge} ${styles.monoFont}`}>Bagagem e Formação</div>
-            <h2 className={`${styles.sectionTitle} ${styles.headingFont}`}>
-              Formação Acadêmica & Produção de Conteúdo
-            </h2>
-            <p className={styles.sectionDesc}>
-              A formação em Ciências Sociais na UNICAMP aplicada ao varejo digital: compreender hábitos de consumo reais para construir lojas virtuais duradouras.
-            </p>
-          </div>
+              {/* Bloco Direito: Publicações e Autoridade Semântica */}
+              <div className={styles.academicRightBlock}>
+                <h3 className={`${styles.blockHeading} ${styles.headingFont}`}>
+                  Publicações &amp; Construção de Autoridade Semântica
+                </h3>
 
-          <div className={styles.intellectGrid}>
-            <div className={styles.articleCard}>
-              <div className={`${styles.articleBadge} ${styles.monoFont}`}>Mercado & Varejo</div>
-              <h3 className={`${styles.articleTitle} ${styles.headingFont}`}>
-                Análises de Mercado e Cafeicultura Especial
-              </h3>
-              <p className={styles.articleDesc}>
-                Artigos sobre comportamento de compra, métodos de preparo e agregação de valor no mercado de café brasileiro.
-              </p>
-              <a
-                href="https://blog.ruadocafe.com.br/author/arthur/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.linkExternal}
-              >
-                Ler Artigos no Blog da Rua do Café ↗
-              </a>
-            </div>
+                <div className={styles.editorialArticlesList}>
+                  <article className={styles.editorialArticleCard}>
+                    <div className={`${styles.articleNumber} ${styles.monoFont}`}>01</div>
+                    <div className={styles.articleBody}>
+                      <h4 className={`${styles.articleTitle} ${styles.headingFont}`}>
+                        Arquivo de Autor &amp; Estudos de Mercado Cafeeiro
+                      </h4>
+                      <p className={`${styles.articleExcerpt} ${styles.bodyFont}`}>
+                        Artigos técnicos conectando origem produtiva, torra, extração e comportamento de consumo no ecossistema cafeeiro nacional.
+                      </p>
+                      <a
+                        href="https://blog.ruadocafe.com.br/author/arthur/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.articleLink}
+                      >
+                        Acessar Artigos no Blog da Rua do Café ↗
+                      </a>
+                    </div>
+                  </article>
 
-            <div className={styles.articleCard}>
-              <div className={`${styles.articleBadge} ${styles.monoFont}`}>Origens & Produtos</div>
-              <h3 className={`${styles.articleTitle} ${styles.headingFont}`}>
-                Muzambinho e o Sudoeste de Minas
-              </h3>
-              <p className={styles.articleDesc}>
-                Estudo de regiões produtoras e valorização de terroir em páginas de produto para aumentar a conversão.
-              </p>
-              <a
-                href="https://blog.ruadocafe.com.br/tag/sudoeste-de-minas/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.linkExternal}
-              >
-                Ver Estudo Regional de Muzambinho ↗
-              </a>
-            </div>
+                  <article className={styles.editorialArticleCard}>
+                    <div className={`${styles.articleNumber} ${styles.monoFont}`}>02</div>
+                    <div className={styles.articleBody}>
+                      <h4 className={`${styles.articleTitle} ${styles.headingFont}`}>
+                        Mapeamento Semântico: Muzambinho e o Sudoeste de Minas
+                      </h4>
+                      <p className={`${styles.articleExcerpt} ${styles.bodyFont}`}>
+                        Estruturação de <em>Topic Cluster</em> regional e autoridade geográfica para busca orgânica com dados de terroir e cafeicultura.
+                      </p>
+                      <a
+                        href="https://blog.ruadocafe.com.br/tag/sudoeste-de-minas/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.articleLink}
+                      >
+                        Ver Estudo Regional de Muzambinho ↗
+                      </a>
+                    </div>
+                  </article>
 
-            <div className={styles.articleCard}>
-              <div className={`${styles.articleBadge} ${styles.monoFont}`}>Qualidade & Marca</div>
-              <h3 className={`${styles.articleTitle} ${styles.headingFont}`}>
-                Indicações Geográficas no Estado de São Paulo
-              </h3>
-              <p className={styles.articleDesc}>
-                Mapeamento de certificações regionais e qualidade para educar o consumidor e elevar o ticket médio.
-              </p>
-              <a
-                href="https://blog.ruadocafe.com.br/tag/sao-paulo/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.linkExternal}
-              >
-                Acessar Guia de Indicações Geográficas ↗
-              </a>
+                  <article className={styles.editorialArticleCard}>
+                    <div className={`${styles.articleNumber} ${styles.monoFont}`}>03</div>
+                    <div className={styles.articleBody}>
+                      <h4 className={`${styles.articleTitle} ${styles.headingFont}`}>
+                        Indicações Geográficas e Terroir de São Paulo
+                      </h4>
+                      <p className={`${styles.articleExcerpt} ${styles.bodyFont}`}>
+                        Conteúdo aprofundado alinhado às diretrizes E-E-A-T do Google e indexação generativa sobre rastreabilidade e denominações de origem.
+                      </p>
+                      <a
+                        href="https://blog.ruadocafe.com.br/tag/sao-paulo/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.articleLink}
+                      >
+                        Acessar Mapeamento de Indicações Geográficas ↗
+                      </a>
+                    </div>
+                  </article>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* 8. FOOTER EXECUTIVO STANDALONE */}
-      <footer className={styles.executiveFooter} id="contato">
-        <div className={styles.container}>
-          <div className={styles.footerBox}>
-            <div className={styles.footerAvatarWrapper}>
-              <img
-                src={avatarSrc}
-                alt="Arthur Saggioratto"
-                width={72}
-                height={72}
-                className={styles.footerAvatar}
-                onError={handleImageFallback}
-                loading="lazy"
-              />
+        {/* SEÇÃO 7: FORMATOS DE ENGAJAMENTO & FOOTER EXECUTIVO */}
+        <section className={styles.engagementSection} id="engajamento">
+          <div className={styles.editorialContainer}>
+            <div className={styles.sectionHeadingRow}>
+              <div>
+                <span className={`${styles.sectionEyebrow} ${styles.monoFont}`}>MODELOS DE ATUAÇÃO</span>
+                <h2 className={`${styles.sectionTitle} ${styles.headingFont}`}>
+                  Formatos de Engajamento Executivo
+                </h2>
+              </div>
+              <p className={`${styles.sectionSubtext} ${styles.bodyFont}`}>
+                Estruturas flexíveis de contratação para aplicação estratégica de governança, escala e tecnologia de e-commerce.
+              </p>
             </div>
 
-            <h2 className={`${styles.footerTitle} ${styles.headingFont}`}>
-              Pronto para Destravar as Vendas e o Lucro da sua Loja?
-            </h2>
-            <p className={styles.footerSubtitle}>
-              Disponível para diagnósticos rápidos, consultoria mensal contínua e liderança fracionada de e-commerce em todo o Brasil.
-            </p>
+            <div className={styles.engagementGrid}>
+              {/* Frente 1 */}
+              <div className={styles.engagementCard}>
+                <div className={`${styles.cardRomanNumber} ${styles.monoFont}`}>I</div>
+                <h3 className={`${styles.engagementTitle} ${styles.headingFont}`}>
+                  Liderança Executiva (Head of E-commerce / Growth / SEO &amp; CRO)
+                </h3>
+                <p className={`${styles.engagementDesc} ${styles.bodyFont}`}>
+                  Direção integral de operações digitais, gestão de P&amp;L, estruturação de squads multidisciplinares e expansão nacional ou internacional (B2C, B2B e SaaS).
+                </p>
+                <div className={`${styles.engagementSpec} ${styles.monoFont}`}>
+                  DEDICAÇÃO ESTRATÉGICA / FRACIONADA
+                </div>
+              </div>
 
-            <div className={styles.ctaGroup} style={{ justifyContent: 'center', marginBottom: '1.5rem' }}>
+              {/* Frente 2 */}
+              <div className={styles.engagementCard}>
+                <div className={`${styles.cardRomanNumber} ${styles.monoFont}`}>II</div>
+                <h3 className={`${styles.engagementTitle} ${styles.headingFont}`}>
+                  Consultoria Estratégica Continuada (Squammata)
+                </h3>
+                <p className={`${styles.engagementDesc} ${styles.bodyFont}`}>
+                  Acompanhamento executivo mensal focado em proteção de margem, <em>unit economics</em>, arquitetura de plataformas, Retail Media e escala de aquisição orgânica e paga.
+                </p>
+                <div className={`${styles.engagementSpec} ${styles.monoFont}`}>
+                  ACOMPANHAMENTO MENSAL CONTÍNUO
+                </div>
+              </div>
+
+              {/* Frente 3 */}
+              <div className={styles.engagementCard}>
+                <div className={`${styles.cardRomanNumber} ${styles.monoFont}`}>III</div>
+                <h3 className={`${styles.engagementTitle} ${styles.headingFont}`}>
+                  Auditorias Técnicas &amp; Projetos de Escopo Fechado
+                </h3>
+                <p className={`${styles.engagementDesc} ${styles.bodyFont}`}>
+                  Diagnóstico profundo de SEO Técnico e Core Web Vitals, implementação de grafos Schema.org/JSON-LD para GEO, auditoria de contas de mídia (Google/Meta Ads) e redesenho de conversão (CRO).
+                </p>
+                <div className={`${styles.engagementSpec} ${styles.monoFont}`}>
+                  SPRINT DE ESCOPO FECHADO (3 A 4 SEMANAS)
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      {/* FOOTER EXECUTIVO SÓBRIO */}
+      <footer className={styles.editorialFooter}>
+        <div className={styles.editorialContainer}>
+          <div className={styles.footerMainBlock}>
+            <div className={styles.footerTextCol}>
+              <h2 className={`${styles.footerCallout} ${styles.headingFont}`}>
+                Disponível para posições executivas estratégicas, conselhos consultivos e diagnósticos de alta complexidade.
+              </h2>
+              <div className={`${styles.footerMetaList} ${styles.monoFont}`}>
+                <div><strong>Arthur Saggioratto Neto</strong> &bull; Santa Bárbara d&apos;Oeste / Campinas, SP</div>
+                <div>CNPJ: 31.384.814/0001-09 (31.384.814 ARTHUR SAGGIORATTO NETO - ME)</div>
+                <div>
+                  <a href="mailto:arthur.saggioratto@gmail.com">arthur.saggioratto@gmail.com</a>
+                  {' '}&bull;{' '}
+                  <a href="https://wa.me/5519993497819" target="_blank" rel="noopener noreferrer">+55 (19) 99349-7819</a>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.footerActionsCol}>
               <a
-                href={`https://wa.me/5519993497819?text=${whatsappMessage}`}
+                href="https://wa.me/5519993497819"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${styles.btnPrimary} ${styles.headingFont}`}
+                className={styles.btnPrimary}
               >
-                <span>Chamar no WhatsApp: (19) 99349-7819</span>
-              </a>
-
-              <a
-                href="mailto:arthur.saggioratto@gmail.com"
-                className={`${styles.btnSecondary} ${styles.headingFont}`}
-              >
-                <span>Enviar E-mail Corporativo</span>
+                <span>Iniciar Contato Executivo (WhatsApp) ↗</span>
               </a>
 
               <a
                 href="https://linkedin.com/in/arthurnasa"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${styles.btnSecondary} ${styles.headingFont}`}
+                className={styles.btnSecondary}
               >
-                <span>Perfil no LinkedIn ↗</span>
+                <span>LinkedIn Oficial (/in/arthurnasa) ↗</span>
               </a>
 
               <button
                 type="button"
-                onClick={handlePrint}
-                className={`${styles.btnSecondary} ${styles.headingFont}`}
+                onClick={() => setIsSchemaModalOpen(true)}
+                className={`${styles.btnSecondary} ${styles.monoFont}`}
               >
-                <span>Salvar / Imprimir Currículo</span>
+                <span>[ &#123; &#125; JSON-LD Schema ]</span>
               </button>
             </div>
+          </div>
 
-            <div className={`${styles.entityInfo} ${styles.monoFont}`}>
-              <div><strong>Arthur Saggioratto</strong> | Executivo de E-commerce &bull; Tráfego, SEO/GEO, Tecnologia e Marca</div>
-              <div>Razão Cadastral: 31.384.814 ARTHUR SAGGIORATTO NETO (CNPJ: 31.384.814/0001-09)</div>
-              <div>Base Operacional: Santa Bárbara d&apos;Oeste e Campinas, SP (Atendimento Nacional e Global)</div>
-              <div style={{ marginTop: '0.5rem', color: '#4E9B60' }}>
-                Formação Acadêmica: Bacharelado em Ciências Sociais (UNICAMP) &bull; Bacharelado em Marketing e Gestão de Vendas (FAAL)
-              </div>
-              <div style={{ marginTop: '0.75rem', fontSize: '0.8rem', color: '#68655E' }}>
-                &copy; {new Date().getFullYear()} Arthur Saggioratto. Todos os direitos reservados.
-              </div>
+          <div className={styles.footerBottomBar}>
+            <div className={`${styles.copyrightText} ${styles.monoFont}`}>
+              &copy; {new Date().getFullYear()} Arthur Saggioratto. Arquitetura editorial inspirada no rigor técnico da web aberta.
+            </div>
+            <div className={`${styles.footerTechNote} ${styles.monoFont}`}>
+              SEM RASTREADORES INVASIVOS &bull; RENDERIZAÇÃO ESTÁTICA &bull; SCHEMA.ORG GRAPH
             </div>
           </div>
         </div>
       </footer>
+
+      {/* MODAL INTERATIVO DE INSPEÇÃO DE SCHEMA.ORG (JSON-LD) */}
+      {isSchemaModalOpen && (
+        <div
+          className={styles.modalOverlay}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="schema-modal-title"
+          onClick={() => setIsSchemaModalOpen(false)}
+        >
+          <div
+            className={styles.modalCard}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className={styles.modalHeader}>
+              <div className={styles.modalTitleBlock}>
+                <span className={`${styles.modalBadge} ${styles.monoFont}`}>METADADOS ESTRUTURADOS</span>
+                <h3 id="schema-modal-title" className={`${styles.modalTitle} ${styles.headingFont}`}>
+                  Schema.org JSON-LD (Entidade Person: Arthur Saggioratto)
+                </h3>
+              </div>
+
+              <div className={styles.modalActions}>
+                <button
+                  type="button"
+                  onClick={handleCopySchema}
+                  className={`${styles.btnModalAction} ${styles.monoFont}`}
+                >
+                  {copied ? '✓ Código Copiado' : 'Copiar JSON-LD'}
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setIsSchemaModalOpen(false)}
+                  className={styles.btnModalClose}
+                  aria-label="Fechar modal"
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+
+            <div className={styles.modalBody}>
+              <pre className={`${styles.codeBlock} ${styles.monoFont}`}>
+                <code>{JSON.stringify(SCHEMA_CODE, null, 2)}</code>
+              </pre>
+            </div>
+
+            <div className={styles.modalFooter}>
+              <div className={`${styles.modalHelpText} ${styles.monoFont}`}>
+                Testado e validado conforme diretrizes da W3C e Google Rich Results.
+              </div>
+              <div className={styles.validatorLinks}>
+                <a
+                  href="https://validator.schema.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.validatorLink}
+                >
+                  Schema Validator ↗
+                </a>
+                <a
+                  href="https://search.google.com/test/rich-results"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.validatorLink}
+                >
+                  Google Rich Results Test ↗
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
