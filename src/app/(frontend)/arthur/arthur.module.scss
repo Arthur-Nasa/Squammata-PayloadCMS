@@ -36,11 +36,9 @@
   top: 0;
   z-index: 1000;
   width: 100%;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  background: rgba(16, 21, 18, 0.94);
+  background: #101512;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.25s ease;
+  transition: border-color 0.2s ease;
 }
 
 .navInner {
@@ -70,8 +68,8 @@
   height: 44px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #4E9B60;
-  box-shadow: 0 0 12px rgba(78, 155, 96, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: none;
   display: block;
 }
 
@@ -79,12 +77,12 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 11px;
-  height: 11px;
+  width: 10px;
+  height: 10px;
   background-color: #22C55E;
   border: 2px solid #101512;
   border-radius: 50%;
-  box-shadow: 0 0 8px #22C55E;
+  box-shadow: none;
 }
 
 .navBrandText {
@@ -169,13 +167,13 @@
   padding: 0.6rem 1.1rem;
   border-radius: 6px;
   text-decoration: none;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 10px rgba(37, 211, 102, 0.25);
+  transition: background-color 0.2s ease;
+  box-shadow: none;
 
   &:hover {
-    background-color: #2EE06E;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+    background-color: #20BA5A;
+    transform: none;
+    box-shadow: none;
     color: #0B1E13;
   }
 }
@@ -207,11 +205,11 @@
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  background-color: rgba(200, 125, 85, 0.12);
-  color: #E29B75;
-  border: 1px solid rgba(200, 125, 85, 0.35);
-  padding: 0.55rem 1.25rem;
-  border-radius: 100px;
+  background-color: rgba(255, 255, 255, 0.035);
+  color: #C87D55;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.5rem 1.15rem;
+  border-radius: 6px;
   font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -250,17 +248,18 @@
   background-color: #2E6F40;
   color: #FFFFFF;
   padding: 1.15rem 2rem;
-  border-radius: 8px;
+  border-radius: 6px;
   font-weight: 700;
   font-size: 1.15rem;
   text-decoration: none;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 14px rgba(46, 111, 64, 0.35);
+  transition: background-color 0.2s ease;
+  box-shadow: none;
+  border: 1px solid transparent;
 
   &:hover {
     background-color: #38844D;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(46, 111, 64, 0.45);
+    transform: none;
+    box-shadow: none;
     color: #FFFFFF;
   }
 }
@@ -271,18 +270,18 @@
   gap: 0.65rem;
   background-color: transparent;
   color: #F4F0E8;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   padding: 1.15rem 2rem;
-  border-radius: 8px;
+  border-radius: 6px;
   font-weight: 600;
   font-size: 1.15rem;
   text-decoration: none;
-  transition: all 0.25s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 
   &:hover {
-    border-color: #C87D55;
-    color: #E29B75;
-    background-color: rgba(200, 125, 85, 0.08);
+    border-color: rgba(255, 255, 255, 0.35);
+    color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.04);
   }
 }
 
@@ -295,23 +294,13 @@
 .profileCard {
   width: 100%;
   max-width: 430px;
-  background: linear-gradient(160deg, #17211C 0%, #121814 100%);
-  border: 1px solid rgba(78, 155, 96, 0.25);
-  border-radius: 16px;
+  background-color: #141A16;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
   padding: 2.2rem 2rem;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   position: relative;
   overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #2E6F40, #C87D55, #D4AF37);
-  }
 }
 
 .profileCardHeader {
@@ -334,31 +323,31 @@
   height: 124px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #2E6F40;
-  box-shadow: 0 8px 24px rgba(46, 111, 64, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: none;
   display: block;
 }
 
 .profileStatusBadge {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  background-color: rgba(34, 197, 94, 0.12);
-  color: #4ADE80;
-  border: 1px solid rgba(34, 197, 94, 0.3);
-  padding: 0.42rem 0.95rem;
-  border-radius: 100px;
-  font-size: 0.92rem;
-  font-weight: 600;
+  gap: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.035);
+  color: #DDD7CD;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.35rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.88rem;
+  font-weight: 500;
   margin-bottom: 0.75rem;
 }
 
 .pulseDot {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   background-color: #22C55E;
   border-radius: 50%;
-  box-shadow: 0 0 8px #22C55E;
+  box-shadow: none;
 }
 
 .profileName {
@@ -420,19 +409,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(255, 255, 255, 0.035);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   padding: 0.75rem 1.05rem;
-  border-radius: 8px;
+  border-radius: 6px;
   color: #DDD7CD;
   font-size: 1.05rem;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.07);
+    background-color: rgba(255, 255, 255, 0.05);
     color: #FFFFFF;
-    border-color: rgba(78, 155, 96, 0.35);
+    border-color: rgba(255, 255, 255, 0.16);
   }
 }
 
@@ -467,9 +456,9 @@
   font-weight: 600;
   padding: 0.65rem 1.1rem;
   border-radius: 6px;
-  background-color: rgba(255, 255, 255, 0.03);
+  background-color: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  transition: all 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 
   img {
     height: 26px;
@@ -482,8 +471,8 @@
 
   &:hover {
     color: #FFFFFF;
-    border-color: rgba(200, 125, 85, 0.35);
-    background-color: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.16);
+    background-color: rgba(255, 255, 255, 0.05);
   }
 }
 
@@ -530,27 +519,21 @@
 }
 
 .numberCard {
-  background-color: #17201B;
+  background-color: #141A16;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
+  border-left: 3px solid #2E6F40;
+  border-radius: 8px;
   padding: 2.2rem 2rem;
   position: relative;
   overflow: hidden;
-  transition: transform 0.25s ease, border-color 0.25s ease;
+  box-shadow: none;
+  transition: border-color 0.2s ease;
 
   &:hover {
-    transform: translateY(-4px);
-    border-color: rgba(78, 155, 96, 0.45);
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
-    background-color: #2E6F40;
+    border-color: rgba(255, 255, 255, 0.2);
+    border-left-color: #38844D;
+    transform: none;
+    box-shadow: none;
   }
 }
 
@@ -573,7 +556,7 @@
 .servicesSection {
   padding: 5.5rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(23, 32, 27, 0.45);
+  background-color: #0E1310;
 }
 
 .servicesGrid {
@@ -583,35 +566,31 @@
 }
 
 .serviceCard {
-  background-color: #17201B;
+  background-color: #141A16;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
+  border-radius: 8px;
   padding: 2.4rem 2rem;
   display: flex;
   flex-direction: column;
   position: relative;
-  transition: all 0.25s ease;
+  box-shadow: none;
+  transition: border-color 0.2s ease;
 
   &:hover {
-    transform: translateY(-4px);
-    border-color: rgba(78, 155, 96, 0.4);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: none;
+    box-shadow: none;
   }
 }
 
 .serviceFeaturedCard {
-  border-color: rgba(78, 155, 96, 0.45);
-  background: linear-gradient(165deg, #1C2621 0%, #151D19 100%);
-  box-shadow: 0 10px 30px rgba(46, 111, 64, 0.15);
+  border-color: #2E6F40;
+  background-color: #16201A;
+  box-shadow: none;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: #4E9B60;
+  &:hover {
+    border-color: #38844D;
+    box-shadow: none;
   }
 }
 
@@ -671,21 +650,24 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.04);
   color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   padding: 1.05rem 1.5rem;
-  border-radius: 8px;
+  border-radius: 6px;
   font-weight: 600;
   font-size: 1.15rem;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
   margin-top: auto;
+  box-shadow: none;
 
   &:hover {
     background-color: #2E6F40;
     border-color: #2E6F40;
     color: #FFFFFF;
+    transform: none;
+    box-shadow: none;
   }
 }
 
@@ -706,17 +688,19 @@
 }
 
 .pillarCard {
-  background-color: #17201B;
+  background-color: #141A16;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 2.2rem;
   display: flex;
   flex-direction: column;
-  transition: all 0.25s ease;
+  box-shadow: none;
+  transition: border-color 0.2s ease;
 
   &:hover {
-    border-color: rgba(78, 155, 96, 0.4);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: none;
+    transform: none;
   }
 }
 
@@ -765,8 +749,8 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   padding: 0.45rem 0.95rem;
   border-radius: 6px;
   font-size: 1rem;
@@ -792,20 +776,23 @@
 }
 
 .caseCard {
-  background-color: #17201B;
+  background-color: #141A16;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
+  border-radius: 8px;
   overflow: hidden;
   display: grid;
   grid-template-columns: 1fr;
-  transition: all 0.25s ease;
+  box-shadow: none;
+  transition: border-color 0.2s ease;
 
   @media (min-width: 992px) {
     grid-template-columns: 360px 1fr;
   }
 
   &:hover {
-    border-color: rgba(78, 155, 96, 0.35);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: none;
+    transform: none;
   }
 }
 
@@ -823,7 +810,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, transparent 40%, rgba(23, 32, 27, 0.85) 100%);
+    background-color: rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -893,9 +880,9 @@
 .caseQuote {
   margin-top: 1.25rem;
   padding: 1.15rem 1.35rem;
-  background-color: rgba(255, 255, 255, 0.03);
-  border-left: 3px solid #C87D55;
-  border-radius: 0 8px 8px 0;
+  background-color: rgba(255, 255, 255, 0.025);
+  border-left: 2px solid #C87D55;
+  border-radius: 0 4px 4px 0;
   font-style: italic;
   font-size: 1.22rem;
   line-height: 1.6;
@@ -937,16 +924,19 @@
 }
 
 .articleCard {
-  background-color: #17201B;
+  background-color: #141A16;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  transition: all 0.25s ease;
+  box-shadow: none;
+  transition: border-color 0.2s ease;
 
   &:hover {
-    border-color: rgba(78, 155, 96, 0.45);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: none;
+    transform: none;
   }
 }
 
@@ -981,23 +971,14 @@
 }
 
 .footerBox {
-  background-color: #17201B;
+  background-color: #141A16;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
+  border-radius: 8px;
   padding: 3rem 2rem;
   text-align: center;
   position: relative;
   overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #2E6F40, #C87D55, #D4AF37);
-  }
+  box-shadow: none;
 }
 
 .footerAvatarWrapper {
@@ -1011,8 +992,9 @@
   height: 72px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #4E9B60;
-  box-shadow: 0 4px 16px rgba(78, 155, 96, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: none;
+  display: block;
 }
 
 .footerTitle {
