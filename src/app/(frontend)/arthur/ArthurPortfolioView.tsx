@@ -68,7 +68,7 @@ export const ArthurPortfolioView: React.FC = () => {
               rel="noopener noreferrer"
               className={styles.btnPrimary}
             >
-              <span>Contato Executivo ↗</span>
+              <span>Conversar no WhatsApp ↗</span>
             </a>
           </div>
         </div>
@@ -90,7 +90,7 @@ export const ArthurPortfolioView: React.FC = () => {
                 </h1>
 
                 <p className={`${styles.heroLead} ${styles.bodyFont}`}>
-                  Há 15 anos estruturo e lidero operações digitais de ponta a ponta. Meu trabalho consiste em subordinar a tecnologia e a aquisição de tráfego à saúde financeira do negócio (DRE): integro engenharia de SEO e visibilidade em IA (GEO), otimização de conversão (CRO) e mídia de performance para escalar a receita sem corroer a margem de contribuição.
+                  Prazer, sou o Arthur Saggioratto. Há 15 anos estruturo e lidero operações digitais de ponta a ponta. Meu trabalho consiste em subordinar a tecnologia e a aquisição de tráfego à saúde financeira do negócio (DRE): integro engenharia de SEO e visibilidade em IA (GEO), otimização de conversão (CRO) e mídia de performance para escalar a receita sem corroer a margem de contribuição.
                 </p>
 
                 <div className={styles.heroActions}>
@@ -100,7 +100,7 @@ export const ArthurPortfolioView: React.FC = () => {
                     rel="noopener noreferrer"
                     className={styles.btnHeroSolid}
                   >
-                    <span>Iniciar Conversa Executiva (WhatsApp) ↗</span>
+                    <span>Conversar no WhatsApp ↗</span>
                   </a>
 
                   <a
@@ -1065,7 +1065,7 @@ export const ArthurPortfolioView: React.FC = () => {
                 rel="noopener noreferrer"
                 className={styles.btnPrimary}
               >
-                <span>Iniciar Contato Executivo (WhatsApp) ↗</span>
+                <span>Conversar no WhatsApp ↗</span>
               </a>
 
               <a
