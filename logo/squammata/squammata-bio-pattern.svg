@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
+  <defs>
+    <pattern id="squama-scale" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 0 20 Q 20 40 40 20 Q 20 0 0 20 Z" fill="none" stroke="#3A2313" stroke-width="0.8" opacity="0.12"/>
+      <path d="M 20 40 Q 40 60 60 40 Q 40 20 20 40 Z" fill="none" stroke="#3A2313" stroke-width="0.8" opacity="0.12"/>
+      <path d="M -20 40 Q 0 60 20 40 Q 0 20 -20 40 Z" fill="none" stroke="#3A2313" stroke-width="0.8" opacity="0.12"/>
+      <path d="M 20 0 Q 40 20 60 0 Q 40 -20 20 0 Z" fill="none" stroke="#3A2313" stroke-width="0.8" opacity="0.12"/>
+      <path d="M -20 0 Q 0 20 20 0 Q 0 -20 -20 0 Z" fill="none" stroke="#3A2313" stroke-width="0.8" opacity="0.12"/>
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#squama-scale)" />
+</svg>

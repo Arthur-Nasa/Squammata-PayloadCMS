@@ -1,0 +1,1416 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@15.5.26_@types+node@22.20.4_babel-plugin-macros@3.1.0_react-dom@19.3.0_react@19.3.0__react@19.3.0_sass@1.105.2/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[2]!./node_modules/.pnpm/next@15.5.26_@types+node@22.20.4_babel-plugin-macros@3.1.0_react-dom@19.3.0_react@19.3.0__react@19.3.0_sass@1.105.2/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[3]!./node_modules/.pnpm/next@15.5.26_@types+node@22.20.4_babel-plugin-macros@3.1.0_react-dom@19.3.0_react@19.3.0__react@19.3.0_sass@1.105.2/node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[7].use[4]!./node_modules/.pnpm/next@15.5.26_@types+node@22.20.4_babel-plugin-macros@3.1.0_react-dom@19.3.0_react@19.3.0__react@19.3.0_sass@1.105.2/node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[7].use[5]!./src/app/(frontend)/arthur/arthur.module.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Quicksand:wght@600;700&display=swap");
+/* ==========================================================================
+   PORTFÓLIO EXECUTIVO EDITORIAL (SWISS GRID / ANTI-AI BOILERPLATE)
+   ARTHUR SAGGIORATTO | HEAD OF E-COMMERCE, SEO & GROWTH
+   ========================================================================== */
+/* --- VARIÁVEIS DO SISTEMA EDITORIAL --- */
+/* --- RESET & ESTRUTURA BASE --- */
+.arthur_portfolioPage__dEs6p {
+  background-color: #0B0F0E;
+  color: #F1F5F9;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.65;
+}
+.arthur_portfolioPage__dEs6p * {
+  box-sizing: border-box;
+}
+.arthur_portfolioPage__dEs6p ::selection {
+  background-color: #15803D;
+  color: #FFFFFF;
+}
+
+.arthur_headingFont__l3XnZ {
+  font-family: "Quicksand", var(--font-quicksand), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.arthur_bodyFont__D0kxN {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.arthur_monoFont__OW9iC {
+  font-family: "JetBrains Mono", var(--font-space-mono), "SF Mono", Consolas, monospace;
+}
+
+.arthur_editorialContainer__377rc {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+@media (max-width: 768px) {
+  .arthur_editorialContainer__377rc {
+    padding: 0 1.25rem;
+  }
+}
+
+/* --- 1. HEADER FIXO, MINIMALISTA (BORDA INFERIOR DE 1PX) --- */
+.arthur_editorialHeader__3xl4R {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background-color: rgba(11, 15, 14, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+  height: 64px;
+}
+
+.arthur_headerContainer__9tMZU {
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+@media (max-width: 768px) {
+  .arthur_headerContainer__9tMZU {
+    padding: 0 1rem;
+    gap: 0.75rem;
+  }
+}
+
+.arthur_headerBrand__QlL2v {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  text-decoration: none;
+}
+
+.arthur_brandTitle__5m3XJ {
+  font-family: "Quicksand", var(--font-quicksand), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #F1F5F9;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+@media (max-width: 480px) {
+  .arthur_brandTitle__5m3XJ {
+    font-size: 1.02rem;
+    letter-spacing: 0.02em;
+  }
+}
+.arthur_brandTitle__5m3XJ:hover {
+  color: #FFFFFF;
+}
+
+.arthur_brandTag__Ws2wF {
+  font-size: 0.75rem;
+  color: #D4AF37;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  white-space: nowrap;
+}
+@media (max-width: 1100px) {
+  .arthur_brandTag__Ws2wF {
+    display: none;
+  }
+}
+
+.arthur_headerNav__Xzjs1 {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+@media (max-width: 900px) {
+  .arthur_headerNav__Xzjs1 {
+    display: none;
+  }
+}
+
+.arthur_navLink__spLV3 {
+  font-family: "Quicksand", var(--font-quicksand), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.05rem;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.45rem 1rem;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  transition: all 0.15s ease;
+}
+.arthur_navLink__spLV3:hover {
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.arthur_headerActions__tsggI {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+@media (max-width: 680px) {
+  .arthur_headerActions__tsggI {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .arthur_headerCurriculoBtn__rBBqW {
+    display: none !important;
+  }
+}
+
+.arthur_btnSchema__uzpM5 {
+  background: transparent;
+  color: #CBD5E1;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  padding: 0.45rem 0.8rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+.arthur_btnSchema__uzpM5:hover {
+  color: #F1F5F9;
+  border-color: rgba(255, 255, 255, 0.22);
+  background-color: rgba(255, 255, 255, 0.03);
+}
+@media (max-width: 600px) {
+  .arthur_btnSchema__uzpM5 {
+    display: none;
+  }
+}
+
+.arthur_btnPrimary__2Xo_H {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #166534;
+  color: #FFFFFF;
+  font-family: "Quicksand", var(--font-quicksand), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 0.6rem 1.35rem;
+  text-decoration: none;
+  border: 1px solid #22C55E;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+@media (max-width: 480px) {
+  .arthur_btnPrimary__2Xo_H {
+    font-size: 0.88rem;
+    padding: 0.45rem 0.9rem;
+  }
+}
+.arthur_btnPrimary__2Xo_H:hover {
+  background-color: #15803D;
+  border-color: #4ADE80;
+  color: #FFFFFF;
+}
+
+.arthur_btnSecondary__vq6Yk {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
+  font-family: "Quicksand", var(--font-quicksand), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  padding: 0.6rem 1.35rem;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.arthur_btnSecondary__vq6Yk:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+}
+
+/* --- SEÇÃO 1: HERO SECTION ASSIMÉTRICO (8 COLUNAS / 4 COLUNAS) --- */
+.arthur_heroSection__f2LA0 {
+  padding-top: calc(64px + 4rem);
+  padding-bottom: 4.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.arthur_heroGrid__rCpWj {
+  display: grid;
+  grid-template-columns: 8fr 4fr;
+  grid-gap: 0;
+  gap: 0;
+}
+@media (max-width: 980px) {
+  .arthur_heroGrid__rCpWj {
+    grid-template-columns: 1fr;
+  }
+}
+
+.arthur_heroLeftCol___g3lm {
+  padding-right: 3.5rem;
+}
+@media (max-width: 980px) {
+  .arthur_heroLeftCol___g3lm {
+    padding-right: 0;
+    padding-bottom: 3rem;
+  }
+}
+
+.arthur_heroEyebrow__lNOfz {
+  font-size: 1.12rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #D4AF37;
+  margin-bottom: 1.5rem;
+}
+
+.arthur_heroH1__ZhRjK {
+  font-size: clamp(3rem, 5.2vw, 4.6rem);
+  font-weight: 700;
+  line-height: 1.14;
+  color: #FFFFFF;
+  margin-bottom: 2rem;
+  letter-spacing: -0.03em;
+}
+
+.arthur_heroLead__7pb0_ {
+  font-size: 1.45rem;
+  line-height: 1.75;
+  color: #E2E8F0;
+  margin-bottom: 2.5rem;
+  max-width: 880px;
+}
+@media (max-width: 768px) {
+  .arthur_heroLead__7pb0_ {
+    font-size: 1.25rem;
+    line-height: 1.65;
+  }
+}
+
+.arthur_heroActions__uAXXG {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.35rem;
+}
+
+.arthur_btnHeroSolid__7UKLj {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #166534;
+  color: #FFFFFF;
+  font-family: "Quicksand", var(--font-quicksand), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  padding: 1.1rem 2.2rem;
+  text-decoration: none;
+  border: 1px solid #22C55E;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+@media (max-width: 600px) {
+  .arthur_btnHeroSolid__7UKLj {
+    font-size: 1.1rem;
+    padding: 0.95rem 1.6rem;
+    width: 100%;
+  }
+}
+.arthur_btnHeroSolid__7UKLj:hover {
+  background-color: #15803D;
+  border-color: #4ADE80;
+  color: #FFFFFF;
+}
+
+.arthur_btnHeroEditorial__LIQgc {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
+  font-family: "Quicksand", var(--font-quicksand), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 600;
+  font-size: 1.18rem;
+  padding: 1.1rem 1.85rem;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+@media (max-width: 600px) {
+  .arthur_btnHeroEditorial__LIQgc {
+    font-size: 1.05rem;
+    padding: 0.95rem 1.4rem;
+    width: 100%;
+  }
+}
+.arthur_btnHeroEditorial__LIQgc:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+}
+
+.arthur_heroEmailLink__VH303 {
+  font-size: 1.15rem;
+  color: #CBD5E1;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.15s ease;
+}
+.arthur_heroEmailLink__VH303:hover {
+  color: #FFFFFF;
+}
+
+/* Hero Right Col: Dossiê e Especificações Executivas */
+.arthur_heroRightCol__LuvqW {
+  border-left: 1px solid rgba(255, 255, 255, 0.13);
+  padding-left: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 980px) {
+  .arthur_heroRightCol__LuvqW {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.13);
+    padding-left: 0;
+    padding-top: 2.5rem;
+  }
+}
+
+.arthur_portraitWrapper__hITus {
+  margin-bottom: 1.75rem;
+}
+
+.arthur_editorialPortrait__ynQhR {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 6px;
+  filter: contrast(1.04) saturate(1.02);
+  display: block;
+}
+
+.arthur_portraitCaption__Kgn1d {
+  font-size: 0.95rem;
+  letter-spacing: 0.07em;
+  color: #CBD5E1;
+  margin-top: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.arthur_dossierSpecs__qsz_f {
+  display: flex;
+  flex-direction: column;
+}
+
+.arthur_specRow__rbg99 {
+  padding: 1.1rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.arthur_specRow__rbg99:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.arthur_specLabel__uS8GO {
+  font-size: 1rem;
+  color: #D4AF37;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+.arthur_specValue__EVU3h {
+  font-size: 1.22rem;
+  color: #F1F5F9;
+  line-height: 1.55;
+}
+
+/* --- SEÇÃO 2: BARRA DE CREDENCIAIS E OPERAÇÕES (LOGO STRIP) --- */
+.arthur_logoStripSection__eW_lF {
+  background-color: #111715;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+  padding: 2rem 0;
+}
+
+.arthur_logoStripInner__EgU28 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+@media (max-width: 980px) {
+  .arthur_logoStripInner__EgU28 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+}
+
+.arthur_logoStripTitle__hUQkU {
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #CBD5E1;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.arthur_logoStripItems__G2eTi {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.arthur_logoBadgeLink__wuHWH {
+  text-decoration: none;
+  opacity: 1;
+  transition: all 0.2s ease;
+}
+.arthur_logoBadgeLink__wuHWH:hover {
+  transform: translateY(-1px);
+}
+.arthur_logoBadgeLink__wuHWH:hover .arthur_logoSealText___zb2f {
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.arthur_logoSealText___zb2f {
+  display: inline-block;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #F1F5F9;
+  padding: 0.55rem 1.15rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+
+/* --- SEÇÃO 3: INDICADORES AUDITADOS DE NEGÓCIO (GRADE TABULAR 2x3) --- */
+.arthur_bigNumbersSection__3F9ko {
+  padding: 5.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.arthur_sectionHeadingRow__kI9sZ {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+@media (max-width: 900px) {
+  .arthur_sectionHeadingRow__kI9sZ {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+}
+
+.arthur_sectionEyebrow__1EKTp {
+  display: block;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #D4AF37;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.arthur_sectionTitle__AX5Au {
+  font-size: clamp(2.4rem, 3.8vw, 3.4rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.arthur_sectionSubtext__eq6F4 {
+  font-size: 1.25rem;
+  color: #CBD5E1;
+  max-width: 620px;
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* Grade Tabular Contínua 2x3 */
+.arthur_tabularGrid__uzJF3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+  border-left: 1px solid rgba(255, 255, 255, 0.13);
+}
+@media (max-width: 1024px) {
+  .arthur_tabularGrid__uzJF3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 680px) {
+  .arthur_tabularGrid__uzJF3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.arthur_tabularCell__eoEq6 {
+  padding: 3.25rem 2.5rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.13);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+}
+.arthur_tabularCell__eoEq6:hover {
+  background-color: rgba(255, 255, 255, 0.025);
+}
+
+.arthur_tabularValue__Eb1ic {
+  font-size: clamp(3rem, 4.6vw, 4.4rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+.arthur_tabularLabel__lLBaX {
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #D4AF37;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+
+.arthur_tabularDesc__aEG0M {
+  font-size: 1.22rem;
+  color: #CBD5E1;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* --- SEÇÃO 4: MATRIZ DE COMPETÊNCIAS E ENGENHARIA (ÍNDICE TÉCNICO 01 A 04) --- */
+.arthur_matrixSection__oDF5p {
+  background-color: #111715;
+  padding: 5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.arthur_matrixIndex__YGTE8 {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.arthur_matrixRow__wGshp {
+  display: grid;
+  grid-template-columns: 4fr 8fr;
+  grid-gap: 2.5rem;
+  gap: 2.5rem;
+  padding: 3rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+@media (max-width: 900px) {
+  .arthur_matrixRow__wGshp {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2.5rem 0;
+  }
+}
+
+.arthur_matrixMeta__S8jFL {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.arthur_matrixNumber__IxPGB {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #D4AF37;
+  line-height: 1;
+}
+
+.arthur_matrixTitle__Jzebo {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.arthur_matrixContent__UsBES {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2rem;
+  gap: 2rem;
+}
+
+.arthur_methodologyHeading__u_fZW {
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #CBD5E1;
+  margin: 0 0 1rem 0;
+  font-weight: 700;
+}
+
+.arthur_editorialList__LO8x9 {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+.arthur_editorialList__LO8x9 li {
+  font-size: 1.25rem;
+  color: #F1F5F9;
+  line-height: 1.75;
+  position: relative;
+  padding-left: 1.6rem;
+}
+.arthur_editorialList__LO8x9 li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #22C55E;
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+.arthur_editorialList__LO8x9 li strong {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+.arthur_editorialList__LO8x9 li em {
+  font-style: italic;
+  color: #E2E8F0;
+}
+.arthur_editorialList__LO8x9 li code {
+  font-family: "JetBrains Mono", var(--font-space-mono), "SF Mono", Consolas, monospace;
+  font-size: 0.9em;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 0.15rem 0.4rem;
+  border-radius: 2px;
+  color: #E2E8F0;
+}
+
+.arthur_tagsFlex__qxJtU {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.arthur_tagItem__8K3O0 {
+  font-size: 1rem;
+  color: #F1F5F9;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.45rem 0.9rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+.arthur_tagItem__8K3O0:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* --- SEÇÃO 5: TRAJETÓRIA EXECUTIVA & ESTUDOS DE CASO (DOSSIÊ TÉCNICO) --- */
+.arthur_casesSection__DQxRw {
+  padding: 5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.arthur_casesDossier__J5KYJ {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.arthur_caseDossierRow__wiWU_ {
+  display: grid;
+  grid-template-columns: 3fr 6fr 3fr;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+@media (max-width: 1100px) {
+  .arthur_caseDossierRow__wiWU_ {
+    grid-template-columns: 1fr;
+  }
+}
+
+.arthur_zoneA__OcDfB {
+  padding: 2.75rem 2rem 2.75rem 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.13);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+@media (max-width: 1100px) {
+  .arthur_zoneA__OcDfB {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 2rem 0;
+  }
+}
+
+.arthur_casePeriod__FNKL2 {
+  font-size: 0.98rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #D4AF37;
+  font-weight: 700;
+}
+
+.arthur_caseCompany__uNtyi {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.25;
+  border-left: 3px solid #D4AF37;
+  padding-left: 0.85rem;
+}
+
+.arthur_caseRole___nCTF {
+  font-size: 1.15rem;
+  color: #CBD5E1;
+  line-height: 1.5;
+}
+
+.arthur_caseAuditLinks__SIQdB {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.arthur_auditLink__I6jWq {
+  font-family: "Quicksand", var(--font-quicksand), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 1rem;
+  color: #94A3B8;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+.arthur_auditLink__I6jWq:hover {
+  color: #FFFFFF;
+}
+
+.arthur_zoneB__k5AP1 {
+  padding: 2.75rem 2.5rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.13);
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 1100px) {
+  .arthur_zoneB__k5AP1 {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 2rem 0;
+  }
+}
+
+.arthur_zoneHeaderLabel__bNjGM {
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #D4AF37;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+
+.arthur_caseBulletList__99MEa {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.arthur_caseBulletList__99MEa li {
+  font-size: 1.25rem;
+  color: #F1F5F9;
+  line-height: 1.75;
+  position: relative;
+  padding-left: 1.6rem;
+}
+.arthur_caseBulletList__99MEa li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #22C55E;
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+.arthur_caseBulletList__99MEa li strong {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+.arthur_caseBulletList__99MEa li em {
+  font-style: italic;
+  color: #E2E8F0;
+}
+
+.arthur_caseQuote__LILqa {
+  margin: 2rem 0 0 0;
+  padding: 1.35rem 1.75rem;
+  background-color: rgba(255, 255, 255, 0.02);
+  border-left: 3px solid #D4AF37;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #E2E8F0;
+  line-height: 1.7;
+  border-radius: 0 4px 4px 0;
+}
+.arthur_caseQuote__LILqa footer {
+  font-style: normal;
+  font-size: 0.95rem;
+  color: #CBD5E1;
+  letter-spacing: 0.06em;
+  margin-top: 0.75rem;
+}
+
+.arthur_zoneC__cfmEP {
+  padding: 2.75rem 0 2.75rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 1100px) {
+  .arthur_zoneC__cfmEP {
+    padding: 2rem 0;
+  }
+}
+
+.arthur_metricCallouts___y0nz {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.arthur_metricCalloutItem__wGUwt {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.02);
+  padding: 1.1rem 1.3rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+.arthur_metricCalloutItem__wGUwt:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.arthur_calloutValue__udrLX {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.1;
+  font-family: "JetBrains Mono", var(--font-space-mono), "SF Mono", Consolas, monospace;
+  margin-bottom: 0.35rem;
+}
+
+.arthur_calloutLabel__YCNFU {
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #94A3B8;
+  font-weight: 600;
+}
+
+.arthur_caseStackTags__vYJ6w {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.arthur_miniTag__5QXGN {
+  font-size: 0.92rem;
+  color: #F1F5F9;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+}
+
+/* --- SEÇÃO 6: FUNDAMENTAÇÃO ACADÊMICA & PUBLICAÇÕES --- */
+.arthur_academicSection__qXro9 {
+  background-color: #111715;
+  padding: 5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.arthur_academicGrid__yc0jH {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+}
+@media (max-width: 980px) {
+  .arthur_academicGrid__yc0jH {
+    grid-template-columns: 1fr;
+  }
+}
+
+.arthur_academicLeftBlock___3noU {
+  padding: 3rem 3rem 3rem 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.13);
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+@media (max-width: 980px) {
+  .arthur_academicLeftBlock___3noU {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+    padding: 2.5rem 0;
+  }
+}
+
+.arthur_blockHeading__QJ27X {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 1.25rem 0;
+}
+
+.arthur_institutionItem__oxsE2 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.arthur_institutionMeta__JLBdw {
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #D4AF37;
+  font-weight: 700;
+}
+
+.arthur_degreeTitle__CH63i {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.arthur_degreeDesc__BsQCA {
+  font-size: 1.22rem;
+  color: #CBD5E1;
+  line-height: 1.7;
+  margin: 0.45rem 0 0 0;
+}
+.arthur_degreeDesc__BsQCA em {
+  font-style: italic;
+  color: #E2E8F0;
+}
+
+.arthur_academicRightBlock__GchZ5 {
+  padding: 3rem 0 3rem 3rem;
+}
+@media (max-width: 980px) {
+  .arthur_academicRightBlock__GchZ5 {
+    padding: 2.5rem 0;
+  }
+}
+
+.arthur_editorialArticlesList__QgXQo {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.arthur_editorialArticleCard__ZeHD6 {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  grid-gap: 1.5rem;
+  gap: 1.5rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.arthur_editorialArticleCard__ZeHD6:last-child {
+  border-bottom: none;
+}
+
+.arthur_articleNumber__KMD9_ {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #D4AF37;
+  line-height: 1.2;
+}
+
+.arthur_articleBody__9hjMZ {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.arthur_articleTitle__coEVO {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.arthur_articleExcerpt__ds3WZ {
+  font-size: 1.22rem;
+  color: #CBD5E1;
+  line-height: 1.7;
+  margin: 0;
+}
+.arthur_articleExcerpt__ds3WZ em {
+  font-style: italic;
+  color: #E2E8F0;
+}
+
+.arthur_articleLink__dKtLi {
+  margin-top: 0.75rem;
+  font-family: "Quicksand", var(--font-quicksand), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 1rem;
+  color: #94A3B8;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+.arthur_articleLink__dKtLi:hover {
+  color: #FFFFFF;
+}
+
+/* --- SEÇÃO 7: FORMATOS DE ENGAJAMENTO & FOOTER EXECUTIVO --- */
+.arthur_engagementSection__t_OgW {
+  padding: 5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.arthur_engagementGrid__M_5GV {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+  border-left: 1px solid rgba(255, 255, 255, 0.13);
+}
+@media (max-width: 980px) {
+  .arthur_engagementGrid__M_5GV {
+    grid-template-columns: 1fr;
+  }
+}
+
+.arthur_engagementCard__qzpGH {
+  padding: 3rem 2.25rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.13);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.2s ease;
+}
+.arthur_engagementCard__qzpGH:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.arthur_cardRomanNumber__FAd7T {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #D4AF37;
+  margin-bottom: 1rem;
+}
+
+.arthur_engagementTitle__0HCsQ {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.3;
+  margin: 0 0 1rem 0;
+}
+
+.arthur_engagementDesc__hZBz5 {
+  font-size: 1.25rem;
+  color: #CBD5E1;
+  line-height: 1.7;
+  margin: 0 0 2rem 0;
+  flex-grow: 1;
+}
+.arthur_engagementDesc__hZBz5 em {
+  font-style: italic;
+  color: #E2E8F0;
+}
+
+.arthur_engagementSpec__0OY1E {
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #D4AF37;
+  font-weight: 700;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1rem;
+}
+
+/* --- FOOTER EXECUTIVO SÓBRIO --- */
+.arthur_editorialFooter__4Xvl4 {
+  background-color: #080B0A;
+  padding: 5rem 0 2.5rem 0;
+}
+
+.arthur_footerMainBlock__JaWii {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  grid-gap: 3rem;
+  gap: 3rem;
+  padding-bottom: 3.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+@media (max-width: 900px) {
+  .arthur_footerMainBlock__JaWii {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.arthur_footerTextCol__Tae3X {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.arthur_footerCallout__oxCWJ {
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.arthur_footerMetaList__MuD9F {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 1.15rem;
+  color: #CBD5E1;
+}
+.arthur_footerMetaList__MuD9F a {
+  color: #CBD5E1;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.arthur_footerMetaList__MuD9F a:hover {
+  color: #FFFFFF;
+}
+.arthur_footerMetaList__MuD9F strong {
+  color: #FFFFFF;
+}
+
+.arthur_footerActionsCol___Fuk6 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.25rem;
+}
+.arthur_footerActionsCol___Fuk6 a, .arthur_footerActionsCol___Fuk6 button {
+  width: 100%;
+  max-width: 420px;
+  padding: 1.1rem 1.6rem;
+  font-size: 1.15rem;
+}
+
+.arthur_footerBottomBar__uEYTH {
+  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.arthur_copyrightText__6MBHd {
+  font-size: 0.95rem;
+  color: #CBD5E1;
+}
+
+.arthur_footerTechNote__m8JLn {
+  font-size: 0.88rem;
+  letter-spacing: 0.08em;
+  color: #CBD5E1;
+}
+
+/* --- MODAL INTERATIVO DE INSPEÇÃO SCHEMA.ORG --- */
+.arthur_modalOverlay__STsje {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background-color: rgba(5, 8, 7, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.arthur_modalCard__6rRaP {
+  width: 100%;
+  max-width: 860px;
+  max-height: 85vh;
+  background-color: #0E1412;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+}
+
+.arthur_modalHeader__W68HX {
+  padding: 1.25rem 1.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.arthur_modalTitleBlock__843Pu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.arthur_modalBadge__ukiqn {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #D4AF37;
+  font-weight: 600;
+}
+
+.arthur_modalTitle__8FgZe {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #F1F5F9;
+  margin: 0;
+}
+
+.arthur_modalActions__7xi4Y {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.arthur_btnModalAction__Bc897 {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  color: #F1F5F9;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.arthur_btnModalAction__Bc897:hover {
+  background-color: #15803D;
+  border-color: #15803D;
+  color: #FFFFFF;
+}
+
+.arthur_btnModalClose__3SN4G {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  color: #CBD5E1;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.arthur_btnModalClose__3SN4G:hover {
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.arthur_modalBody__vTGVv {
+  padding: 1.5rem 1.75rem;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.arthur_codeBlock__cG9D2 {
+  margin: 0;
+  padding: 1.25rem;
+  background-color: #060908;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #86EFAC;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  overflow-x: auto;
+  border-radius: 2px;
+  white-space: pre;
+}
+.arthur_codeBlock__cG9D2 code {
+  font-family: "JetBrains Mono", var(--font-space-mono), "SF Mono", Consolas, monospace;
+}
+
+.arthur_modalFooter__gDv7T {
+  padding: 1rem 1.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.arthur_modalHelpText__viRx_ {
+  font-size: 0.75rem;
+  color: #94A3B8;
+}
+
+.arthur_validatorLinks__3eacN {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.arthur_validatorLink__cY1Tl {
+  font-family: "Quicksand", var(--font-quicksand), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.82rem;
+  color: #D4AF37;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.arthur_validatorLink__cY1Tl:hover {
+  color: #FFFFFF;
+}
