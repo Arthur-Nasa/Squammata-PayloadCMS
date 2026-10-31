@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Quicksand:wght@500;600;700&family=Zilla+Slab:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Quicksand:wght@600;700&display=swap');
 
 /* ==========================================================================
    PORTFÓLIO EXECUTIVO EDITORIAL (SWISS GRID / ANTI-AI BOILERPLATE)
@@ -12,17 +12,17 @@ $border-grid: rgba(255, 255, 255, 0.13);
 $border-grid-strong: rgba(255, 255, 255, 0.22);
 $border-grid-subtle: rgba(255, 255, 255, 0.08);
 
-$text-primary: #F3F2EE;
-$text-secondary: #B0B7B3;
-$text-tertiary: #929A96;
-$text-lead: #D6DCD8;
+$text-primary: #F1F5F9;
+$text-secondary: #CBD5E1;
+$text-tertiary: #94A3B8;
+$text-lead: #E2E8F0;
 
-$accent-primary: #2E6F40;
-$accent-positive: #4ADE80;
+$accent-primary: #15803D;
+$accent-positive: #22C55E;
 $accent-secondary: #D4AF37;
 
 $font-heading: 'Quicksand', var(--font-quicksand), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-$font-body: 'Zilla Slab', var(--font-zilla-slab), Georgia, 'Times New Roman', serif;
+$font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monospace;
 
 /* --- RESET & ESTRUTURA BASE --- */
@@ -35,7 +35,7 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
   font-family: $font-body;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: 1.6;
+  line-height: 1.65;
 
   * {
     box-sizing: border-box;
@@ -162,10 +162,9 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
   transition: all 0.15s ease;
 
   &:hover {
-    color: #4ADE80;
-    border-color: #4ADE80;
-    background-color: rgba(74, 222, 128, 0.12);
-    box-shadow: 0 0 12px rgba(74, 222, 128, 0.2);
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.1);
   }
 }
 
@@ -211,16 +210,15 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #15803D;
+  background-color: #166534;
   color: #FFFFFF;
   font-family: $font-heading;
   font-weight: 700;
   font-size: 1.05rem;
   padding: 0.6rem 1.35rem;
   text-decoration: none;
-  border: 1px solid #4ADE80;
+  border: 1px solid #22C55E;
   border-radius: 4px;
-  box-shadow: 0 4px 16px rgba(74, 222, 128, 0.28);
   transition: all 0.15s ease;
   white-space: nowrap;
 
@@ -230,11 +228,9 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
   }
 
   &:hover {
-    background-color: #16A34A;
-    border-color: #86EFAC;
-    box-shadow: 0 6px 24px rgba(74, 222, 128, 0.45);
+    background-color: #15803D;
+    border-color: #4ADE80;
     color: #FFFFFF;
-    transform: translateY(-1px);
   }
 }
 
@@ -242,25 +238,23 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(212, 175, 55, 0.08);
-  color: #F3F2EE;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
   font-family: $font-heading;
   font-weight: 600;
   font-size: 1.05rem;
   padding: 0.6rem 1.35rem;
   text-decoration: none;
-  border: 1px solid rgba(212, 175, 55, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 4px;
   transition: all 0.15s ease;
   white-space: nowrap;
   cursor: pointer;
 
   &:hover {
-    border-color: #D4AF37;
-    background-color: rgba(212, 175, 55, 0.18);
+    border-color: rgba(255, 255, 255, 0.45);
+    background-color: rgba(255, 255, 255, 0.1);
     color: #FFFFFF;
-    box-shadow: 0 4px 16px rgba(212, 175, 55, 0.22);
-    transform: translateY(-1px);
   }
 }
 
@@ -309,15 +303,15 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
 }
 
 .heroLead {
-  font-size: 1.65rem;
-  line-height: 1.65;
-  color: #D6DCD8;
+  font-size: 1.45rem;
+  line-height: 1.75;
+  color: #E2E8F0;
   margin-bottom: 2.5rem;
   max-width: 880px;
 
   @media (max-width: 768px) {
-    font-size: 1.35rem;
-    line-height: 1.6;
+    font-size: 1.25rem;
+    line-height: 1.65;
   }
 }
 
@@ -332,16 +326,15 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #15803D;
+  background-color: #166534;
   color: #FFFFFF;
   font-family: $font-heading;
   font-weight: 700;
   font-size: 1.25rem;
   padding: 1.1rem 2.2rem;
   text-decoration: none;
-  border: 1px solid #4ADE80;
+  border: 1px solid #22C55E;
   border-radius: 4px;
-  box-shadow: 0 4px 20px rgba(74, 222, 128, 0.32);
   transition: all 0.15s ease;
 
   @media (max-width: 600px) {
@@ -351,11 +344,9 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
   }
 
   &:hover {
-    background-color: #16A34A;
-    border-color: #86EFAC;
-    box-shadow: 0 6px 28px rgba(74, 222, 128, 0.5);
+    background-color: #15803D;
+    border-color: #4ADE80;
     color: #FFFFFF;
-    transform: translateY(-2px);
   }
 }
 
@@ -363,14 +354,14 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(212, 175, 55, 0.08);
-  color: #F3F2EE;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
   font-family: $font-heading;
   font-weight: 600;
   font-size: 1.18rem;
   padding: 1.1rem 1.85rem;
   text-decoration: none;
-  border: 1px solid rgba(212, 175, 55, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 4px;
   transition: all 0.15s ease;
 
@@ -381,17 +372,15 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
   }
 
   &:hover {
-    border-color: #D4AF37;
-    background-color: rgba(212, 175, 55, 0.18);
-    box-shadow: 0 4px 18px rgba(212, 175, 55, 0.25);
+    border-color: rgba(255, 255, 255, 0.45);
+    background-color: rgba(255, 255, 255, 0.1);
     color: #FFFFFF;
-    transform: translateY(-2px);
   }
 }
 
 .heroEmailLink {
   font-size: 1.15rem;
-  color: #B0B7B3;
+  color: #CBD5E1;
   text-decoration: underline;
   text-underline-offset: 4px;
   transition: color 0.15s ease;
@@ -424,11 +413,11 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
   width: 100%;
   max-width: 360px;
   height: auto;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  border: 1px solid $border-grid-strong;
-  border-radius: 4px;
-  filter: contrast(1.04) saturate(0.98);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 6px;
+  filter: contrast(1.04) saturate(1.02);
   display: block;
 }
 
@@ -515,27 +504,25 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
   transition: all 0.2s ease;
 
   &:hover {
-    transform: translateY(-2px);
+    transform: translateY(-1px);
     .logoSealText {
       color: #FFFFFF;
-      border-color: #4ADE80;
-      background-color: rgba(74, 222, 128, 0.16);
-      box-shadow: 0 4px 18px rgba(74, 222, 128, 0.3);
+      border-color: rgba(255, 255, 255, 0.4);
+      background-color: rgba(255, 255, 255, 0.08);
     }
   }
 }
 
 .logoSealText {
   display: inline-block;
-  font-size: 1.08rem;
-  font-weight: 700;
+  font-size: 1.05rem;
+  font-weight: 600;
   letter-spacing: 0.06em;
-  color: #FFFFFF;
-  padding: 0.6rem 1.25rem;
-  border: 1px solid rgba(74, 222, 128, 0.45);
-  background-color: rgba(74, 222, 128, 0.08);
+  color: #F1F5F9;
+  padding: 0.55rem 1.15rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.03);
   border-radius: 4px;
-  box-shadow: 0 2px 10px rgba(74, 222, 128, 0.12);
   transition: all 0.15s ease;
 }
 
@@ -580,11 +567,11 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
 }
 
 .sectionSubtext {
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   color: $text-secondary;
-  max-width: 580px;
+  max-width: 620px;
   margin: 0;
-  line-height: 1.55;
+  line-height: 1.7;
 }
 
 /* Grade Tabular Contínua 2x3 */
@@ -634,9 +621,9 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
 }
 
 .tabularDesc {
-  font-size: 1.35rem;
+  font-size: 1.22rem;
   color: $text-secondary;
-  line-height: 1.65;
+  line-height: 1.7;
   margin: 0;
 }
 
@@ -709,12 +696,12 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
+  gap: 1.15rem;
 
   li {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     color: $text-primary;
-    line-height: 1.65;
+    line-height: 1.75;
     position: relative;
     padding-left: 1.6rem;
 
@@ -722,14 +709,14 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
       content: '•';
       position: absolute;
       left: 0;
-      color: $accent-primary;
-      font-size: 1.5rem;
+      color: #22C55E;
+      font-size: 1.4rem;
       line-height: 1.2;
     }
 
     strong {
       color: #FFFFFF;
-      font-weight: 700;
+      font-weight: 600;
     }
 
     em {
@@ -755,18 +742,18 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
 }
 
 .tagItem {
-  font-size: 1.05rem;
-  color: #FFFFFF;
-  background-color: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #F1F5F9;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.45rem 0.9rem;
   border-radius: 4px;
   white-space: nowrap;
   transition: all 0.15s ease;
 
   &:hover {
-    border-color: $accent-primary;
-    background-color: rgba(74, 222, 128, 0.08);
+    border-color: rgba(255, 255, 255, 0.35);
+    background-color: rgba(255, 255, 255, 0.08);
   }
 }
 
@@ -815,19 +802,19 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
 }
 
 .caseCompany {
-  font-size: 2.3rem;
+  font-size: 2.2rem;
   font-weight: 700;
   color: #FFFFFF;
   margin: 0;
-  line-height: 1.2;
-  border-left: 4px solid $accent-primary;
+  line-height: 1.25;
+  border-left: 3px solid #D4AF37;
   padding-left: 0.85rem;
 }
 
 .caseRole {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: $text-secondary;
-  line-height: 1.45;
+  line-height: 1.5;
 }
 
 .caseAuditLinks {
@@ -840,15 +827,15 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
 
 .auditLink {
   font-family: $font-heading;
-  font-size: 1.05rem;
-  color: $accent-primary;
+  font-size: 1rem;
+  color: #94A3B8;
   text-decoration: underline;
   text-underline-offset: 4px;
-  font-weight: 600;
+  font-weight: 500;
   transition: color 0.15s ease;
 
   &:hover {
-    color: #86EFAC;
+    color: #FFFFFF;
   }
 }
 
@@ -883,9 +870,9 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
   gap: 1.25rem;
 
   li {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     color: $text-primary;
-    line-height: 1.65;
+    line-height: 1.75;
     position: relative;
     padding-left: 1.6rem;
 
@@ -893,14 +880,14 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
       content: '•';
       position: absolute;
       left: 0;
-      color: $accent-primary;
-      font-size: 1.5rem;
+      color: #22C55E;
+      font-size: 1.4rem;
       line-height: 1.2;
     }
 
     strong {
       color: #FFFFFF;
-      font-weight: 700;
+      font-weight: 600;
     }
 
     em {
@@ -913,12 +900,12 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
 .caseQuote {
   margin: 2rem 0 0 0;
   padding: 1.35rem 1.75rem;
-  background-color: rgba(212, 175, 55, 0.05);
-  border-left: 4px solid $accent-secondary;
-  font-size: 1.25rem;
+  background-color: rgba(255, 255, 255, 0.02);
+  border-left: 3px solid #D4AF37;
+  font-size: 1.2rem;
   font-style: italic;
-  color: $text-lead;
-  line-height: 1.65;
+  color: #E2E8F0;
+  line-height: 1.7;
   border-radius: 0 4px 4px 0;
 
   footer {
@@ -950,31 +937,32 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
 .metricCalloutItem {
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(74, 222, 128, 0.3);
-  background: rgba(74, 222, 128, 0.05);
-  padding: 1.15rem 1.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.02);
+  padding: 1.1rem 1.3rem;
   border-radius: 4px;
   transition: all 0.2s ease;
 
   &:hover {
-    border-color: rgba(74, 222, 128, 0.6);
-    background: rgba(74, 222, 128, 0.09);
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.04);
   }
 }
 
 .calloutValue {
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   font-weight: 700;
-  color: $accent-primary;
+  color: #FFFFFF;
   line-height: 1.1;
+  font-family: $font-mono;
   margin-bottom: 0.35rem;
 }
 
 .calloutLabel {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: #94A3B8;
   font-weight: 600;
 }
 
@@ -986,11 +974,11 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
 }
 
 .miniTag {
-  font-size: 0.95rem;
-  color: #FFFFFF;
-  background-color: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 0.45rem 0.85rem;
+  font-size: 0.92rem;
+  color: #F1F5F9;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 0.4rem 0.8rem;
   border-radius: 4px;
 }
 
@@ -1047,16 +1035,16 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
 }
 
 .degreeTitle {
-  font-size: 1.55rem;
+  font-size: 1.45rem;
   font-weight: 700;
   color: #FFFFFF;
   margin: 0;
 }
 
 .degreeDesc {
-  font-size: 1.3rem;
+  font-size: 1.22rem;
   color: $text-secondary;
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0.45rem 0 0 0;
 
   em {
@@ -1105,7 +1093,7 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
 }
 
 .articleTitle {
-  font-size: 1.55rem;
+  font-size: 1.45rem;
   font-weight: 700;
   color: #FFFFFF;
   margin: 0;
@@ -1113,9 +1101,9 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
 }
 
 .articleExcerpt {
-  font-size: 1.3rem;
+  font-size: 1.22rem;
   color: $text-secondary;
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0;
 
   em {
@@ -1127,15 +1115,15 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
 .articleLink {
   margin-top: 0.75rem;
   font-family: $font-heading;
-  font-size: 1.05rem;
-  color: $accent-primary;
+  font-size: 1rem;
+  color: #94A3B8;
   text-decoration: underline;
   text-underline-offset: 4px;
-  font-weight: 600;
+  font-weight: 500;
   transition: color 0.15s ease;
 
   &:hover {
-    color: #86EFAC;
+    color: #FFFFFF;
   }
 }
 
@@ -1178,7 +1166,7 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
 }
 
 .engagementTitle {
-  font-size: 1.75rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: #FFFFFF;
   line-height: 1.3;
@@ -1186,9 +1174,9 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
 }
 
 .engagementDesc {
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   color: $text-secondary;
-  line-height: 1.65;
+  line-height: 1.7;
   margin: 0 0 2rem 0;
   flex-grow: 1;
 
@@ -1234,7 +1222,7 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
 }
 
 .footerCallout {
-  font-size: clamp(2.2rem, 3.2vw, 3rem);
+  font-size: clamp(2rem, 3vw, 2.7rem);
   font-weight: 700;
   color: #FFFFFF;
   line-height: 1.25;
@@ -1249,12 +1237,12 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
   color: $text-secondary;
 
   a {
-    color: $accent-primary;
+    color: #CBD5E1;
     text-decoration: underline;
     text-underline-offset: 4px;
 
     &:hover {
-      color: #86EFAC;
+      color: #FFFFFF;
     }
   }
 
