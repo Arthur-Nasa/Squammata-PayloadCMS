@@ -78,17 +78,31 @@ export interface ArthurPortfolioViewProps {
 
 export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initialData }) => {
   const [avatarSrc, setAvatarSrc] = useState('./arthur-saggioratto.jpg')
+  const [enUrl, setEnUrl] = useState('/Squammata-PayloadCMS/en/arthur/')
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const isGhPages = window.location.pathname.includes('Squammata-PayloadCMS')
       if (isGhPages) {
         setAvatarSrc('/Squammata-PayloadCMS/arthur-saggioratto.jpg')
+        setEnUrl('/Squammata-PayloadCMS/en/arthur/')
       } else {
         setAvatarSrc('./arthur-saggioratto.jpg')
+        setEnUrl('/en/arthur')
       }
     }
   }, [])
+
+  const handleNavigateEn = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    if (typeof window !== 'undefined') {
+      if (window.location.pathname.includes('Squammata-PayloadCMS')) {
+        window.location.href = '/Squammata-PayloadCMS/en/arthur/'
+      } else {
+        window.location.href = '/en/arthur'
+      }
+    }
+  }
 
   const handleImageFallback = (e: React.SyntheticEvent<HTMLImageElement>) => {
     const target = e.currentTarget
@@ -175,9 +189,9 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
             {/* Seletor de Idioma Executivo */}
             <div className={styles.langSwitcher}>
               <span className={`${styles.langLink} ${styles.langActive}`}>PT</span>
-              <Link href="/en/arthur" className={styles.langLink} title="English Portfolio (C2 Executive)">
+              <a href={enUrl} onClick={handleNavigateEn} className={styles.langLink} title="English Portfolio (C2 Executive)">
                 EN
-              </Link>
+              </a>
             </div>
 
             <a
@@ -1391,9 +1405,9 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
               {/* Seletor de Idioma no Rodapé */}
               <div className={styles.langSwitcher} style={{ marginBottom: '0.5rem' }}>
                 <span className={`${styles.langLink} ${styles.langActive}`}>Versão em Português</span>
-                <Link href="/en/arthur" className={styles.langLink}>
+                <a href={enUrl} onClick={handleNavigateEn} className={styles.langLink}>
                   English Version (C2)
-                </Link>
+                </a>
               </div>
 
               <a

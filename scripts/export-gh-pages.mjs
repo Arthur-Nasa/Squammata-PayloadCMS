@@ -152,18 +152,13 @@ function adaptHtmlContent(html, isSubdir = false) {
     .replaceAll('href="/favicon.ico"', `href="${prefix}/favicon.ico"`)
     .replaceAll('href="/favicon.svg"', `href="${prefix}/favicon.svg"`)
 
-  // Links internos de navegação entre idiomas e páginas
-  if (isSubdir) {
-    adapted = adapted
-      .replaceAll('href="/arthur"', 'href="../../index.html"')
-      .replaceAll('href="/portfolio"', 'href="../../portfolio.html"')
-      .replaceAll('href="/en/arthur"', 'href="./index.html"')
-  } else {
-    adapted = adapted
-      .replaceAll('href="/arthur"', 'href="./index.html"')
-      .replaceAll('href="/portfolio"', 'href="./portfolio.html"')
-      .replaceAll('href="/en/arthur"', 'href="./en/arthur/index.html"')
-  }
+  // Links internos de navegação entre idiomas e páginas (compatibilidade com subdiretório do GitHub Pages)
+  adapted = adapted
+    .replaceAll('href="/arthur"', 'href="/Squammata-PayloadCMS/"')
+    .replaceAll('href="/portfolio"', 'href="/Squammata-PayloadCMS/portfolio.html"')
+    .replaceAll('href="/en/arthur"', 'href="/Squammata-PayloadCMS/en/arthur/"')
+    .replaceAll('href="./en/arthur/index.html"', 'href="/Squammata-PayloadCMS/en/arthur/"')
+    .replaceAll('href="../../index.html"', 'href="/Squammata-PayloadCMS/"')
 
   // Remover preloads residuais da Squammata corporativa antiga se houver
   adapted = adapted.replace(
@@ -272,6 +267,22 @@ if (fs.existsSync(nextStaticDir)) {
     }
     if (content.includes("'/arthur-saggioratto.jpg'")) {
       content = content.replaceAll("'/arthur-saggioratto.jpg'", "'/Squammata-PayloadCMS/arthur-saggioratto.jpg'")
+      changed = true
+    }
+    if (content.includes('"/en/arthur"')) {
+      content = content.replaceAll('"/en/arthur"', '"/Squammata-PayloadCMS/en/arthur/"')
+      changed = true
+    }
+    if (content.includes("'/en/arthur'")) {
+      content = content.replaceAll("'/en/arthur'", "'/Squammata-PayloadCMS/en/arthur/'")
+      changed = true
+    }
+    if (content.includes('"/arthur"')) {
+      content = content.replaceAll('"/arthur"', '"/Squammata-PayloadCMS/"')
+      changed = true
+    }
+    if (content.includes("'/arthur'")) {
+      content = content.replaceAll("'/arthur'", "'/Squammata-PayloadCMS/'")
       changed = true
     }
     if (changed) {
