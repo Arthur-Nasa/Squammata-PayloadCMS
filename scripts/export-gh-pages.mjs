@@ -28,6 +28,15 @@ process.env.NO_PROXY = '*'
 
 console.log('🚀 Iniciando processo de exportação estática para GitHub Pages...')
 
+// Limpeza prévia de caches do Next.js para garantir build 100% atualizado
+const nextCacheDir = path.join(ROOT_DIR, '.next', 'cache')
+if (fs.existsSync(nextCacheDir)) {
+  try {
+    fs.rmSync(nextCacheDir, { recursive: true, force: true })
+    console.log('🧹 Cache interno do Next.js limpo (.next/cache).')
+  } catch {}
+}
+
 /**
  * Função auxiliar para aguardar milissegundos
  */
@@ -166,12 +175,26 @@ adaptedHtml = adaptedHtml.replace(
   '',
 )
 
+// Remover completamente qualquer componente residual de preloader ou contador com porcentagem
+adaptedHtml = adaptedHtml.replace(
+  /<div class="mil-preloader-frame"[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/g,
+  '',
+)
+
 // Substituir menções e logotipos residuais institucionais da Squammata no layout global
 adaptedHtml = adaptedHtml
   .replaceAll('Squammata Consultoria e Gestão de Projetos Ltda.', 'Arthur Saggioratto Consultoria & Advisory')
   .replaceAll('/logo/squammata/squammata-lockup-horizontal-white.svg', './arthur-saggioratto.jpg')
   .replaceAll('id="squammata-theme-dynamic"', 'id="portfolio-theme-dynamic"')
   .replaceAll('Squammata Dynamic Theme Active Preset', 'Executive Dynamic Theme Active Preset')
+
+// Garantir preload de alta prioridade da imagem de autor no <head> para maximizar FCP e LCP
+if (!adaptedHtml.includes('rel="preload" as="image" href="./arthur-saggioratto.jpg"')) {
+  adaptedHtml = adaptedHtml.replace(
+    '<head>',
+    '<head><link rel="preload" as="image" href="./arthur-saggioratto.jpg" fetchpriority="high"/>',
+  )
+}
 
 // 4. Gravar os arquivos HTML principais
 fs.writeFileSync(path.join(DIST_DIR, 'index.html'), adaptedHtml, 'utf-8')

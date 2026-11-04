@@ -4,6 +4,7 @@ preloader
 
 ------------------------------------------- */
 .mil-preloader-frame {
+    display: none !important;
     position: fixed;
     z-index: 1001;
     top: 0;

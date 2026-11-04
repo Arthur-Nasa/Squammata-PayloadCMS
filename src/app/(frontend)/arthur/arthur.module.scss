@@ -407,12 +407,20 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
 
 .portraitWrapper {
   margin-bottom: 1.75rem;
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 1 / 1;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  contain: layout paint;
 }
 
 .editorialPortrait {
   width: 100%;
   max-width: 360px;
-  height: auto;
+  height: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border: 1px solid rgba(255, 255, 255, 0.18);

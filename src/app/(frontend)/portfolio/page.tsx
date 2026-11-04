@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import React from 'react'
 import { ArthurPortfolioView } from '../arthur/ArthurPortfolioView'
-import { metadata as arthurMetadata, portfolioSchema } from '../arthur/page'
+import { metadata as arthurMetadata } from '../arthur/page'
+import { portfolioSchema } from '../arthur/portfolioSchema'
 import { getCachedPortfolioSettings } from '@/utilities/getGlobals'
 
 export const metadata: Metadata = arthurMetadata

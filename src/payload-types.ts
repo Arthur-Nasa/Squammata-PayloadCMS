@@ -167,6 +167,7 @@ export interface Config {
     projects_page: ProjectsPage;
     team_page: TeamPage;
     general: General;
+    'portfolio-settings': PortfolioSetting;
   };
   globalsSelect: {
     'theme-settings': ThemeSettingsSelect<false> | ThemeSettingsSelect<true>;
@@ -179,6 +180,7 @@ export interface Config {
     projects_page: ProjectsPageSelect<false> | ProjectsPageSelect<true>;
     team_page: TeamPageSelect<false> | TeamPageSelect<true>;
     general: GeneralSelect<false> | GeneralSelect<true>;
+    'portfolio-settings': PortfolioSettingsSelect<false> | PortfolioSettingsSelect<true>;
   };
   locale: null;
   widgets: {
@@ -458,6 +460,83 @@ export interface Post {
      */
     image?: (number | null) | Media;
     description?: string | null;
+  };
+  schemaMarkup?: {
+    /**
+     * Escolha se prefere editar as informações através dos menus visuais abaixo ou diretamente via JSON-LD.
+     */
+    mode?: ('visual' | 'raw' | 'both') | null;
+    person: {
+      name: string;
+      alternateName?: string | null;
+      jobTitle: string;
+      description?: string | null;
+      email?: string | null;
+      telephone?: string | null;
+      url?: string | null;
+      image?: string | null;
+      addressLocality?: string | null;
+      addressRegion?: string | null;
+      addressCountry?: string | null;
+      alumniOf?:
+        | {
+            name: string;
+            url?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      knowsAbout?:
+        | {
+            topic: string;
+            id?: string | null;
+          }[]
+        | null;
+      sameAs?:
+        | {
+            url: string;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    faq?: {
+      items?:
+        | {
+            question: string;
+            answer: string;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    organization: {
+      name: string;
+      taxID?: string | null;
+      url?: string | null;
+    };
+    occupation?: {
+      name?: string | null;
+      occupationalCategory?: string | null;
+      skills?: string | null;
+      description?: string | null;
+    };
+    cases?: {
+      items?:
+        | {
+            title: string;
+            metric: string;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    rawTab?: {
+      /**
+       * Ao ativar esta opção e salvar, o sistema fará a leitura do JSON-LD abaixo e atualizará automaticamente os menus de Pessoa, FAQ, Organização e Casos.
+       */
+      syncFromRaw?: boolean | null;
+      /**
+       * Este código é gerado automaticamente a partir dos menus visuais. Você também pode colar uma schema customizada para que o backend a interprete.
+       */
+      rawJson?: string | null;
+    };
   };
   publishedAt?: string | null;
   authors?: (number | User)[] | null;
@@ -1603,6 +1682,83 @@ export interface Project {
     image?: (number | null) | Media;
     description?: string | null;
   };
+  schemaMarkup?: {
+    /**
+     * Escolha se prefere editar as informações através dos menus visuais abaixo ou diretamente via JSON-LD.
+     */
+    mode?: ('visual' | 'raw' | 'both') | null;
+    person: {
+      name: string;
+      alternateName?: string | null;
+      jobTitle: string;
+      description?: string | null;
+      email?: string | null;
+      telephone?: string | null;
+      url?: string | null;
+      image?: string | null;
+      addressLocality?: string | null;
+      addressRegion?: string | null;
+      addressCountry?: string | null;
+      alumniOf?:
+        | {
+            name: string;
+            url?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      knowsAbout?:
+        | {
+            topic: string;
+            id?: string | null;
+          }[]
+        | null;
+      sameAs?:
+        | {
+            url: string;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    faq?: {
+      items?:
+        | {
+            question: string;
+            answer: string;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    organization: {
+      name: string;
+      taxID?: string | null;
+      url?: string | null;
+    };
+    occupation?: {
+      name?: string | null;
+      occupationalCategory?: string | null;
+      skills?: string | null;
+      description?: string | null;
+    };
+    cases?: {
+      items?:
+        | {
+            title: string;
+            metric: string;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    rawTab?: {
+      /**
+       * Ao ativar esta opção e salvar, o sistema fará a leitura do JSON-LD abaixo e atualizará automaticamente os menus de Pessoa, FAQ, Organização e Casos.
+       */
+      syncFromRaw?: boolean | null;
+      /**
+       * Este código é gerado automaticamente a partir dos menus visuais. Você também pode colar uma schema customizada para que o backend a interprete.
+       */
+      rawJson?: string | null;
+    };
+  };
   order?: number | null;
   publishedAt?: string | null;
   /**
@@ -2234,6 +2390,83 @@ export interface Page {
     image?: (number | null) | Media;
     description?: string | null;
   };
+  schemaMarkup?: {
+    /**
+     * Escolha se prefere editar as informações através dos menus visuais abaixo ou diretamente via JSON-LD.
+     */
+    mode?: ('visual' | 'raw' | 'both') | null;
+    person: {
+      name: string;
+      alternateName?: string | null;
+      jobTitle: string;
+      description?: string | null;
+      email?: string | null;
+      telephone?: string | null;
+      url?: string | null;
+      image?: string | null;
+      addressLocality?: string | null;
+      addressRegion?: string | null;
+      addressCountry?: string | null;
+      alumniOf?:
+        | {
+            name: string;
+            url?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      knowsAbout?:
+        | {
+            topic: string;
+            id?: string | null;
+          }[]
+        | null;
+      sameAs?:
+        | {
+            url: string;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    faq?: {
+      items?:
+        | {
+            question: string;
+            answer: string;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    organization: {
+      name: string;
+      taxID?: string | null;
+      url?: string | null;
+    };
+    occupation?: {
+      name?: string | null;
+      occupationalCategory?: string | null;
+      skills?: string | null;
+      description?: string | null;
+    };
+    cases?: {
+      items?:
+        | {
+            title: string;
+            metric: string;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    rawTab?: {
+      /**
+       * Ao ativar esta opção e salvar, o sistema fará a leitura do JSON-LD abaixo e atualizará automaticamente os menus de Pessoa, FAQ, Organização e Casos.
+       */
+      syncFromRaw?: boolean | null;
+      /**
+       * Este código é gerado automaticamente a partir dos menus visuais. Você também pode colar uma schema customizada para que o backend a interprete.
+       */
+      rawJson?: string | null;
+    };
+  };
   publishedAt?: string | null;
   /**
    * Override the default header style for this page.
@@ -2276,6 +2509,83 @@ export interface Service {
      */
     image?: (number | null) | Media;
     description?: string | null;
+  };
+  schemaMarkup?: {
+    /**
+     * Escolha se prefere editar as informações através dos menus visuais abaixo ou diretamente via JSON-LD.
+     */
+    mode?: ('visual' | 'raw' | 'both') | null;
+    person: {
+      name: string;
+      alternateName?: string | null;
+      jobTitle: string;
+      description?: string | null;
+      email?: string | null;
+      telephone?: string | null;
+      url?: string | null;
+      image?: string | null;
+      addressLocality?: string | null;
+      addressRegion?: string | null;
+      addressCountry?: string | null;
+      alumniOf?:
+        | {
+            name: string;
+            url?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      knowsAbout?:
+        | {
+            topic: string;
+            id?: string | null;
+          }[]
+        | null;
+      sameAs?:
+        | {
+            url: string;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    faq?: {
+      items?:
+        | {
+            question: string;
+            answer: string;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    organization: {
+      name: string;
+      taxID?: string | null;
+      url?: string | null;
+    };
+    occupation?: {
+      name?: string | null;
+      occupationalCategory?: string | null;
+      skills?: string | null;
+      description?: string | null;
+    };
+    cases?: {
+      items?:
+        | {
+            title: string;
+            metric: string;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    rawTab?: {
+      /**
+       * Ao ativar esta opção e salvar, o sistema fará a leitura do JSON-LD abaixo e atualizará automaticamente os menus de Pessoa, FAQ, Organização e Casos.
+       */
+      syncFromRaw?: boolean | null;
+      /**
+       * Este código é gerado automaticamente a partir dos menus visuais. Você também pode colar uma schema customizada para que o backend a interprete.
+       */
+      rawJson?: string | null;
+    };
   };
   order?: number | null;
   publishedAt?: string | null;
@@ -2343,6 +2653,83 @@ export interface CaseStudy {
   seo?: {
     metaTitle?: string | null;
     metaDescription?: string | null;
+  };
+  schemaMarkup?: {
+    /**
+     * Escolha se prefere editar as informações através dos menus visuais abaixo ou diretamente via JSON-LD.
+     */
+    mode?: ('visual' | 'raw' | 'both') | null;
+    person: {
+      name: string;
+      alternateName?: string | null;
+      jobTitle: string;
+      description?: string | null;
+      email?: string | null;
+      telephone?: string | null;
+      url?: string | null;
+      image?: string | null;
+      addressLocality?: string | null;
+      addressRegion?: string | null;
+      addressCountry?: string | null;
+      alumniOf?:
+        | {
+            name: string;
+            url?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      knowsAbout?:
+        | {
+            topic: string;
+            id?: string | null;
+          }[]
+        | null;
+      sameAs?:
+        | {
+            url: string;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    faq?: {
+      items?:
+        | {
+            question: string;
+            answer: string;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    organization: {
+      name: string;
+      taxID?: string | null;
+      url?: string | null;
+    };
+    occupation?: {
+      name?: string | null;
+      occupationalCategory?: string | null;
+      skills?: string | null;
+      description?: string | null;
+    };
+    cases?: {
+      items?:
+        | {
+            title: string;
+            metric: string;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    rawTab?: {
+      /**
+       * Ao ativar esta opção e salvar, o sistema fará a leitura do JSON-LD abaixo e atualizará automaticamente os menus de Pessoa, FAQ, Organização e Casos.
+       */
+      syncFromRaw?: boolean | null;
+      /**
+       * Este código é gerado automaticamente a partir dos menus visuais. Você também pode colar uma schema customizada para que o backend a interprete.
+       */
+      rawJson?: string | null;
+    };
   };
   updatedAt: string;
   createdAt: string;
@@ -2656,6 +3043,88 @@ export interface PagesSelect<T extends boolean = true> {
         image?: T;
         description?: T;
       };
+  schemaMarkup?:
+    | T
+    | {
+        mode?: T;
+        person?:
+          | T
+          | {
+              name?: T;
+              alternateName?: T;
+              jobTitle?: T;
+              description?: T;
+              email?: T;
+              telephone?: T;
+              url?: T;
+              image?: T;
+              addressLocality?: T;
+              addressRegion?: T;
+              addressCountry?: T;
+              alumniOf?:
+                | T
+                | {
+                    name?: T;
+                    url?: T;
+                    id?: T;
+                  };
+              knowsAbout?:
+                | T
+                | {
+                    topic?: T;
+                    id?: T;
+                  };
+              sameAs?:
+                | T
+                | {
+                    url?: T;
+                    id?: T;
+                  };
+            };
+        faq?:
+          | T
+          | {
+              items?:
+                | T
+                | {
+                    question?: T;
+                    answer?: T;
+                    id?: T;
+                  };
+            };
+        organization?:
+          | T
+          | {
+              name?: T;
+              taxID?: T;
+              url?: T;
+            };
+        occupation?:
+          | T
+          | {
+              name?: T;
+              occupationalCategory?: T;
+              skills?: T;
+              description?: T;
+            };
+        cases?:
+          | T
+          | {
+              items?:
+                | T
+                | {
+                    title?: T;
+                    metric?: T;
+                    id?: T;
+                  };
+            };
+        rawTab?:
+          | T
+          | {
+              syncFromRaw?: T;
+              rawJson?: T;
+            };
+      };
   publishedAt?: T;
   headerStyle?: T;
   footerLayout?: T;
@@ -2681,6 +3150,88 @@ export interface PostsSelect<T extends boolean = true> {
         title?: T;
         image?: T;
         description?: T;
+      };
+  schemaMarkup?:
+    | T
+    | {
+        mode?: T;
+        person?:
+          | T
+          | {
+              name?: T;
+              alternateName?: T;
+              jobTitle?: T;
+              description?: T;
+              email?: T;
+              telephone?: T;
+              url?: T;
+              image?: T;
+              addressLocality?: T;
+              addressRegion?: T;
+              addressCountry?: T;
+              alumniOf?:
+                | T
+                | {
+                    name?: T;
+                    url?: T;
+                    id?: T;
+                  };
+              knowsAbout?:
+                | T
+                | {
+                    topic?: T;
+                    id?: T;
+                  };
+              sameAs?:
+                | T
+                | {
+                    url?: T;
+                    id?: T;
+                  };
+            };
+        faq?:
+          | T
+          | {
+              items?:
+                | T
+                | {
+                    question?: T;
+                    answer?: T;
+                    id?: T;
+                  };
+            };
+        organization?:
+          | T
+          | {
+              name?: T;
+              taxID?: T;
+              url?: T;
+            };
+        occupation?:
+          | T
+          | {
+              name?: T;
+              occupationalCategory?: T;
+              skills?: T;
+              description?: T;
+            };
+        cases?:
+          | T
+          | {
+              items?:
+                | T
+                | {
+                    title?: T;
+                    metric?: T;
+                    id?: T;
+                  };
+            };
+        rawTab?:
+          | T
+          | {
+              syncFromRaw?: T;
+              rawJson?: T;
+            };
       };
   publishedAt?: T;
   authors?: T;
@@ -2715,6 +3266,88 @@ export interface ProjectsSelect<T extends boolean = true> {
         image?: T;
         description?: T;
       };
+  schemaMarkup?:
+    | T
+    | {
+        mode?: T;
+        person?:
+          | T
+          | {
+              name?: T;
+              alternateName?: T;
+              jobTitle?: T;
+              description?: T;
+              email?: T;
+              telephone?: T;
+              url?: T;
+              image?: T;
+              addressLocality?: T;
+              addressRegion?: T;
+              addressCountry?: T;
+              alumniOf?:
+                | T
+                | {
+                    name?: T;
+                    url?: T;
+                    id?: T;
+                  };
+              knowsAbout?:
+                | T
+                | {
+                    topic?: T;
+                    id?: T;
+                  };
+              sameAs?:
+                | T
+                | {
+                    url?: T;
+                    id?: T;
+                  };
+            };
+        faq?:
+          | T
+          | {
+              items?:
+                | T
+                | {
+                    question?: T;
+                    answer?: T;
+                    id?: T;
+                  };
+            };
+        organization?:
+          | T
+          | {
+              name?: T;
+              taxID?: T;
+              url?: T;
+            };
+        occupation?:
+          | T
+          | {
+              name?: T;
+              occupationalCategory?: T;
+              skills?: T;
+              description?: T;
+            };
+        cases?:
+          | T
+          | {
+              items?:
+                | T
+                | {
+                    title?: T;
+                    metric?: T;
+                    id?: T;
+                  };
+            };
+        rawTab?:
+          | T
+          | {
+              syncFromRaw?: T;
+              rawJson?: T;
+            };
+      };
   order?: T;
   publishedAt?: T;
   generateSlug?: T;
@@ -2745,6 +3378,88 @@ export interface ServicesSelect<T extends boolean = true> {
         title?: T;
         image?: T;
         description?: T;
+      };
+  schemaMarkup?:
+    | T
+    | {
+        mode?: T;
+        person?:
+          | T
+          | {
+              name?: T;
+              alternateName?: T;
+              jobTitle?: T;
+              description?: T;
+              email?: T;
+              telephone?: T;
+              url?: T;
+              image?: T;
+              addressLocality?: T;
+              addressRegion?: T;
+              addressCountry?: T;
+              alumniOf?:
+                | T
+                | {
+                    name?: T;
+                    url?: T;
+                    id?: T;
+                  };
+              knowsAbout?:
+                | T
+                | {
+                    topic?: T;
+                    id?: T;
+                  };
+              sameAs?:
+                | T
+                | {
+                    url?: T;
+                    id?: T;
+                  };
+            };
+        faq?:
+          | T
+          | {
+              items?:
+                | T
+                | {
+                    question?: T;
+                    answer?: T;
+                    id?: T;
+                  };
+            };
+        organization?:
+          | T
+          | {
+              name?: T;
+              taxID?: T;
+              url?: T;
+            };
+        occupation?:
+          | T
+          | {
+              name?: T;
+              occupationalCategory?: T;
+              skills?: T;
+              description?: T;
+            };
+        cases?:
+          | T
+          | {
+              items?:
+                | T
+                | {
+                    title?: T;
+                    metric?: T;
+                    id?: T;
+                  };
+            };
+        rawTab?:
+          | T
+          | {
+              syncFromRaw?: T;
+              rawJson?: T;
+            };
       };
   order?: T;
   publishedAt?: T;
@@ -2781,6 +3496,88 @@ export interface CaseStudiesSelect<T extends boolean = true> {
     | {
         metaTitle?: T;
         metaDescription?: T;
+      };
+  schemaMarkup?:
+    | T
+    | {
+        mode?: T;
+        person?:
+          | T
+          | {
+              name?: T;
+              alternateName?: T;
+              jobTitle?: T;
+              description?: T;
+              email?: T;
+              telephone?: T;
+              url?: T;
+              image?: T;
+              addressLocality?: T;
+              addressRegion?: T;
+              addressCountry?: T;
+              alumniOf?:
+                | T
+                | {
+                    name?: T;
+                    url?: T;
+                    id?: T;
+                  };
+              knowsAbout?:
+                | T
+                | {
+                    topic?: T;
+                    id?: T;
+                  };
+              sameAs?:
+                | T
+                | {
+                    url?: T;
+                    id?: T;
+                  };
+            };
+        faq?:
+          | T
+          | {
+              items?:
+                | T
+                | {
+                    question?: T;
+                    answer?: T;
+                    id?: T;
+                  };
+            };
+        organization?:
+          | T
+          | {
+              name?: T;
+              taxID?: T;
+              url?: T;
+            };
+        occupation?:
+          | T
+          | {
+              name?: T;
+              occupationalCategory?: T;
+              skills?: T;
+              description?: T;
+            };
+        cases?:
+          | T
+          | {
+              items?:
+                | T
+                | {
+                    title?: T;
+                    metric?: T;
+                    id?: T;
+                  };
+            };
+        rawTab?:
+          | T
+          | {
+              syncFromRaw?: T;
+              rawJson?: T;
+            };
       };
   updatedAt?: T;
   createdAt?: T;
@@ -3584,6 +4381,140 @@ export interface General {
   createdAt?: string | null;
 }
 /**
+ * Gerencie todos os textos, métricas, perguntas frequentes e grafos Schema.org do portfólio executivo.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "portfolio-settings".
+ */
+export interface PortfolioSetting {
+  id: number;
+  schemaMarkup?: {
+    /**
+     * Escolha se prefere editar as informações através dos menus visuais abaixo ou diretamente via JSON-LD.
+     */
+    mode?: ('visual' | 'raw' | 'both') | null;
+    person: {
+      name: string;
+      alternateName?: string | null;
+      jobTitle: string;
+      description?: string | null;
+      email?: string | null;
+      telephone?: string | null;
+      url?: string | null;
+      image?: string | null;
+      addressLocality?: string | null;
+      addressRegion?: string | null;
+      addressCountry?: string | null;
+      alumniOf?:
+        | {
+            name: string;
+            url?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      knowsAbout?:
+        | {
+            topic: string;
+            id?: string | null;
+          }[]
+        | null;
+      sameAs?:
+        | {
+            url: string;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    faq?: {
+      items?:
+        | {
+            question: string;
+            answer: string;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    organization: {
+      name: string;
+      taxID?: string | null;
+      url?: string | null;
+    };
+    occupation?: {
+      name?: string | null;
+      occupationalCategory?: string | null;
+      skills?: string | null;
+      description?: string | null;
+    };
+    cases?: {
+      items?:
+        | {
+            title: string;
+            metric: string;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    rawTab?: {
+      /**
+       * Ao ativar esta opção e salvar, o sistema fará a leitura do JSON-LD abaixo e atualizará automaticamente os menus de Pessoa, FAQ, Organização e Casos.
+       */
+      syncFromRaw?: boolean | null;
+      /**
+       * Este código é gerado automaticamente a partir dos menus visuais. Você também pode colar uma schema customizada para que o backend a interprete.
+       */
+      rawJson?: string | null;
+    };
+  };
+  hero: {
+    eyebrow?: string | null;
+    title: string;
+    lead: string;
+    whatsappNumber?: string | null;
+    curriculoPdfUrl?: string | null;
+    linkedinUrl?: string | null;
+    email?: string | null;
+    specs?: {
+      pj?: string | null;
+      formacao?: string | null;
+      fluencia?: string | null;
+      coreStack?: string | null;
+    };
+  };
+  indicatorsSection?: {
+    eyebrow?: string | null;
+    title?: string | null;
+    subtext?: string | null;
+    cards?:
+      | {
+          value: string;
+          label: string;
+          description: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  faqSection?: {
+    eyebrow?: string | null;
+    title?: string | null;
+    subtext?: string | null;
+    items?:
+      | {
+          badge?: string | null;
+          question: string;
+          answer: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  footer?: {
+    callout?: string | null;
+    metaLine1?: string | null;
+    metaLine2?: string | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "theme-settings_select".
  */
@@ -3890,6 +4821,153 @@ export interface GeneralSelect<T extends boolean = true> {
         subtitle?: T;
         title?: T;
         description?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "portfolio-settings_select".
+ */
+export interface PortfolioSettingsSelect<T extends boolean = true> {
+  schemaMarkup?:
+    | T
+    | {
+        mode?: T;
+        person?:
+          | T
+          | {
+              name?: T;
+              alternateName?: T;
+              jobTitle?: T;
+              description?: T;
+              email?: T;
+              telephone?: T;
+              url?: T;
+              image?: T;
+              addressLocality?: T;
+              addressRegion?: T;
+              addressCountry?: T;
+              alumniOf?:
+                | T
+                | {
+                    name?: T;
+                    url?: T;
+                    id?: T;
+                  };
+              knowsAbout?:
+                | T
+                | {
+                    topic?: T;
+                    id?: T;
+                  };
+              sameAs?:
+                | T
+                | {
+                    url?: T;
+                    id?: T;
+                  };
+            };
+        faq?:
+          | T
+          | {
+              items?:
+                | T
+                | {
+                    question?: T;
+                    answer?: T;
+                    id?: T;
+                  };
+            };
+        organization?:
+          | T
+          | {
+              name?: T;
+              taxID?: T;
+              url?: T;
+            };
+        occupation?:
+          | T
+          | {
+              name?: T;
+              occupationalCategory?: T;
+              skills?: T;
+              description?: T;
+            };
+        cases?:
+          | T
+          | {
+              items?:
+                | T
+                | {
+                    title?: T;
+                    metric?: T;
+                    id?: T;
+                  };
+            };
+        rawTab?:
+          | T
+          | {
+              syncFromRaw?: T;
+              rawJson?: T;
+            };
+      };
+  hero?:
+    | T
+    | {
+        eyebrow?: T;
+        title?: T;
+        lead?: T;
+        whatsappNumber?: T;
+        curriculoPdfUrl?: T;
+        linkedinUrl?: T;
+        email?: T;
+        specs?:
+          | T
+          | {
+              pj?: T;
+              formacao?: T;
+              fluencia?: T;
+              coreStack?: T;
+            };
+      };
+  indicatorsSection?:
+    | T
+    | {
+        eyebrow?: T;
+        title?: T;
+        subtext?: T;
+        cards?:
+          | T
+          | {
+              value?: T;
+              label?: T;
+              description?: T;
+              id?: T;
+            };
+      };
+  faqSection?:
+    | T
+    | {
+        eyebrow?: T;
+        title?: T;
+        subtext?: T;
+        items?:
+          | T
+          | {
+              badge?: T;
+              question?: T;
+              answer?: T;
+              id?: T;
+            };
+      };
+  footer?:
+    | T
+    | {
+        callout?: T;
+        metaLine1?: T;
+        metaLine2?: T;
       };
   updatedAt?: T;
   createdAt?: T;

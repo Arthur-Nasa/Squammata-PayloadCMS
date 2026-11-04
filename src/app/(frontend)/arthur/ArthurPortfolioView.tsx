@@ -254,11 +254,13 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                   <img
                     src={avatarSrc}
                     alt="Arthur Saggioratto: Head of E-commerce, SEO & Growth"
-                    width={400}
-                    height={500}
+                    width={360}
+                    height={360}
                     className={styles.editorialPortrait}
                     onError={handleImageFallback}
                     loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
                   />
                   <div className={`${styles.portraitCaption} ${styles.monoFont}`}>
                     ARTHUR SAGGIORATTO &bull; BASE SÃO PAULO
