@@ -466,10 +466,10 @@ export interface Post {
      * Escolha se prefere editar as informações através dos menus visuais abaixo ou diretamente via JSON-LD.
      */
     mode?: ('visual' | 'raw' | 'both') | null;
-    person: {
-      name: string;
+    person?: {
+      name?: string | null;
       alternateName?: string | null;
-      jobTitle: string;
+      jobTitle?: string | null;
       description?: string | null;
       email?: string | null;
       telephone?: string | null;
@@ -480,20 +480,20 @@ export interface Post {
       addressCountry?: string | null;
       alumniOf?:
         | {
-            name: string;
+            name?: string | null;
             url?: string | null;
             id?: string | null;
           }[]
         | null;
       knowsAbout?:
         | {
-            topic: string;
+            topic?: string | null;
             id?: string | null;
           }[]
         | null;
       sameAs?:
         | {
-            url: string;
+            url?: string | null;
             id?: string | null;
           }[]
         | null;
@@ -501,14 +501,14 @@ export interface Post {
     faq?: {
       items?:
         | {
-            question: string;
-            answer: string;
+            question?: string | null;
+            answer?: string | null;
             id?: string | null;
           }[]
         | null;
     };
-    organization: {
-      name: string;
+    organization?: {
+      name?: string | null;
       taxID?: string | null;
       url?: string | null;
     };
@@ -521,8 +521,8 @@ export interface Post {
     cases?: {
       items?:
         | {
-            title: string;
-            metric: string;
+            title?: string | null;
+            metric?: string | null;
             id?: string | null;
           }[]
         | null;
@@ -1687,10 +1687,10 @@ export interface Project {
      * Escolha se prefere editar as informações através dos menus visuais abaixo ou diretamente via JSON-LD.
      */
     mode?: ('visual' | 'raw' | 'both') | null;
-    person: {
-      name: string;
+    person?: {
+      name?: string | null;
       alternateName?: string | null;
-      jobTitle: string;
+      jobTitle?: string | null;
       description?: string | null;
       email?: string | null;
       telephone?: string | null;
@@ -1701,20 +1701,20 @@ export interface Project {
       addressCountry?: string | null;
       alumniOf?:
         | {
-            name: string;
+            name?: string | null;
             url?: string | null;
             id?: string | null;
           }[]
         | null;
       knowsAbout?:
         | {
-            topic: string;
+            topic?: string | null;
             id?: string | null;
           }[]
         | null;
       sameAs?:
         | {
-            url: string;
+            url?: string | null;
             id?: string | null;
           }[]
         | null;
@@ -1722,14 +1722,14 @@ export interface Project {
     faq?: {
       items?:
         | {
-            question: string;
-            answer: string;
+            question?: string | null;
+            answer?: string | null;
             id?: string | null;
           }[]
         | null;
     };
-    organization: {
-      name: string;
+    organization?: {
+      name?: string | null;
       taxID?: string | null;
       url?: string | null;
     };
@@ -1742,8 +1742,8 @@ export interface Project {
     cases?: {
       items?:
         | {
-            title: string;
-            metric: string;
+            title?: string | null;
+            metric?: string | null;
             id?: string | null;
           }[]
         | null;
@@ -2395,10 +2395,10 @@ export interface Page {
      * Escolha se prefere editar as informações através dos menus visuais abaixo ou diretamente via JSON-LD.
      */
     mode?: ('visual' | 'raw' | 'both') | null;
-    person: {
-      name: string;
+    person?: {
+      name?: string | null;
       alternateName?: string | null;
-      jobTitle: string;
+      jobTitle?: string | null;
       description?: string | null;
       email?: string | null;
       telephone?: string | null;
@@ -2409,20 +2409,20 @@ export interface Page {
       addressCountry?: string | null;
       alumniOf?:
         | {
-            name: string;
+            name?: string | null;
             url?: string | null;
             id?: string | null;
           }[]
         | null;
       knowsAbout?:
         | {
-            topic: string;
+            topic?: string | null;
             id?: string | null;
           }[]
         | null;
       sameAs?:
         | {
-            url: string;
+            url?: string | null;
             id?: string | null;
           }[]
         | null;
@@ -2430,14 +2430,14 @@ export interface Page {
     faq?: {
       items?:
         | {
-            question: string;
-            answer: string;
+            question?: string | null;
+            answer?: string | null;
             id?: string | null;
           }[]
         | null;
     };
-    organization: {
-      name: string;
+    organization?: {
+      name?: string | null;
       taxID?: string | null;
       url?: string | null;
     };
@@ -2450,8 +2450,8 @@ export interface Page {
     cases?: {
       items?:
         | {
-            title: string;
-            metric: string;
+            title?: string | null;
+            metric?: string | null;
             id?: string | null;
           }[]
         | null;
@@ -2515,10 +2515,10 @@ export interface Service {
      * Escolha se prefere editar as informações através dos menus visuais abaixo ou diretamente via JSON-LD.
      */
     mode?: ('visual' | 'raw' | 'both') | null;
-    person: {
-      name: string;
+    person?: {
+      name?: string | null;
       alternateName?: string | null;
-      jobTitle: string;
+      jobTitle?: string | null;
       description?: string | null;
       email?: string | null;
       telephone?: string | null;
@@ -2529,20 +2529,20 @@ export interface Service {
       addressCountry?: string | null;
       alumniOf?:
         | {
-            name: string;
+            name?: string | null;
             url?: string | null;
             id?: string | null;
           }[]
         | null;
       knowsAbout?:
         | {
-            topic: string;
+            topic?: string | null;
             id?: string | null;
           }[]
         | null;
       sameAs?:
         | {
-            url: string;
+            url?: string | null;
             id?: string | null;
           }[]
         | null;
@@ -2550,14 +2550,14 @@ export interface Service {
     faq?: {
       items?:
         | {
-            question: string;
-            answer: string;
+            question?: string | null;
+            answer?: string | null;
             id?: string | null;
           }[]
         | null;
     };
-    organization: {
-      name: string;
+    organization?: {
+      name?: string | null;
       taxID?: string | null;
       url?: string | null;
     };
@@ -2570,8 +2570,8 @@ export interface Service {
     cases?: {
       items?:
         | {
-            title: string;
-            metric: string;
+            title?: string | null;
+            metric?: string | null;
             id?: string | null;
           }[]
         | null;
@@ -2659,10 +2659,10 @@ export interface CaseStudy {
      * Escolha se prefere editar as informações através dos menus visuais abaixo ou diretamente via JSON-LD.
      */
     mode?: ('visual' | 'raw' | 'both') | null;
-    person: {
-      name: string;
+    person?: {
+      name?: string | null;
       alternateName?: string | null;
-      jobTitle: string;
+      jobTitle?: string | null;
       description?: string | null;
       email?: string | null;
       telephone?: string | null;
@@ -2673,20 +2673,20 @@ export interface CaseStudy {
       addressCountry?: string | null;
       alumniOf?:
         | {
-            name: string;
+            name?: string | null;
             url?: string | null;
             id?: string | null;
           }[]
         | null;
       knowsAbout?:
         | {
-            topic: string;
+            topic?: string | null;
             id?: string | null;
           }[]
         | null;
       sameAs?:
         | {
-            url: string;
+            url?: string | null;
             id?: string | null;
           }[]
         | null;
@@ -2694,14 +2694,14 @@ export interface CaseStudy {
     faq?: {
       items?:
         | {
-            question: string;
-            answer: string;
+            question?: string | null;
+            answer?: string | null;
             id?: string | null;
           }[]
         | null;
     };
-    organization: {
-      name: string;
+    organization?: {
+      name?: string | null;
       taxID?: string | null;
       url?: string | null;
     };
@@ -2714,8 +2714,8 @@ export interface CaseStudy {
     cases?: {
       items?:
         | {
-            title: string;
-            metric: string;
+            title?: string | null;
+            metric?: string | null;
             id?: string | null;
           }[]
         | null;
@@ -4393,10 +4393,10 @@ export interface PortfolioSetting {
      * Escolha se prefere editar as informações através dos menus visuais abaixo ou diretamente via JSON-LD.
      */
     mode?: ('visual' | 'raw' | 'both') | null;
-    person: {
-      name: string;
+    person?: {
+      name?: string | null;
       alternateName?: string | null;
-      jobTitle: string;
+      jobTitle?: string | null;
       description?: string | null;
       email?: string | null;
       telephone?: string | null;
@@ -4407,20 +4407,20 @@ export interface PortfolioSetting {
       addressCountry?: string | null;
       alumniOf?:
         | {
-            name: string;
+            name?: string | null;
             url?: string | null;
             id?: string | null;
           }[]
         | null;
       knowsAbout?:
         | {
-            topic: string;
+            topic?: string | null;
             id?: string | null;
           }[]
         | null;
       sameAs?:
         | {
-            url: string;
+            url?: string | null;
             id?: string | null;
           }[]
         | null;
@@ -4428,14 +4428,14 @@ export interface PortfolioSetting {
     faq?: {
       items?:
         | {
-            question: string;
-            answer: string;
+            question?: string | null;
+            answer?: string | null;
             id?: string | null;
           }[]
         | null;
     };
-    organization: {
-      name: string;
+    organization?: {
+      name?: string | null;
       taxID?: string | null;
       url?: string | null;
     };
@@ -4448,8 +4448,8 @@ export interface PortfolioSetting {
     cases?: {
       items?:
         | {
-            title: string;
-            metric: string;
+            title?: string | null;
+            metric?: string | null;
             id?: string | null;
           }[]
         | null;
