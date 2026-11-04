@@ -63,6 +63,15 @@ export const getGlobalMeta = async (slug: Global, depth = 0) => {
   }, {} as any)
 }
 
+export const queryPortfolioSettings = async () => {
+  return logQueryExecution('-payload load global: [portfolio-settings]', async (payload) => {
+    return await payload.findGlobal({
+      slug: 'portfolio-settings' as any,
+      depth: 0,
+    })
+  }, null as any)
+}
+
 /* pages */
 
 export const queryAllPages = async () => {

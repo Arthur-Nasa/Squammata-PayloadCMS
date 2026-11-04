@@ -1,4 +1,4 @@
-import { getGlobal, getGlobalMeta } from '@/app/_fetches'
+import { getGlobal, getGlobalMeta, queryPortfolioSettings } from '@/app/_fetches'
 import { unstable_cache } from 'next/cache'
 import type { Config } from '@/payload-types'
 
@@ -25,6 +25,27 @@ export const getCachedGlobal = (slug: Global, depth = 0) => {
     }
   }, [slug], {
     tags: [`global_${slug}`],
+  })
+}
+
+export const getCachedPortfolioSettings = () => {
+  if (process.env.NODE_ENV === 'development') {
+    return async () => {
+      try {
+        return await queryPortfolioSettings()
+      } catch {
+        return null
+      }
+    }
+  }
+  return unstable_cache(async () => {
+    try {
+      return await queryPortfolioSettings()
+    } catch {
+      return null
+    }
+  }, ['portfolio-settings'], {
+    tags: ['global_portfolio-settings'],
   })
 }
 
