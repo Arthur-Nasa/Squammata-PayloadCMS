@@ -5,67 +5,14 @@ preloader
 ------------------------------------------- */
 .mil-preloader-frame {
     display: none !important;
-    position: fixed;
-    z-index: 1001;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: calc(var(--vh, 1vh) * 100);
-    background-color: rgba($m-1, .6);
-    backdrop-filter: blur(40px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10rem;
-    pointer-events: all;
-    transition: $t-md;
-
-    & .mil-logo {
-        margin-top: 5rem;
-        transform: scale(.8);
-        opacity: 0;
-        transition: $t-md;
-    }
-
-    & .mil-preloader {
-        text-align: center;
-        transform: scale(.7) translateY(100%);
-        opacity: 0;
-        transition: $t-md;
-
-        & .mil-mil-preloader-line-frame {
-            background-color: rgba($m-3, .4);
-            height: .5rem;
-            width: 25rem;
-            border-radius: 1rem;
-            overflow: hidden;
-
-            & .mil-mil-preloader-line {
-                height: 100%;
-                width: 0;
-                background-color: $a-1;
-                transform: $t-md;
-            }
-        }
-    }
-
-    &.mil-loading {
-        & .mil-logo {
-            transform: scale(1);
-            opacity: 1;
-        }
-
-        & .mil-preloader {
-            transform: scale(1) translateY(0);
-            opacity: 1;
-        }
-    }
-
-    &.mil-ready {
-        opacity: 0;
-        pointer-events: none;
-    }
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    position: absolute !important;
+    z-index: -9999 !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
 }
 
 

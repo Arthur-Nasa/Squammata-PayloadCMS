@@ -5,23 +5,31 @@ import { getCachedPortfolioSettings } from '@/utilities/getGlobals'
 import { portfolioSchema } from './portfolioSchema'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://squammata.com.br'),
+  alternates: {
+    canonical: '/arthur',
+    languages: {
+      'pt-BR': '/arthur',
+      'en-US': '/en/arthur',
+    },
+  },
   title: {
-    absolute: 'Arthur Saggioratto: Head de E-commerce, SEO & Margem DRE',
+    absolute: 'Arthur Saggioratto | Executivo de Crescimento, E-commerce e Rentabilidade Digital',
   },
   description:
-    'Escale seu e-commerce com lucro e margem protegida. Arthur Saggioratto une SEO técnico, IA generativa e CRO subordinados ao DRE. Conheça a operação.',
+    '15 anos liderando operações de e-commerce, SEO técnico, CRO, mídia de performance (Google Ads) e gestão de P&L. Escala sustentável de GMV e proteção de margem em Shopify Plus, Magento e VTEX.',
   openGraph: {
-    title: 'Arthur Saggioratto: Head of E-commerce, SEO & Proteção de Margem',
+    title: 'Arthur Saggioratto | Executivo de Crescimento, E-commerce e Rentabilidade Digital',
     description:
-      '15 anos estruturando operações de e-commerce e canais proprietários. Engenharia de SEO, visibilidade em IA generativa (GEO) e mídia de performance subordinadas ao lucro real da empresa.',
+      '15 anos liderando operações de e-commerce, SEO técnico, CRO, mídia de performance (Google Ads) e gestão de P&L. Escala sustentável de GMV e proteção de margem em Shopify Plus, Magento e VTEX.',
     url: 'https://squammata.com.br/arthur',
-    siteName: 'Arthur Saggioratto | Portfólio Executivo Editorial',
+    siteName: 'Arthur Saggioratto | Portfólio Executivo',
     images: [
       {
         url: '/arthur-saggioratto.jpg',
         width: 600,
         height: 600,
-        alt: 'Arthur Saggioratto: Head of E-commerce, SEO & Growth',
+        alt: 'Arthur Saggioratto: Executivo de Crescimento e Rentabilidade Digital',
       },
     ],
     locale: 'pt_BR',
@@ -29,9 +37,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary',
-    title: 'Arthur Saggioratto | Liderança em E-commerce, SEO & Growth',
+    title: 'Arthur Saggioratto | Executivo de Crescimento, E-commerce e Rentabilidade Digital',
     description:
-      'Arquitetura de e-commerce, visibilidade em IA e controle de margem de contribuição. Conheça a trajetória e os casos auditados.',
+      '15 anos liderando operações de e-commerce, SEO técnico, CRO, mídia de performance (Google Ads) e gestão de P&L. Escala sustentável de GMV e proteção de margem em Shopify Plus, Magento e VTEX.',
     images: ['/arthur-saggioratto.jpg'],
   },
 }

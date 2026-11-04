@@ -49,8 +49,12 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   const isStandalone =
     asPath === '/arthur' ||
     asPath === '/portfolio' ||
+    asPath === '/en/arthur' ||
+    asPath === '/en/portfolio' ||
     asPath?.startsWith('/arthur/') ||
     asPath?.startsWith('/portfolio/') ||
+    asPath?.startsWith('/en/arthur') ||
+    asPath?.startsWith('/en/portfolio') ||
     asPath?.includes('Squammata-PayloadCMS') ||
     (typeof window !== 'undefined' && (
       window.location.pathname.includes('Squammata-PayloadCMS') ||

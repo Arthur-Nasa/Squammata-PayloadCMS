@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Quicksand:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Quicksand:wght@500;600;700&family=Zilla+Slab:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 /* ==========================================================================
    PORTFÓLIO EXECUTIVO EDITORIAL (SWISS GRID / ANTI-AI BOILERPLATE)
-   ARTHUR SAGGIORATTO | HEAD OF E-COMMERCE, SEO & GROWTH
+   ARTHUR SAGGIORATTO | EXECUTIVO DE CRESCIMENTO E RENTABILIDADE DIGITAL
    ========================================================================== */
 
 /* --- VARIÁVEIS DO SISTEMA EDITORIAL --- */
@@ -22,7 +22,7 @@ $accent-positive: #22C55E;
 $accent-secondary: #D4AF37;
 
 $font-heading: 'Quicksand', var(--font-quicksand), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-$font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+$font-body: 'Zilla Slab', var(--font-zilla-slab), Georgia, 'Times New Roman', serif;
 $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monospace;
 
 /* --- RESET & ESTRUTURA BASE --- */
@@ -1514,4 +1514,83 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
   &:hover {
     color: #FFFFFF;
   }
+}
+
+/* --- 4 BLOCOS OPERACIONAIS DO CASO (ANATOMIA DE RESULTADOS) --- */
+.caseBlocksGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.caseOpBlock {
+  padding: 1.15rem 1.35rem;
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 3px solid #D4AF37;
+  border-radius: 0 4px 4px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.opBlockTitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #D4AF37;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.opBlockText {
+  font-size: 1.15rem;
+  color: #F1F5F9;
+  line-height: 1.65;
+  margin: 0;
+
+  strong {
+    color: #FFFFFF;
+    font-weight: 600;
+  }
+}
+
+/* --- SELETOR DE IDIOMA EXECUTIVO --- */
+.langSwitcher {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.langLink {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #CBD5E1;
+  text-decoration: none;
+  transition: all 0.15s ease;
+
+  &:hover {
+    color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  &.langActive {
+    color: #0B0F0E;
+    background-color: #FFFFFF;
+    font-weight: 700;
+  }
+}
+
+/* --- ASSINATURA EXECUTIVA NO RODAPÉ --- */
+.footerSignature {
+  font-size: 0.95rem;
+  color: #D4AF37;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.4rem 0;
 }

@@ -4,7 +4,6 @@ import React from 'react'
 import { AdminBar } from '@/components/AdminBar'
 import { Footer } from '@/globals/Footer/Component'
 import { Header } from '@/globals/Header/Component'
-import { Preloader } from '@/components/Preloader'
 import { Providers } from '@/providers'
 import { InitTheme } from '@/providers/Theme/InitTheme'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
@@ -105,7 +104,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 preview: isEnabled,
               }}
             />
-            <Preloader />
             {/* wrapper */}
             <div id="smooth-wrapper" className="mil-page-wrapper">
               <div className="mil-cursor-follower"></div>

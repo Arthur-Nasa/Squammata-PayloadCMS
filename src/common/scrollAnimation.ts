@@ -375,52 +375,9 @@ export const ScrollAnimation = (root: ScrollAnimationRoot = document): (() => vo
 }
 
 /**
- * PreloaderAnimation - Handles preloader animation and counter
- * @param root - The root element or document to scope DOM queries
- * @returns Cleanup function to clear timeouts and animation frames
+ * PreloaderAnimation - Desativado para maximizar FCP e eliminar carregamento artificial
  */
-export const PreloaderAnimation = (root: ScrollAnimationRoot = document): (() => void) => {
-    gsap.registerPlugin(ScrollTrigger)
-
-    const _doc = root instanceof Document ? root : root.ownerDocument || document
-
-    const counterEl = root.querySelector?.('.mil-counter') as HTMLElement | null
-    const lineEl = root.querySelector?.('.mil-mil-preloader-line') as HTMLElement | null
-    const preloaderFrame = root.querySelector?.('.mil-preloader-frame') as HTMLElement | null
-    const startDelay = 100
-    const duration = 700
-
-    let timeoutId: ReturnType<typeof setTimeout> | undefined
-    let rafId: number | undefined
-
-    if (preloaderFrame && counterEl && lineEl) {
-        timeoutId = setTimeout(() => {
-            preloaderFrame.classList.add('mil-loading')
-
-            let start: number | null = null
-
-            const animate = (timestamp: number): void => {
-                if (!start) start = timestamp
-                const progress = Math.min((timestamp - start) / duration, 1)
-                const value = Math.floor(progress * 100)
-
-                counterEl.textContent = value.toString()
-                lineEl.style.width = value + '%'
-
-                if (progress < 1) {
-                    rafId = requestAnimationFrame(animate)
-                } else {
-                    preloaderFrame.classList.remove('mil-loading')
-                    preloaderFrame.classList.add('mil-ready')
-                }
-            }
-
-            rafId = requestAnimationFrame(animate)
-        }, startDelay)
-    }
-
-    return (): void => {
-        if (timeoutId !== undefined) clearTimeout(timeoutId)
-        if (rafId !== undefined) cancelAnimationFrame(rafId)
-    }
+export const PreloaderAnimation = (_root: ScrollAnimationRoot = document): (() => void) => {
+    return (): void => {}
 }
+
