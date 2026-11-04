@@ -133,7 +133,7 @@ if (fs.existsSync(DIST_DIR)) {
 fs.mkdirSync(DIST_DIR, { recursive: true })
 
 // Função de adaptação e sanitização de HTML
-function adaptHtmlContent(html, isSubdir = false) {
+function adaptHtmlContent(html, isSubdir = false, lang = 'pt') {
   const prefix = isSubdir ? '../..' : '.'
   let adapted = html
     // Caminhos de Next.js static
@@ -159,6 +159,39 @@ function adaptHtmlContent(html, isSubdir = false) {
     .replaceAll('href="/en/arthur"', 'href="/Squammata-PayloadCMS/en/arthur/"')
     .replaceAll('href="./en/arthur/index.html"', 'href="/Squammata-PayloadCMS/en/arthur/"')
     .replaceAll('href="../../index.html"', 'href="/Squammata-PayloadCMS/"')
+
+  // Canonical tag e hreflang tags para a origem do GitHub Pages
+  const canonicalUrl =
+    lang === 'en'
+      ? 'https://arthur-nasa.github.io/Squammata-PayloadCMS/en/arthur/'
+      : 'https://arthur-nasa.github.io/Squammata-PayloadCMS/'
+
+  adapted = adapted.replace(
+    /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/gi,
+    `<link rel="canonical" href="${canonicalUrl}" />`,
+  )
+
+  adapted = adapted.replace(
+    /<link\s+rel="alternate"\s+hreflang="pt-BR"\s+href="[^"]*"\s*\/?>/gi,
+    '<link rel="alternate" hreflang="pt-BR" href="https://arthur-nasa.github.io/Squammata-PayloadCMS/" />',
+  )
+  adapted = adapted.replace(
+    /<link\s+rel="alternate"\s+hreflang="en-US"\s+href="[^"]*"\s*\/?>/gi,
+    '<link rel="alternate" hreflang="en-US" href="https://arthur-nasa.github.io/Squammata-PayloadCMS/en/arthur/" />',
+  )
+
+  if (!adapted.includes('hreflang="x-default"')) {
+    adapted = adapted.replace(
+      '<link rel="alternate" hreflang="pt-BR"',
+      '<link rel="alternate" hreflang="x-default" href="https://arthur-nasa.github.io/Squammata-PayloadCMS/" /><link rel="alternate" hreflang="pt-BR"',
+    )
+  }
+
+  // OpenGraph URL
+  adapted = adapted.replace(
+    /<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/gi,
+    `<meta property="og:url" content="${canonicalUrl}" />`,
+  )
 
   // Remover preloads residuais da Squammata corporativa antiga se houver
   adapted = adapted.replace(
@@ -189,9 +222,9 @@ function adaptHtmlContent(html, isSubdir = false) {
 }
 
 console.log('🔧 Adaptando caminhos de assets e links para versão PT e EN...')
-const adaptedPtHtml = adaptHtmlContent(ptHtml, false)
-const adaptedEnHtml = adaptHtmlContent(enHtml, true)
-const adaptedEnHtmlFlat = adaptHtmlContent(enHtml, false) // Para en/arthur.html em profundidade de 1 pasta
+const adaptedPtHtml = adaptHtmlContent(ptHtml, false, 'pt')
+const adaptedEnHtml = adaptHtmlContent(enHtml, true, 'en')
+const adaptedEnHtmlFlat = adaptHtmlContent(enHtml, false, 'en') // Para en/arthur.html em profundidade de 1 pasta
 
 // 4. Gravar os arquivos HTML principais da raiz (PT)
 fs.writeFileSync(path.join(DIST_DIR, 'index.html'), adaptedPtHtml, 'utf-8')
@@ -214,16 +247,39 @@ console.log('✅ Arquivos en/arthur/index.html, en/arthur.html e en/portfolio.ht
 fs.writeFileSync(path.join(DIST_DIR, '.nojekyll'), '', 'utf-8')
 console.log('✅ Arquivo .nojekyll criado (desativa processamento Jekyll no GitHub Pages).')
 
+// 5.1 Criar diretório ghSubdir antecipadamente para redundâncias
+const ghSubdir = path.join(DIST_DIR, 'Squammata-PayloadCMS')
+fs.mkdirSync(ghSubdir, { recursive: true })
+
 // 6. Copiar arquivos públicos (fotos, favicons, robots.txt, sitemap.xml)
-console.log('📁 Copiando assets estáticos da pasta public/ (incluindo robots.txt e sitemap.xml)...')
+console.log('📁 Copiando assets estáticos da pasta public/ (incluindo robots.txt, sitemap.xml e currículos em PDF)...')
 const publicDir = path.join(ROOT_DIR, 'public')
 if (fs.existsSync(publicDir)) {
   fs.cpSync(publicDir, DIST_DIR, { recursive: true })
 }
 
-// 6.1 Garantir redundância de imagens em subpastas EN
+// 6.1 Garantir redundância de imagens e PDFs em subpastas EN e na subpasta Squammata-PayloadCMS
 fs.copyFileSync(path.join(publicDir, 'arthur-saggioratto.jpg'), path.join(enDir, 'arthur-saggioratto.jpg'))
 fs.copyFileSync(path.join(publicDir, 'arthur-saggioratto.jpg'), path.join(enArthurDir, 'arthur-saggioratto.jpg'))
+fs.copyFileSync(path.join(publicDir, 'arthur-saggioratto.jpg'), path.join(ghSubdir, 'arthur-saggioratto.jpg'))
+
+const pdfFiles = [
+  'curriculo_ecommerce_arthursaggioratto.pdf',
+  'resume_ecommerce_arthursaggioratto.pdf',
+  'curriculo-arthur-saggioratto.pdf',
+  'resume-arthur-saggioratto.pdf',
+]
+
+for (const pdf of pdfFiles) {
+  const srcPdf = path.join(publicDir, pdf)
+  if (fs.existsSync(srcPdf)) {
+    fs.copyFileSync(srcPdf, path.join(DIST_DIR, pdf))
+    fs.copyFileSync(srcPdf, path.join(enDir, pdf))
+    fs.copyFileSync(srcPdf, path.join(enArthurDir, pdf))
+    fs.copyFileSync(srcPdf, path.join(ghSubdir, pdf))
+  }
+}
+console.log('✅ Currículos e Resumes em PDF copiados com redundância multidirecional.')
 
 // 7. Copiar chunks, css e fontes compiladas de .next/static para dist/_next/static e subdiretórios
 console.log('📁 Copiando assets compilados de .next/static para _next/static...')
@@ -285,6 +341,22 @@ if (fs.existsSync(nextStaticDir)) {
       content = content.replaceAll("'/arthur'", "'/Squammata-PayloadCMS/'")
       changed = true
     }
+    if (content.includes('"/curriculo_ecommerce_arthursaggioratto.pdf"')) {
+      content = content.replaceAll('"/curriculo_ecommerce_arthursaggioratto.pdf"', '"/Squammata-PayloadCMS/curriculo_ecommerce_arthursaggioratto.pdf"')
+      changed = true
+    }
+    if (content.includes("'/curriculo_ecommerce_arthursaggioratto.pdf'")) {
+      content = content.replaceAll("'/curriculo_ecommerce_arthursaggioratto.pdf'", "'/Squammata-PayloadCMS/curriculo_ecommerce_arthursaggioratto.pdf'")
+      changed = true
+    }
+    if (content.includes('"/resume_ecommerce_arthursaggioratto.pdf"')) {
+      content = content.replaceAll('"/resume_ecommerce_arthursaggioratto.pdf"', '"/Squammata-PayloadCMS/resume_ecommerce_arthursaggioratto.pdf"')
+      changed = true
+    }
+    if (content.includes("'/resume_ecommerce_arthursaggioratto.pdf'")) {
+      content = content.replaceAll("'/resume_ecommerce_arthursaggioratto.pdf'", "'/Squammata-PayloadCMS/resume_ecommerce_arthursaggioratto.pdf'")
+      changed = true
+    }
     if (changed) {
       fs.writeFileSync(jsFile, content, 'utf-8')
     }
@@ -292,16 +364,6 @@ if (fs.existsSync(nextStaticDir)) {
   console.log('✅ Bundles JS sanitizados com suporte ao subcaminho do repositório.')
 } else {
   console.warn('⚠️ Diretório .next/static não encontrado. Chunks podem estar ausentes.')
-}
-
-// 7.2 Criar cópia redundante na subpasta do repositório para tolerar qualquer resolução relativa do navegador
-const ghSubdir = path.join(DIST_DIR, 'Squammata-PayloadCMS')
-fs.mkdirSync(ghSubdir, { recursive: true })
-if (fs.existsSync(path.join(publicDir, 'arthur-saggioratto.jpg'))) {
-  fs.copyFileSync(
-    path.join(publicDir, 'arthur-saggioratto.jpg'),
-    path.join(ghSubdir, 'arthur-saggioratto.jpg'),
-  )
 }
 
 console.log('✨ Exportação estática concluída com sucesso em gh-pages-dist!')

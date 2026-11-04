@@ -2,194 +2,136 @@ export const portfolioSchemaEn = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "ProfilePage",
+      "@id": "https://arthur-nasa.github.io/Squammata-PayloadCMS/en/arthur/#profilepage",
+      "url": "https://arthur-nasa.github.io/Squammata-PayloadCMS/en/arthur/",
+      "name": "Arthur Saggioratto | Growth & Digital Profitability Executive",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://arthur-nasa.github.io/Squammata-PayloadCMS/#website",
+        "url": "https://arthur-nasa.github.io/Squammata-PayloadCMS/",
+        "name": "Arthur Saggioratto Portfolio"
+      },
+      "about": {
+        "@id": "https://arthur-nasa.github.io/Squammata-PayloadCMS/en/arthur/#person"
+      },
+      "mainEntity": {
+        "@id": "https://arthur-nasa.github.io/Squammata-PayloadCMS/en/arthur/#person"
+      },
+      "inLanguage": "en-US"
+    },
+    {
       "@type": "Person",
-      "@id": "https://squammata.com.br/en/arthur#arthur",
-      "name": "Arthur Saggioratto",
+      "@id": "https://arthur-nasa.github.io/Squammata-PayloadCMS/en/arthur/#person",
+      "name": "Arthur Saggioratto Neto",
       "alternateName": [
-        "Arthur Saggioratto Neto",
+        "Arthur Saggioratto",
         "Arthur Nasa"
       ],
-      "jobTitle": "Growth & Digital Profitability Executive",
-      "description": "15 years leading e-commerce operations, technical SEO, CRO, performance marketing (Google Ads), and digital P&L governance. Sustainable GMV scaling and margin protection across Shopify Plus, Magento, and VTEX.",
-      "url": "https://squammata.com.br/en/arthur",
-      "image": "https://squammata.com.br/arthur-saggioratto.jpg",
+      "jobTitle": "Head of E-commerce & Growth Executive",
+      "description": "Growth & E-commerce Executive with 15 years leading digital operations, technical SEO/GEO, conversion rate optimization (CRO), performance media, and digital P&L governance focused on net profit contribution.",
+      "url": "https://arthur-nasa.github.io/Squammata-PayloadCMS/en/arthur/",
+      "image": "https://arthur-nasa.github.io/Squammata-PayloadCMS/arthur-saggioratto.jpg",
       "email": "mailto:arthur.saggioratto@gmail.com",
       "telephone": "+55-19-99349-7819",
+      "sameAs": [
+        "https://www.linkedin.com/in/arthurnasa",
+        "https://github.com/arthur-nasa",
+        "https://blog.ruadocafe.com.br/author/arthur/"
+      ],
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Santa Bárbara d'Oeste",
+        "addressLocality": "Campinas and Santa Bárbara d'Oeste",
         "addressRegion": "SP",
         "addressCountry": "BR"
       },
+      "worksFor": {
+        "@type": "Organization",
+        "@id": "https://arthur-nasa.github.io/Squammata-PayloadCMS/#organization",
+        "name": "Squammata Consultoria",
+        "legalName": "31.384.814 ARTHUR SAGGIORATTO NETO ME",
+        "taxID": "31.384.814/0001-09",
+        "url": "https://arthur-nasa.github.io/Squammata-PayloadCMS/"
+      },
       "alumniOf": [
         {
-          "@type": "CollegeOrUniversity",
-          "name": "UNICAMP - Universidade Estadual de Campinas",
-          "sameAs": "https://www.unicamp.br/"
+          "@type": "EducationalOrganization",
+          "name": "University of Campinas (UNICAMP)",
+          "sameAs": "https://www.wikidata.org/wiki/Q1333333",
+          "description": "Bachelor of Social Sciences (Sociology), expected completion in 2027"
         },
         {
-          "@type": "CollegeOrUniversity",
-          "name": "FAAL - Faculdade de Administração e Artes de Limeira"
+          "@type": "EducationalOrganization",
+          "name": "FAAL (Limeira Faculty of Arts and Administration)",
+          "description": "Bachelor of Marketing and Sales Management, completed in 2015"
         }
       ],
-      "worksFor": {
-        "@id": "https://squammata.com.br/#squammata"
-      },
-      "hasOccupation": {
-        "@id": "https://squammata.com.br/en/arthur#occupation"
-      },
-      "knowsLanguage": [
-        "pt-BR",
-        "en-US"
-      ],
       "knowsAbout": [
-        "E-commerce Management",
-        "Digital P&L Governance",
-        "Technical SEO",
-        "Conversion Rate Optimization (CRO)",
-        "Google Ads Performance",
-        "Shopify Plus",
-        "Magento Commerce",
-        "VTEX",
-        "Enterprise Architecture",
-        "Retail Media",
+        "E-commerce Architecture",
+        "Search Engine Optimization (SEO)",
         "Generative Engine Optimization (GEO)",
-        "Marketplace Integration (Omnik)"
+        "Conversion Rate Optimization (CRO)",
+        "Shopify Plus",
+        "Adobe Commerce / Magento",
+        "VTEX",
+        "Google Ads & Performance Max",
+        "P&L Governance & Unit Economics",
+        "Marketplace Integration (Omnik)",
+        "Retail Media"
       ],
-      "sameAs": [
-        "https://linkedin.com/in/arthurnasa",
-        "https://github.com/arthurnasa",
-        "https://blog.ruadocafe.com.br/author/arthur/"
+      "hasOccupation": [
+        {
+          "@type": "Occupation",
+          "name": "Head of E-commerce & Digital Growth",
+          "occupationalCategory": "11-2021.00 - Marketing Managers",
+          "skills": "Technical SEO, CRO, P&L Governance, Omnichannel, Marketplaces, Retail Media"
+        }
       ]
     },
     {
       "@type": "Organization",
-      "@id": "https://squammata.com.br/#squammata",
-      "name": "Squammata",
-      "legalName": "Squammata Consultoria e Gestão de Projetos Ltda",
+      "@id": "https://arthur-nasa.github.io/Squammata-PayloadCMS/#organization",
+      "name": "Squammata Consultoria",
+      "legalName": "31.384.814 ARTHUR SAGGIORATTO NETO ME",
       "taxID": "31.384.814/0001-09",
-      "url": "https://squammata.com.br",
+      "url": "https://arthur-nasa.github.io/Squammata-PayloadCMS/",
       "founder": {
-        "@id": "https://squammata.com.br/en/arthur#arthur"
+        "@id": "https://arthur-nasa.github.io/Squammata-PayloadCMS/en/arthur/#person"
       },
-      "description": "Educational technical consulting and digital enterprise architecture focused on profitability and operational efficiency.",
+      "description": "Educational technical consultancy and digital business architecture focused on profitability and operational efficiency.",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Santa Bárbara d'Oeste",
+        "addressLocality": "Santa Bárbara d'Oeste and Campinas",
         "addressRegion": "SP",
         "addressCountry": "BR"
       }
     },
     {
-      "@type": "ProfilePage",
-      "@id": "https://squammata.com.br/en/arthur#webpage",
-      "url": "https://squammata.com.br/en/arthur",
-      "name": "Arthur Saggioratto | Growth & Digital Profitability Executive",
-      "description": "15 years leading e-commerce operations, technical SEO, CRO, performance marketing (Google Ads), and digital P&L governance. Sustainable GMV scaling and margin protection across Shopify Plus, Magento, and VTEX.",
-      "inLanguage": "en-US",
-      "isPartOf": {
-        "@type": "WebSite",
-        "@id": "https://squammata.com.br/#website",
-        "name": "Squammata",
-        "url": "https://squammata.com.br"
-      },
-      "about": {
-        "@id": "https://squammata.com.br/en/arthur#arthur"
-      },
-      "mainEntity": {
-        "@id": "https://squammata.com.br/en/arthur#arthur"
-      },
-      "breadcrumb": {
-        "@id": "https://squammata.com.br/en/arthur#breadcrumb"
-      }
-    },
-    {
-      "@type": "Occupation",
-      "@id": "https://squammata.com.br/en/arthur#occupation",
-      "name": "Growth & Digital Profitability Executive",
-      "occupationalCategory": "11-2021.00",
-      "description": "Leadership of digital operations, e-commerce P&L governance, technical SEO engineering, conversion rate optimization (CRO), and margin-driven performance marketing.",
-      "skills": "Technical SEO, GEO, CRO, Shopify Plus, P&L, POAS, Magento, VTEX, Retail Media"
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://squammata.com.br/en/arthur#breadcrumb",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://squammata.com.br/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Arthur Saggioratto Portfolio",
-          "item": "https://squammata.com.br/en/arthur"
-        }
-      ]
-    },
-    {
-      "@type": "ItemList",
-      "@id": "https://squammata.com.br/en/arthur#cases",
-      "name": "Auditable Operational Case Studies & Executive Track Record",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Rua do Café: GMV Scale (+66% MoM) and Specialty Marketplace on Shopify Plus with Omnik"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Sheetgo: International SEO & CRO Expansion (+20% in Session Retention)"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Máquinas & Café: 10 Years of Consistent Growth (+20% YoY) and 45% Organic Black Friday"
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
-          "name": "Squammata Advisory: P&L, POAS and Retail Media Audits for Retail and Industry"
-        }
-      ]
-    },
-    {
       "@type": "FAQPage",
-      "@id": "https://squammata.com.br/en/arthur#faq",
+      "@id": "https://arthur-nasa.github.io/Squammata-PayloadCMS/en/arthur/#faqpage",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What does it mean to subordinate e-commerce operations to P&L and net profit margin?",
+          "name": "What is Arthur Saggioratto's scope in e-commerce and technology operations?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It means evaluating business success by the real net profit that remains in company cash reserves, rather than gross revenue or isolated ad platform vanity metrics such as platform ROAS. We analyze cost of goods sold (COGS), gateway fees, taxes, and shipping expenses to ensure every dollar allocated to customer acquisition produces healthy net contribution margin (POAS)."
+            "text": "Arthur Saggioratto manages digital profitability and P&L governance for e-commerce and SaaS, integrating advanced technical SEO, AI generative visibility (GEO), continuous conversion testing (CRO), and enterprise pipelines connecting storefronts to marketplaces and ERP systems."
           }
         },
         {
           "@type": "Question",
-          "name": "How does optimization for AI-powered search engines (GEO and AEO) work?",
+          "name": "How does academic training in Social Sciences at UNICAMP connect with technical and commercial leadership?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It involves the semantic modeling of entities and topics using structured Schema.org markup in JSON-LD alongside high-density technical content (E-E-A-T). This architecture allows generative AI engines such as Google AI Overviews, Perplexity, and ChatGPT to recognize, cite, and recommend the brand as an authoritative reference in its sector."
+            "text": "Training in Social Sciences at UNICAMP (completion in 2027) provides the analytical framework for consumer behavioral modeling, actor-network theory, and complex socio-technical systems, distinguishing data-driven strategies from mechanical approaches and tying financial metrics to structural market dynamics."
           }
         },
         {
           "@type": "Question",
-          "name": "What engagement models are available for partnering with Arthur Saggioratto?",
+          "name": "What methodology drove the 66% MoM growth at Rua do Café?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Partnerships operate across four structured pillars via Squammata: Operational Diagnosis & Technical Audits (3 to 4 week focused sprints for SEO, CRO, and P&L), Platform Architecture & Engineering (Shopify Plus, VTEX, and headless commerce), Performance Marketing & P&L Governance (margin-driven media allocation), and Executive Advisory with Internal Team Enablement."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Why is an academic background in Sociology from UNICAMP an advantage in digital management?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sociology provides the rigor to understand e-commerce platforms, algorithms, and conversion funnels as complex sociotechnical ecosystems. Instead of pursuing ephemeral growth hacks that destroy brand reputation and burn working capital, this foundation prioritizes the construction of sustainable trust, organic channel sovereignty, and long-term customer retention."
+            "text": "The 66% MoM GMV expansion was achieved during the marketplace traction phase on Shopify Plus and Omnik Seller Center, combining performance media allocation governed by profit on ad spend (POAS), semantic Topic Clusters for organic search, and native split payments for over 100 partner merchants."
           }
         }
       ]

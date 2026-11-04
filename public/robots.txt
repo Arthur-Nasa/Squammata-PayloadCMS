@@ -18,5 +18,5 @@ Allow: /
 Disallow: /admin
 Disallow: /api
 
-Sitemap: https://squammata.com.br/sitemap.xml
-Host: https://squammata.com.br
+Sitemap: https://arthur-nasa.github.io/Squammata-PayloadCMS/sitemap.xml
+Host: https://arthur-nasa.github.io

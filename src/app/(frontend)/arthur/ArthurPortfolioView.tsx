@@ -4,42 +4,54 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import styles from './arthur.module.scss'
 
-const CURRICULO_PDF_URL = 'https://drive.google.com/file/d/1kqXFuC4SN-vlFMez0RtELHqUe9Wk7RMr/view?usp=sharing'
+const DEFAULT_CURRICULO_PATH = './curriculo_ecommerce_arthursaggioratto.pdf'
 
 const defaultIndicatorCards = [
   {
     value: '+66% MoM em GMV',
     label: 'ESCALA DE RECEITA • RUA DO CAFÉ',
+    scope: 'Rua do Café (Fase de tração inicial do marketplace)',
+    methodology: 'Média mensal ponderada de faturamento transacionado, impulsionada por onboarding de catálogo parceiro e campanhas orientadas por POAS (Profit on Ad Spend).',
     description:
       'Crescimento mensal sustentado no faturamento da Rua do Café. O resultado veio da alocação de mídia paga no Google e Meta Ads pautada na margem de cada produto, somada a esteiras contínuas de otimização de conversão.',
   },
   {
     value: '45% na Black Friday via Orgânico',
     label: 'PROTEÇÃO DE MARGEM • SEO TÉCNICO',
+    scope: 'Operação E-commerce (Pico sazonal de novembro)',
+    methodology: 'Faturamento atribuído por modelo First-Click e Last-Non-Direct Click originado exclusivamente de tráfego orgânico via Google, blindando a margem contra inflação de CPC.',
     description:
       'Fatia do faturamento gerada por busca orgânica no pico sazonal de vendas. A maturidade semântica do catálogo protegeu o caixa contra a explosão do custo por clique (CPC) nos leilões de anúncios.',
   },
   {
     value: '10 Anos (+20% YoY)',
     label: 'CRESCIMENTO LINEAR • MÁQUINAS & CAFÉ',
+    scope: 'Máquinas & Café (Série histórica de 2014 a 2024)',
+    methodology: 'Crescimento auditado de faturamento anual contínuo na venda de maquinário e insumos com fluxo de caixa saudável.',
     description:
       'Uma década de crescimento contínuo de 20% ao ano na Máquinas & Café (2014 a 2024), consolidando a operação no mercado nacional de máquinas de espresso para pessoas físicas e empresas.',
   },
   {
     value: '+50% Tráfego / +30% Conversão',
     label: 'EFICIÊNCIA DE FUNIL • AQUISIÇÃO & CRO',
+    scope: 'Funil Multicanal e Otimização Transacional',
+    methodology: 'Automação de aquisição qualificada e eliminação de pontos de fricção no checkout.',
     description:
       'Mais visitantes qualificados com maior taxa de fechamento. A automação de canais ampliou o tráfego em 50%, enquanto a eliminação de fricções no checkout aumentou a taxa de conversão em 30%.',
   },
   {
     value: '+20% em Tempo de Sessão',
     label: 'RETENÇÃO B2B SAAS • SHEETGO (GLOBAL)',
+    scope: 'Sheetgo (Global SaaS, amostragem semestral)',
+    methodology: 'Incremento na retenção e navegação de produto aferido via GA4 após testes A/B e redesenho de páginas de destino.',
     description:
       'Aumento no tempo de uso e exploração da plataforma global de software Sheetgo. O redesign da interface, orientado por dados de navegação e testes práticos, facilitou a ativação dos usuários.',
   },
   {
     value: '+100 Lojistas Integrados',
     label: 'ECOSSISTEMA MARKETPLACE • SHOPIFY PLUS & OMNIK',
+    scope: 'Marketplace Enterprise com Seller Center',
+    methodology: 'Arquitetura de catálogo unificado com split payment nativo e sincronização de estoque e pedidos ao ERP.',
     description:
       'Estruturação técnica e comercial do marketplace em Shopify Plus com Seller Center Omnik, conectando mais de uma centena de marcas parceiras com estoque e pedidos sincronizados ao ERP.',
   },
@@ -68,7 +80,7 @@ const defaultFaqItems = [
     badge: 'SOCIOLOGIA & TÉCNICA',
     question: 'Por que a formação em Sociologia pela UNICAMP é um diferencial na gestão digital?',
     answer:
-      'A Sociologia capacita a enxergar plataformas, marketplaces e algoritmos como ecossistemas sociotécnicos complexos. Em vez de perseguir atalhos passageiros que queimam a reputação da marca e cansam o cliente, essa fundamentação permite desenhar jornadas de compra transparentes e focadas na fidelização de longo prazo, reduzindo o custo de aquisição (CAC) e elevando o valor de vida do cliente (LTV).',
+      'A graduação em Ciências Sociais pela UNICAMP (conclusão em 2027) capacita a enxergar plataformas, marketplaces e algoritmos como ecossistemas sociotécnicos complexos. Em vez de perseguir atalhos passageiros que queimam a reputação da marca e cansam o cliente, essa fundamentação permite desenhar jornadas de compra transparentes e focadas na fidelização de longo prazo, reduzindo o custo de aquisição (CAC) e elevando o valor de vida do cliente (LTV).',
   },
 ]
 
@@ -79,6 +91,7 @@ export interface ArthurPortfolioViewProps {
 export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initialData }) => {
   const [avatarSrc, setAvatarSrc] = useState('./arthur-saggioratto.jpg')
   const [enUrl, setEnUrl] = useState('/Squammata-PayloadCMS/en/arthur/')
+  const [curriculoUrl, setCurriculoUrl] = useState('./curriculo_ecommerce_arthursaggioratto.pdf')
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -86,9 +99,11 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
       if (isGhPages) {
         setAvatarSrc('/Squammata-PayloadCMS/arthur-saggioratto.jpg')
         setEnUrl('/Squammata-PayloadCMS/en/arthur/')
+        setCurriculoUrl('/Squammata-PayloadCMS/curriculo_ecommerce_arthursaggioratto.pdf')
       } else {
         setAvatarSrc('./arthur-saggioratto.jpg')
         setEnUrl('/en/arthur')
+        setCurriculoUrl('/curriculo_ecommerce_arthursaggioratto.pdf')
       }
     }
   }, [])
@@ -117,7 +132,7 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
   }
 
   const heroEyebrow =
-    initialData?.hero?.eyebrow || '15 ANOS DE OPERAÇÃO • GOVERNANÇA DE P&L, ARQUITETURA & AQUISIÇÃO • SÃO PAULO'
+    initialData?.hero?.eyebrow || '15 ANOS DE OPERAÇÃO • GOVERNANÇA DE P&L, ARQUITETURA & AQUISIÇÃO • CAMPINAS & SÃO PAULO'
   const heroTitle =
     initialData?.hero?.title || 'Executivo de Crescimento e Rentabilidade Digital'
   const heroLead =
@@ -126,14 +141,13 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
   const whatsappUrl = initialData?.hero?.whatsappNumber
     ? `https://wa.me/${initialData.hero.whatsappNumber}`
     : 'https://wa.me/5519993497819'
-  const curriculoUrl = initialData?.hero?.curriculoPdfUrl || CURRICULO_PDF_URL
   const linkedinUrl = initialData?.hero?.linkedinUrl || 'https://linkedin.com/in/arthurnasa'
   const emailAddress = initialData?.hero?.email || 'arthur.saggioratto@gmail.com'
 
   const specPj =
     initialData?.hero?.specs?.pj || '31.384.814 ARTHUR SAGGIORATTO NETO ME (Consultoria Squammata)'
   const specFormacao =
-    initialData?.hero?.specs?.formacao || 'Ciências Sociais e Sociologia (UNICAMP) & Marketing e Gestão de Vendas (FAAL)'
+    initialData?.hero?.specs?.formacao || 'Ciências Sociais com ênfase em Sociologia (UNICAMP, previsão 2027) & Marketing e Gestão de Vendas (FAAL, 2015)'
   const specFluencia =
     initialData?.hero?.specs?.fluencia || 'Português (Nativo) | Inglês (C2 Proficient para liderança e times globais)'
   const specCoreStack =
@@ -158,7 +172,7 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
     initialData?.footer?.callout ||
     'Aberto a conversas para liderança executiva (Head ou Diretoria), conselhos consultivos e projetos de reestruturação de e-commerce e SEO.'
   const footerMetaLine1 =
-    initialData?.footer?.metaLine1 || "Arthur Saggioratto Neto • Santa Bárbara d'Oeste / Campinas, SP"
+    initialData?.footer?.metaLine1 || "Arthur Saggioratto Neto • Base em Campinas e Região Metropolitana, presença executiva em São Paulo (SP) • Atuação remota e híbrida"
   const footerMetaLine2 =
     initialData?.footer?.metaLine2 || 'CNPJ: 31.384.814/0001-09 (Squammata Consultoria e Gestão de Projetos Ltda)'
 
@@ -395,6 +409,12 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
               </p>
             </div>
 
+            <div className={styles.answerBlockWrap} style={{ marginBottom: '2rem' }}>
+              <p className={`${styles.bodyFont}`} style={{ fontSize: '1rem', lineHeight: '1.6', color: '#c5a880', borderLeft: '3px solid #c5a880', paddingLeft: '1rem', margin: '0' }}>
+                A mensuração de impacto operacional conduzida por Arthur Saggioratto subordina todas as métricas de tráfego e mídia paga ao lucro bruto e margem de contribuição. A governança baseada em POAS (Profit on Ad Spend) e atribuição multitoque assegura escala de receita auditável com proteção do fluxo de caixa.
+              </p>
+            </div>
+
             <div className={styles.tabularGrid}>
               {indicatorCards.map((card: any, idx: number) => (
                 <div key={card.id || idx} className={styles.tabularCell}>
@@ -404,7 +424,17 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                   <div className={`${styles.tabularLabel} ${styles.monoFont}`}>
                     {card.label}
                   </div>
-                  <p className={`${styles.tabularDesc} ${styles.bodyFont}`}>
+                  {card.scope && (
+                    <div className={`${styles.monoFont}`} style={{ fontSize: '0.75rem', color: '#a0aab8', marginTop: '0.4rem', borderTop: '1px dashed rgba(255,255,255,0.1)', paddingTop: '0.4rem' }}>
+                      <strong>Amostragem:</strong> {card.scope}
+                    </div>
+                  )}
+                  {card.methodology && (
+                    <div className={`${styles.monoFont}`} style={{ fontSize: '0.72rem', color: '#8592a3', marginTop: '0.25rem' }}>
+                      <strong>Cálculo:</strong> {card.methodology}
+                    </div>
+                  )}
+                  <p className={`${styles.tabularDesc} ${styles.bodyFont}`} style={{ marginTop: '0.75rem' }}>
                     {card.description}
                   </p>
                 </div>
@@ -936,6 +966,12 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
               </p>
             </div>
 
+            <div className={styles.answerBlockWrap} style={{ marginBottom: '2rem' }}>
+              <p className={`${styles.bodyFont}`} style={{ fontSize: '1rem', lineHeight: '1.6', color: '#c5a880', borderLeft: '3px solid #c5a880', paddingLeft: '1rem', margin: '0' }}>
+                A trajetória profissional de Arthur Saggioratto é discriminada por modalidade de contratação (CLT, dedicação executiva integral, contratos internacionais e consultoria técnica especializada), garantindo transparência contratual e foco em entregas verificáveis.
+              </p>
+            </div>
+
             <div className={styles.casesDossier}>
               {/* Timeline 1: Squammata */}
               <article className={styles.caseDossierRow}>
@@ -948,6 +984,9 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                   </h3>
                   <div className={`${styles.caseRole} ${styles.monoFont}`}>
                     Fundador &amp; Diretor de Estratégia
+                  </div>
+                  <div className={`${styles.monoFont}`} style={{ fontSize: '0.78rem', color: '#c5a880', marginTop: '0.35rem' }}>
+                    <strong>Modalidade:</strong> Veículo Jurídico Corporativo e Hub de Atuação Consultiva Estratégica
                   </div>
                   <div className={styles.caseAuditLinks}>
                     <a
@@ -966,6 +1005,9 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                     ESCOPO DE ATUAÇÃO
                   </div>
                   <ul className={`${styles.caseBulletList} ${styles.bodyFont}`}>
+                    <li>
+                      Prestação de serviços de inteligência em mídia paga, retail media e governança de DRE para clientes corporativos.
+                    </li>
                     <li>
                       Arquitetura de soluções enterprise, consultoria técnica educativa e governança de margem de contribuição (DRE) para operações digitais, indústrias e varejo multicanal.
                     </li>
@@ -998,7 +1040,10 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                     Rua do Café
                   </h3>
                   <div className={`${styles.caseRole} ${styles.monoFont}`}>
-                    Diretor de Operações e E-commerce
+                    Liderança Estratégica e Head of Marketing &amp; E-commerce
+                  </div>
+                  <div className={`${styles.monoFont}`} style={{ fontSize: '0.78rem', color: '#c5a880', marginTop: '0.35rem' }}>
+                    <strong>Modalidade:</strong> Liderança Estratégica e Head of Marketing &amp; E-commerce (Dedicação Executiva)
                   </div>
                 </div>
 
@@ -1008,7 +1053,7 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                   </div>
                   <ul className={`${styles.caseBulletList} ${styles.bodyFont}`}>
                     <li>
-                      Marketplace e e-commerce de café especial em Shopify Plus integrado ao Seller Center Omnik, conectando mais de 100 lojistas com estoque sincronizado a ERPs.
+                      Condução da expansão de tráfego, marketplace com Shopify Plus e Seller Center Omnik, conectando mais de 100 lojistas parceiros e gerenciando orçamentos de tração balizados por margem de contribuição.
                     </li>
                     <li>
                       Escala acelerada de faturamento alcançando <strong>+66% MoM em GMV</strong> e pioneirismo na estruturação de split payment nativo.
@@ -1041,6 +1086,9 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                   <div className={`${styles.caseRole} ${styles.monoFont}`}>
                     Technical SEO &amp; Growth Lead
                   </div>
+                  <div className={`${styles.monoFont}`} style={{ fontSize: '0.78rem', color: '#c5a880', marginTop: '0.35rem' }}>
+                    <strong>Modalidade:</strong> Contrato Internacional de Especialista Técnico / Technical SEO &amp; CRO Lead (Operação Global 100% em Inglês)
+                  </div>
                 </div>
 
                 <div className={styles.zoneB}>
@@ -1049,10 +1097,10 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                   </div>
                   <ul className={`${styles.caseBulletList} ${styles.bodyFont}`}>
                     <li>
-                      Operação global B2B SaaS conduzida 100% em língua inglesa para mercados corporativos dos EUA e Europa.
+                      Consultoria de crescimento orgânico e retenção para ecossistema SaaS B2B global conduzida 100% em língua inglesa para mercados corporativos dos EUA e Europa.
                     </li>
                     <li>
-                      Otimização de Core Web Vitals, reestruturação semântica de conteúdo e ganho de <strong>+20% no tempo médio de sessão</strong> de usuários.
+                      Otimização de Core Web Vitals, reestruturação semântica de tópicos e ganho de <strong>+20% no tempo médio de sessão</strong> de usuários aferido via testes A/B no GA4.
                     </li>
                   </ul>
                 </div>
@@ -1080,7 +1128,10 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                     Máquinas &amp; Café
                   </h3>
                   <div className={`${styles.caseRole} ${styles.monoFont}`}>
-                    Head de E-commerce &amp; Performance
+                    Diretor Operacional &amp; E-commerce Manager
+                  </div>
+                  <div className={`${styles.monoFont}`} style={{ fontSize: '0.78rem', color: '#c5a880', marginTop: '0.35rem' }}>
+                    <strong>Modalidade:</strong> Direção Operacional e Gestão Executiva End-to-End (Dedicação Integral)
                   </div>
                 </div>
 
@@ -1090,10 +1141,10 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                   </div>
                   <ul className={`${styles.caseBulletList} ${styles.bodyFont}`}>
                     <li>
-                      Uma década liderando catálogo, precificação, tecnologia, logística e atendimento comercial com crescimento linear consistente de <strong>+20% YoY</strong>.
+                      Liderança do canal de máquinas de café espresso B2C e B2B, sustentando expansão linear de <strong>20% ao ano ao longo de uma década</strong> via Magento, automação de preços dinâmicos e logística integrada ao ERP.
                     </li>
                     <li>
-                      Estratégia de SEO técnico que garantiu <strong>45% do faturamento da Black Friday via tráfego orgânico</strong> gratuito.
+                      Estratégia de SEO técnico que garantiu <strong>45% do faturamento da Black Friday via tráfego orgânico</strong> gratuito com fluxo de caixa saudável.
                     </li>
                   </ul>
                 </div>
@@ -1122,6 +1173,9 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                   </h3>
                   <div className={`${styles.caseRole} ${styles.monoFont}`}>
                     Consultor de E-commerce e Performance
+                  </div>
+                  <div className={`${styles.monoFont}`} style={{ fontSize: '0.78rem', color: '#c5a880', marginTop: '0.35rem' }}>
+                    <strong>Modalidade:</strong> Consultoria Técnica e Reestruturação de E-commerce
                   </div>
                 </div>
 
@@ -1178,7 +1232,7 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
 
                 <div className={styles.institutionItem}>
                   <div className={`${styles.institutionMeta} ${styles.monoFont}`}>
-                    UNICAMP • UNIVERSIDADE ESTADUAL DE CAMPINAS (2026)
+                    UNICAMP • UNIVERSIDADE ESTADUAL DE CAMPINAS (Previsão 2027)
                   </div>
                   <h4 className={`${styles.degreeTitle} ${styles.headingFont}`}>
                     Bacharelado em Ciências Sociais (Sociologia)
