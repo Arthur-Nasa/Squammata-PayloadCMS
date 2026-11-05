@@ -135,24 +135,65 @@ fs.mkdirSync(DIST_DIR, { recursive: true })
 // Função de adaptação e sanitização de HTML
 function adaptHtmlContent(html, isSubdir = false, lang = 'pt') {
   const prefix = isSubdir ? '../..' : '.'
+  const canonicalUrl =
+    lang === 'en'
+      ? 'https://arthur-nasa.github.io/Squammata-PayloadCMS/en/arthur/'
+      : 'https://arthur-nasa.github.io/Squammata-PayloadCMS/'
+
   let adapted = html
-    // Caminhos de Next.js static
+
+  // 1. Remover scripts de desenvolvimento e bundles pesados do Next.js
+  adapted = adapted
+    .replace(/<link\s+rel="preload"\s+as="script"[^>]*\/?>/gi, '')
+    .replace(/<script\s+src="[^"]*\/_next\/static\/chunks\/[^"]*"[^>]*><\/script>/gi, '')
+    .replace(/<script\s+src="[^"]*polyfills\.js"[^>]*><\/script>/gi, '')
+    .replace(/<script>\(self\.__next_s=[\s\S]*?<\/script>/gi, '')
+    .replace(/<script>\s*self\.__next_f[\s\S]*?<\/script>/gi, '')
+    .replace(/<script>\s*\(self\.__next_f[\s\S]*?<\/script>/gi, '')
+    .replace(/<div hidden="">[\s\S]*?<\/div>/gi, '')
+    .replace(/<div class="admin-bar[^"]*"[^>]*>[\s\S]*?<\/div>\s*<\/div>/gi, '')
+    .replace(/<div class="mil-cursor-follower"><\/div>/gi, '')
+    .replace(/<div class="mil-progress-track"><div class="mil-progress"><\/div><\/div>/gi, '')
+    .replace(/<div class="mil-preloader-frame"[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/g, '')
+
+  // 2. Otimizar CSS: remover layout.css (306KB de bundles e ícones não usados) e manter page.css
+  adapted = adapted.replace(
+    /<link\s+rel="stylesheet"\s+href="[^"]*layout\.css[^"]*"[^>]*\/?>/gi,
+    '<style>html{scroll-behavior:smooth;}body{margin:0;padding:0;background-color:#0B0F0E;color:#F1F5F9;overflow-x:hidden;}</style>',
+  )
+
+  // 3. Garantir caminho correto de page.css
+  adapted = adapted.replace(
+    /href="[^"]*\/_next\/static\/css\/app\/\(frontend\)\/arthur\/page\.css[^"]*"/gi,
+    `href="${prefix}/_next/static/css/app/(frontend)/arthur/page.css"`,
+  )
+
+  // 4. Adaptar caminhos estáticos
+  adapted = adapted
     .replaceAll('href="/_next/', `href="${prefix}/_next/`)
     .replaceAll('src="/_next/', `src="${prefix}/_next/`)
     .replaceAll('url(/_next/', `url(${prefix}/_next/`)
     .replaceAll('url("/_next/', `url("${prefix}/_next/`)
     .replaceAll("url('/_next/", `url('${prefix}/_next/`)
-    // Imagem e mídias de Arthur Saggioratto
+    // Imagens
     .replaceAll('http://localhost:3000/arthur-saggioratto.jpg', `${prefix}/arthur-saggioratto.jpg`)
     .replaceAll('src="/arthur-saggioratto.jpg"', `src="${prefix}/arthur-saggioratto.jpg"`)
+    .replaceAll('src="./arthur-saggioratto.jpg"', `src="${prefix}/arthur-saggioratto.jpg"`)
+    .replaceAll('srcSet="/arthur-saggioratto.webp"', `srcSet="${prefix}/arthur-saggioratto.webp"`)
+    .replaceAll('srcSet="./arthur-saggioratto.webp"', `srcSet="${prefix}/arthur-saggioratto.webp"`)
     .replaceAll('href="/arthur-saggioratto.jpg"', `href="${prefix}/arthur-saggioratto.jpg"`)
     .replaceAll('src="/images/', `src="${prefix}/images/`)
     .replaceAll('href="/images/', `href="${prefix}/images/`)
     // Favicons
     .replaceAll('href="/favicon.ico"', `href="${prefix}/favicon.ico"`)
     .replaceAll('href="/favicon.svg"', `href="${prefix}/favicon.svg"`)
+    // PDFs
+    .replaceAll('href="/curriculo_ecommerce_arthursaggioratto.pdf"', `href="${prefix}/curriculo_ecommerce_arthursaggioratto.pdf"`)
+    .replaceAll('href="./curriculo_ecommerce_arthursaggioratto.pdf"', `href="${prefix}/curriculo_ecommerce_arthursaggioratto.pdf"`)
+    .replaceAll('href="/resume_ecommerce_arthursaggioratto.pdf"', `href="${prefix}/resume_ecommerce_arthursaggioratto.pdf"`)
+    .replaceAll('href="./resume_ecommerce_arthursaggioratto.pdf"', `href="${prefix}/resume_ecommerce_arthursaggioratto.pdf"`)
 
-  // Links internos de navegação entre idiomas e páginas (compatibilidade com subdiretório do GitHub Pages)
+  // 5. Links internos de navegação
   adapted = adapted
     .replaceAll('href="/arthur"', 'href="/Squammata-PayloadCMS/"')
     .replaceAll('href="/portfolio"', 'href="/Squammata-PayloadCMS/portfolio.html"')
@@ -160,17 +201,25 @@ function adaptHtmlContent(html, isSubdir = false, lang = 'pt') {
     .replaceAll('href="./en/arthur/index.html"', 'href="/Squammata-PayloadCMS/en/arthur/"')
     .replaceAll('href="../../index.html"', 'href="/Squammata-PayloadCMS/"')
 
-  // Canonical tag e hreflang tags para a origem do GitHub Pages
-  const canonicalUrl =
-    lang === 'en'
-      ? 'https://arthur-nasa.github.io/Squammata-PayloadCMS/en/arthur/'
-      : 'https://arthur-nasa.github.io/Squammata-PayloadCMS/'
+  // 6. Preload de alta prioridade da imagem de autor no formato WebP e fontes
+  const fontLinks = '<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" /><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Quicksand:wght@500;600;700&family=Zilla+Slab:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />'
+  const imagePreload = `<link rel="preload" as="image" href="${prefix}/arthur-saggioratto.webp" type="image/webp" fetchpriority="high" />`
 
+  // Remover preloads e fontes antigos se existirem
+  adapted = adapted.replace(/<link\s+rel="preload"\s+as="image"[^>]*\/?>/gi, '')
+  adapted = adapted.replace(/<link\s+rel="preconnect"[^>]*\/?>/gi, '')
+  adapted = adapted.replace(/<link\s+href="https:\/\/fonts\.googleapis\.com[^"]*"[^>]*\/?>/gi, '')
+
+  adapted = adapted.replace(
+    '<head>',
+    `<head>${imagePreload}${fontLinks}`,
+  )
+
+  // 7. Canonical e hreflang
   adapted = adapted.replace(
     /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/gi,
     `<link rel="canonical" href="${canonicalUrl}" />`,
   )
-
   adapted = adapted.replace(
     /<link\s+rel="alternate"\s+hreflang="pt-BR"\s+href="[^"]*"\s*\/?>/gi,
     '<link rel="alternate" hreflang="pt-BR" href="https://arthur-nasa.github.io/Squammata-PayloadCMS/" />',
@@ -179,7 +228,6 @@ function adaptHtmlContent(html, isSubdir = false, lang = 'pt') {
     /<link\s+rel="alternate"\s+hreflang="en-US"\s+href="[^"]*"\s*\/?>/gi,
     '<link rel="alternate" hreflang="en-US" href="https://arthur-nasa.github.io/Squammata-PayloadCMS/en/arthur/" />',
   )
-
   if (!adapted.includes('hreflang="x-default"')) {
     adapted = adapted.replace(
       '<link rel="alternate" hreflang="pt-BR"',
@@ -187,36 +235,42 @@ function adaptHtmlContent(html, isSubdir = false, lang = 'pt') {
     )
   }
 
-  // OpenGraph URL
-  adapted = adapted.replace(
-    /<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/gi,
-    `<meta property="og:url" content="${canonicalUrl}" />`,
-  )
+  // 7.1 Atributo de idioma do documento HTML
+  if (lang === 'en') {
+    adapted = adapted.replace(/<html([^>]*)lang="pt-BR"/i, '<html$1lang="en-US"')
+  }
 
-  // Remover preloads residuais da Squammata corporativa antiga se houver
-  adapted = adapted.replace(
-    /<link rel="preload" as="image" href="\/logo\/squammata\/[^"]+"\/>/g,
-    '',
-  )
+  // 8. OpenGraph e Twitter tags
+  adapted = adapted
+    .replace(/<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/gi, `<meta property="og:url" content="${canonicalUrl}" />`)
+    .replace(/<meta\s+property="og:image"\s+content="[^"]*"\s*\/?>/gi, '<meta property="og:image" content="https://arthur-nasa.github.io/Squammata-PayloadCMS/arthur-saggioratto.jpg" />')
+    .replace(/<meta\s+name="twitter:image"\s+content="[^"]*"\s*\/?>/gi, '<meta name="twitter:image" content="https://arthur-nasa.github.io/Squammata-PayloadCMS/arthur-saggioratto.jpg" />')
 
-  // Remover completamente qualquer componente residual de preloader ou contador com porcentagem
-  adapted = adapted.replace(
-    /<div class="mil-preloader-frame"[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/g,
-    '',
-  )
-
-  // Substituir id e classes de presets dinâmicos legados
+  // 9. Substituir id e classes de presets dinâmicos legados
   adapted = adapted
     .replaceAll('id="squammata-theme-dynamic"', 'id="portfolio-theme-dynamic"')
     .replaceAll('Squammata Dynamic Theme Active Preset', 'Executive Dynamic Theme Active Preset')
 
-  // Garantir preload de alta prioridade da imagem de autor no <head> para maximizar FCP e LCP
-  if (!adapted.includes('rel="preload" as="image"') && !adapted.includes('arthur-saggioratto.jpg')) {
-    adapted = adapted.replace(
-      '<head>',
-      `<head><link rel="preload" as="image" href="${prefix}/arthur-saggioratto.jpg" fetchpriority="high"/>`,
-    )
-  }
+  // 10. Injetar script vanilla ultraleve para suporte a scroll suave e eventos
+  const helperScript = `
+<script>
+(function() {
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var href = this.getAttribute('href');
+      if (href && href.length > 1) {
+        var target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  });
+})();
+</script>
+`
+  adapted = adapted.replace('</body>', `${helperScript}</body>`)
 
   return adapted
 }
@@ -263,6 +317,12 @@ fs.copyFileSync(path.join(publicDir, 'arthur-saggioratto.jpg'), path.join(enDir,
 fs.copyFileSync(path.join(publicDir, 'arthur-saggioratto.jpg'), path.join(enArthurDir, 'arthur-saggioratto.jpg'))
 fs.copyFileSync(path.join(publicDir, 'arthur-saggioratto.jpg'), path.join(ghSubdir, 'arthur-saggioratto.jpg'))
 
+if (fs.existsSync(path.join(publicDir, 'arthur-saggioratto.webp'))) {
+  fs.copyFileSync(path.join(publicDir, 'arthur-saggioratto.webp'), path.join(enDir, 'arthur-saggioratto.webp'))
+  fs.copyFileSync(path.join(publicDir, 'arthur-saggioratto.webp'), path.join(enArthurDir, 'arthur-saggioratto.webp'))
+  fs.copyFileSync(path.join(publicDir, 'arthur-saggioratto.webp'), path.join(ghSubdir, 'arthur-saggioratto.webp'))
+}
+
 const pdfFiles = [
   'curriculo_ecommerce_arthursaggioratto.pdf',
   'resume_ecommerce_arthursaggioratto.pdf',
@@ -281,89 +341,25 @@ for (const pdf of pdfFiles) {
 }
 console.log('✅ Currículos e Resumes em PDF copiados com redundância multidirecional.')
 
-// 7. Copiar chunks, css e fontes compiladas de .next/static para dist/_next/static e subdiretórios
-console.log('📁 Copiando assets compilados de .next/static para _next/static...')
-const nextStaticDir = path.join(ROOT_DIR, '.next', 'static')
-const targetStaticDir = path.join(DIST_DIR, '_next', 'static')
+// 7. Copiar folhas de estilo compiladas de .next/static/css para _next/static/css
+console.log('📁 Copiando folhas de estilo compiladas de .next/static/css para _next/static/css...')
+const nextCssDir = path.join(ROOT_DIR, '.next', 'static', 'css')
+const targetCssDir = path.join(DIST_DIR, '_next', 'static', 'css')
 
-if (fs.existsSync(nextStaticDir)) {
-  fs.mkdirSync(path.join(DIST_DIR, '_next'), { recursive: true })
-  fs.cpSync(nextStaticDir, targetStaticDir, { recursive: true })
-  console.log('✅ Chunks e assets estáticos copiados para gh-pages-dist/_next/static.')
+if (fs.existsSync(nextCssDir)) {
+  fs.mkdirSync(targetCssDir, { recursive: true })
+  fs.cpSync(nextCssDir, targetCssDir, { recursive: true })
+  console.log('✅ Folhas de estilo CSS copiadas para gh-pages-dist/_next/static/css.')
 
-  // Cópia redundante para rotas /en/ e /en/arthur/
-  fs.mkdirSync(path.join(enDir, '_next'), { recursive: true })
-  fs.cpSync(nextStaticDir, path.join(enDir, '_next', 'static'), { recursive: true })
-  fs.mkdirSync(path.join(enArthurDir, '_next'), { recursive: true })
-  fs.cpSync(nextStaticDir, path.join(enArthurDir, '_next', 'static'), { recursive: true })
-
-  // 7.1 Sanitizar bundles JS para garantir caminhos de imagem corretos no GitHub Pages
-  function walkDir(dir) {
-    let results = []
-    const list = fs.readdirSync(dir)
-    for (const file of list) {
-      const fullPath = path.join(dir, file)
-      const stat = fs.statSync(fullPath)
-      if (stat && stat.isDirectory()) {
-        results = results.concat(walkDir(fullPath))
-      } else if (fullPath.endsWith('.js')) {
-        results.push(fullPath)
-      }
-    }
-    return results
-  }
-
-  const jsFiles = walkDir(targetStaticDir)
-  for (const jsFile of jsFiles) {
-    let content = fs.readFileSync(jsFile, 'utf-8')
-    let changed = false
-    if (content.includes('"/arthur-saggioratto.jpg"')) {
-      content = content.replaceAll('"/arthur-saggioratto.jpg"', '"/Squammata-PayloadCMS/arthur-saggioratto.jpg"')
-      changed = true
-    }
-    if (content.includes("'/arthur-saggioratto.jpg'")) {
-      content = content.replaceAll("'/arthur-saggioratto.jpg'", "'/Squammata-PayloadCMS/arthur-saggioratto.jpg'")
-      changed = true
-    }
-    if (content.includes('"/en/arthur"')) {
-      content = content.replaceAll('"/en/arthur"', '"/Squammata-PayloadCMS/en/arthur/"')
-      changed = true
-    }
-    if (content.includes("'/en/arthur'")) {
-      content = content.replaceAll("'/en/arthur'", "'/Squammata-PayloadCMS/en/arthur/'")
-      changed = true
-    }
-    if (content.includes('"/arthur"')) {
-      content = content.replaceAll('"/arthur"', '"/Squammata-PayloadCMS/"')
-      changed = true
-    }
-    if (content.includes("'/arthur'")) {
-      content = content.replaceAll("'/arthur'", "'/Squammata-PayloadCMS/'")
-      changed = true
-    }
-    if (content.includes('"/curriculo_ecommerce_arthursaggioratto.pdf"')) {
-      content = content.replaceAll('"/curriculo_ecommerce_arthursaggioratto.pdf"', '"/Squammata-PayloadCMS/curriculo_ecommerce_arthursaggioratto.pdf"')
-      changed = true
-    }
-    if (content.includes("'/curriculo_ecommerce_arthursaggioratto.pdf'")) {
-      content = content.replaceAll("'/curriculo_ecommerce_arthursaggioratto.pdf'", "'/Squammata-PayloadCMS/curriculo_ecommerce_arthursaggioratto.pdf'")
-      changed = true
-    }
-    if (content.includes('"/resume_ecommerce_arthursaggioratto.pdf"')) {
-      content = content.replaceAll('"/resume_ecommerce_arthursaggioratto.pdf"', '"/Squammata-PayloadCMS/resume_ecommerce_arthursaggioratto.pdf"')
-      changed = true
-    }
-    if (content.includes("'/resume_ecommerce_arthursaggioratto.pdf'")) {
-      content = content.replaceAll("'/resume_ecommerce_arthursaggioratto.pdf'", "'/Squammata-PayloadCMS/resume_ecommerce_arthursaggioratto.pdf'")
-      changed = true
-    }
-    if (changed) {
-      fs.writeFileSync(jsFile, content, 'utf-8')
-    }
-  }
-  console.log('✅ Bundles JS sanitizados com suporte ao subcaminho do repositório.')
+  // Cópia redundante para rotas /en/ e /en/arthur/ e Squammata-PayloadCMS/
+  fs.mkdirSync(path.join(enDir, '_next', 'static', 'css'), { recursive: true })
+  fs.cpSync(nextCssDir, path.join(enDir, '_next', 'static', 'css'), { recursive: true })
+  fs.mkdirSync(path.join(enArthurDir, '_next', 'static', 'css'), { recursive: true })
+  fs.cpSync(nextCssDir, path.join(enArthurDir, '_next', 'static', 'css'), { recursive: true })
+  fs.mkdirSync(path.join(ghSubdir, '_next', 'static', 'css'), { recursive: true })
+  fs.cpSync(nextCssDir, path.join(ghSubdir, '_next', 'static', 'css'), { recursive: true })
 } else {
-  console.warn('⚠️ Diretório .next/static não encontrado. Chunks podem estar ausentes.')
+  console.warn('⚠️ Diretório .next/static/css não encontrado.')
 }
 
 console.log('✨ Exportação estática concluída com sucesso em gh-pages-dist!')

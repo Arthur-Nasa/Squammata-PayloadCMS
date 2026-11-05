@@ -5,12 +5,13 @@ import { getCachedPortfolioSettings } from '@/utilities/getGlobals'
 import { portfolioSchema } from './portfolioSchema'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://squammata.com.br'),
+  metadataBase: new URL('https://arthur-nasa.github.io/Squammata-PayloadCMS'),
   alternates: {
-    canonical: '/arthur',
+    canonical: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/',
     languages: {
-      'pt-BR': '/arthur',
-      'en-US': '/en/arthur',
+      'pt-BR': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/',
+      'en-US': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/en/arthur/',
+      'x-default': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/',
     },
   },
   title: {
@@ -22,13 +23,13 @@ export const metadata: Metadata = {
     title: 'Arthur Saggioratto | Consultor de Crescimento e Rentabilidade para E-commerce',
     description:
       '15 anos de atuação consultiva em governança de margem (POAS), SEO técnico de catálogo, arquitetura de plataformas e destrave de crescimento para e-commerces. Atendimento presencial na RMC, Piracicaba e São Paulo.',
-    url: 'https://squammata.com.br/arthur',
+    url: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/',
     siteName: 'Arthur Saggioratto | Consultoria e Portfólio',
     images: [
       {
-        url: '/arthur-saggioratto.jpg',
-        width: 600,
-        height: 600,
+        url: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/arthur-saggioratto.jpg',
+        width: 720,
+        height: 720,
         alt: 'Arthur Saggioratto: Consultor de Crescimento e Rentabilidade para E-commerce',
       },
     ],
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
     title: 'Arthur Saggioratto | Consultor de Crescimento e Rentabilidade para E-commerce',
     description:
       '15 anos de atuação consultiva em governança de margem (POAS), SEO técnico de catálogo, arquitetura de plataformas e destrave de crescimento para e-commerces. Atendimento presencial na RMC, Piracicaba e São Paulo.',
-    images: ['/arthur-saggioratto.jpg'],
+    images: ['https://arthur-nasa.github.io/Squammata-PayloadCMS/arthur-saggioratto.jpg'],
   },
 }
 

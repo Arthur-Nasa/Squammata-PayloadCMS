@@ -292,17 +292,20 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
 
               <aside className={styles.heroRightCol}>
                 <div className={styles.portraitWrapper}>
-                  <img
-                    src={avatarSrc}
-                    alt="Arthur Saggioratto: Consultor de Crescimento e Rentabilidade para E-commerce"
-                    width={360}
-                    height={360}
-                    className={styles.editorialPortrait}
-                    onError={handleImageFallback}
-                    loading="eager"
-                    fetchPriority="high"
-                    decoding="async"
-                  />
+                  <picture>
+                    <source srcSet={avatarSrc.replace(/\.jpg$/, '.webp')} type="image/webp" />
+                    <img
+                      src={avatarSrc}
+                      alt="Arthur Saggioratto: Consultor de Crescimento e Rentabilidade para E-commerce"
+                      width={360}
+                      height={360}
+                      className={styles.editorialPortrait}
+                      onError={handleImageFallback}
+                      loading="eager"
+                      fetchPriority="high"
+                      decoding="async"
+                    />
+                  </picture>
                   <div className={`${styles.portraitCaption} ${styles.monoFont}`}>
                     ARTHUR SAGGIORATTO • POLO RMC & SÃO PAULO
                   </div>
@@ -688,36 +691,36 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                   </div>
                   <div className={styles.caseBlocksGrid}>
                     <div className={styles.caseOpBlock}>
-                      <h5 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
+                      <h4 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
                         1. Contexto Operacional
-                      </h5>
+                      </h4>
                       <p className={`${styles.opBlockText} ${styles.bodyFont}`}>
                         Operação de e-commerce e marketplace de café especial em expansão, com a meta de conectar dezenas de produtores e marcas artesanais de múltiplos estados brasileiros em uma única experiência fluida sob a plataforma Shopify Plus integrada ao Seller Center Omnik.
                       </p>
                     </div>
 
                     <div className={styles.caseOpBlock}>
-                      <h5 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
+                      <h4 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
                         2. Diagnóstico de Gargalo
-                      </h5>
+                      </h4>
                       <p className={`${styles.opBlockText} ${styles.bodyFont}`}>
                         Descentralização de estoques entre produtores rurais e marcas parceiras, atrito no cálculo de frete multi-origem em tempo real, complexidade na divisão automatizada de recebíveis entre lojistas e risco de elevação desenfreada de CAC nos leilões pagos de café.
                       </p>
                     </div>
 
                     <div className={styles.caseOpBlock}>
-                      <h5 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
+                      <h4 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
                         3. Intervenção Arquitetural
-                      </h5>
+                      </h4>
                       <p className={`${styles.opBlockText} ${styles.bodyFont}`}>
                         Implementação de esteira automatizada no Seller Center Omnik com conectores de catálogo e pedidos para ERPs de lojistas (Bling, Tiny), desenho da arquitetura de split payment nativo em Shopify, estruturação de Topic Clusters com marcação Schema.org em JSON-LD para regiões com Indicação Geográfica e alocação de verba em Google Ads balizada por margem de contribuição (POAS).
                       </p>
                     </div>
 
                     <div className={styles.caseOpBlock}>
-                      <h5 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
+                      <h4 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
                         4. Impacto Financeiro Verificável
-                      </h5>
+                      </h4>
                       <p className={`${styles.opBlockText} ${styles.bodyFont}`}>
                         Crescimento sustentado de <strong>+66% mês a mês (MoM) em GMV</strong>, integração de <strong>mais de 100 lojistas parceiros</strong> com catálogo sincronizado e consolidação da marca como autoridade de busca orgânica e citações em assistentes de inteligência artificial (GEO/AEO).
                       </p>
@@ -783,36 +786,36 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                   </div>
                   <div className={styles.caseBlocksGrid}>
                     <div className={styles.caseOpBlock}>
-                      <h5 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
+                      <h4 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
                         1. Contexto Operacional
-                      </h5>
+                      </h4>
                       <p className={`${styles.opBlockText} ${styles.bodyFont}`}>
                         Plataforma SaaS global para automação de fluxos de dados e planilhas integradas, operando integralmente em língua inglesa para clientes corporativos de médio e grande porte nos Estados Unidos e Europa.
                       </p>
                     </div>
 
                     <div className={styles.caseOpBlock}>
-                      <h5 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
+                      <h4 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
                         2. Diagnóstico de Gargalo
-                      </h5>
+                      </h4>
                       <p className={`${styles.opBlockText} ${styles.bodyFont}`}>
                         Páginas de entrada com tempos de carregamento instáveis (Core Web Vitals), canibalização semântica entre tópicos técnicos e fricção na jornada de ativação dos novos cadastros corporativos, gerando perda prematura de interesse na plataforma.
                       </p>
                     </div>
 
                     <div className={styles.caseOpBlock}>
-                      <h5 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
+                      <h4 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
                         3. Intervenção Arquitetural
-                      </h5>
+                      </h4>
                       <p className={`${styles.opBlockText} ${styles.bodyFont}`}>
                         Condução de auditorias técnicas contínuas em Semrush e Ahrefs, saneamento de métricas LCP e CLS, reformulação da arquitetura de conteúdo em clusters temáticos orientados a soluções de automação e redesign da jornada de onboarding baseado em testes A/B e gravações de navegação.
                       </p>
                     </div>
 
                     <div className={styles.caseOpBlock}>
-                      <h5 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
+                      <h4 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
                         4. Impacto Financeiro Verificável
-                      </h5>
+                      </h4>
                       <p className={`${styles.opBlockText} ${styles.bodyFont}`}>
                         Elevação de <strong>+20% no tempo médio de sessão</strong> dos novos usuários corporativos, recuperação de posicionamentos orgânicos estratégicos para buscas internacionais de alta intenção e redução drástica do churn técnico no funil de ativação.
                       </p>
@@ -885,36 +888,36 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                   </div>
                   <div className={styles.caseBlocksGrid}>
                     <div className={styles.caseOpBlock}>
-                      <h5 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
+                      <h4 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
                         1. Contexto Operacional
-                      </h5>
+                      </h4>
                       <p className={`${styles.opBlockText} ${styles.bodyFont}`}>
                         Operação pioneira no varejo e atacado B2B de máquinas de espresso profissionais e residenciais, suprimentos e assistência técnica, lidando com sazonalidades extremas de final de ano e alta concorrência nacional.
                       </p>
                     </div>
 
                     <div className={styles.caseOpBlock}>
-                      <h5 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
+                      <h4 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
                         2. Diagnóstico de Gargalo
-                      </h5>
+                      </h4>
                       <p className={`${styles.opBlockText} ${styles.bodyFont}`}>
                         Dependência excessiva de leilões pagos de Google Shopping em períodos promocionais (Black Friday), nos quais a escalada do custo por clique (CPC) corrói a margem unitária de produtos com tíquete médio elevado.
                       </p>
                     </div>
 
                     <div className={styles.caseOpBlock}>
-                      <h5 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
+                      <h4 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
                         3. Intervenção Arquitetural
-                      </h5>
+                      </h4>
                       <p className={`${styles.opBlockText} ${styles.bodyFont}`}>
                         Construção de ecossistema de conteúdo editorial técnico e guias definitivos de equipamentos e manutenção, arquitetura de catálogo semântico na plataforma Magento, regras de precificação inteligente no ERP Bling e implantação de canal consultivo via WhatsApp para vendas complexas de alto valor.
                       </p>
                     </div>
 
                     <div className={styles.caseOpBlock}>
-                      <h5 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
+                      <h4 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
                         4. Impacto Financeiro Verificável
-                      </h5>
+                      </h4>
                       <p className={`${styles.opBlockText} ${styles.bodyFont}`}>
                         Crescimento linear de <strong>+20% ao ano (YoY) durante 10 anos consecutivos</strong>, geração de <strong>45% do faturamento da Black Friday via tráfego orgânico gratuito</strong> (sem custo de clique), <strong>+50% em tráfego qualificado</strong> e <strong>+30% na conversão geral do e-commerce</strong>.
                       </p>

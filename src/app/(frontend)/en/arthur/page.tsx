@@ -4,12 +4,13 @@ import { ArthurPortfolioViewEn } from './ArthurPortfolioViewEn'
 import { portfolioSchemaEn } from './portfolioSchemaEn'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://squammata.com.br'),
+  metadataBase: new URL('https://arthur-nasa.github.io/Squammata-PayloadCMS'),
   alternates: {
-    canonical: '/en/arthur',
+    canonical: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/en/arthur/',
     languages: {
-      'pt-BR': '/arthur',
-      'en-US': '/en/arthur',
+      'pt-BR': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/',
+      'en-US': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/en/arthur/',
+      'x-default': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/',
     },
   },
   title: {
@@ -21,13 +22,13 @@ export const metadata: Metadata = {
     title: 'Arthur Saggioratto | E-commerce Growth & Profitability Consultant',
     description:
       '15 years leading e-commerce operations, technical SEO, CRO, performance marketing (Google Ads), and digital P&L governance. Helping businesses break growth plateaus, eliminate operational bottlenecks, and scale sustainably across Shopify Plus, Magento, and VTEX.',
-    url: 'https://squammata.com.br/en/arthur',
+    url: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/en/arthur/',
     siteName: 'Arthur Saggioratto | Executive Portfolio',
     images: [
       {
-        url: '/arthur-saggioratto.jpg',
-        width: 600,
-        height: 600,
+        url: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/arthur-saggioratto.jpg',
+        width: 720,
+        height: 720,
         alt: 'Arthur Saggioratto: E-commerce Growth & Profitability Consultant',
       },
     ],
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     title: 'Arthur Saggioratto | E-commerce Growth & Profitability Consultant',
     description:
       '15 years leading e-commerce operations, technical SEO, CRO, performance marketing (Google Ads), and digital P&L governance. Helping businesses break growth plateaus, eliminate operational bottlenecks, and scale sustainably across Shopify Plus, Magento, and VTEX.',
-    images: ['/arthur-saggioratto.jpg'],
+    images: ['https://arthur-nasa.github.io/Squammata-PayloadCMS/arthur-saggioratto.jpg'],
   },
 }
 

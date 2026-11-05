@@ -266,17 +266,20 @@ export const ArthurPortfolioViewEn: React.FC<ArthurPortfolioViewEnProps> = ({ in
 
               <aside className={styles.heroRightCol}>
                 <div className={styles.portraitWrapper}>
-                  <img
-                    src={avatarSrc}
-                    alt="Arthur Saggioratto: E-commerce Growth & Profitability Consultant"
-                    width={360}
-                    height={360}
-                    className={styles.editorialPortrait}
-                    onError={handleImageFallback}
-                    loading="eager"
-                    fetchPriority="high"
-                    decoding="async"
-                  />
+                  <picture>
+                    <source srcSet={avatarSrc.replace(/\.jpg$/, '.webp')} type="image/webp" />
+                    <img
+                      src={avatarSrc}
+                      alt="Arthur Saggioratto: E-commerce Growth & Profitability Consultant"
+                      width={360}
+                      height={360}
+                      className={styles.editorialPortrait}
+                      onError={handleImageFallback}
+                      loading="eager"
+                      fetchPriority="high"
+                      decoding="async"
+                    />
+                  </picture>
                   <div className={`${styles.portraitCaption} ${styles.monoFont}`}>
                     ARTHUR SAGGIORATTO • POLO RMC & SÃO PAULO
                   </div>
@@ -661,36 +664,36 @@ export const ArthurPortfolioViewEn: React.FC<ArthurPortfolioViewEnProps> = ({ in
                   </div>
                   <div className={styles.caseBlocksGrid}>
                     <div className={styles.caseOpBlock}>
-                      <h5 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
+                      <h4 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
                         1. Operational Context
-                      </h5>
+                      </h4>
                       <p className={`${styles.opBlockText} ${styles.bodyFont}`}>
                         Fast-growing specialty coffee marketplace requiring unified integration of dozens of independent roasters and artisan brands across Brazil into a seamless consumer experience on Shopify Plus with Omnik Seller Center.
                       </p>
                     </div>
 
                     <div className={styles.caseOpBlock}>
-                      <h5 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
+                      <h4 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
                         2. Bottleneck Diagnosis
-                      </h5>
+                      </h4>
                       <p className={`${styles.opBlockText} ${styles.bodyFont}`}>
                         Dispersed warehouse inventories, multi-origin shipping rate calculation friction, complex merchant receivable splits, and the threat of uncontrolled CAC spikes in paid coffee search auctions.
                       </p>
                     </div>
 
                     <div className={styles.caseOpBlock}>
-                      <h5 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
+                      <h4 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
                         3. Architectural Intervention
-                      </h5>
+                      </h4>
                       <p className={`${styles.opBlockText} ${styles.bodyFont}`}>
                         Engineered automated seller onboarding through Omnik connected to merchant ERPs (Bling, Tiny), implemented native Shopify split payments, developed Geographic Indication semantic Topic Clusters with JSON-LD Schema markup, and aligned Google Ads budgets strictly to category contribution margins (POAS).
                       </p>
                     </div>
 
                     <div className={styles.caseOpBlock}>
-                      <h5 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
+                      <h4 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
                         4. Verifiable Financial Impact
-                      </h5>
+                      </h4>
                       <p className={`${styles.opBlockText} ${styles.bodyFont}`}>
                         Delivered sustained <strong>+66% month-over-month (MoM) GMV growth</strong>, integrated <strong>over 100 partner merchants</strong> into the unified catalog, and established dominant organic search authority, earning citations across generative AI engines (GEO/AEO).
                       </p>
@@ -756,36 +759,36 @@ export const ArthurPortfolioViewEn: React.FC<ArthurPortfolioViewEnProps> = ({ in
                   </div>
                   <div className={styles.caseBlocksGrid}>
                     <div className={styles.caseOpBlock}>
-                      <h5 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
+                      <h4 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
                         1. Operational Context
-                      </h5>
+                      </h4>
                       <p className={`${styles.opBlockText} ${styles.bodyFont}`}>
                         Global B2B SaaS platform automating spreadsheet workflows and enterprise data pipelines, operating entirely in English for corporate clients across the United States and Europe.
                       </p>
                     </div>
 
                     <div className={styles.caseOpBlock}>
-                      <h5 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
+                      <h4 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
                         2. Bottleneck Diagnosis
-                      </h5>
+                      </h4>
                       <p className={`${styles.opBlockText} ${styles.bodyFont}`}>
                         Inconsistent Core Web Vitals across high-traffic landing pages, keyword cannibalization across technical workflow queries, and user drop-off during initial workspace onboarding.
                       </p>
                     </div>
 
                     <div className={styles.caseOpBlock}>
-                      <h5 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
+                      <h4 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
                         3. Architectural Intervention
-                      </h5>
+                      </h4>
                       <p className={`${styles.opBlockText} ${styles.bodyFont}`}>
                         Conducted continuous technical auditing via Semrush and Ahrefs, rectified LCP and CLS issues, restructured product content into workflow-driven topic clusters, and redesigned product onboarding based on telemetry recordings and A/B test iterations.
                       </p>
                     </div>
 
                     <div className={styles.caseOpBlock}>
-                      <h5 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
+                      <h4 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
                         4. Verifiable Financial Impact
-                      </h5>
+                      </h4>
                       <p className={`${styles.opBlockText} ${styles.bodyFont}`}>
                         Achieved a <strong>+20% increase in average session duration</strong> for new enterprise users, recovered strategic international organic rankings for high-intent search terms, and mitigated onboarding churn.
                       </p>
@@ -858,36 +861,36 @@ export const ArthurPortfolioViewEn: React.FC<ArthurPortfolioViewEnProps> = ({ in
                   </div>
                   <div className={styles.caseBlocksGrid}>
                     <div className={styles.caseOpBlock}>
-                      <h5 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
+                      <h4 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
                         1. Operational Context
-                      </h5>
+                      </h4>
                       <p className={`${styles.opBlockText} ${styles.bodyFont}`}>
                         Pioneering national retail and B2B distributor of residential and commercial espresso machinery, supplies, and technical servicing operating in an aggressively competitive category.
                       </p>
                     </div>
 
                     <div className={styles.caseOpBlock}>
-                      <h5 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
+                      <h4 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
                         2. Bottleneck Diagnosis
-                      </h5>
+                      </h4>
                       <p className={`${styles.opBlockText} ${styles.bodyFont}`}>
                         Critical over-reliance on paid Google Shopping auctions during fourth-quarter peak events (Black Friday), where surging CPCs threatened unit margins on high-ticket equipment.
                       </p>
                     </div>
 
                     <div className={styles.caseOpBlock}>
-                      <h5 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
+                      <h4 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
                         3. Architectural Intervention
-                      </h5>
+                      </h4>
                       <p className={`${styles.opBlockText} ${styles.bodyFont}`}>
                         Architected an exhaustive technical content knowledge base and machine maintenance manuals, structured semantic catalog taxonomy in Magento, established smart pricing logic in Bling ERP, and implemented consultative WhatsApp CRM closings for premium transactions.
                       </p>
                     </div>
 
                     <div className={styles.caseOpBlock}>
-                      <h5 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
+                      <h4 className={`${styles.opBlockTitle} ${styles.monoFont}`}>
                         4. Verifiable Financial Impact
-                      </h5>
+                      </h4>
                       <p className={`${styles.opBlockText} ${styles.bodyFont}`}>
                         Maintained steady <strong>+20% year-over-year (YoY) compounded growth over 10 consecutive years</strong>, generated <strong>45% of Black Friday revenue via unpaid organic search</strong>, boosted qualified traffic by <strong>+50%</strong>, and increased overall store conversion by <strong>+30%</strong>.
                       </p>
