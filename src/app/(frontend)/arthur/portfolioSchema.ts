@@ -5,7 +5,7 @@ export const portfolioSchema = {
       "@type": "ProfilePage",
       "@id": "https://arthur-nasa.github.io/Squammata-PayloadCMS/#profilepage",
       "url": "https://arthur-nasa.github.io/Squammata-PayloadCMS/",
-      "name": "Arthur Saggioratto | Executivo de Crescimento, E-commerce e Rentabilidade Digital",
+      "name": "Arthur Saggioratto | Consultor de Crescimento e Rentabilidade para E-commerce",
       "isPartOf": {
         "@type": "WebSite",
         "@id": "https://arthur-nasa.github.io/Squammata-PayloadCMS/#website",
@@ -23,115 +23,163 @@ export const portfolioSchema = {
     {
       "@type": "Person",
       "@id": "https://arthur-nasa.github.io/Squammata-PayloadCMS/#person",
-      "name": "Arthur Saggioratto Neto",
+      "name": "Arthur Saggioratto",
       "alternateName": [
-        "Arthur Saggioratto",
+        "Arthur Saggioratto Neto",
         "Arthur Nasa"
       ],
-      "jobTitle": "Head of E-commerce & Growth Executive",
-      "description": "Executivo de E-commerce, Growth e Performance com 15 anos de trajetória prática na condução de operações digitais, unindo governança de P&L, engenharia de SEO técnico/GEO, otimização de conversão (CRO) e mídia de performance orientada à rentabilidade líquida.",
       "url": "https://arthur-nasa.github.io/Squammata-PayloadCMS/",
       "image": "https://arthur-nasa.github.io/Squammata-PayloadCMS/arthur-saggioratto.jpg",
+      "jobTitle": [
+        "Consultor de Crescimento e Rentabilidade para E-commerce",
+        "Consultor de E-commerce e Margem",
+        "Head de E-commerce e Operações"
+      ],
+      "description": "Consultor de E-commerce, Crescimento e Performance com 15 anos de trajetória prática. Especialista em destravar o crescimento de operações comerciais, romper platôs de vendas, integrar tecnologia a ERPs e gerenciar mídia com foco em margem de contribuição (POAS).",
       "email": "mailto:arthur.saggioratto@gmail.com",
       "telephone": "+55-19-99349-7819",
-      "sameAs": [
-        "https://www.linkedin.com/in/arthurnasa",
-        "https://github.com/arthur-nasa",
-        "https://blog.ruadocafe.com.br/author/arthur/"
-      ],
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Campinas e Santa Bárbara d'Oeste",
+        "addressLocality": "Santa Bárbara d'Oeste",
         "addressRegion": "SP",
         "addressCountry": "BR"
       },
       "worksFor": {
         "@type": "Organization",
         "@id": "https://arthur-nasa.github.io/Squammata-PayloadCMS/#organization",
-        "name": "Squammata Consultoria",
+        "name": "Consultoria Squammata",
         "legalName": "31.384.814 ARTHUR SAGGIORATTO NETO ME",
         "taxID": "31.384.814/0001-09",
         "url": "https://arthur-nasa.github.io/Squammata-PayloadCMS/"
       },
       "alumniOf": [
         {
-          "@type": "EducationalOrganization",
+          "@type": "CollegeOrUniversity",
           "name": "Universidade Estadual de Campinas (UNICAMP)",
-          "sameAs": "https://www.wikidata.org/wiki/Q1333333",
-          "description": "Bacharelado em Ciências Sociais (Sociologia), com conclusão prevista para 2027"
+          "sameAs": [
+            "https://www.wikidata.org/wiki/Q1333333",
+            "https://pt.wikipedia.org/wiki/Universidade_Estadual_de_Campinas"
+          ],
+          "description": "Bacharelado em Ciências Sociais (Sociologia), previsão de conclusão em 2027"
         },
         {
-          "@type": "EducationalOrganization",
-          "name": "FAAL (Faculdade de Artes e Administração de Limeira)",
+          "@type": "CollegeOrUniversity",
+          "name": "FAAL (Faculdade de Administração e Artes de Limeira)",
           "description": "Bacharelado em Marketing e Gestão de Vendas, concluído em 2015"
         }
       ],
       "knowsAbout": [
-        "E-commerce Architecture",
-        "Search Engine Optimization (SEO)",
+        "E-commerce Growth",
+        "P&L Governance",
+        "Profit on Ad Spend (POAS)",
+        "SEO Técnico e Semântico",
         "Generative Engine Optimization (GEO)",
         "Conversion Rate Optimization (CRO)",
         "Shopify Plus",
-        "Adobe Commerce / Magento",
         "VTEX",
-        "Google Ads & Performance Max",
-        "P&L Governance & Unit Economics",
-        "Marketplace Integration (Omnik)",
-        "Retail Media"
+        "Magento",
+        "Tiny ERP",
+        "Bling ERP"
       ],
-      "hasOccupation": [
-        {
-          "@type": "Occupation",
-          "name": "Head of E-commerce & Digital Growth",
-          "occupationalCategory": "11-2021.00 - Marketing Managers",
-          "skills": "SEO Técnico, CRO, Gestão de P&L, Omnichannel, Marketplaces, Retail Media"
-        }
+      "sameAs": [
+        "https://linkedin.com/in/arthurnasa",
+        "https://github.com/arthur-nasa",
+        "https://blog.ruadocafe.com.br/author/arthur/"
       ]
     },
     {
-      "@type": "Organization",
-      "@id": "https://arthur-nasa.github.io/Squammata-PayloadCMS/#organization",
-      "name": "Squammata Consultoria",
-      "legalName": "31.384.814 ARTHUR SAGGIORATTO NETO ME",
-      "taxID": "31.384.814/0001-09",
+      "@type": "ProfessionalService",
+      "@id": "https://arthur-nasa.github.io/Squammata-PayloadCMS/#servicos",
+      "name": "Consultoria Squammata • Arthur Saggioratto",
       "url": "https://arthur-nasa.github.io/Squammata-PayloadCMS/",
-      "founder": {
-        "@id": "https://arthur-nasa.github.io/Squammata-PayloadCMS/#person"
-      },
-      "description": "Consultoria técnica educativa e arquitetura de negócios digitais com foco em rentabilidade e eficiência operacional.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Santa Bárbara d'Oeste e Campinas",
-        "addressRegion": "SP",
-        "addressCountry": "BR"
-      }
+      "telephone": "+5519993497819",
+      "email": "arthur.saggioratto@gmail.com",
+      "priceRange": "$$$$",
+      "areaServed": [
+        {
+          "@type": "AdministrativeArea",
+          "name": "Região Metropolitana de Campinas",
+          "sameAs": "https://pt.wikipedia.org/wiki/Regi%C3%A3o_Metropolitana_de_Campinas"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Campinas",
+          "sameAs": "https://pt.wikipedia.org/wiki/Campinas"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Piracicaba",
+          "sameAs": "https://pt.wikipedia.org/wiki/Piracicaba"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Americana",
+          "sameAs": "https://pt.wikipedia.org/wiki/Americana"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Santa Bárbara d'Oeste",
+          "sameAs": "https://pt.wikipedia.org/wiki/Santa_B%C3%A1rbara_d%27Oeste"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "São Paulo",
+          "sameAs": "https://pt.wikipedia.org/wiki/S%C3%A3o_Paulo"
+        },
+        {
+          "@type": "Country",
+          "name": "Brasil"
+        }
+      ],
+      "serviceType": [
+        "Consultoria de E-commerce e Destrave de Crescimento",
+        "Diagnóstico de P&L, DRE e Mídia de Performance",
+        "SEO Técnico para Grandes Catálogos",
+        "Direção Executiva Interina de Operações Digitais"
+      ]
     },
     {
       "@type": "FAQPage",
-      "@id": "https://arthur-nasa.github.io/Squammata-PayloadCMS/#faqpage",
+      "@id": "https://arthur-nasa.github.io/Squammata-PayloadCMS/#faq",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Qual é a atuação de Arthur Saggioratto em operações de e-commerce e tecnologia?",
+          "name": "Como a consultoria atua para tirar e-commerces e empresas da estagnação e destravar o crescimento?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Arthur Saggioratto atua na gestão de rentabilidade e governança de P&L para e-commerce e SaaS, integrando SEO técnico avançado, visibilidade para motores generativos de IA (GEO), testes contínuos de conversão (CRO) e esteiras comerciais que combinam lojas virtuais a marketplaces e ERPs corporativos."
+            "text": "A intervenção identifica exatamente onde estão os gargalos que impedem a empresa de expandir, sejam falhas na conversão do site, desordem na integração de estoques com o ERP, ou leilões de tráfego pago que corroem a margem. A consultoria organiza a engenharia de catálogo (SEO técnico), elimina atritos no checkout (CRO), reestrutura a comunicação de estoques e subordina os anúncios no Google e Meta ao lucro real no DRE (POAS), permitindo romper o platô e retomar a escala com caixa saudável."
           }
         },
         {
           "@type": "Question",
-          "name": "Como a formação na UNICAMP se relaciona com a liderança técnica e comercial?",
+          "name": "Como você equilibra a contratação como consultor com funções executivas para empresas?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A formação em Ciências Sociais pela UNICAMP (conclusão em 2027) fornece o aparato teórico para análise comportamental de consumo, teoria ator-rede e dinâmicas sociotécnicas complexas, diferenciando a estratégia de dados de abordagens mecânicas e integrando métricas financeiras a decisões estruturais de mercado."
+            "text": "Opero com escopos contratuais distintos e transparentes. Para empresas que buscam superar a estagnação e destravar processos, disponibilizo intervenções consultivas práticas com duração de 3 a 6 meses, com planos de ação diretos e acompanhamento técnico sem gerar custos fixos permanentes de diretoria. Para marcas consolidadas e corporações, assumo posições como Head de E-commerce, Diretor de Crescimento ou liderança executiva de transição."
           }
         },
         {
           "@type": "Question",
-          "name": "Qual foi a metodologia por trás do crescimento de 66% MoM na Rua do Café?",
+          "name": "O que significa na prática fazer gestão de mídia paga baseada em POAS e margem de contribuição?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "O crescimento de 66% MoM em GMV foi obtido na fase de expansão do marketplace sob Shopify Plus e Seller Center Omnik, combinando alocação de mídia paga pautada no lucro sobre investimento em anúncios (POAS), arquitetura de Topic Clusters para busca orgânica e split payment nativo para mais de 100 lojistas parceiros."
+            "text": "Ao contrário da métrica comum de ROAS, que avalia apenas o faturamento bruto gerado pelos anúncios sem considerar os custos do produto, a gestão por POAS (Profit on Ad Spend) avalia o lucro líquido que sobra no caixa da empresa após subtrair custo de mercadoria (CMV), impostos, comissões de gateway e frete. O investimento é alocado prioritariamente nos itens que geram dinheiro real para a empresa, e não naqueles que apenas aumentam o faturamento de fachada."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quais plataformas e sistemas de gestão (ERPs) são atendidos nos projetos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Possuo ampla vivência com as principais plataformas do mercado nacional e global, incluindo Shopify Plus, VTEX, Magento e ecossistemas de marketplace como Seller Center Omnik. Na retaguarda de gestão, estruturo integrações completas com ERPs como Tiny, Bling e Totvs, garantindo a sincronização em tempo real de estoques, emissão automatizada de notas e expedição sem atritos logísticos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Há disponibilidade para alinhamentos presenciais em cidades do interior paulista?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim. Com base operacional localizada no interior de São Paulo, realizo visitas técnicas e diagnósticos presenciais nas sedes das empresas em Campinas, Piracicaba, Americana, Santa Bárbara d'Oeste, Limeira e na capital do estado, além de manter reuniões executivas virtuais diárias."
           }
         }
       ]

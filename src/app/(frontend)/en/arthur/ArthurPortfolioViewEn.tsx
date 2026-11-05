@@ -131,10 +131,10 @@ export const ArthurPortfolioViewEn: React.FC<ArthurPortfolioViewEnProps> = ({ in
     }
   }
 
-  const heroEyebrow = '15 YEARS OF DIGITAL OPERATIONS • P&L GOVERNANCE, ARCHITECTURE & ACQUISITION • CAMPINAS & SÃO PAULO'
-  const heroTitle = 'Growth & Digital Profitability Executive'
+  const heroEyebrow = '15 YEARS OF OPERATIONS • MARGIN GOVERNANCE, ARCHITECTURE & ACQUISITION • CAMPINAS, PIRACICABA & SÃO PAULO'
+  const heroTitle = 'E-commerce Growth & Profitability Consultant'
   const heroLead =
-    'Operating at the intersection of financial P&L governance, software engineering, and high-efficiency customer acquisition. For 15 years I have transformed e-commerce operations and digital products into high-margin enterprise assets, connecting technical SEO, generative engine optimization (GEO), conversion rate optimization (CRO), and margin-driven media allocation. Delivering sustainable scale for retail, manufacturing, and tech companies (B2C, B2B, and SaaS) without reckless cash burn.'
+    'Diagnosing and eliminating operational, architectural, and acquisition bottlenecks that stall e-commerce growth. Over 15 years turning stagnant digital channels into high-margin, predictable businesses by integrating technical SEO, generative engine optimization (GEO), conversion rate optimization (CRO), scalable infrastructure, and margin-driven media allocation. Delivering senior consulting and operational leadership for retail, manufacturing, and tech companies across the Campinas/Piracicaba metro region and nationwide.'
   const whatsappUrl = 'https://wa.me/5519993497819'
   const linkedinUrl = 'https://linkedin.com/in/arthurnasa'
   const emailAddress = 'arthur.saggioratto@gmail.com'
@@ -142,18 +142,18 @@ export const ArthurPortfolioViewEn: React.FC<ArthurPortfolioViewEnProps> = ({ in
   const specPj = '31.384.814 ARTHUR SAGGIORATTO NETO ME (Squammata Advisory)'
   const specFormacao = 'B.A. in Social Sciences & Sociology (UNICAMP, expected graduation 2027) & B.A. in Marketing and Sales Management (FAAL, 2015)'
   const specFluencia = 'English (C2 Proficient / Native Fluency for global leadership) | Portuguese (Native)'
-  const specCoreStack = 'Shopify Plus, Magento, VTEX, GA4, GSC, Semrush, Ahrefs, Schema JSON-LD, Next.js'
+  const specCoreStack = 'Shopify Plus, Magento, VTEX, Tiny & Bling ERP, GA4, GSC, Semrush, Schema JSON-LD'
 
   const indicatorCards = defaultIndicatorCards
   const faqEyebrow = 'TRANSPARENCY & METHODOLOGY'
   const faqTitle = 'Frequently Asked Questions & Operational Principles'
   const faqSubtext =
-    'Clear answers regarding contribution margin governance, generative engine optimization, and partnership models.'
+    'Clear answers regarding breaking plateaus, bottleneck elimination, margin governance, and regional presence.'
   const faqItems = defaultFaqItems
 
   const footerCallout =
-    'Available for Executive Leadership roles (Head or Director of E-commerce / Growth), advisory boards, and selective enterprise turnaround engagements.'
-  const footerMetaLine1 = "Arthur Saggioratto Neto • Based in Campinas and Metropolitan Region, executive presence in São Paulo (SP) • Remote and hybrid availability"
+    'Available for growth plateau consulting, executive leadership roles (Head / Director), and advisory boards.'
+  const footerMetaLine1 = "Arthur Saggioratto Neto • Based in Campinas, Piracicaba, and Santa Bárbara d'Oeste, executive presence in São Paulo (SP) • Onsite, hybrid, and remote availability"
   const footerMetaLine2 = 'Corporate Registration (CNPJ): 31.384.814/0001-09 (Squammata Consultoria e Gestão de Projetos Ltda)'
 
   return (
@@ -166,7 +166,7 @@ export const ArthurPortfolioViewEn: React.FC<ArthurPortfolioViewEnProps> = ({ in
               ARTHUR SAGGIORATTO
             </a>
             <span className={`${styles.brandTag} ${styles.monoFont}`}>
-              GROWTH &amp; DIGITAL PROFITABILITY
+              CONSULTING &amp; DIGITAL PROFITABILITY
             </span>
           </div>
 
@@ -268,7 +268,7 @@ export const ArthurPortfolioViewEn: React.FC<ArthurPortfolioViewEnProps> = ({ in
                 <div className={styles.portraitWrapper}>
                   <img
                     src={avatarSrc}
-                    alt="Arthur Saggioratto: Growth & Digital Profitability Executive"
+                    alt="Arthur Saggioratto: E-commerce Growth & Profitability Consultant"
                     width={360}
                     height={360}
                     className={styles.editorialPortrait}
@@ -278,7 +278,7 @@ export const ArthurPortfolioViewEn: React.FC<ArthurPortfolioViewEnProps> = ({ in
                     decoding="async"
                   />
                   <div className={`${styles.portraitCaption} ${styles.monoFont}`}>
-                    ARTHUR SAGGIORATTO • BASE SÃO PAULO
+                    ARTHUR SAGGIORATTO • POLO RMC & SÃO PAULO
                   </div>
                 </div>
 
@@ -1297,74 +1297,47 @@ export const ArthurPortfolioViewEn: React.FC<ArthurPortfolioViewEnProps> = ({ in
         </section>
 
         {/* SEÇÃO 8: CONTRATAÇÃO & ESCOPO EXECUTIVO SQUAMMATA */}
+        {/* SEÇÃO 8: CONTRATAÇÃO & MODELOS DE ATUAÇÃO */}
         <section className={styles.engagementSection} id="contratacao">
           <div className={styles.editorialContainer}>
             <div className={styles.sectionHeadingRow}>
               <div>
-                <span className={`${styles.sectionEyebrow} ${styles.monoFont}`}>SQUAMMATA ADVISORY &amp; CONSULTING</span>
+                <span className={`${styles.sectionEyebrow} ${styles.monoFont}`}>ENGAGEMENT MODELS</span>
                 <h2 className={`${styles.sectionTitle} ${styles.headingFont}`}>
-                  Engagement Framework &amp; Executive Scope
+                  Work &amp; Partnership Formats
                 </h2>
               </div>
               <p className={`${styles.sectionSubtext} ${styles.bodyFont}`}>
-                Four operational pillars for enterprise retailers, manufacturers, and technology providers.
+                Tailored to your business momentum: breaking growth plateaus and eliminating operational bottlenecks via specialized consulting or ongoing executive leadership.
               </p>
             </div>
 
             <div className={styles.engagementGrid}>
-              {/* Pilar I */}
+              {/* Model A */}
               <div className={styles.engagementCard}>
-                <div className={`${styles.cardRomanNumber} ${styles.monoFont}`}>I</div>
+                <div className={`${styles.cardRomanNumber} ${styles.monoFont}`}>MODEL A</div>
                 <h3 className={`${styles.engagementTitle} ${styles.headingFont}`}>
-                  Operational Diagnosis &amp; Technical Auditing
+                  Growth Plateau Breakthrough &amp; Bottleneck Consulting
                 </h3>
                 <p className={`${styles.engagementDesc} ${styles.bodyFont}`}>
-                  Deep technical audit encompassing Technical SEO, Core Web Vitals, conversion rate optimization (CRO), and financial P&amp;L review, diagnosing systemic bottlenecks and gross margin leakages.
+                  Direct diagnostic and intervention for businesses reaching a revenue ceiling or facing stalled online sales. We pinpoint and fix systemic bottlenecks: organic indexation failures, mobile checkout drop-offs, ERP (Bling, Tiny) synchronization gaps, paid ad dependency, and gross margin erosion. Delivering an actionable operational roadmap to unblock your channel, restore cash flow profitability, and ignite sustained compounding growth.
                 </p>
                 <div className={`${styles.engagementSpec} ${styles.monoFont}`}>
-                  FOCUSED SPRINT (3 TO 4 WEEKS)
+                  DIAGNOSTIC SPRINT (3 TO 4 WEEKS) OR EXTENDED GROWTH ADVISORY (3 TO 6 MONTHS) • REGIONAL ONSITE OR REMOTE
                 </div>
               </div>
 
-              {/* Pilar II */}
+              {/* Model B */}
               <div className={styles.engagementCard}>
-                <div className={`${styles.cardRomanNumber} ${styles.monoFont}`}>II</div>
+                <div className={`${styles.cardRomanNumber} ${styles.monoFont}`}>MODEL B</div>
                 <h3 className={`${styles.engagementTitle} ${styles.headingFont}`}>
-                  Platform Architecture &amp; Engineering
+                  Executive Leadership &amp; Operational Transition (Head / Director)
                 </h3>
                 <p className={`${styles.engagementDesc} ${styles.bodyFont}`}>
-                  Design and engineering of robust commerce stacks across Shopify Plus, VTEX, Next.js, and headless commerce, with native ERP connectors, seller centers, and marketplace split payments.
+                  For mid-to-large operations seeking a seasoned executive to steer the digital commerce division, re-architect proprietary storefronts (Shopify Plus, VTEX, Magento), or lead an omnichannel transition. Full-time or fractional engagement directing P&amp;L governance, cross-functional teams, agency partners, catalog expansion, and vendor ecosystems.
                 </p>
                 <div className={`${styles.engagementSpec} ${styles.monoFont}`}>
-                  SYSTEMS ENGINEERING &amp; DEPLOYMENT
-                </div>
-              </div>
-
-              {/* Pilar III */}
-              <div className={styles.engagementCard}>
-                <div className={`${styles.cardRomanNumber} ${styles.monoFont}`}>III</div>
-                <h3 className={`${styles.engagementTitle} ${styles.headingFont}`}>
-                  Performance Acquisition &amp; P&amp;L Governance
-                </h3>
-                <p className={`${styles.engagementDesc} ${styles.bodyFont}`}>
-                  High-efficiency campaign management across Google Ads, Meta Ads, and Retail Media strictly subordinated to actual net contribution margin (POAS), safeguarding budgets against auction inflation.
-                </p>
-                <div className={`${styles.engagementSpec} ${styles.monoFont}`}>
-                  MONTHLY GOVERNANCE &amp; ALLOCATION
-                </div>
-              </div>
-
-              {/* Pilar IV */}
-              <div className={styles.engagementCard}>
-                <div className={`${styles.cardRomanNumber} ${styles.monoFont}`}>IV</div>
-                <h3 className={`${styles.engagementTitle} ${styles.headingFont}`}>
-                  Executive Advisory &amp; Team Enablement
-                </h3>
-                <p className={`${styles.engagementDesc} ${styles.bodyFont}`}>
-                  Educational technical consulting, advisory board participation, and upskilling internal marketing and engineering talent to ensure lasting operational sovereignty.
-                </p>
-                <div className={`${styles.engagementSpec} ${styles.monoFont}`}>
-                  EDUCATIONAL TECHNICAL ADVISORY
+                  EXECUTIVE CONTRACT (FRACTIONAL OR FULL-TIME) • HYBRID (SÃO PAULO &amp; CAMPINAS METRO)
                 </div>
               </div>
             </div>
@@ -1420,7 +1393,7 @@ export const ArthurPortfolioViewEn: React.FC<ArthurPortfolioViewEnProps> = ({ in
                   <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">+55 (19) 99349-7819</a>
                 </div>
                 <div className={styles.footerSignature}>
-                  Arquitetura e resultados / Consultoria técnica educativa
+                  Architecture &amp; measurable outcomes / Growth &amp; profitability consulting
                 </div>
               </div>
             </div>

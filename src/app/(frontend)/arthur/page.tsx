@@ -14,22 +14,22 @@ export const metadata: Metadata = {
     },
   },
   title: {
-    absolute: 'Arthur Saggioratto | Executivo de Crescimento, E-commerce e Rentabilidade Digital',
+    absolute: 'Arthur Saggioratto | Consultor de Crescimento e Rentabilidade para E-commerce',
   },
   description:
-    '15 anos liderando operações de e-commerce, SEO técnico, CRO, mídia de performance (Google Ads) e gestão de P&L. Escala sustentável de GMV e proteção de margem em Shopify Plus, Magento e VTEX.',
+    '15 anos de atuação consultiva em governança de margem (POAS), SEO técnico de catálogo, arquitetura de plataformas e destrave de crescimento para e-commerces. Atendimento presencial na RMC, Piracicaba e São Paulo.',
   openGraph: {
-    title: 'Arthur Saggioratto | Executivo de Crescimento, E-commerce e Rentabilidade Digital',
+    title: 'Arthur Saggioratto | Consultor de Crescimento e Rentabilidade para E-commerce',
     description:
-      '15 anos liderando operações de e-commerce, SEO técnico, CRO, mídia de performance (Google Ads) e gestão de P&L. Escala sustentável de GMV e proteção de margem em Shopify Plus, Magento e VTEX.',
+      '15 anos de atuação consultiva em governança de margem (POAS), SEO técnico de catálogo, arquitetura de plataformas e destrave de crescimento para e-commerces. Atendimento presencial na RMC, Piracicaba e São Paulo.',
     url: 'https://squammata.com.br/arthur',
-    siteName: 'Arthur Saggioratto | Portfólio Executivo',
+    siteName: 'Arthur Saggioratto | Consultoria e Portfólio',
     images: [
       {
         url: '/arthur-saggioratto.jpg',
         width: 600,
         height: 600,
-        alt: 'Arthur Saggioratto: Executivo de Crescimento e Rentabilidade Digital',
+        alt: 'Arthur Saggioratto: Consultor de Crescimento e Rentabilidade para E-commerce',
       },
     ],
     locale: 'pt_BR',
@@ -37,9 +37,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary',
-    title: 'Arthur Saggioratto | Executivo de Crescimento, E-commerce e Rentabilidade Digital',
+    title: 'Arthur Saggioratto | Consultor de Crescimento e Rentabilidade para E-commerce',
     description:
-      '15 anos liderando operações de e-commerce, SEO técnico, CRO, mídia de performance (Google Ads) e gestão de P&L. Escala sustentável de GMV e proteção de margem em Shopify Plus, Magento e VTEX.',
+      '15 anos de atuação consultiva em governança de margem (POAS), SEO técnico de catálogo, arquitetura de plataformas e destrave de crescimento para e-commerces. Atendimento presencial na RMC, Piracicaba e São Paulo.',
     images: ['/arthur-saggioratto.jpg'],
   },
 }

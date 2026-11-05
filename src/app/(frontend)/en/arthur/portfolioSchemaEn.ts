@@ -5,7 +5,7 @@ export const portfolioSchemaEn = {
       "@type": "ProfilePage",
       "@id": "https://arthur-nasa.github.io/Squammata-PayloadCMS/en/arthur/#profilepage",
       "url": "https://arthur-nasa.github.io/Squammata-PayloadCMS/en/arthur/",
-      "name": "Arthur Saggioratto | Growth & Digital Profitability Executive",
+      "name": "Arthur Saggioratto | E-commerce Growth & Profitability Consultant",
       "isPartOf": {
         "@type": "WebSite",
         "@id": "https://arthur-nasa.github.io/Squammata-PayloadCMS/#website",
@@ -28,8 +28,8 @@ export const portfolioSchemaEn = {
         "Arthur Saggioratto",
         "Arthur Nasa"
       ],
-      "jobTitle": "Head of E-commerce & Growth Executive",
-      "description": "Growth & E-commerce Executive with 15 years leading digital operations, technical SEO/GEO, conversion rate optimization (CRO), performance media, and digital P&L governance focused on net profit contribution.",
+      "jobTitle": "E-commerce Growth & Profitability Consultant",
+      "description": "E-commerce Growth & Profitability Consultant with 15 years diagnosing bottlenecks, breaking revenue plateaus, and leading technical SEO/GEO, conversion rate optimization (CRO), performance media, and digital P&L governance.",
       "url": "https://arthur-nasa.github.io/Squammata-PayloadCMS/en/arthur/",
       "image": "https://arthur-nasa.github.io/Squammata-PayloadCMS/arthur-saggioratto.jpg",
       "email": "mailto:arthur.saggioratto@gmail.com",
@@ -82,7 +82,7 @@ export const portfolioSchemaEn = {
       "hasOccupation": [
         {
           "@type": "Occupation",
-          "name": "Head of E-commerce & Digital Growth",
+          "name": "E-commerce Growth & Profitability Consultant",
           "occupationalCategory": "11-2021.00 - Marketing Managers",
           "skills": "Technical SEO, CRO, P&L Governance, Omnichannel, Marketplaces, Retail Media"
         }

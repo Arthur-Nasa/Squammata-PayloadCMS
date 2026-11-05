@@ -1143,7 +1143,7 @@ $font-mono: 'JetBrains Mono', var(--font-space-mono), 'SF Mono', Consolas, monos
 
 .engagementGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   border-top: 1px solid $border-grid;
   border-left: 1px solid $border-grid;
 

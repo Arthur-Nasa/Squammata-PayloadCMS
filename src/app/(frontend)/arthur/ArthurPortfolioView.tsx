@@ -13,31 +13,31 @@ const defaultIndicatorCards = [
     scope: 'Rua do Café (Fase de tração inicial do marketplace)',
     methodology: 'Média mensal ponderada de faturamento transacionado, impulsionada por onboarding de catálogo parceiro e campanhas orientadas por POAS (Profit on Ad Spend).',
     description:
-      'Crescimento mensal sustentado no faturamento da Rua do Café. O resultado veio da alocação de mídia paga no Google e Meta Ads pautada na margem de cada produto, somada a esteiras contínuas de otimização de conversão.',
+      'Crescimento mensal sustentado no faturamento transacionado da Rua do Café. O resultado decorreu da governança de mídia paga orientada à margem de contribuição por produto e esteiras ágeis de conversão.',
   },
   {
     value: '45% na Black Friday via Orgânico',
     label: 'PROTEÇÃO DE MARGEM • SEO TÉCNICO',
-    scope: 'Operação E-commerce (Pico sazonal de novembro)',
-    methodology: 'Faturamento atribuído por modelo First-Click e Last-Non-Direct Click originado exclusivamente de tráfego orgânico via Google, blindando a margem contra inflação de CPC.',
+    scope: 'Máquinas & Café (Pico sazonal de novembro)',
+    methodology: 'Faturamento atribuído por modelo First-Click e Last-Non-Direct Click originado exclusivamente de busca orgânica, blindando o caixa da inflação de leilão.',
     description:
-      'Fatia do faturamento gerada por busca orgânica no pico sazonal de vendas. A maturidade semântica do catálogo protegeu o caixa contra a explosão do custo por clique (CPC) nos leilões de anúncios.',
+      'Fatia do faturamento gerada por busca orgânica no pico sazonal de vendas. A maturidade semântica do catálogo protegeu a margem contra a disparada do custo por clique (CPC) nos leilões de anúncios.',
   },
   {
     value: '10 Anos (+20% YoY)',
-    label: 'CRESCIMENTO LINEAR • MÁQUINAS & CAFÉ',
+    label: 'ESCALA LINEAR • MÁQUINAS & CAFÉ',
     scope: 'Máquinas & Café (Série histórica de 2014 a 2024)',
-    methodology: 'Crescimento auditado de faturamento anual contínuo na venda de maquinário e insumos com fluxo de caixa saudável.',
+    methodology: 'Crescimento auditado de faturamento anual contínuo na venda de maquinário e insumos com preservação de liquidez.',
     description:
-      'Uma década de crescimento contínuo de 20% ao ano na Máquinas & Café (2014 a 2024), consolidando a operação no mercado nacional de máquinas de espresso para pessoas físicas e empresas.',
+      'Uma década de crescimento contínuo de 20% ao ano na Máquinas & Café (2014 a 2024), consolidando a operação no mercado nacional de equipamentos para residências e empresas.',
   },
   {
     value: '+50% Tráfego / +30% Conversão',
     label: 'EFICIÊNCIA DE FUNIL • AQUISIÇÃO & CRO',
     scope: 'Funil Multicanal e Otimização Transacional',
-    methodology: 'Automação de aquisição qualificada e eliminação de pontos de fricção no checkout.',
+    methodology: 'Automação de canais de aquisição qualificada e eliminação de fricções no fluxo de fechamento.',
     description:
-      'Mais visitantes qualificados com maior taxa de fechamento. A automação de canais ampliou o tráfego em 50%, enquanto a eliminação de fricções no checkout aumentou a taxa de conversão em 30%.',
+      'Expansão de volume com ganho proporcional de taxa de fechamento. O tráfego cresceu 50% enquanto as otimizações no checkout aumentaram a conversão em 30%.',
   },
   {
     value: '+20% em Tempo de Sessão',
@@ -45,42 +45,48 @@ const defaultIndicatorCards = [
     scope: 'Sheetgo (Global SaaS, amostragem semestral)',
     methodology: 'Incremento na retenção e navegação de produto aferido via GA4 após testes A/B e redesenho de páginas de destino.',
     description:
-      'Aumento no tempo de uso e exploração da plataforma global de software Sheetgo. O redesign da interface, orientado por dados de navegação e testes práticos, facilitou a ativação dos usuários.',
+      'Aumento na retenção e navegação qualificada da plataforma global de automação Sheetgo. A reformulação da jornada do usuário facilitou a ativação e reduziu desistências.',
   },
   {
     value: '+100 Lojistas Integrados',
-    label: 'ECOSSISTEMA MARKETPLACE • SHOPIFY PLUS & OMNIK',
+    label: 'ECOSSISTEMA MARKETPLACE • SHOPIFY & OMNIK',
     scope: 'Marketplace Enterprise com Seller Center',
-    methodology: 'Arquitetura de catálogo unificado com split payment nativo e sincronização de estoque e pedidos ao ERP.',
+    methodology: 'Catálogo unificado com split payment nativo e sincronização de estoque e pedidos ao ERP de cada lojista.',
     description:
-      'Estruturação técnica e comercial do marketplace em Shopify Plus com Seller Center Omnik, conectando mais de uma centena de marcas parceiras com estoque e pedidos sincronizados ao ERP.',
+      'Estruturação técnica e comercial do ecossistema de marketplace em Shopify Plus com Seller Center Omnik, conectando mais de uma centena de parceiros com estoque e pedidos integrados ao ERP.',
   },
 ]
 
 const defaultFaqItems = [
   {
+    badge: 'ESTAGNAÇÃO & CRESCIMENTO',
+    question: 'Como a consultoria ajuda uma operação de e-commerce que estagnou a destravar o crescimento?',
+    answer:
+      'Toda estagnação tem causas concretas que muitas vezes passam despercebidas na rotina: leilões de anúncios caros que consomem o lucro, páginas lentas que derrubam a conversão no celular, erros de sincronização entre loja e ERP (Bling, Tiny) ou perda de tráfego orgânico para concorrentes. O trabalho começa com um diagnóstico cirúrgico de ponta a ponta na operação e no DRE para isolar os verdadeiros gargalos. Em seguida, implementamos correções técnicas imediatas e um plano de destrave focado em aumentar a margem de contribuição, diversificar os canais de venda e retomar o crescimento sustentável sem queimar caixa.',
+  },
+  {
     badge: 'FINANÇAS & DRE',
     question: 'O que significa subordinar o e-commerce ao DRE e à margem de contribuição?',
     answer:
-      'Muitas operações comemoram um ROAS elevado nos painéis de anúncios enquanto a conta bancária da empresa sofre. Subordinar a operação ao DRE significa gerenciar os canais de venda com base no lucro líquido que realmente sobra no caixa, após abater o custo da mercadoria (CMV), taxas de gateway, fretes e tributos. Trabalhamos orientados pelo POAS (Profit on Ad Spend) para assegurar que cada real investido gere margem de contribuição saudável.',
+      'Muitas empresas comemoram um ROAS elevado nos painéis de anúncios enquanto a conta bancária sofre no final do mês. Subordinar a operação ao Demonstrativo de Resultados (DRE) significa gerenciar os canais com base no lucro líquido real, após abater o custo das mercadorias vendidas (CMV), taxas de gateway, fretes e impostos. Trabalhamos com métricas como o POAS (Profit on Ad Spend), garantindo que cada real alocado em tráfego gere margem de contribuição positiva para a empresa.',
   },
   {
-    badge: 'BUSCA GENERATIVA',
+    badge: 'BUSCA GENERATIVA & IA',
     question: 'Como funciona a preparação para busca em Inteligência Artificial (GEO e AEO)?',
     answer:
-      'Motores como ChatGPT, Perplexity e Google AI Overviews não leem páginas como um leitor comum: eles identificam entidades, autoridades e relações conceituais. Estruturamos os dados do seu e-commerce com marcações semânticas avançadas em Schema.org (JSON-LD) e produzimos conteúdos com autoridade comprovada (E-E-A-T). Com isso, quando um potencial cliente faz perguntas técnicas ou busca recomendações na IA, a sua marca é citada como fonte primária.',
+      'Motores como ChatGPT, Perplexity e Google AI Overviews não leem páginas como um visitante comum: eles identificam entidades, autoridades e relações conceituais. Estruturamos os dados do seu e-commerce com marcações semânticas avançadas em Schema.org (JSON-LD) e produzimos conteúdos com autoridade técnica comprovada (E-E-A-T). Com isso, quando um potencial comprador faz perguntas técnicas ou busca recomendações na IA, a sua marca é citada como fonte de referência.',
   },
   {
-    badge: 'MODELO DE ENGAJAMENTO',
-    question: 'Quais são os formatos de contratação disponíveis para trabalhar com Arthur Saggioratto?',
+    badge: 'ATENDIMENTO REGIONAL',
+    question: 'Arthur atende presencialmente empresas de Campinas, Piracicaba e região?',
     answer:
-      'A atuação ocorre em quatro pilares estruturados pela Squammata: Diagnóstico e Auditoria Operacional (sprints técnicos de 3 a 4 semanas para SEO, CRO e DRE), Arquitetura de Plataformas e Engenharia (Shopify Plus, VTEX e headless), Aquisição de Performance e Governança de P&L (gestão de mídia com foco em lucro líquido), e Advisory Executivo com Formação de Lideranças Internas.',
+      'Sim. Residindo no polo regional entre Campinas, Piracicaba, Americana e Santa Bárbara d\'Oeste, com presença frequente na capital paulista, realizo reuniões presenciais de alinhamento com diretorias, imersões de diagnóstico na sede da empresa e acompanhamento próximo dos times locais, combinando a agilidade do trabalho presencial com rotinas remotas eficientes.',
   },
   {
-    badge: 'SOCIOLOGIA & TÉCNICA',
-    question: 'Por que a formação em Sociologia pela UNICAMP é um diferencial na gestão digital?',
+    badge: 'SOCIOLOGIA & NEGÓCIOS',
+    question: 'Por que a formação em Sociologia pela UNICAMP é um diferencial na gestão de e-commerce?',
     answer:
-      'A graduação em Ciências Sociais pela UNICAMP (conclusão em 2027) capacita a enxergar plataformas, marketplaces e algoritmos como ecossistemas sociotécnicos complexos. Em vez de perseguir atalhos passageiros que queimam a reputação da marca e cansam o cliente, essa fundamentação permite desenhar jornadas de compra transparentes e focadas na fidelização de longo prazo, reduzindo o custo de aquisição (CAC) e elevando o valor de vida do cliente (LTV).',
+      'A formação em Ciências Sociais pela UNICAMP (conclusão prevista para 2027) oferece instrumentos analíticos rigorosos para compreender plataformas digitais e marketplaces como ecossistemas sociotécnicos complexos. Em vez de perseguir atalhos passageiros que cansam o público e depreciam a marca, essa fundamentação permite desenhar jornadas de compra transparentes e duradouras, reduzindo o custo de aquisição (CAC) e fortalecendo o valor de vida do cliente (LTV).',
   },
 ]
 
@@ -132,12 +138,12 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
   }
 
   const heroEyebrow =
-    initialData?.hero?.eyebrow || '15 ANOS DE OPERAÇÃO • GOVERNANÇA DE P&L, ARQUITETURA & AQUISIÇÃO • CAMPINAS & SÃO PAULO'
+    initialData?.hero?.eyebrow || '15 ANOS DE OPERAÇÃO • GOVERNANÇA DE MARGEM, ARQUITETURA & AQUISIÇÃO • CAMPINAS, PIRACICABA & SÃO PAULO'
   const heroTitle =
-    initialData?.hero?.title || 'Executivo de Crescimento e Rentabilidade Digital'
+    initialData?.hero?.title || 'Consultor de Crescimento e Rentabilidade para E-commerce'
   const heroLead =
     initialData?.hero?.lead ||
-    'Atuo na intersecção entre governança financeira de P&L, engenharia de software e aquisição de alta eficiência. Ao longo de 15 anos transformo operações de e-commerce e produtos digitais em ativos de alta margem, conectando SEO técnico, visibilidade em inteligência artificial (GEO), otimização de conversão (CRO) e mídia de performance orientada a lucro líquido. Desenvolvo estratégias para empresas de varejo, indústria e tecnologia (B2C, B2B e SaaS) buscando escala sustentável sem queima ineficiente de caixa.'
+    'Atuo na identificação e eliminação de gargalos operacionais, arquiteturais e de aquisição que travam o crescimento de lojas virtuais e canais digitais. Ao longo de 15 anos transformo operações estagnadas em negócios lucrativos e previsíveis, alinhando SEO técnico, visibilidade em inteligência artificial (GEO), otimização de conversão (CRO), plataformas escaláveis e mídia de performance orientada ao lucro líquido no DRE. Atendimento consultivo e liderança operacional para empresas no interior paulista (Campinas, Piracicaba, Americana, Santa Bárbara d\'Oeste e região) e projetos nacionais.'
   const whatsappUrl = initialData?.hero?.whatsappNumber
     ? `https://wa.me/${initialData.hero.whatsappNumber}`
     : 'https://wa.me/5519993497819'
@@ -151,7 +157,7 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
   const specFluencia =
     initialData?.hero?.specs?.fluencia || 'Português (Nativo) | Inglês (C2 Proficient para liderança e times globais)'
   const specCoreStack =
-    initialData?.hero?.specs?.coreStack || 'Shopify Plus, Magento, VTEX, GA4, GSC, Semrush, Ahrefs, Schema JSON-LD'
+    initialData?.hero?.specs?.coreStack || 'Shopify Plus, Magento, VTEX, Tiny & Bling ERP, GA4, GSC, Semrush, Schema JSON-LD'
 
   const indicatorCards =
     initialData?.indicatorsSection?.cards && initialData.indicatorsSection.cards.length > 0
@@ -162,7 +168,7 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
   const faqTitle = initialData?.faqSection?.title || 'Perguntas Frequentes & Fundamentos da Operação'
   const faqSubtext =
     initialData?.faqSection?.subtext ||
-    'Respostas diretas e didáticas sobre governança de margem, visibilidade em inteligência artificial e modelos de parceria.'
+    'Respostas diretas sobre superação de estagnação, destrave de gargalos, governança de margem e presença regional no interior paulista.'
   const faqItems =
     initialData?.faqSection?.items && initialData.faqSection.items.length > 0
       ? initialData.faqSection.items
@@ -170,9 +176,9 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
 
   const footerCallout =
     initialData?.footer?.callout ||
-    'Aberto a conversas para liderança executiva (Head ou Diretoria), conselhos consultivos e projetos de reestruturação de e-commerce e SEO.'
+    'Aberto a conversas para consultoria de destrave e rompimento de platô, liderança executiva (Head ou Diretoria) e conselhos consultivos.'
   const footerMetaLine1 =
-    initialData?.footer?.metaLine1 || "Arthur Saggioratto Neto • Base em Campinas e Região Metropolitana, presença executiva em São Paulo (SP) • Atuação remota e híbrida"
+    initialData?.footer?.metaLine1 || "Arthur Saggioratto Neto • Base em Campinas, Piracicaba e Santa Bárbara d'Oeste, presença executiva em São Paulo (SP) • Atuação presencial, híbrida e remota"
   const footerMetaLine2 =
     initialData?.footer?.metaLine2 || 'CNPJ: 31.384.814/0001-09 (Squammata Consultoria e Gestão de Projetos Ltda)'
 
@@ -186,7 +192,7 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
               ARTHUR SAGGIORATTO
             </a>
             <span className={`${styles.brandTag} ${styles.monoFont}`}>
-              CRESCIMENTO &amp; RENTABILIDADE DIGITAL
+              CONSULTORIA &amp; RENTABILIDADE DIGITAL
             </span>
           </div>
 
@@ -288,7 +294,7 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                 <div className={styles.portraitWrapper}>
                   <img
                     src={avatarSrc}
-                    alt="Arthur Saggioratto: Executivo de Crescimento e Rentabilidade Digital"
+                    alt="Arthur Saggioratto: Consultor de Crescimento e Rentabilidade para E-commerce"
                     width={360}
                     height={360}
                     className={styles.editorialPortrait}
@@ -298,7 +304,7 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                     decoding="async"
                   />
                   <div className={`${styles.portraitCaption} ${styles.monoFont}`}>
-                    ARTHUR SAGGIORATTO • BASE SÃO PAULO
+                    ARTHUR SAGGIORATTO • POLO RMC & SÃO PAULO
                   </div>
                 </div>
 
@@ -401,7 +407,7 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
               <div>
                 <span className={`${styles.sectionEyebrow} ${styles.monoFont}`}>INDICADORES AUDITADOS</span>
                 <h2 className={`${styles.sectionTitle} ${styles.headingFont}`}>
-                  Indicadores Auditados de Operação e Margem
+                  Métricas de Impacto em Receita e Preservação de Margem
                 </h2>
               </div>
               <p className={`${styles.sectionSubtext} ${styles.bodyFont}`}>
@@ -411,7 +417,7 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
 
             <div className={styles.answerBlockWrap} style={{ marginBottom: '2rem' }}>
               <p className={`${styles.bodyFont}`} style={{ fontSize: '1rem', lineHeight: '1.6', color: '#c5a880', borderLeft: '3px solid #c5a880', paddingLeft: '1rem', margin: '0' }}>
-                A mensuração de impacto operacional conduzida por Arthur Saggioratto subordina todas as métricas de tráfego e mídia paga ao lucro bruto e margem de contribuição. A governança baseada em POAS (Profit on Ad Spend) e atribuição multitoque assegura escala de receita auditável com proteção do fluxo de caixa.
+                A mensuração de impacto operacional conduzida por Arthur Saggioratto subordina todas as métricas de tráfego e mídia paga ao lucro bruto e margem de contribuição. A governança baseada em POAS (Profit on Ad Spend) e atribuição multitoque assegura escala de receita auditável com proteção estrita do fluxo de caixa.
               </p>
             </div>
 
@@ -450,11 +456,11 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
               <div>
                 <span className={`${styles.sectionEyebrow} ${styles.monoFont}`}>SISTEMA DE ESPECIALIDADES</span>
                 <h2 className={`${styles.sectionTitle} ${styles.headingFont}`}>
-                  Matriz de Competências e Engenharia de E-commerce
+                  Engenharia Operacional e Governança de E-commerce
                 </h2>
               </div>
               <p className={`${styles.sectionSubtext} ${styles.bodyFont}`}>
-                Quatro frentes integradas de atuação prática: posicionamento orgânico em buscadores e IA, conversão de usuários, sustentação técnica de plataformas e governança de margem líquida.
+                Quatro frentes integradas de intervenção: posicionamento orgânico em buscadores e IA, engenharia de conversão, infraestrutura de plataformas com ERPs e mídia de performance subordinada ao lucro real.
               </p>
             </div>
 
@@ -1326,75 +1332,47 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
           </div>
         </section>
 
-        {/* SEÇÃO 8: CONTRATAÇÃO & ESCOPO EXECUTIVO SQUAMMATA */}
+        {/* SEÇÃO 8: CONTRATAÇÃO & MODELOS DE ATUAÇÃO */}
         <section className={styles.engagementSection} id="contratacao">
           <div className={styles.editorialContainer}>
             <div className={styles.sectionHeadingRow}>
               <div>
-                <span className={`${styles.sectionEyebrow} ${styles.monoFont}`}>SQUAMMATA CONSULTORIA &amp; ADVISORY</span>
+                <span className={`${styles.sectionEyebrow} ${styles.monoFont}`}>MODELOS DE ATUAÇÃO</span>
                 <h2 className={`${styles.sectionTitle} ${styles.headingFont}`}>
-                  Estrutura de Contratação &amp; Escopo Executivo
+                  Formatos de Trabalho e Contratação
                 </h2>
               </div>
               <p className={`${styles.sectionSubtext} ${styles.bodyFont}`}>
-                Quatro pilares de atuação técnica e societária para empresas de varejo, indústria e tecnologia.
+                Atuação adaptada ao momento da sua empresa: destrave rápido de gargalos operacionais e superação de estagnação via consultoria técnica ou liderança executiva contínua.
               </p>
             </div>
 
             <div className={styles.engagementGrid}>
-              {/* Pilar I */}
+              {/* Modelo A */}
               <div className={styles.engagementCard}>
-                <div className={`${styles.cardRomanNumber} ${styles.monoFont}`}>I</div>
+                <div className={`${styles.cardRomanNumber} ${styles.monoFont}`}>MODELO A</div>
                 <h3 className={`${styles.engagementTitle} ${styles.headingFont}`}>
-                  Diagnóstico &amp; Auditoria Operacional
+                  Consultoria de Rompimento de Platô &amp; Destrave de Crescimento
                 </h3>
                 <p className={`${styles.engagementDesc} ${styles.bodyFont}`}>
-                  Auditoria técnica aprofundada de SEO, Core Web Vitals, taxa de conversão (CRO) e análise do Demonstrativo de Resultados (DRE), identificando gargalos na infraestrutura e vazamentos de margem financeira.
+                  Diagnóstico e intervenção direta para empresas que atingiram um teto de faturamento ou enfrentam estagnação nas vendas online. Identificamos com precisão os gargalos que travam a escala: falhas de indexação orgânica, fricções no checkout, descompasso entre estoque e ERP (Bling, Tiny), dependência excessiva de anúncios pagos e erosão de margem no DRE. Elaboramos e executamos um plano de ação prático para destravar o canal, recuperar a rentabilidade e estabelecer as bases para um novo ciclo de expansão sustentada.
                 </p>
                 <div className={`${styles.engagementSpec} ${styles.monoFont}`}>
-                  SPRINT FECHADO (3 A 4 SEMANAS)
+                  SPRINT DE DIAGNÓSTICO (3 A 4 SEMANAS) OU ACOMPANHAMENTO DE DESTRAVE (3 A 6 MESES) • ATENDIMENTO REGIONAL (CAMPINAS, PIRACICABA E REGIÃO) OU REMOTO
                 </div>
               </div>
 
-              {/* Pilar II */}
+              {/* Modelo B */}
               <div className={styles.engagementCard}>
-                <div className={`${styles.cardRomanNumber} ${styles.monoFont}`}>II</div>
+                <div className={`${styles.cardRomanNumber} ${styles.monoFont}`}>MODELO B</div>
                 <h3 className={`${styles.engagementTitle} ${styles.headingFont}`}>
-                  Arquitetura de Plataformas &amp; Engenharia
+                  Liderança Executiva &amp; Transição Operacional (Head / Diretor)
                 </h3>
                 <p className={`${styles.engagementDesc} ${styles.bodyFont}`}>
-                  Desenho e implantação de ecossistemas em Shopify Plus, VTEX, Next.js e comércio headless, com integração direta a ERPs, sistemas de Seller Center e split payment para marketplaces.
+                  Para médias e grandes operações que buscam um executivo sênior para comandar a divisão de comércio eletrônico, reestruturar o canal próprio (Shopify Plus, VTEX, Magento) ou liderar uma transição multicanal. Atuação com dedicação integral ou fractional na governança de DRE, gestão de equipes internas e agências parceiras, expansão de catálogo e relacionamento com fornecedores.
                 </p>
                 <div className={`${styles.engagementSpec} ${styles.monoFont}`}>
-                  ENGENHARIA E IMPLANTAÇÃO
-                </div>
-              </div>
-
-              {/* Pilar III */}
-              <div className={styles.engagementCard}>
-                <div className={`${styles.cardRomanNumber} ${styles.monoFont}`}>III</div>
-                <h3 className={`${styles.engagementTitle} ${styles.headingFont}`}>
-                  Aquisição de Performance &amp; Governança de P&amp;L
-                </h3>
-                <p className={`${styles.engagementDesc} ${styles.bodyFont}`}>
-                  Gestão estratégica de Google Ads, Meta Ads e Retail Media subordinada ao lucro real da operação (POAS), blindando o orçamento contra CPC inflacionado e maximizando o retorno sobre investimento.
-                </p>
-                <div className={`${styles.engagementSpec} ${styles.monoFont}`}>
-                  GOVERNANÇA MENSAL CONTÍNUA
-                </div>
-              </div>
-
-              {/* Pilar IV */}
-              <div className={styles.engagementCard}>
-                <div className={`${styles.cardRomanNumber} ${styles.monoFont}`}>IV</div>
-                <h3 className={`${styles.engagementTitle} ${styles.headingFont}`}>
-                  Advisory Executivo &amp; Formação de Lideranças
-                </h3>
-                <p className={`${styles.engagementDesc} ${styles.bodyFont}`}>
-                  Consultoria técnica educativa, participação em conselhos consultivos e capacitação de times internos de tecnologia e marketing para garantir autonomia e sustentabilidade da operação a longo prazo.
-                </p>
-                <div className={`${styles.engagementSpec} ${styles.monoFont}`}>
-                  CONSULTORIA TÉCNICA EDUCATIVA
+                  CONTRATAÇÃO EXECUTIVA (CLT / PJ) OU FRACTIONAL HEAD • PRESENÇA HÍBRIDA (SÃO PAULO E POLO DE CAMPINAS)
                 </div>
               </div>
             </div>
@@ -1450,7 +1428,7 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                   <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">+55 (19) 99349-7819</a>
                 </div>
                 <div className={styles.footerSignature}>
-                  Arquitetura e resultados / Consultoria técnica educativa
+                  Arquitetura e resultados / Consultoria de crescimento e rentabilidade
                 </div>
               </div>
             </div>

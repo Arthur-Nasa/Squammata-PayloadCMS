@@ -13,14 +13,14 @@ export const metadata: Metadata = {
     },
   },
   title: {
-    absolute: 'Arthur Saggioratto | Growth & Digital Profitability Executive',
+    absolute: 'Arthur Saggioratto | E-commerce Growth & Profitability Consultant',
   },
   description:
-    '15 years leading e-commerce operations, technical SEO, CRO, performance marketing (Google Ads), and digital P&L governance. Sustainable GMV scaling and margin protection across Shopify Plus, Magento, and VTEX.',
+    '15 years leading e-commerce operations, technical SEO, CRO, performance marketing (Google Ads), and digital P&L governance. Helping businesses break growth plateaus, eliminate operational bottlenecks, and scale sustainably across Shopify Plus, Magento, and VTEX.',
   openGraph: {
-    title: 'Arthur Saggioratto | Growth & Digital Profitability Executive',
+    title: 'Arthur Saggioratto | E-commerce Growth & Profitability Consultant',
     description:
-      '15 years leading e-commerce operations, technical SEO, CRO, performance marketing (Google Ads), and digital P&L governance. Sustainable GMV scaling and margin protection across Shopify Plus, Magento, and VTEX.',
+      '15 years leading e-commerce operations, technical SEO, CRO, performance marketing (Google Ads), and digital P&L governance. Helping businesses break growth plateaus, eliminate operational bottlenecks, and scale sustainably across Shopify Plus, Magento, and VTEX.',
     url: 'https://squammata.com.br/en/arthur',
     siteName: 'Arthur Saggioratto | Executive Portfolio',
     images: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
         url: '/arthur-saggioratto.jpg',
         width: 600,
         height: 600,
-        alt: 'Arthur Saggioratto: Growth & Digital Profitability Executive',
+        alt: 'Arthur Saggioratto: E-commerce Growth & Profitability Consultant',
       },
     ],
     locale: 'en_US',
@@ -36,9 +36,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary',
-    title: 'Arthur Saggioratto | Growth & Digital Profitability Executive',
+    title: 'Arthur Saggioratto | E-commerce Growth & Profitability Consultant',
     description:
-      '15 years leading e-commerce operations, technical SEO, CRO, performance marketing (Google Ads), and digital P&L governance. Sustainable GMV scaling and margin protection across Shopify Plus, Magento, and VTEX.',
+      '15 years leading e-commerce operations, technical SEO, CRO, performance marketing (Google Ads), and digital P&L governance. Helping businesses break growth plateaus, eliminate operational bottlenecks, and scale sustainably across Shopify Plus, Magento, and VTEX.',
     images: ['/arthur-saggioratto.jpg'],
   },
 }
