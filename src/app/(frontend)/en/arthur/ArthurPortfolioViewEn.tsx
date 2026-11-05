@@ -131,10 +131,10 @@ export const ArthurPortfolioViewEn: React.FC<ArthurPortfolioViewEnProps> = ({ in
     }
   }
 
-  const heroEyebrow = '15 YEARS OF OPERATIONS • MARGIN GOVERNANCE, ARCHITECTURE & ACQUISITION • CAMPINAS, PIRACICABA & SÃO PAULO'
-  const heroTitle = 'E-commerce Growth & Profitability Consultant'
+  const heroEyebrow = '15 YEARS OF OPERATIONS • MARGIN GOVERNANCE, ARCHITECTURE & ACQUISITION • GLOBAL & REMOTE EXECUTION'
+  const heroTitle = 'E-commerce Growth & Profitability Executive'
   const heroLead =
-    'Diagnosing and eliminating operational, architectural, and acquisition bottlenecks that stall e-commerce growth. Over 15 years turning stagnant digital channels into high-margin, predictable businesses by integrating technical SEO, generative engine optimization (GEO), conversion rate optimization (CRO), scalable infrastructure, and margin-driven media allocation. Delivering senior consulting and operational leadership for retail, manufacturing, and tech companies across the Campinas/Piracicaba metro region and nationwide.'
+    'Directing digital commerce operations, margin governance, and enterprise architectures for mid-to-large brands globally. Over 15 years scaling high-performance digital channels by integrating technical SEO, generative engine optimization (GEO), conversion rate optimization (CRO), scalable infrastructure, and disciplined digital P&L leadership. Available for Fractional Head of E-commerce, Executive Director, and cross-border digital leadership roles.'
   const whatsappUrl = 'https://wa.me/5519993497819'
   const linkedinUrl = 'https://linkedin.com/in/arthurnasa'
   const emailAddress = 'arthur.saggioratto@gmail.com'
@@ -148,12 +148,12 @@ export const ArthurPortfolioViewEn: React.FC<ArthurPortfolioViewEnProps> = ({ in
   const faqEyebrow = 'TRANSPARENCY & METHODOLOGY'
   const faqTitle = 'Frequently Asked Questions & Operational Principles'
   const faqSubtext =
-    'Clear answers regarding breaking plateaus, bottleneck elimination, margin governance, and regional presence.'
+    'Clear answers regarding executive leadership, margin governance, architecture, and fractional engagement models.'
   const faqItems = defaultFaqItems
 
   const footerCallout =
-    'Available for growth plateau consulting, executive leadership roles (Head / Director), and advisory boards.'
-  const footerMetaLine1 = "Arthur Saggioratto Neto • Based in Campinas, Piracicaba, and Santa Bárbara d'Oeste, executive presence in São Paulo (SP) • Onsite, hybrid, and remote availability"
+    'Available for executive leadership roles (Head / Director), Fractional Executive contracts, and advisory boards.'
+  const footerMetaLine1 = "Arthur Saggioratto Neto • Global remote execution with executive presence in São Paulo • Onsite, hybrid, and remote availability"
   const footerMetaLine2 = 'Corporate Registration (CNPJ): 31.384.814/0001-09 (Squammata Consultoria e Gestão de Projetos Ltda)'
 
   return (
@@ -166,7 +166,7 @@ export const ArthurPortfolioViewEn: React.FC<ArthurPortfolioViewEnProps> = ({ in
               ARTHUR SAGGIORATTO
             </a>
             <span className={`${styles.brandTag} ${styles.monoFont}`}>
-              CONSULTING &amp; DIGITAL PROFITABILITY
+              GROWTH &amp; DIGITAL PROFITABILITY
             </span>
           </div>
 
@@ -270,7 +270,7 @@ export const ArthurPortfolioViewEn: React.FC<ArthurPortfolioViewEnProps> = ({ in
                     <source srcSet={avatarSrc.replace(/\.jpg$/, '.webp')} type="image/webp" />
                     <img
                       src={avatarSrc}
-                      alt="Arthur Saggioratto: E-commerce Growth & Profitability Consultant"
+                      alt="Arthur Saggioratto: E-commerce Growth & Profitability Executive"
                       width={360}
                       height={360}
                       className={styles.editorialPortrait}
@@ -281,7 +281,7 @@ export const ArthurPortfolioViewEn: React.FC<ArthurPortfolioViewEnProps> = ({ in
                     />
                   </picture>
                   <div className={`${styles.portraitCaption} ${styles.monoFont}`}>
-                    ARTHUR SAGGIORATTO • POLO RMC & SÃO PAULO
+                    ARTHUR SAGGIORATTO • GLOBAL EXECUTIVE &amp; FRACTIONAL HEAD
                   </div>
                 </div>
 
@@ -1299,7 +1299,6 @@ export const ArthurPortfolioViewEn: React.FC<ArthurPortfolioViewEnProps> = ({ in
           </div>
         </section>
 
-        {/* SEÇÃO 8: CONTRATAÇÃO & ESCOPO EXECUTIVO SQUAMMATA */}
         {/* SEÇÃO 8: CONTRATAÇÃO & MODELOS DE ATUAÇÃO */}
         <section className={styles.engagementSection} id="contratacao">
           <div className={styles.editorialContainer}>
@@ -1311,36 +1310,36 @@ export const ArthurPortfolioViewEn: React.FC<ArthurPortfolioViewEnProps> = ({ in
                 </h2>
               </div>
               <p className={`${styles.sectionSubtext} ${styles.bodyFont}`}>
-                Tailored to your business momentum: breaking growth plateaus and eliminating operational bottlenecks via specialized consulting or ongoing executive leadership.
+                Tailored for scaling businesses and enterprise brands: fractional leadership for strategic agility, or full-time executive direction to command digital channels and cross-border operations.
               </p>
             </div>
 
             <div className={styles.engagementGrid}>
               {/* Model A */}
               <div className={styles.engagementCard}>
-                <div className={`${styles.cardRomanNumber} ${styles.monoFont}`}>MODEL A</div>
+                <div className={`${styles.cardRomanNumber} ${styles.monoFont}`}>FORMAT 1</div>
                 <h3 className={`${styles.engagementTitle} ${styles.headingFont}`}>
-                  Growth Plateau Breakthrough &amp; Bottleneck Consulting
+                  Fractional Head of E-commerce &amp; Strategic Advisory
                 </h3>
                 <p className={`${styles.engagementDesc} ${styles.bodyFont}`}>
-                  Direct diagnostic and intervention for businesses reaching a revenue ceiling or facing stalled online sales. We pinpoint and fix systemic bottlenecks: organic indexation failures, mobile checkout drop-offs, ERP (Bling, Tiny) synchronization gaps, paid ad dependency, and gross margin erosion. Delivering an actionable operational roadmap to unblock your channel, restore cash flow profitability, and ignite sustained compounding growth.
+                  Senior executive leadership deployed on a flexible, fractional basis. Built for venture-backed, private equity, or mid-to-large operations requiring high-level strategic direction, digital P&amp;L governance, architecture auditing, and cross-functional team orchestration without the immediate overhead of a permanent C-suite executive. Pinpointing systemic bottlenecks, unlocking revenue plateaus, and instilling margin discipline.
                 </p>
                 <div className={`${styles.engagementSpec} ${styles.monoFont}`}>
-                  DIAGNOSTIC SPRINT (3 TO 4 WEEKS) OR EXTENDED GROWTH ADVISORY (3 TO 6 MONTHS) • REGIONAL ONSITE OR REMOTE
+                  FRACTIONAL HEAD OF E-COMMERCE (QUARTERLY OR ANNUAL RETENTION) • REMOTE WORLDWIDE
                 </div>
               </div>
 
               {/* Model B */}
               <div className={styles.engagementCard}>
-                <div className={`${styles.cardRomanNumber} ${styles.monoFont}`}>MODEL B</div>
+                <div className={`${styles.cardRomanNumber} ${styles.monoFont}`}>FORMAT 2</div>
                 <h3 className={`${styles.engagementTitle} ${styles.headingFont}`}>
                   Executive Leadership &amp; Operational Transition (Head / Director)
                 </h3>
                 <p className={`${styles.engagementDesc} ${styles.bodyFont}`}>
-                  For mid-to-large operations seeking a seasoned executive to steer the digital commerce division, re-architect proprietary storefronts (Shopify Plus, VTEX, Magento), or lead an omnichannel transition. Full-time or fractional engagement directing P&amp;L governance, cross-functional teams, agency partners, catalog expansion, and vendor ecosystems.
+                  Dedicated senior executive mandate to command the digital commerce division, lead enterprise re-platforming (Shopify Plus, VTEX, Magento), or scale global omnichannel operations. Full ownership of digital P&amp;L, unit economics, internal engineering and marketing teams, agency ecosystems, and executive board reporting.
                 </p>
                 <div className={`${styles.engagementSpec} ${styles.monoFont}`}>
-                  EXECUTIVE CONTRACT (FRACTIONAL OR FULL-TIME) • HYBRID (SÃO PAULO &amp; CAMPINAS METRO)
+                  EXECUTIVE CONTRACT (CLT / PJ), FRACTIONAL HEAD OR ADVISORY BOARD • REMOTE OR HYBRID
                 </div>
               </div>
             </div>
@@ -1396,7 +1395,7 @@ export const ArthurPortfolioViewEn: React.FC<ArthurPortfolioViewEnProps> = ({ in
                   <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">+55 (19) 99349-7819</a>
                 </div>
                 <div className={styles.footerSignature}>
-                  Architecture &amp; measurable outcomes / Growth &amp; profitability consulting
+                  Enterprise digital architecture &amp; measurable unit economics / Global executive leadership
                 </div>
               </div>
             </div>

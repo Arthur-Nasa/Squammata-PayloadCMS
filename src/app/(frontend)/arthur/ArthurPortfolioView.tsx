@@ -1346,36 +1346,36 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                 </h2>
               </div>
               <p className={`${styles.sectionSubtext} ${styles.bodyFont}`}>
-                Atuação adaptada ao momento da sua empresa: destrave rápido de gargalos operacionais e superação de estagnação via consultoria técnica ou liderança executiva contínua.
+                Atuação adaptada ao momento da sua empresa: intervenção consultiva para destrave de gargalos e rompimento de platô em médias operações, ou liderança executiva contínua e interina (Head de E-commerce / Diretor) para corporações em escala.
               </p>
             </div>
 
             <div className={styles.engagementGrid}>
               {/* Modelo A */}
               <div className={styles.engagementCard}>
-                <div className={`${styles.cardRomanNumber} ${styles.monoFont}`}>MODELO A</div>
+                <div className={`${styles.cardRomanNumber} ${styles.monoFont}`}>FORMATO 1</div>
                 <h3 className={`${styles.engagementTitle} ${styles.headingFont}`}>
-                  Consultoria de Rompimento de Platô &amp; Destrave de Crescimento
+                  Consultoria de Tração &amp; Rompimento de Platô
                 </h3>
                 <p className={`${styles.engagementDesc} ${styles.bodyFont}`}>
-                  Diagnóstico e intervenção direta para empresas que atingiram um teto de faturamento ou enfrentam estagnação nas vendas online. Identificamos com precisão os gargalos que travam a escala: falhas de indexação orgânica, fricções no checkout, descompasso entre estoque e ERP (Bling, Tiny), dependência excessiva de anúncios pagos e erosão de margem no DRE. Elaboramos e executamos um plano de ação prático para destravar o canal, recuperar a rentabilidade e estabelecer as bases para um novo ciclo de expansão sustentada.
+                  Diagnóstico cirúrgico e intervenção direta para empresas que atingiram um teto de faturamento ou enfrentam estagnação nas vendas online. Identificamos com precisão os gargalos que travam a escala: falhas de indexação técnica e orgânica, fricções no checkout, descompasso entre estoque e ERP (Bling, Tiny), dependência excessiva de anúncios pagos e erosão de margem no DRE. Elaboramos e executamos um plano de ação prático para destravar o canal, recuperar a rentabilidade e estabelecer as bases para um novo ciclo de expansão sustentada.
                 </p>
                 <div className={`${styles.engagementSpec} ${styles.monoFont}`}>
-                  SPRINT DE DIAGNÓSTICO (3 A 4 SEMANAS) OU ACOMPANHAMENTO DE DESTRAVE (3 A 6 MESES) • ATENDIMENTO REGIONAL (CAMPINAS, PIRACICABA E REGIÃO) OU REMOTO
+                  SPRINT DE DIAGNÓSTICO (3 A 4 SEMANAS) OU ACOMPANHAMENTO DE DESTRAVE (3 A 6 MESES) • ATENDIMENTO REGIONAL (POLO DE CAMPINAS E PIRACICABA) OU REMOTO
                 </div>
               </div>
 
               {/* Modelo B */}
               <div className={styles.engagementCard}>
-                <div className={`${styles.cardRomanNumber} ${styles.monoFont}`}>MODELO B</div>
+                <div className={`${styles.cardRomanNumber} ${styles.monoFont}`}>FORMATO 2</div>
                 <h3 className={`${styles.engagementTitle} ${styles.headingFont}`}>
-                  Liderança Executiva &amp; Transição Operacional (Head / Diretor)
+                  Liderança Executiva &amp; Gestão Contínua (Head / Diretor / Fractional)
                 </h3>
                 <p className={`${styles.engagementDesc} ${styles.bodyFont}`}>
-                  Para médias e grandes operações que buscam um executivo sênior para comandar a divisão de comércio eletrônico, reestruturar o canal próprio (Shopify Plus, VTEX, Magento) ou liderar uma transição multicanal. Atuação com dedicação integral ou fractional na governança de DRE, gestão de equipes internas e agências parceiras, expansão de catálogo e relacionamento com fornecedores.
+                  Para médias e grandes corporações que necessitam de um executivo de estatura sênior para comandar a divisão de comércio eletrônico, reestruturar o canal próprio (Shopify Plus, VTEX, Magento) ou liderar uma transição multicanal. Atuação com dedicação integral (CLT/PJ) ou fractional na governança rigorosa de DRE, gestão de equipes internas e agências parceiras, expansão de catálogo e relacionamento com fornecedores.
                 </p>
                 <div className={`${styles.engagementSpec} ${styles.monoFont}`}>
-                  CONTRATAÇÃO EXECUTIVA (CLT / PJ) OU FRACTIONAL HEAD • PRESENÇA HÍBRIDA (SÃO PAULO E POLO DE CAMPINAS)
+                  CONTRATAÇÃO EXECUTIVA (PJ OU CLT), FRACTIONAL HEAD OU CONSELHO CONSULTIVO • PRESENÇA HÍBRIDA (SÃO PAULO E POLO DE CAMPINAS) OU REMOTA
                 </div>
               </div>
             </div>

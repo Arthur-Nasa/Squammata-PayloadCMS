@@ -14,14 +14,14 @@ export const metadata: Metadata = {
     },
   },
   title: {
-    absolute: 'Arthur Saggioratto | E-commerce Growth & Profitability Consultant',
+    absolute: 'Arthur Saggioratto | E-commerce Growth & Profitability Executive',
   },
   description:
-    '15 years leading e-commerce operations, technical SEO, CRO, performance marketing (Google Ads), and digital P&L governance. Helping businesses break growth plateaus, eliminate operational bottlenecks, and scale sustainably across Shopify Plus, Magento, and VTEX.',
+    '15 years directing e-commerce operations, digital P&L governance, technical SEO/GEO, CRO, and omnichannel architecture across Shopify Plus, Magento, and VTEX. Available for global executive leadership, Fractional Head of E-commerce, and board advisory.',
   openGraph: {
-    title: 'Arthur Saggioratto | E-commerce Growth & Profitability Consultant',
+    title: 'Arthur Saggioratto | E-commerce Growth & Profitability Executive',
     description:
-      '15 years leading e-commerce operations, technical SEO, CRO, performance marketing (Google Ads), and digital P&L governance. Helping businesses break growth plateaus, eliminate operational bottlenecks, and scale sustainably across Shopify Plus, Magento, and VTEX.',
+      '15 years directing e-commerce operations, digital P&L governance, technical SEO/GEO, CRO, and omnichannel architecture across Shopify Plus, Magento, and VTEX. Available for global executive leadership, Fractional Head of E-commerce, and board advisory.',
     url: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/en/arthur/',
     siteName: 'Arthur Saggioratto | Executive Portfolio',
     images: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
         url: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/arthur-saggioratto.jpg',
         width: 720,
         height: 720,
-        alt: 'Arthur Saggioratto: E-commerce Growth & Profitability Consultant',
+        alt: 'Arthur Saggioratto: E-commerce Growth & Profitability Executive',
       },
     ],
     locale: 'en_US',
@@ -37,9 +37,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary',
-    title: 'Arthur Saggioratto | E-commerce Growth & Profitability Consultant',
+    title: 'Arthur Saggioratto | E-commerce Growth & Profitability Executive',
     description:
-      '15 years leading e-commerce operations, technical SEO, CRO, performance marketing (Google Ads), and digital P&L governance. Helping businesses break growth plateaus, eliminate operational bottlenecks, and scale sustainably across Shopify Plus, Magento, and VTEX.',
+      '15 years directing e-commerce operations, digital P&L governance, technical SEO/GEO, CRO, and omnichannel architecture across Shopify Plus, Magento, and VTEX. Available for global executive leadership, Fractional Head of E-commerce, and board advisory.',
     images: ['https://arthur-nasa.github.io/Squammata-PayloadCMS/arthur-saggioratto.jpg'],
   },
 }
