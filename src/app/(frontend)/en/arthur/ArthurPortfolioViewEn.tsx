@@ -171,12 +171,12 @@ export const ArthurPortfolioViewEn: React.FC<ArthurPortfolioViewEnProps> = ({ in
           </div>
 
           <nav className={styles.headerNav} aria-label="Executive Navigation">
-            <a href="#impacto" className={styles.navLink}>Impact &amp; P&amp;L</a>
-            <a href="#matriz" className={styles.navLink}>Technical Matrix</a>
-            <a href="#casos" className={styles.navLink}>Results Anatomy</a>
+            <a href="#impacto" className={styles.navLink}>Impact</a>
+            <a href="#matriz" className={styles.navLink}>Capabilities</a>
+            <a href="#casos" className={styles.navLink}>Case Studies</a>
             <a href="#cronologia" className={styles.navLink}>Timeline</a>
             <a href="#contratacao" className={styles.navLink}>Engagement</a>
-            <a href="#faq" className={styles.navLink}>FAQ &amp; Method</a>
+            <a href="#faq" className={styles.navLink}>FAQ</a>
           </nav>
 
           <div className={styles.headerActions}>
@@ -201,7 +201,7 @@ export const ArthurPortfolioViewEn: React.FC<ArthurPortfolioViewEnProps> = ({ in
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.btnPrimary}
+              className={`${styles.btnPrimary} ${styles.headerWhatsappBtn}`}
             >
               <span>WhatsApp ↗</span>
             </a>
@@ -401,7 +401,7 @@ export const ArthurPortfolioViewEn: React.FC<ArthurPortfolioViewEnProps> = ({ in
             <div className={styles.tabularGrid}>
               {indicatorCards.map((card: any, idx: number) => (
                 <div key={card.id || idx} className={styles.tabularCell}>
-                  <div className={`${styles.tabularValue} ${styles.monoFont}`}>
+                  <div className={styles.tabularValue}>
                     {card.value}
                   </div>
                   <div className={`${styles.tabularLabel} ${styles.monoFont}`}>

@@ -202,7 +202,7 @@ function adaptHtmlContent(html, isSubdir = false, lang = 'pt') {
     .replaceAll('href="../../index.html"', 'href="/Squammata-PayloadCMS/"')
 
   // 6. Preload de alta prioridade da imagem de autor no formato WebP e fontes
-  const fontLinks = '<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" /><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Quicksand:wght@500;600;700&family=Zilla+Slab:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />'
+  const fontLinks = '<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" /><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />'
   const imagePreload = `<link rel="preload" as="image" href="${prefix}/arthur-saggioratto.webp" type="image/webp" fetchpriority="high" />`
 
   // Remover preloads e fontes antigos se existirem

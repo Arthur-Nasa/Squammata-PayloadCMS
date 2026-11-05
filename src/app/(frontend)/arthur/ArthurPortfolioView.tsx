@@ -16,7 +16,7 @@ const defaultIndicatorCards = [
       'Crescimento mensal sustentado no faturamento transacionado da Rua do Café. O resultado decorreu da governança de mídia paga orientada à margem de contribuição por produto e esteiras ágeis de conversão.',
   },
   {
-    value: '45% na Black Friday via Orgânico',
+    value: '45% na Black Friday (SEO)',
     label: 'PROTEÇÃO DE MARGEM • SEO TÉCNICO',
     scope: 'Máquinas & Café (Pico sazonal de novembro)',
     methodology: 'Faturamento atribuído por modelo First-Click e Last-Non-Direct Click originado exclusivamente de busca orgânica, blindando o caixa da inflação de leilão.',
@@ -197,12 +197,12 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
           </div>
 
           <nav className={styles.headerNav} aria-label="Navegação Editorial">
-            <a href="#impacto" className={styles.navLink}>Impacto &amp; DRE</a>
-            <a href="#matriz" className={styles.navLink}>Matriz Técnica</a>
-            <a href="#casos" className={styles.navLink}>Anatomia de Resultados</a>
+            <a href="#impacto" className={styles.navLink}>Impacto</a>
+            <a href="#matriz" className={styles.navLink}>Especialidades</a>
+            <a href="#casos" className={styles.navLink}>Casos</a>
             <a href="#cronologia" className={styles.navLink}>Trajetória</a>
             <a href="#contratacao" className={styles.navLink}>Contratação</a>
-            <a href="#faq" className={styles.navLink}>Dúvidas &amp; Método</a>
+            <a href="#faq" className={styles.navLink}>FAQ</a>
           </nav>
 
           <div className={styles.headerActions}>
@@ -227,7 +227,7 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.btnPrimary}
+              className={`${styles.btnPrimary} ${styles.headerWhatsappBtn}`}
             >
               <span>WhatsApp ↗</span>
             </a>
@@ -427,7 +427,7 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
             <div className={styles.tabularGrid}>
               {indicatorCards.map((card: any, idx: number) => (
                 <div key={card.id || idx} className={styles.tabularCell}>
-                  <div className={`${styles.tabularValue} ${styles.monoFont}`}>
+                  <div className={styles.tabularValue}>
                     {card.value}
                   </div>
                   <div className={`${styles.tabularLabel} ${styles.monoFont}`}>
