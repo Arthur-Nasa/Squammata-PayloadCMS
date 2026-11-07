@@ -316,13 +316,56 @@ $font-editorial: 'Zilla Slab', Georgia, serif;
   font-size: clamp(1.1rem, 1.35vw, 1.25rem);
   line-height: 1.65;
   color: #E2E8F0;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   max-width: 860px;
 
   @media (max-width: 768px) {
     font-size: 1.05rem;
     line-height: 1.6;
   }
+}
+
+.heroAnswerBlock {
+  margin: 0 0 2rem 0;
+  background: linear-gradient(180deg, rgba(34, 197, 94, 0.05) 0%, rgba(17, 23, 21, 0.7) 100%);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-left: 3px solid #22C55E;
+  border-radius: 6px;
+  padding: 1.15rem 1.4rem;
+  max-width: 860px;
+
+  @media (max-width: 768px) {
+    padding: 1rem 1.15rem;
+  }
+}
+
+.heroAnswerBlockLabel {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #22C55E;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: #22C55E;
+    border-radius: 50%;
+  }
+}
+
+.heroAnswerBlockText {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #F1F5F9;
+  margin: 0;
+  font-weight: 500;
 }
 
 .heroActions {
@@ -1010,6 +1053,54 @@ $font-editorial: 'Zilla Slab', Georgia, serif;
   border-radius: 4px;
 }
 
+.spokeNavBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: $font-heading;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #F1F5F9;
+  background-color: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  padding: 0.55rem 0.9rem;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-top: 0.75rem;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: rgba(212, 175, 55, 0.22);
+    border-color: #D4AF37;
+    color: #FFFFFF;
+  }
+}
+
+.spokeCardBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-family: $font-heading;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #0B0F0E;
+  background-color: #D4AF37;
+  border: 1px solid #D4AF37;
+  padding: 0.6rem 0.95rem;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-top: 1rem;
+  transition: all 0.15s ease;
+  width: 100%;
+  text-align: center;
+
+  &:hover {
+    background-color: #E5C358;
+    border-color: #E5C358;
+  }
+}
+
 /* --- SEÇÃO 6: FUNDAMENTAÇÃO ACADÊMICA & PUBLICAÇÕES --- */
 .academicSection {
   background-color: $bg-secondary;
@@ -1618,3 +1709,507 @@ $font-editorial: 'Zilla Slab', Georgia, serif;
   text-transform: uppercase;
   padding: 0.4rem 0;
 }
+
+/* ==========================================================================
+   NOVOS COMPONENTES: BARRA DE DOSSIÊS, TEASERS, LIVRO-RAZÃO, BLOG & NEWSLETTER
+   ========================================================================== */
+
+/* 1. BARRA DE ACESSO RÁPIDO AOS DOSSIÊS NO HERO */
+.dossierQuickNav {
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.dossierQuickLabel {
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94A3B8;
+  font-weight: 600;
+}
+
+.dossierQuickLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.dossierQuickPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: $font-heading;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #E2E8F0;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 0.42rem 0.85rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+
+  &:hover {
+    color: #FFFFFF;
+    background-color: rgba(212, 175, 55, 0.12);
+    border-color: #D4AF37;
+  }
+}
+
+/* 2. TEASER DE ARTEFATOS EXCLUSIVOS NOS CARTÕES DE CASO */
+.spokeTeaserBox {
+  margin-top: 1.15rem;
+  padding: 0.85rem 1rem;
+  background-color: rgba(212, 175, 55, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-left: 3px solid #D4AF37;
+  border-radius: 4px;
+}
+
+.spokeTeaserTitle {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #D4AF37;
+  font-weight: 700;
+  margin-bottom: 0.45rem;
+}
+
+.spokeTeaserList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+
+  li {
+    font-size: 0.8rem;
+    color: #CBD5E1;
+    line-height: 1.45;
+    position: relative;
+    padding-left: 0.95rem;
+
+    &::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      top: -1px;
+      color: #D4AF37;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+  }
+}
+
+/* 3. LIVRO-RAZÃO CRONOLÓGICO (CRONOLOGIA CONDENSADA) */
+.ledgerGrid {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid $border-grid;
+}
+
+.ledgerRow {
+  display: grid;
+  grid-template-columns: 200px 300px 1fr auto;
+  gap: 1.5rem;
+  align-items: baseline;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background-color 0.15s ease;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 160px 240px 1fr;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 1.25rem 0;
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+  }
+}
+
+.ledgerPeriod {
+  font-size: 0.82rem;
+  color: #D4AF37;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.ledgerEntity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.ledgerCompany {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.ledgerRole {
+  font-size: 0.84rem;
+  color: #94A3B8;
+  line-height: 1.35;
+}
+
+.ledgerModalityBadge {
+  display: inline-block;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #22C55E;
+  background-color: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+  width: fit-content;
+  margin-top: 0.2rem;
+}
+
+.ledgerDesc {
+  font-size: 0.92rem;
+  color: #CBD5E1;
+  line-height: 1.5;
+  margin: 0;
+
+  strong {
+    color: #FFFFFF;
+    font-weight: 600;
+  }
+}
+
+.ledgerActionCol {
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 1024px) {
+    grid-column: span 3;
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    grid-column: 1;
+    margin-top: 0.35rem;
+  }
+}
+
+.ledgerLinkBtn {
+  font-family: $font-mono;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #D4AF37;
+  text-decoration: none;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  background-color: rgba(212, 175, 55, 0.06);
+  padding: 0.35rem 0.75rem;
+  border-radius: 3px;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background-color: rgba(212, 175, 55, 0.18);
+    border-color: #D4AF37;
+    color: #FFFFFF;
+  }
+}
+
+/* 4. SEÇÃO DE BLOG & CADERNO EDITORIAL */
+.blogSection {
+  background-color: $bg-secondary;
+  padding: 5rem 0;
+  border-bottom: 1px solid $border-grid;
+}
+
+.blogGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 680px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.blogCard {
+  background-color: #0B0F0E;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: rgba(212, 175, 55, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  }
+}
+
+.blogCardPlaceholder {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+.blogCardTop {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.blogCardMetaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.blogCardBadge {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #22C55E;
+  background-color: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+  font-weight: 700;
+}
+
+.blogCardBadgeReserved {
+  color: #D4AF37;
+  background-color: rgba(212, 175, 55, 0.1);
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+.blogCardDate {
+  font-size: 0.74rem;
+  color: #8592A3;
+}
+
+.blogCardTitle {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #F1F5F9;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.blogCardExcerpt {
+  font-size: 0.92rem;
+  color: #94A3B8;
+  line-height: 1.55;
+  margin: 0.5rem 0 0 0;
+}
+
+.blogCardFooter {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.blogCardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: $font-heading;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #D4AF37;
+  text-decoration: none;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: #FFFFFF;
+  }
+}
+
+.blogReservedNotice {
+  font-size: 0.78rem;
+  color: #8592A3;
+  line-height: 1.4;
+}
+
+/* 5. SEÇÃO DE NEWSLETTER & BOLETIM EXECUTIVO */
+.newsletterSection {
+  background-color: #0B0F0E;
+  padding: 4.5rem 0;
+  border-bottom: 1px solid $border-grid;
+}
+
+.newsletterBox {
+  background: linear-gradient(180deg, #111715 0%, #0D1210 100%);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-left: 4px solid #D4AF37;
+  border-radius: 8px;
+  padding: 3rem;
+  max-width: 1040px;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    padding: 1.75rem 1.25rem;
+  }
+}
+
+.newsletterHeader {
+  max-width: 780px;
+}
+
+.newsletterBadge {
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #D4AF37;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.newsletterTitle {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.25;
+  margin: 0 0 0.85rem 0;
+
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+  }
+}
+
+.newsletterDesc {
+  font-size: 1.02rem;
+  color: #CBD5E1;
+  line-height: 1.6;
+  margin: 0 0 1.75rem 0;
+
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+  }
+}
+
+.newsletterForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.newsletterInputGroup {
+  display: flex;
+  gap: 0.75rem;
+  max-width: 680px;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+}
+
+.newsletterInput {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #F1F5F9;
+  font-family: $font-mono;
+  font-size: 0.92rem;
+  padding: 0.8rem 1.15rem;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+
+  &::placeholder {
+    color: #64748B;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #D4AF37;
+    background-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+  }
+}
+
+.newsletterSubmit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background-color: #D4AF37;
+  color: #0B0F0E;
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.8rem 1.6rem;
+  border: 1px solid #D4AF37;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background-color: #E5C358;
+    border-color: #E5C358;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.newsletterPrivacy {
+  font-size: 0.78rem;
+  color: #8592A3;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.newsletterSuccess {
+  background-color: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  border-radius: 4px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.newsletterSuccessTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #22C55E;
+  letter-spacing: 0.02em;
+}
+
+.newsletterSuccessText {
+  font-size: 0.9rem;
+  color: #E2E8F0;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.newsletterErrorText {
+  font-size: 0.82rem;
+  color: #EF4444;
+  margin-top: 0.25rem;
+}
+

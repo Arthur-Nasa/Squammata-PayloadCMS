@@ -1,0 +1,626 @@
+/* ==========================================================================
+   ESTILOS PARA SUB-PÁGINAS / SPOKES (ARQUITETURA HUB-AND-SPOKE)
+   ARTHUR SAGGIORATTO | DOSSIÊS TÉCNICOS & TESES DE GOVERNANÇA
+   ========================================================================== */
+
+$bg-primary: #0B0F0E;
+$bg-secondary: #111715;
+$border-grid: rgba(255, 255, 255, 0.13);
+$border-grid-strong: rgba(255, 255, 255, 0.22);
+$border-grid-subtle: rgba(255, 255, 255, 0.08);
+
+$text-primary: #F1F5F9;
+$text-secondary: #CBD5E1;
+$text-tertiary: #94A3B8;
+$text-lead: #E2E8F0;
+
+$accent-primary: #15803D;
+$accent-positive: #22C55E;
+$accent-secondary: #D4AF37;
+
+$font-heading: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+$font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$font-mono: 'JetBrains Mono', 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+
+.spokePage {
+  background-color: $bg-primary;
+  color: $text-primary;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  font-family: $font-body;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  ::selection {
+    background-color: $accent-primary;
+    color: #FFFFFF;
+  }
+}
+
+.headingFont {
+  font-family: $font-heading;
+  letter-spacing: -0.02em;
+}
+
+.bodyFont {
+  font-family: $font-body;
+}
+
+.monoFont {
+  font-family: $font-mono;
+}
+
+/* --- HEADER EDITORIAL MINIMALISTA --- */
+.editorialHeader {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(11, 15, 14, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid $border-grid;
+  width: 100%;
+}
+
+.headerContainer {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0.9rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.headerBrand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brandTitle {
+  font-family: $font-heading;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #FFFFFF;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.brandTag {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: $accent-secondary;
+  border-left: 1px solid $border-grid;
+  padding-left: 0.85rem;
+  white-space: nowrap;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.btnBackHub {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: $font-heading;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #F1F5F9;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid $border-grid;
+  padding: 0.45rem 0.9rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: $border-grid-strong;
+    color: #FFFFFF;
+  }
+}
+
+.btnWhatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: $font-heading;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #0B0F0E;
+  background-color: #22C55E;
+  border: 1px solid #22C55E;
+  padding: 0.45rem 0.9rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background-color: #16A34A;
+    border-color: #16A34A;
+  }
+}
+
+/* --- BREADCRUMBS --- */
+.breadcrumbNav {
+  padding: 1.25rem 0 0.5rem 0;
+}
+
+.breadcrumbList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: $text-tertiary;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  a {
+    color: $text-tertiary;
+    text-decoration: none;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: $text-primary;
+      text-decoration: underline;
+    }
+  }
+
+  .breadcrumbCurrent {
+    color: $accent-secondary;
+    font-weight: 600;
+  }
+
+  .breadcrumbSeparator {
+    color: rgba(255, 255, 255, 0.25);
+  }
+}
+
+/* --- CONTAINER PRINCIPAL --- */
+.spokeContainer {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem 5rem 1.5rem;
+}
+
+/* --- HERO DO ARTIGO --- */
+.articleHeader {
+  padding: 2.5rem 0 2rem 0;
+  border-bottom: 1px solid $border-grid;
+}
+
+.categoryBadge {
+  display: inline-block;
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $accent-secondary;
+  background-color: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  padding: 0.3rem 0.65rem;
+  border-radius: 3px;
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+}
+
+.articleTitle {
+  font-size: clamp(2rem, 3.4vw, 2.85rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.2;
+  margin: 0 0 1.25rem 0;
+  letter-spacing: -0.02em;
+}
+
+.articleLead {
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: #E2E8F0;
+  margin: 0 0 1.5rem 0;
+  font-weight: 500;
+  max-width: 860px;
+}
+
+.articleMetaBar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  padding: 1rem 0;
+  font-size: 0.85rem;
+  color: $text-tertiary;
+  border-top: 1px solid $border-grid-subtle;
+
+  .metaItem {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    strong {
+      color: $text-primary;
+    }
+  }
+
+  .metaDot {
+    color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* --- ANSWER BLOCK BOX (GEO DIRECT ANSWER) --- */
+.answerBlockBox {
+  margin: 2.5rem 0;
+  background: linear-gradient(180deg, rgba(34, 197, 94, 0.06) 0%, rgba(17, 23, 21, 0.8) 100%);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  border-left: 4px solid #22C55E;
+  border-radius: 6px;
+  padding: 1.75rem 2rem;
+
+  @media (max-width: 768px) {
+    padding: 1.25rem 1.4rem;
+  }
+}
+
+.answerBlockLabel {
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #22C55E;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #22C55E;
+    border-radius: 50%;
+  }
+}
+
+.answerBlockText {
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: #F8FAFC;
+  margin: 0;
+  font-weight: 500;
+
+  @media (max-width: 768px) {
+    font-size: 1.05rem;
+  }
+}
+
+/* --- MÉTRICAS AUDITADAS (STRIP) --- */
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin: 2.5rem 0;
+}
+
+.metricCard {
+  background-color: $bg-secondary;
+  border: 1px solid $border-grid;
+  border-radius: 6px;
+  padding: 1.4rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.metricValue {
+  font-family: $font-heading;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: $accent-secondary;
+  line-height: 1.1;
+}
+
+.metricLabel {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $text-primary;
+  font-weight: 600;
+}
+
+.metricDetail {
+  font-size: 0.84rem;
+  color: $text-tertiary;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* --- SEÇÃO DE CONTEÚDO INTRODUTÓRIO --- */
+.contentSection {
+  margin: 3rem 0;
+
+  h2 {
+    font-family: $font-heading;
+    font-size: 1.75rem;
+    color: #FFFFFF;
+    margin: 2.5rem 0 1rem 0;
+    line-height: 1.3;
+  }
+
+  p {
+    font-size: 1.06rem;
+    line-height: 1.75;
+    color: $text-secondary;
+    margin-bottom: 1.25rem;
+  }
+
+  strong {
+    color: #FFFFFF;
+  }
+}
+
+/* --- NOTICE / PRÓXIMAS ETAPAS DO DOSSIÊ --- */
+.expansionNotice {
+  background-color: rgba(212, 175, 55, 0.05);
+  border: 1px dashed rgba(212, 175, 55, 0.35);
+  border-radius: 6px;
+  padding: 1.5rem 1.75rem;
+  margin: 3rem 0;
+
+  h4 {
+    font-family: $font-heading;
+    font-size: 1.1rem;
+    color: $accent-secondary;
+    margin: 0 0 0.5rem 0;
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 0.94rem;
+    color: $text-secondary;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+/* --- VETOR DE RETENÇÃO / BIO & LINK DIRETO PARA O HUB --- */
+.hubEquityBox {
+  background-color: $bg-secondary;
+  border: 1px solid $border-grid;
+  border-radius: 8px;
+  padding: 2.25rem;
+  margin: 3.5rem 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+}
+
+.hubEquityHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.authorThumb {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid $accent-secondary;
+}
+
+.hubEquityTitle {
+  font-family: $font-heading;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.hubEquityRole {
+  font-size: 0.85rem;
+  color: $accent-secondary;
+  font-weight: 600;
+  margin: 0.2rem 0 0 0;
+}
+
+.hubEquityText {
+  font-size: 0.98rem;
+  color: $text-secondary;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.hubLinkCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: $font-heading;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0B0F0E;
+  background-color: #D4AF37;
+  border: 1px solid #D4AF37;
+  padding: 0.85rem 1.6rem;
+  border-radius: 4px;
+  text-decoration: none;
+  align-self: flex-start;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background-color: #E5C358;
+    border-color: #E5C358;
+  }
+}
+
+/* --- TAGS ENTITY SALIENCE --- */
+.tagsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.tagPill {
+  font-size: 0.78rem;
+  color: $text-secondary;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.25rem 0.6rem;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+/* --- SEÇÃO DE ARTEFATOS EM DESENVOLVIMENTO (PLACEHOLDER ESTRUTURADO) --- */
+.spokePlaceholderSection {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 2.5rem 2rem;
+  margin: 3.5rem 0;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+.placeholderHeader {
+  margin-bottom: 2rem;
+}
+
+.placeholderBadge {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $accent-secondary;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.placeholderTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+}
+
+.placeholderSubtext {
+  font-size: 0.95rem;
+  color: $text-secondary;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 780px;
+}
+
+.placeholderGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.placeholderCard {
+  background-color: #0B0F0E;
+  border: 1px dashed rgba(212, 175, 55, 0.35);
+  border-radius: 6px;
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: #D4AF37;
+    background-color: rgba(212, 175, 55, 0.03);
+  }
+}
+
+.placeholderCardTop {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.placeholderCardStatus {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $accent-secondary;
+  background-color: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  width: fit-content;
+  font-weight: 700;
+}
+
+.placeholderCardTitle {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #F1F5F9;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.placeholderCardDesc {
+  font-size: 0.88rem;
+  color: $text-tertiary;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* --- FOOTER SIMPLES E ELEGANTE --- */
+.spokeFooter {
+  border-top: 1px solid $border-grid;
+  padding: 2.5rem 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: $text-tertiary;
+
+  p {
+    margin: 0.35rem 0;
+  }
+
+  a {
+    color: $accent-secondary;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

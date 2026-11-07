@@ -5,31 +5,31 @@ import { getCachedPortfolioSettings } from '@/utilities/getGlobals'
 import { portfolioSchema } from './portfolioSchema'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://arthur-nasa.github.io/Squammata-PayloadCMS'),
+  metadataBase: new URL('https://arthursaggioratto.com.br'),
   alternates: {
-    canonical: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/',
+    canonical: 'https://arthursaggioratto.com.br/',
     languages: {
-      'pt-BR': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/',
-      'en-US': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/en/arthur/',
-      'x-default': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/',
+      'pt-BR': 'https://arthursaggioratto.com.br/',
+      'en-US': 'https://arthursaggioratto.com.br/en/arthur/',
+      'x-default': 'https://arthursaggioratto.com.br/',
     },
   },
   title: {
-    absolute: 'Arthur Saggioratto | Consultor de Crescimento e Rentabilidade para E-commerce',
+    absolute: 'Arthur Saggioratto | Consultoria em E-commerce e Rentabilidade Digital',
   },
   description:
     '15 anos de atuação consultiva em governança de margem (POAS), SEO técnico de catálogo, arquitetura de plataformas e destrave de crescimento para e-commerces. Atendimento presencial na RMC, Piracicaba e São Paulo.',
   openGraph: {
-    title: 'Arthur Saggioratto | Consultor de Crescimento e Rentabilidade para E-commerce',
+    title: 'Arthur Saggioratto | Governança e Margem para E-commerce',
     description:
-      '15 anos de atuação consultiva em governança de margem (POAS), SEO técnico de catálogo, arquitetura de plataformas e destrave de crescimento para e-commerces. Atendimento presencial na RMC, Piracicaba e São Paulo.',
-    url: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/',
+      '15 anos transformando gargalos técnicos em lucro operacional. Governança de margem (POAS), SEO técnico e arquitetura.',
+    url: 'https://arthursaggioratto.com.br/',
     siteName: 'Arthur Saggioratto | Consultoria e Portfólio',
     images: [
       {
-        url: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/arthur-saggioratto.jpg',
-        width: 720,
-        height: 720,
+        url: 'https://arthursaggioratto.com.br/arthur-saggioratto.jpg',
+        width: 1200,
+        height: 630,
         alt: 'Arthur Saggioratto: Consultor de Crescimento e Rentabilidade para E-commerce',
       },
     ],
@@ -37,11 +37,11 @@ export const metadata: Metadata = {
     type: 'profile',
   },
   twitter: {
-    card: 'summary',
-    title: 'Arthur Saggioratto | Consultor de Crescimento e Rentabilidade para E-commerce',
+    card: 'summary_large_image',
+    title: 'Arthur Saggioratto | Governança e Margem para E-commerce',
     description:
-      '15 anos de atuação consultiva em governança de margem (POAS), SEO técnico de catálogo, arquitetura de plataformas e destrave de crescimento para e-commerces. Atendimento presencial na RMC, Piracicaba e São Paulo.',
-    images: ['https://arthur-nasa.github.io/Squammata-PayloadCMS/arthur-saggioratto.jpg'],
+      '15 anos transformando gargalos técnicos em lucro operacional. Governança de margem (POAS), SEO técnico e arquitetura.',
+    images: ['https://arthursaggioratto.com.br/arthur-saggioratto.jpg'],
   },
 }
 

@@ -1,14 +1,13 @@
 #!/usr/bin/env node
 
 /**
- * Script de Exportação Estática e Publicação no GitHub Pages
- * Exporta o portfólio executivo de Arthur Saggioratto (PT e EN) como site estático autônomo
- * e publica na branch 'gh-pages' do repositório remoto.
+ * Script de Exportação Estática e Publicação no GitHub Pages / Domínio Canônico
+ * Exporta o portfólio executivo de Arthur Saggioratto (Hub-and-Spoke em PT e EN)
+ * com as 4 sub-URLs dedicadas (/casos/* e /governanca/*), dados Schema.org e CNAME.
  */
 
 import fs from 'node:fs'
 import path from 'node:path'
-import net from 'node:net'
 import { spawn, execSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 
@@ -16,6 +15,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const ROOT_DIR = path.resolve(__dirname, '..')
 const DIST_DIR = path.join(ROOT_DIR, 'gh-pages-dist')
+const CANONICAL_DOMAIN = 'https://arthursaggioratto.com.br'
 
 // Limpeza de variáveis de proxy para garantir requisições locais limpas
 delete process.env.http_proxy
@@ -26,9 +26,9 @@ delete process.env.all_proxy
 delete process.env.ALL_PROXY
 process.env.NO_PROXY = '*'
 
-console.log('🚀 Iniciando processo de exportação estática (PT + EN) para GitHub Pages...')
+console.log('🚀 Iniciando processo de exportação estática Hub-and-Spoke para arthursaggioratto.com.br...')
 
-// Limpeza prévia de caches do Next.js para garantir build 100% atualizado
+// Limpeza prévia de caches do Next.js
 const nextCacheDir = path.join(ROOT_DIR, '.next', 'cache')
 if (fs.existsSync(nextCacheDir)) {
   try {
@@ -37,16 +37,20 @@ if (fs.existsSync(nextCacheDir)) {
   } catch {}
 }
 
-/**
- * Função auxiliar para aguardar milissegundos
- */
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 /**
- * Função para obter o HTML renderizado das rotas do portfólio (/arthur e /en/arthur)
+ * Função para obter o HTML renderizado das rotas do portfólio (Hub e Spokes)
  */
 async function fetchPortfolioPages() {
-  const routes = ['/arthur', '/en/arthur']
+  const routes = [
+    '/arthur',
+    '/en/arthur',
+    '/casos/marketplace-specialty-coffee',
+    '/casos/seo-catalogo-maquinas-cafe',
+    '/casos/retencao-ux-saas-sheetgo',
+    '/governanca/poas-dre-ecommerce',
+  ]
   const results = {}
 
   // 1. Tentar ler de servidores que possam estar ativos
@@ -76,7 +80,7 @@ async function fetchPortfolioPages() {
 
     devProc.stdout.on('data', (d) => {
       const s = d.toString()
-      if (s.includes('Ready') || s.includes('GET /arthur') || s.includes('compiled')) {
+      if (s.includes('Ready') || s.includes('GET /') || s.includes('compiled')) {
         console.log(`[Next.js] ${s.trim()}`)
       }
     })
@@ -123,8 +127,6 @@ async function fetchPortfolioPages() {
 
 // Execução do fluxo de exportação
 const pagesHtml = await fetchPortfolioPages()
-const ptHtml = pagesHtml['/arthur']
-const enHtml = pagesHtml['/en/arthur']
 
 // Limpar e recriar o diretório de destino gh-pages-dist
 if (fs.existsSync(DIST_DIR)) {
@@ -132,13 +134,17 @@ if (fs.existsSync(DIST_DIR)) {
 }
 fs.mkdirSync(DIST_DIR, { recursive: true })
 
-// Função de adaptação e sanitização de HTML
-function adaptHtmlContent(html, isSubdir = false, lang = 'pt') {
-  const prefix = isSubdir ? '../..' : '.'
+/**
+ * Função de adaptação e sanitização de HTML para publicação estática
+ */
+function adaptHtmlContent(html, depth = 0, lang = 'pt', routePath = '/') {
+  const prefix = depth === 0 ? '.' : depth === 1 ? '..' : '../..'
   const canonicalUrl =
     lang === 'en'
-      ? 'https://arthur-nasa.github.io/Squammata-PayloadCMS/en/arthur/'
-      : 'https://arthur-nasa.github.io/Squammata-PayloadCMS/'
+      ? `${CANONICAL_DOMAIN}/en/arthur/`
+      : routePath === '/' || routePath === '/arthur'
+      ? `${CANONICAL_DOMAIN}/`
+      : `${CANONICAL_DOMAIN}${routePath}/`
 
   let adapted = html
 
@@ -156,7 +162,7 @@ function adaptHtmlContent(html, isSubdir = false, lang = 'pt') {
     .replace(/<div class="mil-progress-track"><div class="mil-progress"><\/div><\/div>/gi, '')
     .replace(/<div class="mil-preloader-frame"[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/g, '')
 
-  // 2. Otimizar CSS: remover layout.css (306KB de bundles e ícones não usados) e manter page.css
+  // 2. Otimizar CSS: remover layout.css e manter base limpa
   adapted = adapted.replace(
     /<link\s+rel="stylesheet"\s+href="[^"]*layout\.css[^"]*"[^>]*\/?>/gi,
     '<style>html{scroll-behavior:smooth;}body{margin:0;padding:0;background-color:#0B0F0E;color:#F1F5F9;overflow-x:hidden;}</style>',
@@ -193,47 +199,29 @@ function adaptHtmlContent(html, isSubdir = false, lang = 'pt') {
     .replaceAll('href="/resume_ecommerce_arthursaggioratto.pdf"', `href="${prefix}/resume_ecommerce_arthursaggioratto.pdf"`)
     .replaceAll('href="./resume_ecommerce_arthursaggioratto.pdf"', `href="${prefix}/resume_ecommerce_arthursaggioratto.pdf"`)
 
-  // 5. Links internos de navegação
+  // 5. Links internos de navegação (limpos para o domínio próprio)
   adapted = adapted
-    .replaceAll('href="/arthur"', 'href="/Squammata-PayloadCMS/"')
-    .replaceAll('href="/portfolio"', 'href="/Squammata-PayloadCMS/portfolio.html"')
-    .replaceAll('href="/en/arthur"', 'href="/Squammata-PayloadCMS/en/arthur/"')
-    .replaceAll('href="./en/arthur/index.html"', 'href="/Squammata-PayloadCMS/en/arthur/"')
-    .replaceAll('href="../../index.html"', 'href="/Squammata-PayloadCMS/"')
+    .replaceAll('href="/arthur"', 'href="/"')
+    .replaceAll('href="/portfolio"', 'href="/"')
+    .replaceAll('href="/en/arthur"', 'href="/en/arthur/"')
+    .replaceAll('https://arthur-nasa.github.io/Squammata-PayloadCMS/', `${CANONICAL_DOMAIN}/`)
 
   // 6. Preload de alta prioridade da imagem de autor no formato WebP e fontes
-  const fontLinks = '<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" /><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />'
+  const fontLinks =
+    '<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" /><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />'
   const imagePreload = `<link rel="preload" as="image" href="${prefix}/arthur-saggioratto.webp" type="image/webp" fetchpriority="high" />`
 
-  // Remover preloads e fontes antigos se existirem
   adapted = adapted.replace(/<link\s+rel="preload"\s+as="image"[^>]*\/?>/gi, '')
   adapted = adapted.replace(/<link\s+rel="preconnect"[^>]*\/?>/gi, '')
   adapted = adapted.replace(/<link\s+href="https:\/\/fonts\.googleapis\.com[^"]*"[^>]*\/?>/gi, '')
 
-  adapted = adapted.replace(
-    '<head>',
-    `<head>${imagePreload}${fontLinks}`,
-  )
+  adapted = adapted.replace('<head>', `<head>${imagePreload}${fontLinks}`)
 
   // 7. Canonical e hreflang
   adapted = adapted.replace(
     /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/gi,
     `<link rel="canonical" href="${canonicalUrl}" />`,
   )
-  adapted = adapted.replace(
-    /<link\s+rel="alternate"\s+hreflang="pt-BR"\s+href="[^"]*"\s*\/?>/gi,
-    '<link rel="alternate" hreflang="pt-BR" href="https://arthur-nasa.github.io/Squammata-PayloadCMS/" />',
-  )
-  adapted = adapted.replace(
-    /<link\s+rel="alternate"\s+hreflang="en-US"\s+href="[^"]*"\s*\/?>/gi,
-    '<link rel="alternate" hreflang="en-US" href="https://arthur-nasa.github.io/Squammata-PayloadCMS/en/arthur/" />',
-  )
-  if (!adapted.includes('hreflang="x-default"')) {
-    adapted = adapted.replace(
-      '<link rel="alternate" hreflang="pt-BR"',
-      '<link rel="alternate" hreflang="x-default" href="https://arthur-nasa.github.io/Squammata-PayloadCMS/" /><link rel="alternate" hreflang="pt-BR"',
-    )
-  }
 
   // 7.1 Atributo de idioma do documento HTML
   if (lang === 'en') {
@@ -243,15 +231,10 @@ function adaptHtmlContent(html, isSubdir = false, lang = 'pt') {
   // 8. OpenGraph e Twitter tags
   adapted = adapted
     .replace(/<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/gi, `<meta property="og:url" content="${canonicalUrl}" />`)
-    .replace(/<meta\s+property="og:image"\s+content="[^"]*"\s*\/?>/gi, '<meta property="og:image" content="https://arthur-nasa.github.io/Squammata-PayloadCMS/arthur-saggioratto.jpg" />')
-    .replace(/<meta\s+name="twitter:image"\s+content="[^"]*"\s*\/?>/gi, '<meta name="twitter:image" content="https://arthur-nasa.github.io/Squammata-PayloadCMS/arthur-saggioratto.jpg" />')
+    .replace(/<meta\s+property="og:image"\s+content="[^"]*"\s*\/?>/gi, `<meta property="og:image" content="${CANONICAL_DOMAIN}/arthur-saggioratto.jpg" />`)
+    .replace(/<meta\s+name="twitter:image"\s+content="[^"]*"\s*\/?>/gi, `<meta name="twitter:image" content="${CANONICAL_DOMAIN}/arthur-saggioratto.jpg" />`)
 
-  // 9. Substituir id e classes de presets dinâmicos legados
-  adapted = adapted
-    .replaceAll('id="squammata-theme-dynamic"', 'id="portfolio-theme-dynamic"')
-    .replaceAll('Squammata Dynamic Theme Active Preset', 'Executive Dynamic Theme Active Preset')
-
-  // 10. Injetar script vanilla ultraleve para suporte a scroll suave e eventos
+  // 9. Script vanilla para suporte a scroll suave e eventos
   const helperScript = `
 <script>
 (function() {
@@ -275,52 +258,104 @@ function adaptHtmlContent(html, isSubdir = false, lang = 'pt') {
   return adapted
 }
 
-console.log('🔧 Adaptando caminhos de assets e links para versão PT e EN...')
-const adaptedPtHtml = adaptHtmlContent(ptHtml, false, 'pt')
-const adaptedEnHtml = adaptHtmlContent(enHtml, true, 'en')
-const adaptedEnHtmlFlat = adaptHtmlContent(enHtml, false, 'en') // Para en/arthur.html em profundidade de 1 pasta
+console.log('🔧 Adaptando caminhos de assets e links para Hub e Spokes...')
 
-// 4. Gravar os arquivos HTML principais da raiz (PT)
+// 1. Renderizar Hub (PT)
+const ptHtml = pagesHtml['/arthur']
+const adaptedPtHtml = adaptHtmlContent(ptHtml, 0, 'pt', '/')
 fs.writeFileSync(path.join(DIST_DIR, 'index.html'), adaptedPtHtml, 'utf-8')
 fs.writeFileSync(path.join(DIST_DIR, 'arthur.html'), adaptedPtHtml, 'utf-8')
 fs.writeFileSync(path.join(DIST_DIR, 'portfolio.html'), adaptedPtHtml, 'utf-8')
-fs.writeFileSync(path.join(DIST_DIR, '404.html'), adaptedPtHtml, 'utf-8')
-console.log('✅ Arquivos index.html, arthur.html, portfolio.html e 404.html gerados.')
 
-// 4.1 Gravar os arquivos HTML da rota em inglês (EN)
+// 404 inteligente com captura de URLs legadas do GitHub Pages
+const legacyRedirectScript = `
+<script>
+(function() {
+  var p = window.location.pathname;
+  if (p.indexOf('/Squammata-PayloadCMS') !== -1) {
+    var clean = p.replace('/Squammata-PayloadCMS', '') || '/';
+    window.location.replace('${CANONICAL_DOMAIN}' + clean);
+  }
+})();
+</script>
+`
+const adapted404Html = adaptedPtHtml.replace('<head>', `<head>${legacyRedirectScript}`)
+fs.writeFileSync(path.join(DIST_DIR, '404.html'), adapted404Html, 'utf-8')
+console.log('✅ Arquivos da raiz (index.html, arthur.html, portfolio.html, 404.html) gerados.')
+
+// 2. Renderizar Hub (EN)
+const enHtml = pagesHtml['/en/arthur']
 const enDir = path.join(DIST_DIR, 'en')
 const enArthurDir = path.join(enDir, 'arthur')
 fs.mkdirSync(enArthurDir, { recursive: true })
-
+const adaptedEnHtml = adaptHtmlContent(enHtml, 2, 'en', '/en/arthur')
+const adaptedEnHtmlFlat = adaptHtmlContent(enHtml, 1, 'en', '/en/arthur')
 fs.writeFileSync(path.join(enArthurDir, 'index.html'), adaptedEnHtml, 'utf-8')
-fs.writeFileSync(path.join(enDir, 'arthur.html'), adaptedEnHtmlFlat.replaceAll('href="../../', 'href="../').replaceAll('src="../../', 'src="../'), 'utf-8')
-fs.writeFileSync(path.join(enDir, 'portfolio.html'), adaptedEnHtmlFlat.replaceAll('href="../../', 'href="../').replaceAll('src="../../', 'src="../'), 'utf-8')
-console.log('✅ Arquivos en/arthur/index.html, en/arthur.html e en/portfolio.html gerados.')
+fs.writeFileSync(path.join(enDir, 'arthur.html'), adaptedEnHtmlFlat, 'utf-8')
+fs.writeFileSync(path.join(enDir, 'portfolio.html'), adaptedEnHtmlFlat, 'utf-8')
+console.log('✅ Arquivos en/arthur gerados.')
 
-// 5. Criar arquivo .nojekyll (obrigatório para que o GitHub Pages sirva diretórios iniciados por _)
+// 3. Renderizar Spoke 01: /casos/marketplace-specialty-coffee/
+const spoke01Html = pagesHtml['/casos/marketplace-specialty-coffee']
+const spoke01Dir = path.join(DIST_DIR, 'casos', 'marketplace-specialty-coffee')
+fs.mkdirSync(spoke01Dir, { recursive: true })
+const adaptedSpoke01Html = adaptHtmlContent(spoke01Html, 2, 'pt', '/casos/marketplace-specialty-coffee')
+fs.writeFileSync(path.join(spoke01Dir, 'index.html'), adaptedSpoke01Html, 'utf-8')
+console.log('✅ Spoke 01 (/casos/marketplace-specialty-coffee/) gerado com sucesso.')
+
+// 4. Renderizar Spoke 02: /casos/seo-catalogo-maquinas-cafe/
+const spoke02Html = pagesHtml['/casos/seo-catalogo-maquinas-cafe']
+const spoke02Dir = path.join(DIST_DIR, 'casos', 'seo-catalogo-maquinas-cafe')
+fs.mkdirSync(spoke02Dir, { recursive: true })
+const adaptedSpoke02Html = adaptHtmlContent(spoke02Html, 2, 'pt', '/casos/seo-catalogo-maquinas-cafe')
+fs.writeFileSync(path.join(spoke02Dir, 'index.html'), adaptedSpoke02Html, 'utf-8')
+console.log('✅ Spoke 02 (/casos/seo-catalogo-maquinas-cafe/) gerado com sucesso.')
+
+// 5. Renderizar Spoke 03: /casos/retencao-ux-saas-sheetgo/
+const spoke03Html = pagesHtml['/casos/retencao-ux-saas-sheetgo']
+const spoke03Dir = path.join(DIST_DIR, 'casos', 'retencao-ux-saas-sheetgo')
+fs.mkdirSync(spoke03Dir, { recursive: true })
+const adaptedSpoke03Html = adaptHtmlContent(spoke03Html, 2, 'pt', '/casos/retencao-ux-saas-sheetgo')
+fs.writeFileSync(path.join(spoke03Dir, 'index.html'), adaptedSpoke03Html, 'utf-8')
+console.log('✅ Spoke 03 (/casos/retencao-ux-saas-sheetgo/) gerado com sucesso.')
+
+// 6. Renderizar Spoke 04: /governanca/poas-dre-ecommerce/
+const spoke04Html = pagesHtml['/governanca/poas-dre-ecommerce']
+const spoke04Dir = path.join(DIST_DIR, 'governanca', 'poas-dre-ecommerce')
+fs.mkdirSync(spoke04Dir, { recursive: true })
+const adaptedSpoke04Html = adaptHtmlContent(spoke04Html, 2, 'pt', '/governanca/poas-dre-ecommerce')
+fs.writeFileSync(path.join(spoke04Dir, 'index.html'), adaptedSpoke04Html, 'utf-8')
+console.log('✅ Spoke 04 (/governanca/poas-dre-ecommerce/) gerado com sucesso.')
+
+// 7. Criar CNAME para domínio próprio soberano
+fs.writeFileSync(path.join(DIST_DIR, 'CNAME'), 'arthursaggioratto.com.br\n', 'utf-8')
+console.log('✅ Arquivo CNAME configurado com arthursaggioratto.com.br.')
+
+// 8. Criar .nojekyll
 fs.writeFileSync(path.join(DIST_DIR, '.nojekyll'), '', 'utf-8')
-console.log('✅ Arquivo .nojekyll criado (desativa processamento Jekyll no GitHub Pages).')
+console.log('✅ Arquivo .nojekyll criado.')
 
-// 5.1 Criar diretório ghSubdir antecipadamente para redundâncias
+// 9. Criar diretório legador ghSubdir para compatibilidade com redirecionador
 const ghSubdir = path.join(DIST_DIR, 'Squammata-PayloadCMS')
 fs.mkdirSync(ghSubdir, { recursive: true })
+fs.writeFileSync(path.join(ghSubdir, 'index.html'), adapted404Html, 'utf-8')
 
-// 6. Copiar arquivos públicos (fotos, favicons, robots.txt, sitemap.xml)
-console.log('📁 Copiando assets estáticos da pasta public/ (incluindo robots.txt, sitemap.xml e currículos em PDF)...')
+// 10. Copiar assets estáticos da pasta public/
+console.log('📁 Copiando assets estáticos da pasta public/...')
 const publicDir = path.join(ROOT_DIR, 'public')
 if (fs.existsSync(publicDir)) {
   fs.cpSync(publicDir, DIST_DIR, { recursive: true })
 }
 
-// 6.1 Garantir redundância de imagens e PDFs em subpastas EN e na subpasta Squammata-PayloadCMS
-fs.copyFileSync(path.join(publicDir, 'arthur-saggioratto.jpg'), path.join(enDir, 'arthur-saggioratto.jpg'))
-fs.copyFileSync(path.join(publicDir, 'arthur-saggioratto.jpg'), path.join(enArthurDir, 'arthur-saggioratto.jpg'))
-fs.copyFileSync(path.join(publicDir, 'arthur-saggioratto.jpg'), path.join(ghSubdir, 'arthur-saggioratto.jpg'))
-
-if (fs.existsSync(path.join(publicDir, 'arthur-saggioratto.webp'))) {
-  fs.copyFileSync(path.join(publicDir, 'arthur-saggioratto.webp'), path.join(enDir, 'arthur-saggioratto.webp'))
-  fs.copyFileSync(path.join(publicDir, 'arthur-saggioratto.webp'), path.join(enArthurDir, 'arthur-saggioratto.webp'))
-  fs.copyFileSync(path.join(publicDir, 'arthur-saggioratto.webp'), path.join(ghSubdir, 'arthur-saggioratto.webp'))
+// 10.1 Garantir redundância de imagens e PDFs em subpastas dos Spokes e EN
+const spokeDirs = [enDir, enArthurDir, ghSubdir, spoke01Dir, spoke02Dir, spoke03Dir, spoke04Dir]
+for (const sDir of spokeDirs) {
+  if (fs.existsSync(path.join(publicDir, 'arthur-saggioratto.jpg'))) {
+    fs.copyFileSync(path.join(publicDir, 'arthur-saggioratto.jpg'), path.join(sDir, 'arthur-saggioratto.jpg'))
+  }
+  if (fs.existsSync(path.join(publicDir, 'arthur-saggioratto.webp'))) {
+    fs.copyFileSync(path.join(publicDir, 'arthur-saggioratto.webp'), path.join(sDir, 'arthur-saggioratto.webp'))
+  }
 }
 
 const pdfFiles = [
@@ -334,14 +369,14 @@ for (const pdf of pdfFiles) {
   const srcPdf = path.join(publicDir, pdf)
   if (fs.existsSync(srcPdf)) {
     fs.copyFileSync(srcPdf, path.join(DIST_DIR, pdf))
-    fs.copyFileSync(srcPdf, path.join(enDir, pdf))
-    fs.copyFileSync(srcPdf, path.join(enArthurDir, pdf))
-    fs.copyFileSync(srcPdf, path.join(ghSubdir, pdf))
+    for (const sDir of spokeDirs) {
+      fs.copyFileSync(srcPdf, path.join(sDir, pdf))
+    }
   }
 }
-console.log('✅ Currículos e Resumes em PDF copiados com redundância multidirecional.')
+console.log('✅ Imagens e PDFs copiados para a raiz e para todos os Spokes.')
 
-// 7. Copiar folhas de estilo compiladas de .next/static/css para _next/static/css
+// 11. Copiar folhas de estilo compiladas de .next/static/css para _next/static/css
 console.log('📁 Copiando folhas de estilo compiladas de .next/static/css para _next/static/css...')
 const nextCssDir = path.join(ROOT_DIR, '.next', 'static', 'css')
 const targetCssDir = path.join(DIST_DIR, '_next', 'static', 'css')
@@ -349,22 +384,19 @@ const targetCssDir = path.join(DIST_DIR, '_next', 'static', 'css')
 if (fs.existsSync(nextCssDir)) {
   fs.mkdirSync(targetCssDir, { recursive: true })
   fs.cpSync(nextCssDir, targetCssDir, { recursive: true })
-  console.log('✅ Folhas de estilo CSS copiadas para gh-pages-dist/_next/static/css.')
 
-  // Cópia redundante para rotas /en/ e /en/arthur/ e Squammata-PayloadCMS/
-  fs.mkdirSync(path.join(enDir, '_next', 'static', 'css'), { recursive: true })
-  fs.cpSync(nextCssDir, path.join(enDir, '_next', 'static', 'css'), { recursive: true })
-  fs.mkdirSync(path.join(enArthurDir, '_next', 'static', 'css'), { recursive: true })
-  fs.cpSync(nextCssDir, path.join(enArthurDir, '_next', 'static', 'css'), { recursive: true })
-  fs.mkdirSync(path.join(ghSubdir, '_next', 'static', 'css'), { recursive: true })
-  fs.cpSync(nextCssDir, path.join(ghSubdir, '_next', 'static', 'css'), { recursive: true })
+  for (const sDir of spokeDirs) {
+    fs.mkdirSync(path.join(sDir, '_next', 'static', 'css'), { recursive: true })
+    fs.cpSync(nextCssDir, path.join(sDir, '_next', 'static', 'css'), { recursive: true })
+  }
+  console.log('✅ Folhas de estilo CSS copiadas para a raiz e para todos os Spokes.')
 } else {
   console.warn('⚠️ Diretório .next/static/css não encontrado.')
 }
 
-console.log('✨ Exportação estática concluída com sucesso em gh-pages-dist!')
+console.log('✨ Exportação estática completa (Hub + 4 Spokes) concluída com sucesso em gh-pages-dist!')
 
-// 8. Se solicitado o deploy (--deploy), publicar na branch gh-pages
+// 12. Se solicitado o deploy (--deploy), publicar na branch gh-pages
 const shouldDeploy = process.argv.includes('--deploy')
 if (shouldDeploy) {
   console.log('\n🚀 Publicando arquivos estáticos na branch gh-pages do GitHub...')
@@ -378,14 +410,14 @@ if (shouldDeploy) {
     execSync('git config user.email "arthur.saggioratto@gmail.com"', { cwd: DIST_DIR, stdio: 'ignore' })
     execSync('git checkout -B gh-pages', { cwd: DIST_DIR, stdio: 'ignore' })
     execSync('git add -A', { cwd: DIST_DIR, stdio: 'ignore' })
-    execSync('git commit -m "deploy: publicar portfolio executivo de Arthur Saggioratto (PT + EN) no GitHub Pages"', {
+    execSync('git commit -m "deploy: ecossistema Hub-and-Spoke com 4 spokes e CNAME arthursaggioratto.com.br"', {
       cwd: DIST_DIR,
       stdio: 'ignore',
     })
     console.log(`📤 Enviando para ${gitRemoteUrl} (branch gh-pages)...`)
     execSync(`git push -f ${gitRemoteUrl} gh-pages`, { cwd: DIST_DIR, stdio: 'inherit' })
     console.log('\n🎉 Deploy no GitHub Pages concluído com sucesso!')
-    console.log('🔗 Configure no GitHub: Repositório -> Settings -> Pages -> Build and deployment -> Source: Deploy from a branch -> Branch: gh-pages / (root)')
+    console.log('🔗 Domínio Canônico: https://arthursaggioratto.com.br/')
   } catch (deployErr) {
     console.error('❌ Falha ao enviar para o GitHub Pages:', deployErr.message)
     process.exit(1)
