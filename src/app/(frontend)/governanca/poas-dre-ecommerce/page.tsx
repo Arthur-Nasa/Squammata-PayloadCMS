@@ -107,10 +107,10 @@ const spokeJsonLd = {
 export default function PoasGovernancePage() {
   return (
     <SpokeArticleLayout
-      categoryBadge="TESE METODOLÓGICA • UNIT ECONOMICS & CONTROLADORIA DIGITAL"
-      title="Framework de POAS (Profit on Ad Spend) e Governança de Margem de Contribuição no DRE do E-commerce"
-      lead="Tese metodológica desenvolvida por Arthur Saggioratto estabelecendo a subordinação das decisões de mídia de performance à margem de contribuição líquida no DRE gerencial, expurgando o risco de queima de caixa em leilões inflacionados."
-      answerBlock="O framework de POAS (Profit on Ad Spend) desenvolvido por Arthur Saggioratto subordina as decisões de leilão pago em Google e Meta Ads ao lucro líquido por pedido faturado, expurgando a ilusão de receita do ROAS bruto. A integração das regras fiscais e custos de mercadoria diretamente aos relatórios analíticos impede que a escala de vendas comprometa o capital de giro."
+      categoryBadge="METODOLOGIA PRÁTICA • GESTÃO DE MARGEM &amp; LUCRO REAL"
+      title="Gestão de Margem e POAS no E-commerce: Como Parar de Queimar Caixa e Focar no Lucro Real"
+      lead="Como alinhar as campanhas de anúncios ao lucro real da sua empresa, evitando a armadilha de comemorar faturamento alto enquanto a conta bancária não cresce."
+      answerBlock="O método de POAS (Profit on Ad Spend) substitui o foco em faturamento bruto pelo foco no lucro líquido real de cada pedido. Ao cruzar custos de produto, frete, impostos e taxas de cartão com os dados de anúncios no Google e Meta Ads, a empresa descobre exatamente quais produtos colocam dinheiro no caixa e corta desperdícios que corroem o lucro."
       placeholderArtifacts={[
         {
           title: 'Demonstração Algébrica: ROAS de Ilusão vs. Lucro Líquido Real',
@@ -164,23 +164,23 @@ export default function PoasGovernancePage() {
       canonicalUrl="https://arthur-nasa.github.io/Squammata-PayloadCMS/governanca/poas-dre-ecommerce/"
       jsonLd={spokeJsonLd}
     >
-      <h2>A Ilusão do ROAS Bruto e a Destruição Silenciosa de Caixa</h2>
+      <h2>A Ilusão do ROAS Alto: Por Que Faturamento Nem Sempre É Lucro</h2>
       <p>
-        No comércio eletrônico contemporâneo, a métrica de ROAS (Return on Ad Spend) consagrou-se como o principal balizador de agências e gestores de tráfego. Essa métrica, no entanto, carrega uma armadilha matemática crítica: ela mede unicamente a receita bruta faturada sem considerar a composição do custo da mercadoria vendida (CMV), alíquotas de ICMS ou substituição tributária, comissões de gateway de pagamento e custos reais de frete.
+        No comércio eletrônico, o ROAS (Return on Ad Spend) é uma das métricas mais comemoradas por agências e gestores de tráfego. No entanto, ele esconde um perigo silencioso: mede apenas a receita bruta das vendas, sem considerar quanto custou o produto, quanto foi pago de impostos, qual foi o frete e quanto o meio de pagamento cobrou.
       </p>
       <p>
-        Em operações que faturam entre R$ 800 mil e R$ 3 milhões ao mês, uma campanha com aparente ROAS de 8x pode facilmente operar em prejuízo líquido se os itens leiloados carregarem margem de contribuição inferior ao custo de aquisição adicionado às despesas operacionais variáveis.
+        Em lojas que faturam entre R$ 800 mil e R$ 3 milhões por mês, é comum ver campanhas com ROAS aparentemente excelente de 8x que, na realidade, dão prejuízo líquido. Isso acontece porque a margem de contribuição daqueles produtos não é suficiente para pagar o anúncio e as despesas operacionais.
       </p>
 
-      <h2>O Conceito Estrutural do POAS (Profit on Ad Spend)</h2>
+      <h2>O Que É o POAS e Como Ele Protege o Seu Negócio</h2>
       <p>
-        O POAS subverte essa lógica ao relacionar o lucro bruto gerado diretamente ao montante investido em mídia paga:
+        O POAS (Profit on Ad Spend) resolve esse problema ao relacionar diretamente o lucro líquido de cada venda ao valor gasto com anúncios:
       </p>
       <p>
-        <strong>POAS = Lucro Bruto Operacional (Receita Líquida deduzidos CMV, Carga Tributária e Custos Transacionais Variáveis) / Gasto em Mídia Paga</strong>
+        <strong>POAS = Lucro Líquido Real (Receita deduzidos custos do produto, impostos, taxas e frete) / Gasto em Anúncios</strong>
       </p>
       <p>
-        Sob essa formulação, qualquer valor superior a 1,0 indica que o leilão gerou caixa líquido positivo para a empresa. Qualquer valor abaixo de 1,0 revela que a operação está subsidiando a venda com seu capital de giro, independentemente de quão expressivo seja o volume bruto divulgado nos painéis do Google Ads ou Meta Ads.
+        Com essa conta em mãos, qualquer resultado acima de 1,0 significa que a campanha colocou dinheiro de verdade no caixa da empresa. Resultados abaixo de 1,0 alertam imediatamente que a operação está pagando para vender, permitindo pausar campanhas e recalibrar orçamentos antes de prejudicar a saúde financeira do negócio.
       </p>
 
       <h2>Metodologia de Governança Aplicada por Arthur Saggioratto</h2>

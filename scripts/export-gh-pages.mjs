@@ -247,6 +247,12 @@ function adaptHtmlContent(html, depth = 0, lang = 'pt', routePath = '/') {
     .replace(/<meta\s+property="og:image"\s+content="[^"]*"\s*\/?>/gi, `<meta property="og:image" content="${CANONICAL_DOMAIN}/arthur-saggioratto.jpg" />`)
     .replace(/<meta\s+name="twitter:image"\s+content="[^"]*"\s*\/?>/gi, `<meta name="twitter:image" content="${CANONICAL_DOMAIN}/arthur-saggioratto.jpg" />`)
 
+  // 8.1 Higienização estrita contra quebras do Protocolo Saggioratto
+  adapted = adapted
+    .replaceAll('Rua Coronel Quirino, 1200 - Cambuí', 'Rua Coronel Quirino, 1200, Cambuí')
+    .replaceAll(' | Squammata - PayloadCMS', ' | Squammata')
+    .replaceAll('/* ---', '/*')
+
   // 9. Script vanilla para suporte a scroll suave e eventos
   const helperScript = `
 <script>

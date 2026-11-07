@@ -15,14 +15,14 @@ export const metadata: Metadata = {
     },
   },
   title: {
-    absolute: 'Arthur Saggioratto | Consultoria em E-commerce e Rentabilidade Digital',
+    absolute: 'Arthur Saggioratto | Consultoria em E-commerce e Lucro Real',
   },
   description:
-    '15 anos de atuação consultiva em governança de margem (POAS), SEO técnico de catálogo, arquitetura de plataformas e destrave de crescimento para e-commerces. Atendimento presencial na RMC, Piracicaba e São Paulo.',
+    '15 anos ajudando lojas virtuais a destravar vendas e proteger o lucro real. Consultoria prática em plataformas, SEO de catálogo, ERP e tráfego pago (POAS). Atendimento presencial no polo de Campinas, Piracicaba e São Paulo.',
   openGraph: {
-    title: 'Arthur Saggioratto | Governança e Margem para E-commerce',
+    title: 'Arthur Saggioratto | Consultoria em E-commerce e Lucro Real',
     description:
-      '15 anos transformando gargalos técnicos em lucro operacional. Governança de margem (POAS), SEO técnico e arquitetura.',
+      '15 anos de experiência resolvendo gargalos de e-commerce e gerando lucro real. Consultoria em plataformas, SEO e tráfego pago.',
     url: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/',
     siteName: 'Arthur Saggioratto | Consultoria e Portfólio',
     images: [
@@ -38,9 +38,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Arthur Saggioratto | Governança e Margem para E-commerce',
+    title: 'Arthur Saggioratto | Consultoria em E-commerce e Lucro Real',
     description:
-      '15 anos transformando gargalos técnicos em lucro operacional. Governança de margem (POAS), SEO técnico e arquitetura.',
+      '15 anos de experiência resolvendo gargalos de e-commerce e gerando lucro real. Consultoria em plataformas, SEO e tráfego pago.',
     images: ['https://arthur-nasa.github.io/Squammata-PayloadCMS/arthur-saggioratto.jpg'],
   },
 }

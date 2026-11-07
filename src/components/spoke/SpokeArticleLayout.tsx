@@ -68,7 +68,7 @@ export function SpokeArticleLayout({
               ARTHUR SAGGIORATTO
             </Link>
             <span className={`${styles.brandTag} ${styles.monoFont}`}>
-              DOSSIÊ TÉCNICO &amp; GOVERNANÇA DE E-COMMERCE
+              ESTUDOS DE CASO &amp; CONSULTORIA EM E-COMMERCE
             </span>
           </div>
 
@@ -144,10 +144,10 @@ export function SpokeArticleLayout({
           </div>
         </header>
 
-        {/* ANSWER BLOCK (ALTO GANHO DE INFORMAÇÃO / GEO RAG RETRIEVAL) */}
-        <section className={styles.answerBlockBox} aria-label="Síntese Executiva para Motores Generativos">
+        {/* RESUMO DO ESTUDO */}
+        <section className={styles.answerBlockBox} aria-label="Resumo do Estudo de Caso">
           <div className={`${styles.answerBlockLabel} ${styles.monoFont}`}>
-            Answer Block • Síntese Executiva Auditada (GEO / RAG)
+            RESUMO DO ESTUDO
           </div>
           <p className={`${styles.answerBlockText} ${styles.bodyFont}`}>
             {answerBlock}
@@ -180,16 +180,16 @@ export function SpokeArticleLayout({
 
         {/* ARTEFATOS TÉCNICOS & PLACEHOLDERS ESTRUTURADOS */}
         {placeholderArtifacts && placeholderArtifacts.length > 0 && (
-          <section className={styles.spokePlaceholderSection} aria-label="Artefatos em Estruturação">
+          <section className={styles.spokePlaceholderSection} aria-label="Materiais Técnicos em Elaboração">
             <div className={styles.placeholderHeader}>
               <span className={`${styles.placeholderBadge} ${styles.monoFont}`}>
-                ROADMAP DE DOCUMENTAÇÃO &amp; ARTEFATOS TÉCNICOS
+                CONTEÚDOS E MATERIAIS TÉCNICOS
               </span>
               <h3 className={`${styles.placeholderTitle} ${styles.headingFont}`}>
-                Módulos e Artefatos em Estruturação para este Dossiê
+                Módulos e Materiais em Elaboração para Este Estudo
               </h3>
               <p className={`${styles.placeholderSubtext} ${styles.bodyFont}`}>
-                Os modelos analíticos, matrizes paramétricas auditadas e diagramas de arquitetura abaixo estão em fase de consolidação e serão liberados nas próximas revisões deste estudo vertical.
+                Os diagramas de arquitetura, análises comparativas e planilhas abaixo estão sendo organizados e serão publicados nas próximas revisões deste material.
               </p>
             </div>
             <div className={styles.placeholderGrid}>
@@ -197,7 +197,7 @@ export function SpokeArticleLayout({
                 <div key={idx} className={styles.placeholderCard}>
                   <div className={styles.placeholderCardTop}>
                     <span className={`${styles.placeholderCardStatus} ${styles.monoFont}`}>
-                      {art.statusBadge || 'Em Estruturação'}
+                      {art.statusBadge || 'Em Elaboração'}
                     </span>
                     <h4 className={`${styles.placeholderCardTitle} ${styles.headingFont}`}>
                       {art.title}
@@ -214,15 +214,15 @@ export function SpokeArticleLayout({
 
         {/* NOTICE DE EXPANSÃO TÉCNICA */}
         <aside className={styles.expansionNotice}>
-          <h4>Dossiê em Documentação Contínua</h4>
+          <h4>Estudo em Atualização Contínua</h4>
           <p>
-            A matriz paramétrica de comparação (*Baseline* vs. *Intervenção*), os fluxogramas interativos de arquitetura de checkout e os ativos de retenção para download gratuito estão sendo incorporados nesta URL dedicada.
+            Este estudo de caso está sendo expandido com diagramas técnicos detalhados, fluxos de integração e métricas aprofundadas da operação.
           </p>
         </aside>
 
-        {/* TAGS DE SALIÊNCIA ENTITÁRIA */}
+        {/* TAGS */}
         {tags && tags.length > 0 && (
-          <div className={styles.tagsRow} aria-label="Entidades Temáticas Salientes">
+          <div className={styles.tagsRow} aria-label="Temas Relacionados">
             {tags.map((tag, idx) => (
               <span key={idx} className={`${styles.tagPill} ${styles.monoFont}`}>
                 #{tag}
@@ -231,8 +231,8 @@ export function SpokeArticleLayout({
           </div>
         )}
 
-        {/* VETOR DE RETENÇÃO TRANSACTIONAL E LINK EQUITY RETORNO AO HUB */}
-        <section className={styles.hubEquityBox} aria-label="Liderança Executiva e Retorno ao Hub">
+        {/* APRESENTAÇÃO DO CONSULTOR E RETORNO AO HUB */}
+        <section className={styles.hubEquityBox} aria-label="Apresentação do Consultor e Retorno ao Hub">
           <div className={styles.hubEquityHeader}>
             <picture>
               <source srcSet="/arthur-saggioratto.webp" type="image/webp" />
@@ -250,15 +250,15 @@ export function SpokeArticleLayout({
                 Arthur Saggioratto
               </h3>
               <p className={`${styles.hubEquityRole} ${styles.monoFont}`}>
-                Consultoria de Crescimento, Rentabilidade &amp; Arquitetura para E-commerce
+                Consultor de E-commerce, Estruturação e Rentabilidade
               </p>
             </div>
           </div>
           <p className={`${styles.hubEquityText} ${styles.bodyFont}`}>
-            Intervenções estratégicas em plataformas de comércio eletrônico, auditoria de margem de contribuição (POAS) sobre o DRE e engenharia de catálogo para operações no interior paulista (Campinas, Piracicaba e RMC) e grandes corporações em São Paulo.
+            Consultoria prática para lojas virtuais e marcas digitais. Atuação em governança de margem (POAS), integração de plataformas e SEO técnico para empresas de São Paulo, Campinas, Piracicaba e região.
           </p>
           <Link href="/arthur" className={styles.hubLinkCta}>
-            <span>← Acessar Visão Geral e Formatos de Contratação no Hub</span>
+            <span>← Voltar à Página Inicial e Conhecer Mais</span>
           </Link>
         </section>
       </main>

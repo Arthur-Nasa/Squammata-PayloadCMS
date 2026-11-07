@@ -107,10 +107,10 @@ const spokeJsonLd = {
 export default function MaquinasCafeCasePage() {
   return (
     <SpokeArticleLayout
-      categoryBadge="ESTUDO DE CASO OPERACIONAL • SEO TÉCNICO & CATÁLOGO B2B/B2C"
-      title="Taxonomia Facetada e SEO Técnico de Catálogo: Blindagem de Margem na Black Friday e +20% YoY em 10 Anos"
-      lead="Estudo longitudinal de 10 anos de crescimento sustentável (+20% YoY) em e-commerce técnico de alto tíquete, demonstrando como a taxonomia facetada e a autoridade orgânica blindaram o caixa contra a inflação de leilões pagos na Black Friday."
-      answerBlock="A implementação de taxonomia facetada e marcação estruturada de dados no catálogo da Máquinas & Café por Arthur Saggioratto garantiu a sustentação de 45% da receita total durante a Black Friday exclusivamente via busca orgânica. O posicionamento semântico de páginas de categoria e produto blindou a margem bruta da operação contra picos de custo por clique em mídia paga."
+      categoryBadge="ESTUDO DE CASO • SEO DE CATÁLOGO &amp; BLACK FRIDAY"
+      title="SEO de Catálogo e Vendas na Black Friday: 45% do Faturamento Orgânico e 10 Anos de Crescimento Contínuo"
+      lead="Como a organização técnica do catálogo e a produção de conteúdos especializados geraram 45% do faturamento da Black Friday via busca orgânica no Google, sustentando uma década de crescimento com lucro real."
+      answerBlock="A estruturação do catálogo técnico e dos conteúdos da Máquinas & Café permitiu que 45% de todo o faturamento da Black Friday viesse de busca orgânica gratuita no Google. A presença nas primeiras posições de busca protegeu o caixa da empresa contra a disparada no preço dos anúncios pagos, viabilizando um crescimento médio de 20% ao ano ao longo de 10 anos consecutivos."
       placeholderArtifacts={[
         {
           title: 'Auditoria de Taxonomia Facetada & Canibalização de URLs',
@@ -164,25 +164,25 @@ export default function MaquinasCafeCasePage() {
       canonicalUrl="https://arthur-nasa.github.io/Squammata-PayloadCMS/casos/seo-catalogo-maquinas-cafe/"
       jsonLd={spokeJsonLd}
     >
-      <h2>Contexto Operacional e Desafio de Bens Duráveis</h2>
+      <h2>O Cenário: Equipamentos de Alto Valor e Decisões Técnicas de Compra</h2>
       <p>
-        A Máquinas &amp; Café consolidou-se como referência pioneira no varejo e atacado B2B de máquinas de espresso profissionais e residenciais, suprimentos e assistência técnica especializada. Operando com tíquetes médios elevados (de R$ 2.500 a mais de R$ 35.000 por unidade), o modelo de negócio demandava máxima confiança e conteúdo técnico aprofundado antes de cada tomada de decisão de compra.
+        A Máquinas &amp; Café consolidou-se como referência pioneira na venda de máquinas de espresso profissionais e residenciais, peças de reposição e assistência técnica especializada. Com produtos de tíquete médio elevado (variando de R$ 2.500 a mais de R$ 35.000 por unidade), o cliente precisava de máxima confiança e informações técnicas precisas antes de decidir a compra.
       </p>
 
-      <h2>Diagnóstico de Gargalos: A Armadilha do CPC na Black Friday</h2>
+      <h2>O Desafio: Anúncios Cada Vez Mais Caros no Período Mais Concorrido do Ano</h2>
       <p>
-        Durante os meses de pico sazonal (outubro e novembro), a concorrência agressiva de grandes varejistas generalistas inflacionava os custos por clique (CPC) em campanhas de Google Shopping. Manter a rentabilidade da operação tornou-se incompatível com a dependência exclusiva de mídia leiloada, sob risco de corrosão integral da margem de contribuição.
+        Nos meses de maior movimento, especialmente durante a Black Friday, a disputa acirrada por anúncios no Google Shopping encarecia os cliques a ponto de zerar o lucro de produtos caros. Depender exclusivamente de anúncios pagos colocava a margem da empresa em risco constante.
       </p>
       <p>
-        No âmbito técnico, o catálogo apresentava centenas de variações de voltagem, grupos térmicos e capacidades de caldeira, gerando risco recorrente de canibalização semântica e indexação desordenada de URLs facetadas.
+        Ao mesmo tempo, a loja contava com centenas de variações de voltagem, caldeiras e modelos, gerando páginas duplicadas e dificultando o ranqueamento das categorias mais importantes no Google.
       </p>
 
-      <h2>Intervenção Técnica por Arthur Saggioratto</h2>
+      <h2>A Solução: Conteúdo Especializado, Catálogo Organizado e Venda Consultiva</h2>
       <p>
-        Na função de Head de E-commerce e Performance, Arthur Saggioratto reestruturou integralmente a taxonomia do catálogo na plataforma de comércio eletrônico e sincronizou atributos técnicos via ERP Bling. Foi desenhada uma malha semântica de canonicalização estrita, permitindo que apenas combinações de alta intenção comercial fossem indexadas pelos buscadores.
+        Como Head de E-commerce e Performance, reorganizei toda a estrutura de categorias e filtros na plataforma Magento, sincronizando dados e estoque diretamente com o Bling ERP. Aplicamos regras claras de organização para que apenas as páginas relevantes fossem indexadas pelos mecanismos de busca.
       </p>
       <p>
-        A estratégia contemplou a produção de dossiês técnicos detalhados e guias comparativos de equipamentos, enriquecidos com marcação de dados Schema.org para especificações técnicas de produto. Em vendas de alta complexidade, implantou-se atendimento consultivo imediato via WhatsApp, convertendo o tráfego técnico em pedidos fechados com margem preservada.
+        Criamos também guias aprofundados de compra, comparativos entre modelos e tutoriais de manutenção com marcações técnicas (Schema.org). Para compras corporativas ou de máquinas de maior valor, estruturamos um canal direto de consultoria no WhatsApp, transformando visitantes interessados em vendas fechadas com excelente margem de lucro.
       </p>
     </SpokeArticleLayout>
   )

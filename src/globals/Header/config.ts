@@ -125,7 +125,7 @@ export const Header: GlobalConfig = {
           type: 'array',
           label: 'Informações de Contato',
           defaultValue: [
-            { label: 'Sede Operacional', value: 'Rua Coronel Quirino, 1200 - Cambuí, Campinas/SP' },
+            { label: 'Sede Operacional', value: 'Rua Coronel Quirino, 1200, Cambuí, Campinas/SP' },
             { label: 'Telefone / WhatsApp', value: '+55 19 99349-7819' },
             { label: 'E-mail Institucional', value: 'contato@squammata.com.br' },
             { label: 'Atendimento Regional', value: 'Campinas e Região Metropolitana (RMC)' },

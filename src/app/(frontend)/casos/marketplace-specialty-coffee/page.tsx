@@ -102,10 +102,10 @@ const spokeJsonLd = {
 export default function MarketplaceCasePage() {
   return (
     <SpokeArticleLayout
-      categoryBadge="ESTUDO DE CASO OPERACIONAL • MARKETPLACE ENTERPRISE"
-      title="Arquitetura de Marketplace em Shopify Plus com Seller Center Omnik: Integração Logística e Escala com POAS Positivo"
-      lead="Análise técnica e operacional da orquestração de marketplace em Shopify Plus com Seller Center Omnik, unificando catálogo de mais de 100 marcas e produtores artesanais com divisão automatizada de recebíveis e governança de POAS."
-      answerBlock="A estruturação do marketplace da Rua do Café sob Shopify Plus e Seller Center Omnik conduzida por Arthur Saggioratto resolveu a complexidade logística e tributária de mais de 100 produtores artesanais. A integração nativa ao ERP dos parceiros combinada ao direcionamento de mídia por margem de contribuição (POAS) gerou uma expansão contínua de 66% ao mês em GMV sem comprometer o fluxo de caixa."
+      categoryBadge="ESTUDO DE CASO • MARKETPLACE &amp; DIVISÃO DE PAGAMENTOS"
+      title="Marketplace em Shopify Plus com Seller Center Omnik: Integração de 100 Lojistas e Crescimento com Lucro Real"
+      lead="Como conectamos mais de 100 marcas e produtores rurais de cafés especiais em um único marketplace, automatizando o repasse financeiro e garantindo crescimento sustentável de vendas com foco na margem de cada produto."
+      answerBlock="A estruturação do marketplace da Rua do Café em Shopify Plus com Seller Center Omnik resolveu o desafio de conectar mais de 100 produtores artesanais e marcas parceiras. Com integração direta aos ERPs (Bling e Tiny) e campanhas orientadas pela margem real de cada item (POAS), a operação atingiu um crescimento médio de 66% ao mês em volume transacionado (GMV), preservando a rentabilidade e o caixa do negócio."
       placeholderArtifacts={[
         {
           title: 'Diagrama de Arquitetura de Split Payment & Repasse',
@@ -159,25 +159,25 @@ export default function MarketplaceCasePage() {
       canonicalUrl="https://arthur-nasa.github.io/Squammata-PayloadCMS/casos/marketplace-specialty-coffee/"
       jsonLd={spokeJsonLd}
     >
-      <h2>Contexto Operacional e Complexidade Multiorigem</h2>
+      <h2>O Cenário: Conectar Produtores de Café do Brasil Inteiro em Uma Única Loja</h2>
       <p>
-        A Rua do Café nasceu com a ambição de consolidar o ecossistema brasileiro de cafés especiais em um marketplace D2C de alta conveniência. O modelo de negócio conectou dezenas de microlotes agrícolas e torrefações artesanais de múltiplos estados (Minas Gerais, São Paulo, Espírito Santo e Bahia) em um único catálogo de padrão enterprise sob a infraestrutura do Shopify Plus.
+        A Rua do Café nasceu com a proposta de reunir a riqueza dos cafés especiais brasileiros em um marketplace moderno e prático. O modelo de negócio reuniu produtores de microlotes agrícolas e torrefações artesanais de estados como Minas Gerais, São Paulo, Espírito Santo e Bahia, criando um catálogo unificado sob a infraestrutura do Shopify Plus.
       </p>
 
-      <h2>Diagnóstico de Gargalos: Fragmentação e Ilusão de Tráfego</h2>
+      <h2>O Desafio: Estoques Descentralizados, Fretes Múltiplos e Anúncios Caros</h2>
       <p>
-        O principal obstáculo residia na fragmentação das pontas operacionais. Produtores rurais utilizavam sistemas heterogêneos de ERP, inviabilizando a atualização manual de estoque e notas fiscais. No checkout, pedidos mistos com produtos de torrefações distintas geravam atrito severo no rateio de frete e no cálculo de comissões líquidas.
+        O maior desafio estava na rotina operacional de cada parceiro. Cada produtor utilizava seu próprio sistema de gestão, o que tornava inviável atualizar estoques e notas fiscais de forma manual. No carrinho de compras, pedidos que misturavam produtos de diferentes origens geravam dúvidas no frete e dificuldades para calcular os repasses financeiros de cada vendedor.
       </p>
       <p>
-        Adicionalmente, os leilões de Google Ads para termos de café especial apresentavam custos por clique crescentes. A gestão convencional orientada por ROAS bruto mascarava vendas em que os custos de frete e embalagem consumiam a totalidade do lucro líquido.
+        Além disso, os anúncios de café especial no Google estavam ficando cada vez mais concorridos. Olhar apenas para o faturamento bruto escondia pedidos em que custos de frete e embalagem consumiam todo o lucro da venda.
       </p>
 
-      <h2>Intervenção Técnica por Arthur Saggioratto</h2>
+      <h2>A Solução: Integração com ERPs, Divisão de Pagamentos e Foco no Lucro Real</h2>
       <p>
-        A liderança operacional de Arthur Saggioratto implementou o Seller Center Omnik como camada intermediária de orquestração. Foram construídos conectores de catálogo com Bling e Tiny, padronizando atributos e atualizando níveis de ruptura em intervalos de minutos.
+        Como líder de operações e e-commerce, estruturei o Seller Center Omnik como ponte entre a loja e os sistemas dos lojistas parceiros. Criamos conectores automáticos com Bling e Tiny, mantendo preços e estoques sincronizados em tempo real.
       </p>
       <p>
-        No front-end do Shopify Plus, foi desenhada a lógica de checkout transparente com divisão nativa de frete por remessa e split de repasse financeiro líquido. Paralelamente, a mídia de aquisição foi subordinada ao indicador de POAS (lucro sobre gasto com anúncios), priorizando cafés com maior margem de contribuição real no DRE.
+        Na experiência de compra da Shopify, desenhamos um checkout claro com cálculo de frete por remessa e divisão automática dos pagamentos para cada parceiro. Em paralelo, direcionamos a verba de anúncios para os produtos de maior margem de lucro (POAS), fazendo o negócio crescer de forma saudável e lucrativa.
       </p>
     </SpokeArticleLayout>
   )

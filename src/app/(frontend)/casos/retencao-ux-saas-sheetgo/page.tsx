@@ -107,10 +107,10 @@ const spokeJsonLd = {
 export default function SheetgoCasePage() {
   return (
     <SpokeArticleLayout
-      categoryBadge="ESTUDO DE CASO OPERACIONAL • SAAS B2B GLOBAL & PRODUCT-LED GROWTH"
-      title="Otimização de Retenção e Ativação em SaaS B2B Global: Telemetria no GA4 e Redução de Fricção no Onboarding"
-      lead="Investigação dos gargalos de ativação e retenção em plataforma global de SaaS B2B, detalhando o diagnóstico comportamental no GA4 e o redesenho de fluxos de entrada para redução de carga cognitiva corporativa."
-      answerBlock="A intervenção nos fluxos de entrada da plataforma global de automação Sheetgo conduzida por Arthur Saggioratto utilizou telemetria comportamental no GA4 e testes controlados para redesenhar a experiência do usuário. O processo eliminou etapas cognitivamente redundantes de ativação, resultando em um incremento de 20% no tempo qualificado de sessão e aceleração da taxa de adoção de produto."
+      categoryBadge="ESTUDO DE CASO • RETENÇÃO E EXPERIÊNCIA EM SAAS B2B"
+      title="Retenção de Usuários e Experiência em SaaS Global: Aumento de 20% no Tempo de Sessão e Ativação Descomplicada"
+      lead="Como a análise prática do comportamento dos usuários no GA4 e o redesenho das telas iniciais ajudaram uma plataforma internacional de automação a reter clientes corporativos e acelerar o uso do produto."
+      answerBlock="A reformulação das telas iniciais e das páginas de destino da Sheetgo, conduzida a partir de dados reais no GA4 e testes com usuários, eliminou etapas desnecessárias no primeiro contato com a ferramenta. As melhorias aumentaram em 20% o tempo médio de permanência dos usuários corporativos e tornaram o processo de ativação muito mais rápido e intuitivo."
       placeholderArtifacts={[
         {
           title: 'Mapa de Telemetria e Eventos Customizados no GA4',
@@ -164,25 +164,25 @@ export default function SheetgoCasePage() {
       canonicalUrl="https://arthur-nasa.github.io/Squammata-PayloadCMS/casos/retencao-ux-saas-sheetgo/"
       jsonLd={spokeJsonLd}
     >
-      <h2>Contexto Operacional e Exigência Enterprise Global</h2>
+      <h2>O Cenário: Uma Ferramenta Global de Automação para Empresas</h2>
       <p>
-        A Sheetgo desenvolve uma plataforma SaaS líder mundial em automação de fluxos de trabalho e conexão de planilhas em nuvem (Google Sheets, Microsoft Excel e BigQuery). Operando com clientes corporativos distribuídos pelos Estados Unidos e Europa, a comunicação e as esteiras de produto demandam rigor absoluto em usabilidade, segurança da informação e clareza de valor imediato.
+        A Sheetgo é uma plataforma global de software para automação de fluxos de trabalho e integração de planilhas na nuvem (Google Sheets, Microsoft Excel e BigQuery). Com usuários corporativos espalhados pelos Estados Unidos e Europa, a comunicação da ferramenta precisava ser 100% em inglês, transmitindo clareza e segurança imediata.
       </p>
 
-      <h2>Diagnóstico de Gargalos: Quedas Prematuras na Jornada de Entrada</h2>
+      <h2>O Desafio: Usuários que Chegavam ao Site Mas Desistiam no Cadastro</h2>
       <p>
-        Apesar da captação consistente de visitas orgânicas internacionais, a análise detalhada de comportamento indicava dispersão precoce de novos cadastros corporativos durante as primeiras telas de onboarding. Usuários de alto valor enfrentavam sobrecarga cognitiva na configuração de seus primeiros conectores de dados.
+        Embora o site recebesse um volume consistente de visitas internacionais qualificadas, muitos novos usuários corporativos desistiam logo nas primeiras telas de configuração. As etapas iniciais exigiam muitas decisões técnicas antes que a pessoa pudesse ver a automação funcionando de fato.
       </p>
       <p>
-        Simultaneamente, auditorias técnicas apontavam instabilidade nas métricas de Core Web Vitals em páginas de destino de alta intenção, prejudicando o ranqueamento orgânico em buscas técnicas globais.
+        Além disso, algumas páginas principais apresentavam carregamento oscilante no celular e no computador, afetando a experiência de navegação e as posições orgânicas no Google.
       </p>
 
-      <h2>Intervenção Técnica por Arthur Saggioratto</h2>
+      <h2>A Solução: Telas Mais Rápidas, Menos Fricção e Clareza de Valor</h2>
       <p>
-        Atuando como Technical SEO e Growth Lead, Arthur Saggioratto estabeleceu uma rotina rigorosa de auditorias técnicas com ferramentas especializadas (Semrush, Ahrefs, Hotjar). Foi estruturada uma malha avançada de telemetria comportamental no Google Analytics 4 (GA4), mapeando cada micromomento de hesitação no fluxo de ativação.
+        Atuando como Technical SEO e Growth Lead, estruturei um mapeamento detalhado de navegação no Google Analytics 4 (GA4) e gravações de uso no Hotjar, identificando com precisão os pontos onde os usuários tinham dúvidas ou travavam.
       </p>
       <p>
-        Com base nos dados observados, a jornada de entrada foi redesenhada por meio de testes controlados. Etapas redundantes de cadastro foram suprimidas e substituídas por modelos pré-configurados de automação com visualização prévia de valor em tempo real. O processo resultou em um acréscimo sustentado de 20% no tempo qualificado de sessão e maior aceleração na conversão para planos pagos.
+        Com base nesses aprendizados, simplificamos as telas de cadastro, aceleramos o tempo de resposta das páginas e disponibilizamos modelos pré-configurados para que o cliente pudesse conectar suas planilhas em poucos cliques. O resultado foi um aumento de 20% no tempo de uso da plataforma e uma transição mais fluida para os planos pagos.
       </p>
     </SpokeArticleLayout>
   )

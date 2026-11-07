@@ -185,7 +185,7 @@ export const Footer: GlobalConfig = {
       defaultValue: [
         {
           title: 'Sede Operacional',
-          address: 'Rua Coronel Quirino, 1200 - Cambuí, Campinas/SP, CEP 13025-002',
+          address: 'Rua Coronel Quirino, 1200, Cambuí, Campinas/SP, CEP 13025-002',
           phone: '+55 19 99349-7819',
         },
         {
