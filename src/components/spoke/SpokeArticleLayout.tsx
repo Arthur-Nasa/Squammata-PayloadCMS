@@ -272,7 +272,7 @@ export function SpokeArticleLayout({
           Base operacional: Campinas, Piracicaba, Santa Bárbara d&apos;Oeste e São Paulo (SP)
         </p>
         <p>
-          <Link href="/arthur">https://arthursaggioratto.com.br/</Link>
+          <Link href="/arthur">https://arthur-nasa.github.io/Squammata-PayloadCMS/</Link>
         </p>
       </footer>
     </div>

@@ -5,13 +5,13 @@ import { getCachedPortfolioSettings } from '@/utilities/getGlobals'
 import { portfolioSchema } from './portfolioSchema'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://arthursaggioratto.com.br'),
+  metadataBase: new URL('https://arthur-nasa.github.io/Squammata-PayloadCMS'),
   alternates: {
-    canonical: 'https://arthursaggioratto.com.br/',
+    canonical: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/',
     languages: {
-      'pt-BR': 'https://arthursaggioratto.com.br/',
-      'en-US': 'https://arthursaggioratto.com.br/en/arthur/',
-      'x-default': 'https://arthursaggioratto.com.br/',
+      'pt-BR': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/',
+      'en-US': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/en/arthur/',
+      'x-default': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/',
     },
   },
   title: {
@@ -23,11 +23,11 @@ export const metadata: Metadata = {
     title: 'Arthur Saggioratto | Governança e Margem para E-commerce',
     description:
       '15 anos transformando gargalos técnicos em lucro operacional. Governança de margem (POAS), SEO técnico e arquitetura.',
-    url: 'https://arthursaggioratto.com.br/',
+    url: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/',
     siteName: 'Arthur Saggioratto | Consultoria e Portfólio',
     images: [
       {
-        url: 'https://arthursaggioratto.com.br/arthur-saggioratto.jpg',
+        url: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/arthur-saggioratto.jpg',
         width: 1200,
         height: 630,
         alt: 'Arthur Saggioratto: Consultor de Crescimento e Rentabilidade para E-commerce',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: 'Arthur Saggioratto | Governança e Margem para E-commerce',
     description:
       '15 anos transformando gargalos técnicos em lucro operacional. Governança de margem (POAS), SEO técnico e arquitetura.',
-    images: ['https://arthursaggioratto.com.br/arthur-saggioratto.jpg'],
+    images: ['https://arthur-nasa.github.io/Squammata-PayloadCMS/arthur-saggioratto.jpg'],
   },
 }
 

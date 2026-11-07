@@ -3,22 +3,22 @@ import React from 'react'
 import { SpokeArticleLayout } from '@/components/spoke/SpokeArticleLayout'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://arthursaggioratto.com.br'),
+  metadataBase: new URL('https://arthur-nasa.github.io/Squammata-PayloadCMS'),
   title: 'Retenção e Otimização de Jornada em SaaS B2B Global: Estudo de Caso Sheetgo',
   description:
     'Redesenho da experiência do usuário e telemetria comportamental no GA4 para a plataforma global Sheetgo, elevando o tempo de sessão em +20% e reduzindo atrito de ativação.',
   alternates: {
-    canonical: 'https://arthursaggioratto.com.br/casos/retencao-ux-saas-sheetgo/',
+    canonical: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/casos/retencao-ux-saas-sheetgo/',
   },
   openGraph: {
     type: 'article',
     title: 'Retenção e Otimização de Jornada em SaaS B2B Global: Estudo de Caso Sheetgo',
     description:
       'Redesenho da experiência do usuário e telemetria comportamental no GA4 para a plataforma global Sheetgo, elevando o tempo de sessão em +20% e reduzindo atrito de ativação.',
-    url: 'https://arthursaggioratto.com.br/casos/retencao-ux-saas-sheetgo/',
+    url: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/casos/retencao-ux-saas-sheetgo/',
     images: [
       {
-        url: 'https://arthursaggioratto.com.br/arthur-saggioratto.jpg',
+        url: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/arthur-saggioratto.jpg',
         width: 1200,
         height: 630,
         alt: 'Retenção e Otimização em SaaS B2B Global: Estudo de Caso Sheetgo',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: 'Retenção e Otimização de Jornada em SaaS B2B Global: Estudo de Caso Sheetgo',
     description:
       'Redesenho da experiência do usuário e telemetria comportamental no GA4 para a plataforma global Sheetgo, elevando o tempo de sessão em +20% e reduzindo atrito de ativação.',
-    images: ['https://arthursaggioratto.com.br/arthur-saggioratto.jpg'],
+    images: ['https://arthur-nasa.github.io/Squammata-PayloadCMS/arthur-saggioratto.jpg'],
   },
 }
 
@@ -40,24 +40,24 @@ const spokeJsonLd = {
   '@graph': [
     {
       '@type': 'TechArticle',
-      '@id': 'https://arthursaggioratto.com.br/casos/retencao-ux-saas-sheetgo/#article',
+      '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/casos/retencao-ux-saas-sheetgo/#article',
       isPartOf: {
         '@type': 'WebPage',
-        '@id': 'https://arthursaggioratto.com.br/casos/retencao-ux-saas-sheetgo/',
+        '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/casos/retencao-ux-saas-sheetgo/',
       },
       headline:
         'Retenção e Otimização de Jornada em SaaS B2B Global: Estudo de Caso Sheetgo',
       description:
         'Redesenho da experiência do usuário e telemetria comportamental no GA4 para a plataforma global Sheetgo, elevando o tempo de sessão em +20% e reduzindo atrito de ativação.',
       inLanguage: 'pt-BR',
-      mainEntityOfPage: 'https://arthursaggioratto.com.br/casos/retencao-ux-saas-sheetgo/',
+      mainEntityOfPage: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/casos/retencao-ux-saas-sheetgo/',
       author: {
         '@type': 'Person',
-        '@id': 'https://arthursaggioratto.com.br/#person',
+        '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/#person',
       },
       publisher: {
         '@type': 'Organization',
-        '@id': 'https://arthursaggioratto.com.br/#organization',
+        '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/#organization',
       },
       about: [
         {
@@ -79,25 +79,25 @@ const spokeJsonLd = {
     },
     {
       '@type': 'BreadcrumbList',
-      '@id': 'https://arthursaggioratto.com.br/casos/retencao-ux-saas-sheetgo/#breadcrumb',
+      '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/casos/retencao-ux-saas-sheetgo/#breadcrumb',
       itemListElement: [
         {
           '@type': 'ListItem',
           position: 1,
           name: 'Início',
-          item: 'https://arthursaggioratto.com.br/',
+          item: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/',
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Casos Operacionais',
-          item: 'https://arthursaggioratto.com.br/#casos',
+          item: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/#casos',
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: 'Sheetgo',
-          item: 'https://arthursaggioratto.com.br/casos/retencao-ux-saas-sheetgo/',
+          item: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/casos/retencao-ux-saas-sheetgo/',
         },
       ],
     },
@@ -161,7 +161,7 @@ export default function SheetgoCasePage() {
         parentUrl: '/arthur#casos',
         currentLabel: 'Sheetgo',
       }}
-      canonicalUrl="https://arthursaggioratto.com.br/casos/retencao-ux-saas-sheetgo/"
+      canonicalUrl="https://arthur-nasa.github.io/Squammata-PayloadCMS/casos/retencao-ux-saas-sheetgo/"
       jsonLd={spokeJsonLd}
     >
       <h2>Contexto Operacional e Exigência Enterprise Global</h2>

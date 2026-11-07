@@ -3,26 +3,26 @@ export const portfolioSchema = {
   '@graph': [
     {
       '@type': 'ProfilePage',
-      '@id': 'https://arthursaggioratto.com.br/#webpage',
-      url: 'https://arthursaggioratto.com.br/',
+      '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/#webpage',
+      url: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/',
       name: 'Arthur Saggioratto | Consultoria em E-commerce e Rentabilidade Digital',
       isPartOf: {
         '@type': 'WebSite',
-        '@id': 'https://arthursaggioratto.com.br/#website',
-        url: 'https://arthursaggioratto.com.br/',
+        '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/#website',
+        url: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/',
         name: 'Arthur Saggioratto | Consultoria e Portfólio Executivo',
       },
       about: {
-        '@id': 'https://arthursaggioratto.com.br/#person',
+        '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/#person',
       },
       mainEntity: {
-        '@id': 'https://arthursaggioratto.com.br/#person',
+        '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/#person',
       },
       inLanguage: 'pt-BR',
     },
     {
       '@type': 'Person',
-      '@id': 'https://arthursaggioratto.com.br/#person',
+      '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/#person',
       name: 'Arthur Saggioratto',
       alternateName: [
         'Arthur Saggioratto Neto',
@@ -35,8 +35,8 @@ export const portfolioSchema = {
       ],
       description:
         'Especialista em governança de margem de contribuição (POAS), arquitetura de marketplaces e SEO técnico para operações de comércio eletrônico no interior paulista e São Paulo.',
-      image: 'https://arthursaggioratto.com.br/arthur-saggioratto.webp',
-      url: 'https://arthursaggioratto.com.br/',
+      image: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/arthur-saggioratto.webp',
+      url: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/',
       email: 'mailto:arthur.saggioratto@gmail.com',
       telephone: '+55-19-99349-7819',
       address: {
@@ -61,7 +61,7 @@ export const portfolioSchema = {
         },
         {
           '@type': 'EducationalOrganization',
-          name: 'FAAL - Faculdade de Administração e Artes de Limeira',
+          name: 'FAAL • Faculdade de Administração e Artes de Limeira',
           description: 'Bacharelado em Marketing e Gestão de Vendas, concluído em 2015',
         },
       ],
@@ -81,18 +81,18 @@ export const portfolioSchema = {
         'Bling ERP',
       ],
       worksFor: {
-        '@id': 'https://arthursaggioratto.com.br/#organization',
+        '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/#organization',
       },
     },
     {
       '@type': 'Organization',
-      '@id': 'https://arthursaggioratto.com.br/#organization',
+      '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/#organization',
       name: 'Squammata Consultoria',
       legalName: '31.384.814 ARTHUR SAGGIORATTO NETO ME',
       taxID: '31.384.814/0001-09',
-      url: 'https://arthursaggioratto.com.br/',
+      url: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/',
       founder: {
-        '@id': 'https://arthursaggioratto.com.br/#person',
+        '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/#person',
       },
       areaServed: [
         {
@@ -138,9 +138,9 @@ export const portfolioSchema = {
     },
     {
       '@type': 'ProfessionalService',
-      '@id': 'https://arthursaggioratto.com.br/#servicos',
+      '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/#servicos',
       name: 'Consultoria Squammata • Arthur Saggioratto',
-      url: 'https://arthursaggioratto.com.br/',
+      url: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/',
       telephone: '+5519993497819',
       email: 'arthur.saggioratto@gmail.com',
       priceRange: '$$$$',
@@ -151,12 +151,12 @@ export const portfolioSchema = {
         'Direção Executiva Interina de Operações Digitais',
       ],
       areaServed: {
-        '@id': 'https://arthursaggioratto.com.br/#organization',
+        '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/#organization',
       },
     },
     {
       '@type': 'FAQPage',
-      '@id': 'https://arthursaggioratto.com.br/#faq',
+      '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/#faq',
       mainEntity: [
         {
           '@type': 'Question',

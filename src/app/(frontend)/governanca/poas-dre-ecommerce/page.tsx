@@ -3,22 +3,22 @@ import React from 'react'
 import { SpokeArticleLayout } from '@/components/spoke/SpokeArticleLayout'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://arthursaggioratto.com.br'),
+  metadataBase: new URL('https://arthur-nasa.github.io/Squammata-PayloadCMS'),
   title: 'Framework de POAS (Profit on Ad Spend) e Governança de Margem no DRE do E-commerce',
   description:
     'Metodologia proprietária para alocação de mídia de performance orientada ao lucro líquido operacional real, eliminando a ilusão de faturamento do ROAS bruto.',
   alternates: {
-    canonical: 'https://arthursaggioratto.com.br/governanca/poas-dre-ecommerce/',
+    canonical: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/governanca/poas-dre-ecommerce/',
   },
   openGraph: {
     type: 'article',
     title: 'Framework de POAS (Profit on Ad Spend) e Governança de Margem no DRE do E-commerce',
     description:
       'Metodologia proprietária para alocação de mídia de performance orientada ao lucro líquido operacional real, eliminando a ilusão de faturamento do ROAS bruto.',
-    url: 'https://arthursaggioratto.com.br/governanca/poas-dre-ecommerce/',
+    url: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/governanca/poas-dre-ecommerce/',
     images: [
       {
-        url: 'https://arthursaggioratto.com.br/arthur-saggioratto.jpg',
+        url: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/arthur-saggioratto.jpg',
         width: 1200,
         height: 630,
         alt: 'Framework de POAS e Governança de Margem: Metodologia Arthur Saggioratto',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: 'Framework de POAS (Profit on Ad Spend) e Governança de Margem no DRE do E-commerce',
     description:
       'Metodologia proprietária para alocação de mídia de performance orientada ao lucro líquido operacional real, eliminando a ilusão de faturamento do ROAS bruto.',
-    images: ['https://arthursaggioratto.com.br/arthur-saggioratto.jpg'],
+    images: ['https://arthur-nasa.github.io/Squammata-PayloadCMS/arthur-saggioratto.jpg'],
   },
 }
 
@@ -40,24 +40,24 @@ const spokeJsonLd = {
   '@graph': [
     {
       '@type': 'TechArticle',
-      '@id': 'https://arthursaggioratto.com.br/governanca/poas-dre-ecommerce/#article',
+      '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/governanca/poas-dre-ecommerce/#article',
       isPartOf: {
         '@type': 'WebPage',
-        '@id': 'https://arthursaggioratto.com.br/governanca/poas-dre-ecommerce/',
+        '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/governanca/poas-dre-ecommerce/',
       },
       headline:
         'Framework de POAS (Profit on Ad Spend) e Governança de Margem no DRE do E-commerce',
       description:
         'Metodologia proprietária para alocação de mídia de performance orientada ao lucro líquido operacional real, eliminando a ilusão de faturamento do ROAS bruto.',
       inLanguage: 'pt-BR',
-      mainEntityOfPage: 'https://arthursaggioratto.com.br/governanca/poas-dre-ecommerce/',
+      mainEntityOfPage: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/governanca/poas-dre-ecommerce/',
       author: {
         '@type': 'Person',
-        '@id': 'https://arthursaggioratto.com.br/#person',
+        '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/#person',
       },
       publisher: {
         '@type': 'Organization',
-        '@id': 'https://arthursaggioratto.com.br/#organization',
+        '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/#organization',
       },
       about: [
         {
@@ -79,25 +79,25 @@ const spokeJsonLd = {
     },
     {
       '@type': 'BreadcrumbList',
-      '@id': 'https://arthursaggioratto.com.br/governanca/poas-dre-ecommerce/#breadcrumb',
+      '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/governanca/poas-dre-ecommerce/#breadcrumb',
       itemListElement: [
         {
           '@type': 'ListItem',
           position: 1,
           name: 'Início',
-          item: 'https://arthursaggioratto.com.br/',
+          item: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/',
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Governança & DRE',
-          item: 'https://arthursaggioratto.com.br/#matriz',
+          item: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/#matriz',
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: 'Framework POAS',
-          item: 'https://arthursaggioratto.com.br/governanca/poas-dre-ecommerce/',
+          item: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/governanca/poas-dre-ecommerce/',
         },
       ],
     },
@@ -161,7 +161,7 @@ export default function PoasGovernancePage() {
         parentUrl: '/arthur#matriz',
         currentLabel: 'Framework POAS',
       }}
-      canonicalUrl="https://arthursaggioratto.com.br/governanca/poas-dre-ecommerce/"
+      canonicalUrl="https://arthur-nasa.github.io/Squammata-PayloadCMS/governanca/poas-dre-ecommerce/"
       jsonLd={spokeJsonLd}
     >
       <h2>A Ilusão do ROAS Bruto e a Destruição Silenciosa de Caixa</h2>

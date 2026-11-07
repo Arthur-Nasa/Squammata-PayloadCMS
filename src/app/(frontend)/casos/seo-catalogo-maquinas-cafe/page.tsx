@@ -3,22 +3,22 @@ import React from 'react'
 import { SpokeArticleLayout } from '@/components/spoke/SpokeArticleLayout'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://arthursaggioratto.com.br'),
+  metadataBase: new URL('https://arthur-nasa.github.io/Squammata-PayloadCMS'),
   title: 'Taxonomia Facetada e SEO Técnico de Catálogo: Estudo de Caso Máquinas & Café',
   description:
     'Análise longitudinal de 10 anos de crescimento contínuo (+20% YoY) e sustentação de 45% da receita da Black Friday via busca orgânica sem custo de clique.',
   alternates: {
-    canonical: 'https://arthursaggioratto.com.br/casos/seo-catalogo-maquinas-cafe/',
+    canonical: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/casos/seo-catalogo-maquinas-cafe/',
   },
   openGraph: {
     type: 'article',
     title: 'Taxonomia Facetada e SEO Técnico de Catálogo: Estudo de Caso Máquinas & Café',
     description:
       'Análise longitudinal de 10 anos de crescimento contínuo (+20% YoY) e sustentação de 45% da receita da Black Friday via busca orgânica sem custo de clique.',
-    url: 'https://arthursaggioratto.com.br/casos/seo-catalogo-maquinas-cafe/',
+    url: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/casos/seo-catalogo-maquinas-cafe/',
     images: [
       {
-        url: 'https://arthursaggioratto.com.br/arthur-saggioratto.jpg',
+        url: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/arthur-saggioratto.jpg',
         width: 1200,
         height: 630,
         alt: 'Taxonomia Facetada e SEO Técnico de Catálogo: Estudo de Caso Máquinas & Café',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: 'Taxonomia Facetada e SEO Técnico de Catálogo: Estudo de Caso Máquinas & Café',
     description:
       'Análise longitudinal de 10 anos de crescimento contínuo (+20% YoY) e sustentação de 45% da receita da Black Friday via busca orgânica sem custo de clique.',
-    images: ['https://arthursaggioratto.com.br/arthur-saggioratto.jpg'],
+    images: ['https://arthur-nasa.github.io/Squammata-PayloadCMS/arthur-saggioratto.jpg'],
   },
 }
 
@@ -40,24 +40,24 @@ const spokeJsonLd = {
   '@graph': [
     {
       '@type': 'TechArticle',
-      '@id': 'https://arthursaggioratto.com.br/casos/seo-catalogo-maquinas-cafe/#article',
+      '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/casos/seo-catalogo-maquinas-cafe/#article',
       isPartOf: {
         '@type': 'WebPage',
-        '@id': 'https://arthursaggioratto.com.br/casos/seo-catalogo-maquinas-cafe/',
+        '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/casos/seo-catalogo-maquinas-cafe/',
       },
       headline:
         'Taxonomia Facetada e SEO Técnico de Catálogo: Estudo de Caso Máquinas & Café',
       description:
         'Análise longitudinal de 10 anos de crescimento contínuo (+20% YoY) e sustentação de 45% da receita da Black Friday via busca orgânica sem custo de clique.',
       inLanguage: 'pt-BR',
-      mainEntityOfPage: 'https://arthursaggioratto.com.br/casos/seo-catalogo-maquinas-cafe/',
+      mainEntityOfPage: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/casos/seo-catalogo-maquinas-cafe/',
       author: {
         '@type': 'Person',
-        '@id': 'https://arthursaggioratto.com.br/#person',
+        '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/#person',
       },
       publisher: {
         '@type': 'Organization',
-        '@id': 'https://arthursaggioratto.com.br/#organization',
+        '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/#organization',
       },
       about: [
         {
@@ -79,25 +79,25 @@ const spokeJsonLd = {
     },
     {
       '@type': 'BreadcrumbList',
-      '@id': 'https://arthursaggioratto.com.br/casos/seo-catalogo-maquinas-cafe/#breadcrumb',
+      '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/casos/seo-catalogo-maquinas-cafe/#breadcrumb',
       itemListElement: [
         {
           '@type': 'ListItem',
           position: 1,
           name: 'Início',
-          item: 'https://arthursaggioratto.com.br/',
+          item: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/',
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Casos Operacionais',
-          item: 'https://arthursaggioratto.com.br/#casos',
+          item: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/#casos',
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: 'Máquinas & Café',
-          item: 'https://arthursaggioratto.com.br/casos/seo-catalogo-maquinas-cafe/',
+          item: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/casos/seo-catalogo-maquinas-cafe/',
         },
       ],
     },
@@ -161,7 +161,7 @@ export default function MaquinasCafeCasePage() {
         parentUrl: '/arthur#casos',
         currentLabel: 'Máquinas & Café',
       }}
-      canonicalUrl="https://arthursaggioratto.com.br/casos/seo-catalogo-maquinas-cafe/"
+      canonicalUrl="https://arthur-nasa.github.io/Squammata-PayloadCMS/casos/seo-catalogo-maquinas-cafe/"
       jsonLd={spokeJsonLd}
     >
       <h2>Contexto Operacional e Desafio de Bens Duráveis</h2>

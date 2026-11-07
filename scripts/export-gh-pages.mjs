@@ -15,7 +15,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const ROOT_DIR = path.resolve(__dirname, '..')
 const DIST_DIR = path.join(ROOT_DIR, 'gh-pages-dist')
-const CANONICAL_DOMAIN = 'https://arthursaggioratto.com.br'
+const CANONICAL_DOMAIN = 'https://arthur-nasa.github.io/Squammata-PayloadCMS'
 
 // Limpeza de variáveis de proxy para garantir requisições locais limpas
 delete process.env.http_proxy
@@ -26,7 +26,7 @@ delete process.env.all_proxy
 delete process.env.ALL_PROXY
 process.env.NO_PROXY = '*'
 
-console.log('🚀 Iniciando processo de exportação estática Hub-and-Spoke para arthursaggioratto.com.br...')
+console.log('🚀 Iniciando processo de exportação estática Hub-and-Spoke para arthur-nasa.github.io/Squammata-PayloadCMS...')
 
 // Limpeza prévia de caches do Next.js
 const nextCacheDir = path.join(ROOT_DIR, '.next', 'cache')
@@ -199,12 +199,25 @@ function adaptHtmlContent(html, depth = 0, lang = 'pt', routePath = '/') {
     .replaceAll('href="/resume_ecommerce_arthursaggioratto.pdf"', `href="${prefix}/resume_ecommerce_arthursaggioratto.pdf"`)
     .replaceAll('href="./resume_ecommerce_arthursaggioratto.pdf"', `href="${prefix}/resume_ecommerce_arthursaggioratto.pdf"`)
 
-  // 5. Links internos de navegação (limpos para o domínio próprio)
+  // 5. Links internos de navegação (adaptados para subcaminho do GitHub Pages)
   adapted = adapted
-    .replaceAll('href="/arthur"', 'href="/"')
-    .replaceAll('href="/portfolio"', 'href="/"')
-    .replaceAll('href="/en/arthur"', 'href="/en/arthur/"')
-    .replaceAll('https://arthur-nasa.github.io/Squammata-PayloadCMS/', `${CANONICAL_DOMAIN}/`)
+    .replaceAll('https://arthursaggioratto.com.br/', `${CANONICAL_DOMAIN}/`)
+    .replaceAll('https://arthursaggioratto.com.br', CANONICAL_DOMAIN)
+    .replaceAll('href="/arthur"', 'href="/Squammata-PayloadCMS/"')
+    .replaceAll('href="/arthur/"', 'href="/Squammata-PayloadCMS/"')
+    .replaceAll('href="/portfolio"', 'href="/Squammata-PayloadCMS/"')
+    .replaceAll('href="/portfolio/"', 'href="/Squammata-PayloadCMS/"')
+    .replaceAll('href="/en/arthur"', 'href="/Squammata-PayloadCMS/en/arthur/"')
+    .replaceAll('href="/en/arthur/"', 'href="/Squammata-PayloadCMS/en/arthur/"')
+    .replaceAll('href="/casos/marketplace-specialty-coffee/"', 'href="/Squammata-PayloadCMS/casos/marketplace-specialty-coffee/"')
+    .replaceAll('href="/casos/marketplace-specialty-coffee"', 'href="/Squammata-PayloadCMS/casos/marketplace-specialty-coffee/"')
+    .replaceAll('href="/casos/seo-catalogo-maquinas-cafe/"', 'href="/Squammata-PayloadCMS/casos/seo-catalogo-maquinas-cafe/"')
+    .replaceAll('href="/casos/seo-catalogo-maquinas-cafe"', 'href="/Squammata-PayloadCMS/casos/seo-catalogo-maquinas-cafe/"')
+    .replaceAll('href="/casos/retencao-ux-saas-sheetgo/"', 'href="/Squammata-PayloadCMS/casos/retencao-ux-saas-sheetgo/"')
+    .replaceAll('href="/casos/retencao-ux-saas-sheetgo"', 'href="/Squammata-PayloadCMS/casos/retencao-ux-saas-sheetgo/"')
+    .replaceAll('href="/governanca/poas-dre-ecommerce/"', 'href="/Squammata-PayloadCMS/governanca/poas-dre-ecommerce/"')
+    .replaceAll('href="/governanca/poas-dre-ecommerce"', 'href="/Squammata-PayloadCMS/governanca/poas-dre-ecommerce/"')
+    .replaceAll('href="/arthur#', 'href="/Squammata-PayloadCMS/#')
 
   // 6. Preload de alta prioridade da imagem de autor no formato WebP e fontes
   const fontLinks =
@@ -267,14 +280,13 @@ fs.writeFileSync(path.join(DIST_DIR, 'index.html'), adaptedPtHtml, 'utf-8')
 fs.writeFileSync(path.join(DIST_DIR, 'arthur.html'), adaptedPtHtml, 'utf-8')
 fs.writeFileSync(path.join(DIST_DIR, 'portfolio.html'), adaptedPtHtml, 'utf-8')
 
-// 404 inteligente com captura de URLs legadas do GitHub Pages
+// 404 inteligente com captura de rotas no GitHub Pages
 const legacyRedirectScript = `
 <script>
 (function() {
   var p = window.location.pathname;
-  if (p.indexOf('/Squammata-PayloadCMS') !== -1) {
-    var clean = p.replace('/Squammata-PayloadCMS', '') || '/';
-    window.location.replace('${CANONICAL_DOMAIN}' + clean);
+  if (p === '/arthur' || p === '/portfolio' || p === '/arthur/' || p === '/portfolio/' || p === '/') {
+    window.location.replace('/Squammata-PayloadCMS/');
   }
 })();
 </script>
@@ -327,9 +339,12 @@ const adaptedSpoke04Html = adaptHtmlContent(spoke04Html, 2, 'pt', '/governanca/p
 fs.writeFileSync(path.join(spoke04Dir, 'index.html'), adaptedSpoke04Html, 'utf-8')
 console.log('✅ Spoke 04 (/governanca/poas-dre-ecommerce/) gerado com sucesso.')
 
-// 7. Criar CNAME para domínio próprio soberano
-fs.writeFileSync(path.join(DIST_DIR, 'CNAME'), 'arthursaggioratto.com.br\n', 'utf-8')
-console.log('✅ Arquivo CNAME configurado com arthursaggioratto.com.br.')
+// 7. Garantir remoção do CNAME para ativar o domínio nativo do GitHub Pages
+const cnamePath = path.join(DIST_DIR, 'CNAME')
+if (fs.existsSync(cnamePath)) {
+  fs.rmSync(cnamePath, { force: true })
+}
+console.log('✅ Arquivo CNAME removido para ativar URL nativa do GitHub Pages.')
 
 // 8. Criar .nojekyll
 fs.writeFileSync(path.join(DIST_DIR, '.nojekyll'), '', 'utf-8')
@@ -410,14 +425,14 @@ if (shouldDeploy) {
     execSync('git config user.email "arthur.saggioratto@gmail.com"', { cwd: DIST_DIR, stdio: 'ignore' })
     execSync('git checkout -B gh-pages', { cwd: DIST_DIR, stdio: 'ignore' })
     execSync('git add -A', { cwd: DIST_DIR, stdio: 'ignore' })
-    execSync('git commit -m "deploy: ecossistema Hub-and-Spoke com 4 spokes e CNAME arthursaggioratto.com.br"', {
+    execSync('git commit -m "deploy: ecossistema Hub-and-Spoke em https://arthur-nasa.github.io/Squammata-PayloadCMS/"', {
       cwd: DIST_DIR,
       stdio: 'ignore',
     })
     console.log(`📤 Enviando para ${gitRemoteUrl} (branch gh-pages)...`)
     execSync(`git push -f ${gitRemoteUrl} gh-pages`, { cwd: DIST_DIR, stdio: 'inherit' })
     console.log('\n🎉 Deploy no GitHub Pages concluído com sucesso!')
-    console.log('🔗 Domínio Canônico: https://arthursaggioratto.com.br/')
+    console.log('🔗 URL Nativa do GitHub Pages: https://arthur-nasa.github.io/Squammata-PayloadCMS/')
   } catch (deployErr) {
     console.error('❌ Falha ao enviar para o GitHub Pages:', deployErr.message)
     process.exit(1)

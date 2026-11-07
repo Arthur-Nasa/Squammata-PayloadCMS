@@ -3,22 +3,22 @@ import React from 'react'
 import { SpokeArticleLayout } from '@/components/spoke/SpokeArticleLayout'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://arthursaggioratto.com.br'),
+  metadataBase: new URL('https://arthur-nasa.github.io/Squammata-PayloadCMS'),
   title: 'Arquitetura de Marketplace em Shopify Plus com Seller Center Omnik: Estudo de Caso Rua do Café',
   description:
     'Dossiê técnico sobre a integração de 100 lojistas, automação de split payment e governança de margem por POAS resultando em +66% MoM de GMV.',
   alternates: {
-    canonical: 'https://arthursaggioratto.com.br/casos/marketplace-specialty-coffee/',
+    canonical: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/casos/marketplace-specialty-coffee/',
   },
   openGraph: {
     type: 'article',
     title: 'Arquitetura de Marketplace em Shopify Plus com Seller Center Omnik: Estudo de Caso Rua do Café',
     description:
       'Dossiê técnico sobre a integração de 100 lojistas, automação de split payment e governança de margem por POAS resultando em +66% MoM de GMV.',
-    url: 'https://arthursaggioratto.com.br/casos/marketplace-specialty-coffee/',
+    url: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/casos/marketplace-specialty-coffee/',
     images: [
       {
-        url: 'https://arthursaggioratto.com.br/arthur-saggioratto.jpg',
+        url: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/arthur-saggioratto.jpg',
         width: 1200,
         height: 630,
         alt: 'Arquitetura de Marketplace em Shopify Plus: Estudo de Caso Rua do Café',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: 'Arquitetura de Marketplace em Shopify Plus com Seller Center Omnik: Estudo de Caso Rua do Café',
     description:
       'Dossiê técnico sobre a integração de 100 lojistas, automação de split payment e governança de margem por POAS resultando em +66% MoM de GMV.',
-    images: ['https://arthursaggioratto.com.br/arthur-saggioratto.jpg'],
+    images: ['https://arthur-nasa.github.io/Squammata-PayloadCMS/arthur-saggioratto.jpg'],
   },
 }
 
@@ -40,24 +40,24 @@ const spokeJsonLd = {
   '@graph': [
     {
       '@type': 'TechArticle',
-      '@id': 'https://arthursaggioratto.com.br/casos/marketplace-specialty-coffee/#article',
+      '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/casos/marketplace-specialty-coffee/#article',
       isPartOf: {
         '@type': 'WebPage',
-        '@id': 'https://arthursaggioratto.com.br/casos/marketplace-specialty-coffee/',
+        '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/casos/marketplace-specialty-coffee/',
       },
       headline:
         'Arquitetura de Marketplace em Shopify Plus com Seller Center Omnik: Estudo de Caso Rua do Café',
       description:
         'Dossiê técnico sobre a integração de 100 lojistas, automação de split payment e governança de margem por POAS resultando em +66% MoM de GMV.',
       inLanguage: 'pt-BR',
-      mainEntityOfPage: 'https://arthursaggioratto.com.br/casos/marketplace-specialty-coffee/',
+      mainEntityOfPage: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/casos/marketplace-specialty-coffee/',
       author: {
         '@type': 'Person',
-        '@id': 'https://arthursaggioratto.com.br/#person',
+        '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/#person',
       },
       publisher: {
         '@type': 'Organization',
-        '@id': 'https://arthursaggioratto.com.br/#organization',
+        '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/#organization',
       },
       about: [
         {
@@ -74,25 +74,25 @@ const spokeJsonLd = {
     },
     {
       '@type': 'BreadcrumbList',
-      '@id': 'https://arthursaggioratto.com.br/casos/marketplace-specialty-coffee/#breadcrumb',
+      '@id': 'https://arthur-nasa.github.io/Squammata-PayloadCMS/casos/marketplace-specialty-coffee/#breadcrumb',
       itemListElement: [
         {
           '@type': 'ListItem',
           position: 1,
           name: 'Início',
-          item: 'https://arthursaggioratto.com.br/',
+          item: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/',
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Casos Operacionais',
-          item: 'https://arthursaggioratto.com.br/#casos',
+          item: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/#casos',
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: 'Rua do Café',
-          item: 'https://arthursaggioratto.com.br/casos/marketplace-specialty-coffee/',
+          item: 'https://arthur-nasa.github.io/Squammata-PayloadCMS/casos/marketplace-specialty-coffee/',
         },
       ],
     },
@@ -156,7 +156,7 @@ export default function MarketplaceCasePage() {
         parentUrl: '/arthur#casos',
         currentLabel: 'Rua do Café',
       }}
-      canonicalUrl="https://arthursaggioratto.com.br/casos/marketplace-specialty-coffee/"
+      canonicalUrl="https://arthur-nasa.github.io/Squammata-PayloadCMS/casos/marketplace-specialty-coffee/"
       jsonLd={spokeJsonLd}
     >
       <h2>Contexto Operacional e Complexidade Multiorigem</h2>

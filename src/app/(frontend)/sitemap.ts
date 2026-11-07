@@ -3,7 +3,7 @@ import type { MetadataRoute } from 'next'
 export const dynamic = 'force-static'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const portfolioBaseUrl = 'https://arthursaggioratto.com.br'
+  const portfolioBaseUrl = 'https://arthur-nasa.github.io/Squammata-PayloadCMS'
   const agencyBaseUrl = 'https://squammata.com.br'
   const now = new Date()
 
