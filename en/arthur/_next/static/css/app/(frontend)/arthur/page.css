@@ -1,0 +1,2183 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@15.5.26_@types+node@22.20.4_babel-plugin-macros@3.1.0_react-dom@19.3.0_react@19.3.0__react@19.3.0_sass@1.105.2/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[2]!./node_modules/.pnpm/next@15.5.26_@types+node@22.20.4_babel-plugin-macros@3.1.0_react-dom@19.3.0_react@19.3.0__react@19.3.0_sass@1.105.2/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[3]!./node_modules/.pnpm/next@15.5.26_@types+node@22.20.4_babel-plugin-macros@3.1.0_react-dom@19.3.0_react@19.3.0__react@19.3.0_sass@1.105.2/node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[7].use[4]!./node_modules/.pnpm/next@15.5.26_@types+node@22.20.4_babel-plugin-macros@3.1.0_react-dom@19.3.0_react@19.3.0__react@19.3.0_sass@1.105.2/node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[7].use[5]!./src/app/(frontend)/arthur/arthur.module.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Quicksand:wght@500;600;700&family=Zilla+Slab:ital,wght@0,400;0,600;0,700;1,400&display=swap");
+/* ==========================================================================
+   PORTFÓLIO EXECUTIVO EDITORIAL (SWISS GRID / ANTI-AI BOILERPLATE)
+   ARTHUR SAGGIORATTO | EXECUTIVO DE CRESCIMENTO E RENTABILIDADE DIGITAL
+   ========================================================================== */
+/* --- VARIÁVEIS DO SISTEMA EDITORIAL --- */
+/* --- RESET & ESTRUTURA BASE --- */
+.arthur_portfolioPage__dEs6p {
+  background-color: #0B0F0E;
+  color: #F1F5F9;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+.arthur_portfolioPage__dEs6p * {
+  box-sizing: border-box;
+}
+.arthur_portfolioPage__dEs6p ::selection {
+  background-color: #15803D;
+  color: #FFFFFF;
+}
+
+.arthur_headingFont__l3XnZ {
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.arthur_bodyFont__D0kxN {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.arthur_monoFont__OW9iC {
+  font-family: "JetBrains Mono", "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+.arthur_editorialContainer__377rc {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+@media (max-width: 768px) {
+  .arthur_editorialContainer__377rc {
+    padding: 0 1.25rem;
+  }
+}
+
+/* --- 1. HEADER FIXO, MINIMALISTA (BORDA INFERIOR DE 1PX) --- */
+.arthur_editorialHeader__3xl4R {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background-color: rgba(11, 15, 14, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+  height: 64px;
+}
+
+.arthur_headerContainer__9tMZU {
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+@media (max-width: 768px) {
+  .arthur_headerContainer__9tMZU {
+    padding: 0 1rem;
+    gap: 0.75rem;
+  }
+}
+
+.arthur_headerBrand__QlL2v {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  text-decoration: none;
+}
+
+.arthur_brandTitle__5m3XJ {
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #F1F5F9;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+@media (max-width: 480px) {
+  .arthur_brandTitle__5m3XJ {
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+  }
+}
+.arthur_brandTitle__5m3XJ:hover {
+  color: #FFFFFF;
+}
+
+.arthur_brandTag__Ws2wF {
+  font-size: 0.72rem;
+  color: #D4AF37;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  white-space: nowrap;
+}
+@media (max-width: 1280px) {
+  .arthur_brandTag__Ws2wF {
+    display: none;
+  }
+}
+
+.arthur_headerNav__Xzjs1 {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+}
+@media (max-width: 1024px) {
+  .arthur_headerNav__Xzjs1 {
+    display: none;
+  }
+}
+
+.arthur_navLink__spLV3 {
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-size: 0.88rem;
+  color: #94A3B8;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.35rem 0.2rem;
+  border-radius: 0;
+  background-color: transparent;
+  border: none;
+  transition: color 0.15s ease;
+  white-space: nowrap;
+}
+.arthur_navLink__spLV3:hover {
+  color: #FFFFFF;
+  background-color: transparent;
+  border: none;
+}
+
+.arthur_headerActions__tsggI {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+@media (max-width: 680px) {
+  .arthur_headerActions__tsggI {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .arthur_headerCurriculoBtn__rBBqW {
+    display: none !important;
+  }
+}
+
+@media (max-width: 580px) {
+  .arthur_headerWhatsappBtn__MhJ_c {
+    display: none !important;
+  }
+}
+
+.arthur_btnSchema__uzpM5 {
+  background: transparent;
+  color: #CBD5E1;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  padding: 0.45rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+.arthur_btnSchema__uzpM5:hover {
+  color: #F1F5F9;
+  border-color: rgba(255, 255, 255, 0.22);
+  background-color: rgba(255, 255, 255, 0.03);
+}
+@media (max-width: 600px) {
+  .arthur_btnSchema__uzpM5 {
+    display: none;
+  }
+}
+
+.arthur_btnPrimary__2Xo_H {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #166534;
+  color: #FFFFFF;
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 0.48rem 1.15rem;
+  text-decoration: none;
+  border: 1px solid #22C55E;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+@media (max-width: 480px) {
+  .arthur_btnPrimary__2Xo_H {
+    font-size: 0.82rem;
+    padding: 0.4rem 0.85rem;
+  }
+}
+.arthur_btnPrimary__2Xo_H:hover {
+  background-color: #15803D;
+  border-color: #4ADE80;
+  color: #FFFFFF;
+}
+
+.arthur_btnSecondary__vq6Yk {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 0.48rem 1.15rem;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.arthur_btnSecondary__vq6Yk:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+}
+
+/* --- SEÇÃO 1: HERO SECTION ASSIMÉTRICO (8 COLUNAS / 4 COLUNAS) --- */
+.arthur_heroSection__f2LA0 {
+  padding-top: calc(64px + 3.5rem);
+  padding-bottom: 4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.arthur_heroGrid__rCpWj {
+  display: grid;
+  grid-template-columns: 8fr 4fr;
+  grid-gap: 0;
+  gap: 0;
+}
+@media (max-width: 980px) {
+  .arthur_heroGrid__rCpWj {
+    grid-template-columns: 1fr;
+  }
+}
+
+.arthur_heroLeftCol___g3lm {
+  padding-right: 3.5rem;
+}
+@media (max-width: 980px) {
+  .arthur_heroLeftCol___g3lm {
+    padding-right: 0;
+    padding-bottom: 2.5rem;
+  }
+}
+
+.arthur_heroEyebrow__lNOfz {
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #D4AF37;
+  margin-bottom: 1.25rem;
+}
+
+.arthur_heroH1__ZhRjK {
+  font-size: clamp(2.2rem, 4.2vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #FFFFFF;
+  margin-bottom: 1.75rem;
+  letter-spacing: -0.025em;
+  word-break: normal;
+  -webkit-hyphens: none;
+          hyphens: none;
+}
+
+.arthur_heroLead__7pb0_ {
+  font-size: clamp(1.1rem, 1.35vw, 1.25rem);
+  line-height: 1.65;
+  color: #E2E8F0;
+  margin-bottom: 1.5rem;
+  max-width: 860px;
+}
+@media (max-width: 768px) {
+  .arthur_heroLead__7pb0_ {
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+}
+
+.arthur_heroAnswerBlock__dBh_Q {
+  margin: 0 0 2rem 0;
+  background: linear-gradient(180deg, rgba(34, 197, 94, 0.05) 0%, rgba(17, 23, 21, 0.7) 100%);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-left: 3px solid #22C55E;
+  border-radius: 6px;
+  padding: 1.15rem 1.4rem;
+  max-width: 860px;
+}
+@media (max-width: 768px) {
+  .arthur_heroAnswerBlock__dBh_Q {
+    padding: 1rem 1.15rem;
+  }
+}
+
+.arthur_heroAnswerBlockLabel__lvacE {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #22C55E;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.arthur_heroAnswerBlockLabel__lvacE::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: #22C55E;
+  border-radius: 50%;
+}
+
+.arthur_heroAnswerBlockText__EJXKI {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #F1F5F9;
+  margin: 0;
+  font-weight: 500;
+}
+
+.arthur_heroActions__uAXXG {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.arthur_btnHeroSolid__7UKLj {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #166534;
+  color: #FFFFFF;
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 0.85rem 1.75rem;
+  text-decoration: none;
+  border: 1px solid #22C55E;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+@media (max-width: 600px) {
+  .arthur_btnHeroSolid__7UKLj {
+    font-size: 0.98rem;
+    padding: 0.8rem 1.4rem;
+    width: 100%;
+  }
+}
+.arthur_btnHeroSolid__7UKLj:hover {
+  background-color: #15803D;
+  border-color: #4ADE80;
+  color: #FFFFFF;
+}
+
+.arthur_btnHeroEditorial__LIQgc {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-weight: 600;
+  font-size: 1.02rem;
+  padding: 0.85rem 1.6rem;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+@media (max-width: 600px) {
+  .arthur_btnHeroEditorial__LIQgc {
+    font-size: 0.95rem;
+    padding: 0.8rem 1.4rem;
+    width: 100%;
+  }
+}
+.arthur_btnHeroEditorial__LIQgc:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+}
+
+.arthur_heroEmailLink__VH303 {
+  font-size: 1.02rem;
+  color: #CBD5E1;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.15s ease;
+}
+.arthur_heroEmailLink__VH303:hover {
+  color: #FFFFFF;
+}
+
+/* Hero Right Col: Dossiê e Especificações Executivas */
+.arthur_heroRightCol__LuvqW {
+  border-left: 1px solid rgba(255, 255, 255, 0.13);
+  padding-left: 2.75rem;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 980px) {
+  .arthur_heroRightCol__LuvqW {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.13);
+    padding-left: 0;
+    padding-top: 2.25rem;
+  }
+}
+
+.arthur_portraitWrapper__hITus {
+  margin-bottom: 1.5rem;
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1/1;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  contain: layout paint;
+}
+
+.arthur_editorialPortrait__ynQhR {
+  width: 100%;
+  max-width: 320px;
+  height: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 6px;
+  filter: contrast(1.04) saturate(1.02);
+  display: block;
+}
+
+.arthur_portraitCaption__Kgn1d {
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  color: #CBD5E1;
+  margin-top: 0.65rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.arthur_dossierSpecs__qsz_f {
+  display: flex;
+  flex-direction: column;
+}
+
+.arthur_specRow__rbg99 {
+  padding: 0.85rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.arthur_specRow__rbg99:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.arthur_specLabel__uS8GO {
+  font-size: 0.78rem;
+  color: #D4AF37;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+.arthur_specValue__EVU3h {
+  font-size: 0.98rem;
+  color: #F1F5F9;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* --- SEÇÃO 2: BARRA DE CREDENCIAIS E OPERAÇÕES (LOGO STRIP) --- */
+.arthur_logoStripSection__eW_lF {
+  background-color: #111715;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+  padding: 1.75rem 0;
+}
+
+.arthur_logoStripInner__EgU28 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.75rem;
+  flex-wrap: wrap;
+}
+@media (max-width: 980px) {
+  .arthur_logoStripInner__EgU28 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+}
+
+.arthur_logoStripTitle__hUQkU {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #CBD5E1;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.arthur_logoStripItems__G2eTi {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.arthur_logoBadgeLink__wuHWH {
+  text-decoration: none;
+  opacity: 1;
+  transition: all 0.2s ease;
+}
+.arthur_logoBadgeLink__wuHWH:hover {
+  transform: translateY(-1px);
+}
+.arthur_logoBadgeLink__wuHWH:hover .arthur_logoSealText___zb2f {
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.arthur_logoSealText___zb2f {
+  display: inline-block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #F1F5F9;
+  padding: 0.45rem 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+
+/* --- SEÇÃO 3: INDICADORES AUDITADOS DE NEGÓCIO (GRADE TABULAR 2x3) --- */
+.arthur_bigNumbersSection__3F9ko {
+  padding: 4.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.arthur_sectionHeadingRow__kI9sZ {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2.75rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+@media (max-width: 900px) {
+  .arthur_sectionHeadingRow__kI9sZ {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+}
+
+.arthur_sectionEyebrow__1EKTp {
+  display: block;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #D4AF37;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.arthur_sectionTitle__AX5Au {
+  font-size: clamp(1.9rem, 3.2vw, 2.75rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.arthur_sectionSubtext__eq6F4 {
+  font-size: 1.05rem;
+  color: #CBD5E1;
+  max-width: 620px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Grade Tabular Contínua 2x3 */
+.arthur_tabularGrid__uzJF3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+  border-left: 1px solid rgba(255, 255, 255, 0.13);
+}
+@media (max-width: 1024px) {
+  .arthur_tabularGrid__uzJF3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 680px) {
+  .arthur_tabularGrid__uzJF3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.arthur_tabularCell__eoEq6 {
+  padding: 2.25rem 1.75rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.13);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+.arthur_tabularCell__eoEq6:hover {
+  background-color: rgba(255, 255, 255, 0.025);
+}
+
+.arthur_tabularValue__Eb1ic {
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-size: clamp(1.75rem, 2.4vw, 2.25rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+  word-break: normal;
+}
+
+.arthur_tabularLabel__lLBaX {
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #D4AF37;
+  font-weight: 700;
+  margin-bottom: 0.85rem;
+}
+
+.arthur_tabularDesc__aEG0M {
+  font-size: 0.98rem;
+  color: #CBD5E1;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --- SEÇÃO 4: MATRIZ DE COMPETÊNCIAS E ENGENHARIA (ÍNDICE TÉCNICO 01 A 04) --- */
+.arthur_matrixSection__oDF5p {
+  background-color: #111715;
+  padding: 4.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.arthur_matrixIndex__YGTE8 {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.arthur_matrixRow__wGshp {
+  display: grid;
+  grid-template-columns: 4fr 8fr;
+  grid-gap: 2.5rem;
+  gap: 2.5rem;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+@media (max-width: 900px) {
+  .arthur_matrixRow__wGshp {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2rem 0;
+  }
+}
+
+.arthur_matrixMeta__S8jFL {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.arthur_matrixNumber__IxPGB {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #D4AF37;
+  line-height: 1;
+}
+
+.arthur_matrixTitle__Jzebo {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.arthur_matrixContent__UsBES {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1.75rem;
+  gap: 1.75rem;
+}
+
+.arthur_methodologyHeading__u_fZW {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #CBD5E1;
+  margin: 0 0 0.85rem 0;
+  font-weight: 700;
+}
+
+.arthur_editorialList__LO8x9 {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.arthur_editorialList__LO8x9 li {
+  font-size: 1.02rem;
+  color: #F1F5F9;
+  line-height: 1.65;
+  position: relative;
+  padding-left: 1.4rem;
+}
+.arthur_editorialList__LO8x9 li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #22C55E;
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+.arthur_editorialList__LO8x9 li strong {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+.arthur_editorialList__LO8x9 li em {
+  font-style: italic;
+  color: #E2E8F0;
+}
+.arthur_editorialList__LO8x9 li code {
+  font-family: "JetBrains Mono", "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.9em;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 0.15rem 0.4rem;
+  border-radius: 2px;
+  color: #E2E8F0;
+}
+
+.arthur_tagsFlex__qxJtU {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.arthur_tagItem__8K3O0 {
+  font-size: 0.85rem;
+  color: #F1F5F9;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+.arthur_tagItem__8K3O0:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* --- SEÇÃO 5: TRAJETÓRIA EXECUTIVA & ESTUDOS DE CASO (DOSSIÊ TÉCNICO) --- */
+.arthur_casesSection__DQxRw {
+  padding: 4.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.arthur_casesDossier__J5KYJ {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.arthur_caseDossierRow__wiWU_ {
+  display: grid;
+  grid-template-columns: 3fr 6fr 3fr;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+@media (max-width: 1100px) {
+  .arthur_caseDossierRow__wiWU_ {
+    grid-template-columns: 1fr;
+  }
+}
+
+.arthur_zoneA__OcDfB {
+  padding: 2.25rem 2rem 2.25rem 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.13);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+@media (max-width: 1100px) {
+  .arthur_zoneA__OcDfB {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1.75rem 0;
+  }
+}
+
+.arthur_casePeriod__FNKL2 {
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #D4AF37;
+  font-weight: 700;
+}
+
+.arthur_caseCompany__uNtyi {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.25;
+  border-left: 3px solid #D4AF37;
+  padding-left: 0.85rem;
+}
+
+.arthur_caseRole___nCTF {
+  font-size: 0.98rem;
+  color: #CBD5E1;
+  line-height: 1.5;
+}
+
+.arthur_caseAuditLinks__SIQdB {
+  margin-top: auto;
+  padding-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.arthur_auditLink__I6jWq {
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-size: 0.88rem;
+  color: #94A3B8;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0.25rem 0;
+  transition: color 0.15s ease;
+}
+.arthur_auditLink__I6jWq:hover {
+  color: #FFFFFF;
+}
+
+.arthur_zoneB__k5AP1 {
+  padding: 2.25rem 2rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.13);
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 1100px) {
+  .arthur_zoneB__k5AP1 {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1.75rem 0;
+  }
+}
+
+.arthur_zoneHeaderLabel__bNjGM {
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #D4AF37;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.arthur_caseBulletList__99MEa {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.arthur_caseBulletList__99MEa li {
+  font-size: 1.02rem;
+  color: #F1F5F9;
+  line-height: 1.65;
+  position: relative;
+  padding-left: 1.4rem;
+}
+.arthur_caseBulletList__99MEa li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #22C55E;
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+.arthur_caseBulletList__99MEa li strong {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+.arthur_caseBulletList__99MEa li em {
+  font-style: italic;
+  color: #E2E8F0;
+}
+
+.arthur_caseQuote__LILqa {
+  margin: 1.75rem 0 0 0;
+  padding: 1.15rem 1.4rem;
+  background-color: rgba(255, 255, 255, 0.02);
+  border-left: 3px solid #D4AF37;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: #E2E8F0;
+  line-height: 1.65;
+  border-radius: 0 4px 4px 0;
+}
+.arthur_caseQuote__LILqa footer {
+  font-style: normal;
+  font-size: 0.85rem;
+  color: #CBD5E1;
+  letter-spacing: 0.06em;
+  margin-top: 0.65rem;
+}
+
+.arthur_zoneC__cfmEP {
+  padding: 2.25rem 0 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 1100px) {
+  .arthur_zoneC__cfmEP {
+    padding: 1.75rem 0;
+  }
+}
+
+.arthur_metricCallouts___y0nz {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.arthur_metricCalloutItem__wGUwt {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.02);
+  padding: 1rem 1.15rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+.arthur_metricCalloutItem__wGUwt:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.arthur_calloutValue__udrLX {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.15;
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  margin-bottom: 0.25rem;
+}
+
+.arthur_calloutLabel__YCNFU {
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #94A3B8;
+  font-weight: 600;
+}
+
+.arthur_caseStackTags__vYJ6w {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: auto;
+}
+
+.arthur_miniTag__5QXGN {
+  font-size: 0.82rem;
+  color: #F1F5F9;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 0.35rem 0.65rem;
+  border-radius: 4px;
+}
+
+.arthur_spokeNavBtn__72cZB {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #F1F5F9;
+  background-color: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  padding: 0.55rem 0.9rem;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-top: 0.75rem;
+  transition: all 0.2s ease;
+}
+.arthur_spokeNavBtn__72cZB:hover {
+  background-color: rgba(212, 175, 55, 0.22);
+  border-color: #D4AF37;
+  color: #FFFFFF;
+}
+
+.arthur_spokeCardBtn__ds6n2 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #0B0F0E;
+  background-color: #D4AF37;
+  border: 1px solid #D4AF37;
+  padding: 0.6rem 0.95rem;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-top: 1rem;
+  transition: all 0.15s ease;
+  width: 100%;
+  text-align: center;
+}
+.arthur_spokeCardBtn__ds6n2:hover {
+  background-color: #E5C358;
+  border-color: #E5C358;
+}
+
+/* --- SEÇÃO 6: FUNDAMENTAÇÃO ACADÊMICA & PUBLICAÇÕES --- */
+.arthur_academicSection__qXro9 {
+  background-color: #111715;
+  padding: 4.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.arthur_academicGrid__yc0jH {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+}
+@media (max-width: 980px) {
+  .arthur_academicGrid__yc0jH {
+    grid-template-columns: 1fr;
+  }
+}
+
+.arthur_academicLeftBlock___3noU {
+  padding: 2.5rem 2.5rem 2.5rem 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.13);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+@media (max-width: 980px) {
+  .arthur_academicLeftBlock___3noU {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+    padding: 2rem 0;
+  }
+}
+
+.arthur_blockHeading__QJ27X {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 1rem 0;
+}
+
+.arthur_institutionItem__oxsE2 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.arthur_institutionMeta__JLBdw {
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #D4AF37;
+  font-weight: 700;
+}
+
+.arthur_degreeTitle__CH63i {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.arthur_degreeDesc__BsQCA {
+  font-size: 0.98rem;
+  color: #CBD5E1;
+  line-height: 1.6;
+  margin: 0.4rem 0 0 0;
+}
+.arthur_degreeDesc__BsQCA em {
+  font-style: italic;
+  color: #E2E8F0;
+}
+
+.arthur_academicRightBlock__GchZ5 {
+  padding: 2.5rem 0 2.5rem 2.5rem;
+}
+@media (max-width: 980px) {
+  .arthur_academicRightBlock__GchZ5 {
+    padding: 2rem 0;
+  }
+}
+
+.arthur_editorialArticlesList__QgXQo {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.arthur_editorialArticleCard__ZeHD6 {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  grid-gap: 1.25rem;
+  gap: 1.25rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.arthur_editorialArticleCard__ZeHD6:last-child {
+  border-bottom: none;
+}
+
+.arthur_articleNumber__KMD9_ {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #D4AF37;
+  line-height: 1.2;
+}
+
+.arthur_articleBody__9hjMZ {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.arthur_articleTitle__coEVO {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.arthur_articleExcerpt__ds3WZ {
+  font-size: 0.98rem;
+  color: #CBD5E1;
+  line-height: 1.6;
+  margin: 0;
+}
+.arthur_articleExcerpt__ds3WZ em {
+  font-style: italic;
+  color: #E2E8F0;
+}
+
+.arthur_articleLink__dKtLi {
+  margin-top: 0.5rem;
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-size: 0.88rem;
+  color: #94A3B8;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+.arthur_articleLink__dKtLi:hover {
+  color: #FFFFFF;
+}
+
+/* --- SEÇÃO 7: FORMATOS DE ENGAJAMENTO & FOOTER EXECUTIVO --- */
+.arthur_engagementSection__t_OgW {
+  padding: 4.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.arthur_engagementGrid__M_5GV {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+  border-left: 1px solid rgba(255, 255, 255, 0.13);
+}
+@media (max-width: 980px) {
+  .arthur_engagementGrid__M_5GV {
+    grid-template-columns: 1fr;
+  }
+}
+
+.arthur_engagementCard__qzpGH {
+  padding: 2.5rem 2rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.13);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.2s ease;
+}
+.arthur_engagementCard__qzpGH:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.arthur_cardRomanNumber__FAd7T {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #D4AF37;
+  margin-bottom: 0.85rem;
+}
+
+.arthur_engagementTitle__0HCsQ {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.3;
+  margin: 0 0 0.85rem 0;
+}
+
+.arthur_engagementDesc__hZBz5 {
+  font-size: 1rem;
+  color: #CBD5E1;
+  line-height: 1.65;
+  margin: 0 0 1.75rem 0;
+  flex-grow: 1;
+}
+.arthur_engagementDesc__hZBz5 em {
+  font-style: italic;
+  color: #E2E8F0;
+}
+
+.arthur_engagementSpec__0OY1E {
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #D4AF37;
+  font-weight: 700;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 0.85rem;
+}
+
+/* --- SEÇÃO 8: PERGUNTAS FREQUENTES & MÉTODO DIDÁTICO (FAQ) --- */
+.arthur_faqSection__kXlYY {
+  padding: 4.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+  background-color: rgba(255, 255, 255, 0.01);
+}
+
+.arthur_faqGrid__0a2_K {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+  border-left: 1px solid rgba(255, 255, 255, 0.13);
+}
+@media (max-width: 900px) {
+  .arthur_faqGrid__0a2_K {
+    grid-template-columns: 1fr;
+  }
+}
+
+.arthur_faqCard__6RvNV {
+  padding: 2.25rem 1.75rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.13);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: background-color 0.2s ease;
+}
+.arthur_faqCard__6RvNV:hover {
+  background-color: rgba(255, 255, 255, 0.025);
+}
+@media (max-width: 768px) {
+  .arthur_faqCard__6RvNV {
+    padding: 1.75rem 1.25rem;
+  }
+}
+
+.arthur_faqBadge__68D7E {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #D4AF37;
+  font-weight: 700;
+}
+
+.arthur_faqQuestion__5tpzA {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.arthur_faqAnswer__HAnwl {
+  font-size: 0.98rem;
+  color: #CBD5E1;
+  line-height: 1.65;
+  margin: 0;
+}
+.arthur_faqAnswer__HAnwl strong {
+  color: #FFFFFF;
+}
+.arthur_faqAnswer__HAnwl em {
+  font-style: italic;
+  color: #E2E8F0;
+}
+
+/* --- FOOTER EXECUTIVO SÓBRIO --- */
+.arthur_editorialFooter__4Xvl4 {
+  background-color: #080B0A;
+  padding: 4.5rem 0 2.5rem 0;
+}
+
+.arthur_footerMainBlock__JaWii {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  grid-gap: 3rem;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+@media (max-width: 900px) {
+  .arthur_footerMainBlock__JaWii {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.arthur_footerTextCol__Tae3X {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.arthur_footerCallout__oxCWJ {
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.arthur_footerMetaList__MuD9F {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-size: 0.98rem;
+  color: #CBD5E1;
+}
+.arthur_footerMetaList__MuD9F a {
+  color: #CBD5E1;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.arthur_footerMetaList__MuD9F a:hover {
+  color: #FFFFFF;
+}
+.arthur_footerMetaList__MuD9F strong {
+  color: #FFFFFF;
+}
+
+.arthur_footerActionsCol___Fuk6 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.15rem;
+}
+.arthur_footerActionsCol___Fuk6 a, .arthur_footerActionsCol___Fuk6 button {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.85rem 1.4rem;
+  font-size: 1rem;
+}
+
+.arthur_footerBottomBar__uEYTH {
+  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.arthur_copyrightText__6MBHd {
+  font-size: 0.88rem;
+  color: #CBD5E1;
+}
+
+.arthur_footerTechNote__m8JLn {
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: #CBD5E1;
+}
+
+/* --- MODAL INTERATIVO DE INSPEÇÃO SCHEMA.ORG --- */
+.arthur_modalOverlay__STsje {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background-color: rgba(5, 8, 7, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.arthur_modalCard__6rRaP {
+  width: 100%;
+  max-width: 860px;
+  max-height: 85vh;
+  background-color: #0E1412;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+}
+
+.arthur_modalHeader__W68HX {
+  padding: 1.25rem 1.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.arthur_modalTitleBlock__843Pu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.arthur_modalBadge__ukiqn {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #D4AF37;
+  font-weight: 600;
+}
+
+.arthur_modalTitle__8FgZe {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #F1F5F9;
+  margin: 0;
+}
+
+.arthur_modalActions__7xi4Y {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.arthur_btnModalAction__Bc897 {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  color: #F1F5F9;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.arthur_btnModalAction__Bc897:hover {
+  background-color: #15803D;
+  border-color: #15803D;
+  color: #FFFFFF;
+}
+
+.arthur_btnModalClose__3SN4G {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  color: #CBD5E1;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.arthur_btnModalClose__3SN4G:hover {
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.arthur_modalBody__vTGVv {
+  padding: 1.5rem 1.75rem;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.arthur_codeBlock__cG9D2 {
+  margin: 0;
+  padding: 1.25rem;
+  background-color: #060908;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #86EFAC;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  overflow-x: auto;
+  border-radius: 2px;
+  white-space: pre;
+}
+.arthur_codeBlock__cG9D2 code {
+  font-family: "JetBrains Mono", "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+.arthur_modalFooter__gDv7T {
+  padding: 1rem 1.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.arthur_modalHelpText__viRx_ {
+  font-size: 0.75rem;
+  color: #94A3B8;
+}
+
+.arthur_validatorLinks__3eacN {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.arthur_validatorLink__cY1Tl {
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-size: 0.82rem;
+  color: #D4AF37;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.arthur_validatorLink__cY1Tl:hover {
+  color: #FFFFFF;
+}
+
+/* --- 4 BLOCOS OPERACIONAIS DO CASO (ANATOMIA DE RESULTADOS) --- */
+.arthur_caseBlocksGrid__paCBE {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.arthur_caseOpBlock__uqHn7 {
+  padding: 1.15rem 1.35rem;
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 3px solid #D4AF37;
+  border-radius: 0 4px 4px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.arthur_opBlockTitle__Qkben {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #D4AF37;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.arthur_opBlockText__eFu9k {
+  font-size: 0.98rem;
+  color: #F1F5F9;
+  line-height: 1.6;
+  margin: 0;
+}
+.arthur_opBlockText__eFu9k strong {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+/* --- SELETOR DE IDIOMA EXECUTIVO --- */
+.arthur_langSwitcher__9_oXm {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.arthur_langLink__nUB__ {
+  padding: 0.35rem 0.65rem;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #CBD5E1;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+.arthur_langLink__nUB__:hover {
+  color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.arthur_langLink__nUB__.arthur_langActive__JeQ_R {
+  color: #0B0F0E;
+  background-color: #FFFFFF;
+  font-weight: 700;
+}
+
+/* --- ASSINATURA EXECUTIVA NO RODAPÉ --- */
+.arthur_footerSignature___tkt6 {
+  font-size: 0.95rem;
+  color: #D4AF37;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.4rem 0;
+}
+
+/* ==========================================================================
+   NOVOS COMPONENTES: BARRA DE DOSSIÊS, TEASERS, LIVRO-RAZÃO, BLOG & NEWSLETTER
+   ========================================================================== */
+/* 1. BARRA DE ACESSO RÁPIDO AOS DOSSIÊS NO HERO */
+.arthur_dossierQuickNav__YYtH_ {
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.arthur_dossierQuickLabel__9YGCU {
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94A3B8;
+  font-weight: 600;
+}
+
+.arthur_dossierQuickLinks__pzznd {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.arthur_dossierQuickPill___3QO6 {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #E2E8F0;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 0.42rem 0.85rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+.arthur_dossierQuickPill___3QO6:hover {
+  color: #FFFFFF;
+  background-color: rgba(212, 175, 55, 0.12);
+  border-color: #D4AF37;
+}
+
+/* 2. TEASER DE ARTEFATOS EXCLUSIVOS NOS CARTÕES DE CASO */
+.arthur_spokeTeaserBox__Mwkct {
+  margin-top: 1.15rem;
+  padding: 0.85rem 1rem;
+  background-color: rgba(212, 175, 55, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-left: 3px solid #D4AF37;
+  border-radius: 4px;
+}
+
+.arthur_spokeTeaserTitle__kOAMg {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #D4AF37;
+  font-weight: 700;
+  margin-bottom: 0.45rem;
+}
+
+.arthur_spokeTeaserList__YstGD {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.arthur_spokeTeaserList__YstGD li {
+  font-size: 0.8rem;
+  color: #CBD5E1;
+  line-height: 1.45;
+  position: relative;
+  padding-left: 0.95rem;
+}
+.arthur_spokeTeaserList__YstGD li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  top: -1px;
+  color: #D4AF37;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+/* 3. LIVRO-RAZÃO CRONOLÓGICO (CRONOLOGIA CONDENSADA) */
+.arthur_ledgerGrid__nZQrJ {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.arthur_ledgerRow__RF8cF {
+  display: grid;
+  grid-template-columns: 200px 300px 1fr auto;
+  grid-gap: 1.5rem;
+  gap: 1.5rem;
+  align-items: baseline;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background-color 0.15s ease;
+}
+@media (max-width: 1024px) {
+  .arthur_ledgerRow__RF8cF {
+    grid-template-columns: 160px 240px 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .arthur_ledgerRow__RF8cF {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 1.25rem 0;
+  }
+}
+.arthur_ledgerRow__RF8cF:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.arthur_ledgerPeriod__cCjbw {
+  font-size: 0.82rem;
+  color: #D4AF37;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.arthur_ledgerEntity__8U_3g {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.arthur_ledgerCompany__kxl7_ {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.arthur_ledgerRole__FJS2h {
+  font-size: 0.84rem;
+  color: #94A3B8;
+  line-height: 1.35;
+}
+
+.arthur_ledgerModalityBadge__U0xx1 {
+  display: inline-block;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #22C55E;
+  background-color: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: 0.2rem;
+}
+
+.arthur_ledgerDesc__34wDm {
+  font-size: 0.92rem;
+  color: #CBD5E1;
+  line-height: 1.5;
+  margin: 0;
+}
+.arthur_ledgerDesc__34wDm strong {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.arthur_ledgerActionCol__KS9iH {
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 1024px) {
+  .arthur_ledgerActionCol__KS9iH {
+    grid-column: span 3;
+    margin-top: 0.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .arthur_ledgerActionCol__KS9iH {
+    grid-column: 1;
+    margin-top: 0.35rem;
+  }
+}
+
+.arthur_ledgerLinkBtn__eU_NM {
+  font-family: "JetBrains Mono", "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #D4AF37;
+  text-decoration: none;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  background-color: rgba(212, 175, 55, 0.06);
+  padding: 0.35rem 0.75rem;
+  border-radius: 3px;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+.arthur_ledgerLinkBtn__eU_NM:hover {
+  background-color: rgba(212, 175, 55, 0.18);
+  border-color: #D4AF37;
+  color: #FFFFFF;
+}
+
+/* 4. SEÇÃO DE BLOG & CADERNO EDITORIAL */
+.arthur_blogSection__OMmCi {
+  background-color: #111715;
+  padding: 5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.arthur_blogGrid__8cDyH {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1.5rem;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+@media (max-width: 1024px) {
+  .arthur_blogGrid__8cDyH {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 680px) {
+  .arthur_blogGrid__8cDyH {
+    grid-template-columns: 1fr;
+  }
+}
+
+.arthur_blogCard___siNR {
+  background-color: #0B0F0E;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+}
+.arthur_blogCard___siNR:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.arthur_blogCardPlaceholder__Hzbng {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+}
+.arthur_blogCardPlaceholder__Hzbng:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: none;
+  box-shadow: none;
+}
+
+.arthur_blogCardTop__gx_0L {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.arthur_blogCardMetaRow__4l1GT {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.arthur_blogCardBadge__ifliR {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #22C55E;
+  background-color: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+  font-weight: 700;
+}
+
+.arthur_blogCardBadgeReserved__z3T__ {
+  color: #D4AF37;
+  background-color: rgba(212, 175, 55, 0.1);
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+.arthur_blogCardDate__3XbpK {
+  font-size: 0.74rem;
+  color: #8592A3;
+}
+
+.arthur_blogCardTitle__X1sqV {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #F1F5F9;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.arthur_blogCardExcerpt__K3s1p {
+  font-size: 0.92rem;
+  color: #94A3B8;
+  line-height: 1.55;
+  margin: 0.5rem 0 0 0;
+}
+
+.arthur_blogCardFooter__Ofj1U {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.arthur_blogCardLink__bKqis {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #D4AF37;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.arthur_blogCardLink__bKqis:hover {
+  color: #FFFFFF;
+}
+
+.arthur_blogReservedNotice__VRtYG {
+  font-size: 0.78rem;
+  color: #8592A3;
+  line-height: 1.4;
+}
+
+/* 5. SEÇÃO DE NEWSLETTER & BOLETIM EXECUTIVO */
+.arthur_newsletterSection__8xLXG {
+  background-color: #0B0F0E;
+  padding: 4.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.arthur_newsletterBox__YNI_U {
+  background: linear-gradient(180deg, #111715 0%, #0D1210 100%);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-left: 4px solid #D4AF37;
+  border-radius: 8px;
+  padding: 3rem;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .arthur_newsletterBox__YNI_U {
+    padding: 1.75rem 1.25rem;
+  }
+}
+
+.arthur_newsletterHeader__jy4KS {
+  max-width: 780px;
+}
+
+.arthur_newsletterBadge__Gtaxa {
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #D4AF37;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.arthur_newsletterTitle__8zRbt {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.25;
+  margin: 0 0 0.85rem 0;
+}
+@media (max-width: 768px) {
+  .arthur_newsletterTitle__8zRbt {
+    font-size: 1.4rem;
+  }
+}
+
+.arthur_newsletterDesc__vmimm {
+  font-size: 1.02rem;
+  color: #CBD5E1;
+  line-height: 1.6;
+  margin: 0 0 1.75rem 0;
+}
+@media (max-width: 768px) {
+  .arthur_newsletterDesc__vmimm {
+    font-size: 0.95rem;
+  }
+}
+
+.arthur_newsletterForm__xR5pY {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.arthur_newsletterInputGroup__DRUdM {
+  display: flex;
+  gap: 0.75rem;
+  max-width: 680px;
+}
+@media (max-width: 600px) {
+  .arthur_newsletterInputGroup__DRUdM {
+    flex-direction: column;
+  }
+}
+
+.arthur_newsletterInput__zSrfH {
+  flex: 1 1;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #F1F5F9;
+  font-family: "JetBrains Mono", "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.92rem;
+  padding: 0.8rem 1.15rem;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+.arthur_newsletterInput__zSrfH::placeholder {
+  color: #64748B;
+}
+.arthur_newsletterInput__zSrfH:focus {
+  outline: none;
+  border-color: #D4AF37;
+  background-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+}
+
+.arthur_newsletterSubmit__Xu3xY {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background-color: #D4AF37;
+  color: #0B0F0E;
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.8rem 1.6rem;
+  border: 1px solid #D4AF37;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+.arthur_newsletterSubmit__Xu3xY:hover {
+  background-color: #E5C358;
+  border-color: #E5C358;
+}
+.arthur_newsletterSubmit__Xu3xY:active {
+  transform: translateY(1px);
+}
+
+.arthur_newsletterPrivacy__oUwx2 {
+  font-size: 0.78rem;
+  color: #8592A3;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.arthur_newsletterSuccess__MASBU {
+  background-color: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  border-radius: 4px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.arthur_newsletterSuccessTitle__7WdI2 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #22C55E;
+  letter-spacing: 0.02em;
+}
+
+.arthur_newsletterSuccessText__ucI7X {
+  font-size: 0.9rem;
+  color: #E2E8F0;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.arthur_newsletterErrorText__igwv8 {
+  font-size: 0.82rem;
+  color: #EF4444;
+  margin-top: 0.25rem;
+}
