@@ -1,0 +1,22 @@
+# Robots.txt - Squammata & Arthur Saggioratto Portfolio
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /_next
+
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: PerplexityBot
+User-agent: Applebot
+User-agent: CCBot
+User-agent: Google-Extended
+Allow: /
+Disallow: /admin
+Disallow: /api
+
+Sitemap: https://arthur-nasa.github.io/Squammata-PayloadCMS/sitemap.xml
+Host: https://arthur-nasa.github.io

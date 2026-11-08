@@ -1,0 +1,597 @@
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@15.5.26_@types+node@22.20.4_babel-plugin-macros@3.1.0_react-dom@19.3.0_react@19.3.0__react@19.3.0_sass@1.105.2/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[2]!./node_modules/.pnpm/next@15.5.26_@types+node@22.20.4_babel-plugin-macros@3.1.0_react-dom@19.3.0_react@19.3.0__react@19.3.0_sass@1.105.2/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[3]!./node_modules/.pnpm/next@15.5.26_@types+node@22.20.4_babel-plugin-macros@3.1.0_react-dom@19.3.0_react@19.3.0__react@19.3.0_sass@1.105.2/node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[7].use[4]!./node_modules/.pnpm/next@15.5.26_@types+node@22.20.4_babel-plugin-macros@3.1.0_react-dom@19.3.0_react@19.3.0__react@19.3.0_sass@1.105.2/node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[7].use[5]!./src/components/spoke/spoke.module.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+/* ==========================================================================
+   ESTILOS PARA SUB-PÁGINAS / SPOKES (ARQUITETURA HUB-AND-SPOKE)
+   ARTHUR SAGGIORATTO | DOSSIÊS TÉCNICOS & TESES DE GOVERNANÇA
+   ========================================================================== */
+.spoke_spokePage___2eGo {
+  background-color: #0B0F0E;
+  color: #F1F5F9;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+.spoke_spokePage___2eGo * {
+  box-sizing: border-box;
+}
+.spoke_spokePage___2eGo ::selection {
+  background-color: #15803D;
+  color: #FFFFFF;
+}
+
+.spoke_headingFont__UI7Sd {
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.spoke_bodyFont__KSo4P {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.spoke_monoFont__mDJUN {
+  font-family: "JetBrains Mono", "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+/* --- HEADER EDITORIAL MINIMALISTA --- */
+.spoke_editorialHeader__WXjTs {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(11, 15, 14, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+  width: 100%;
+}
+
+.spoke_headerContainer__pnK9U {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0.9rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.spoke_headerBrand__vy2Dz {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.spoke_brandTitle__amv86 {
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #FFFFFF;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.spoke_brandTag__rsAIN {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: #D4AF37;
+  border-left: 1px solid rgba(255, 255, 255, 0.13);
+  padding-left: 0.85rem;
+  white-space: nowrap;
+}
+@media (max-width: 900px) {
+  .spoke_brandTag__rsAIN {
+    display: none;
+  }
+}
+
+.spoke_headerActions__p9EJT {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.spoke_btnBackHub__VlQDv {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #F1F5F9;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  padding: 0.45rem 0.9rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+.spoke_btnBackHub__VlQDv:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #FFFFFF;
+}
+
+.spoke_btnWhatsapp__1VeMc {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #0B0F0E;
+  background-color: #22C55E;
+  border: 1px solid #22C55E;
+  padding: 0.45rem 0.9rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+.spoke_btnWhatsapp__1VeMc:hover {
+  background-color: #16A34A;
+  border-color: #16A34A;
+}
+
+/* --- BREADCRUMBS --- */
+.spoke_breadcrumbNav__zT3Un {
+  padding: 1.25rem 0 0.5rem 0;
+}
+
+.spoke_breadcrumbList__5nSxq {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: #94A3B8;
+}
+.spoke_breadcrumbList__5nSxq li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.spoke_breadcrumbList__5nSxq a {
+  color: #94A3B8;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.spoke_breadcrumbList__5nSxq a:hover {
+  color: #F1F5F9;
+  text-decoration: underline;
+}
+.spoke_breadcrumbList__5nSxq .spoke_breadcrumbCurrent__Me1Hc {
+  color: #D4AF37;
+  font-weight: 600;
+}
+.spoke_breadcrumbList__5nSxq .spoke_breadcrumbSeparator__4OlCv {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+/* --- CONTAINER PRINCIPAL --- */
+.spoke_spokeContainer__z_rCT {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem 5rem 1.5rem;
+}
+
+/* --- HERO DO ARTIGO --- */
+.spoke_articleHeader__fmIFN {
+  padding: 2.5rem 0 2rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.spoke_categoryBadge__sqQGC {
+  display: inline-block;
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #D4AF37;
+  background-color: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  padding: 0.3rem 0.65rem;
+  border-radius: 3px;
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+}
+
+.spoke_articleTitle__eajxb {
+  font-size: clamp(2rem, 3.4vw, 2.85rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.2;
+  margin: 0 0 1.25rem 0;
+  letter-spacing: -0.02em;
+}
+
+.spoke_articleLead__Dn0mS {
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: #E2E8F0;
+  margin: 0 0 1.5rem 0;
+  font-weight: 500;
+  max-width: 860px;
+}
+
+.spoke_articleMetaBar__zW4TP {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  padding: 1rem 0;
+  font-size: 0.85rem;
+  color: #94A3B8;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.spoke_articleMetaBar__zW4TP .spoke_metaItem__jyG0N {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.spoke_articleMetaBar__zW4TP .spoke_metaItem__jyG0N strong {
+  color: #F1F5F9;
+}
+.spoke_articleMetaBar__zW4TP .spoke_metaDot__vdgao {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+/* --- ANSWER BLOCK BOX (GEO DIRECT ANSWER) --- */
+.spoke_answerBlockBox__lSamC {
+  margin: 2.5rem 0;
+  background: linear-gradient(180deg, rgba(34, 197, 94, 0.06) 0%, rgba(17, 23, 21, 0.8) 100%);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  border-left: 4px solid #22C55E;
+  border-radius: 6px;
+  padding: 1.75rem 2rem;
+}
+@media (max-width: 768px) {
+  .spoke_answerBlockBox__lSamC {
+    padding: 1.25rem 1.4rem;
+  }
+}
+
+.spoke_answerBlockLabel__cOU_3 {
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #22C55E;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.spoke_answerBlockLabel__cOU_3::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #22C55E;
+  border-radius: 50%;
+}
+
+.spoke_answerBlockText__Nub95 {
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: #F8FAFC;
+  margin: 0;
+  font-weight: 500;
+}
+@media (max-width: 768px) {
+  .spoke_answerBlockText__Nub95 {
+    font-size: 1.05rem;
+  }
+}
+
+/* --- MÉTRICAS AUDITADAS (STRIP) --- */
+.spoke_metricsGrid__zGv4u {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-gap: 1.25rem;
+  gap: 1.25rem;
+  margin: 2.5rem 0;
+}
+
+.spoke_metricCard__1uL1v {
+  background-color: #111715;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 6px;
+  padding: 1.4rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.spoke_metricValue__bmuty {
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #D4AF37;
+  line-height: 1.1;
+}
+
+.spoke_metricLabel__dY55o {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #F1F5F9;
+  font-weight: 600;
+}
+
+.spoke_metricDetail__MtNgg {
+  font-size: 0.84rem;
+  color: #94A3B8;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* --- SEÇÃO DE CONTEÚDO INTRODUTÓRIO --- */
+.spoke_contentSection__lrlT6 {
+  margin: 3rem 0;
+}
+.spoke_contentSection__lrlT6 h2 {
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-size: 1.75rem;
+  color: #FFFFFF;
+  margin: 2.5rem 0 1rem 0;
+  line-height: 1.3;
+}
+.spoke_contentSection__lrlT6 p {
+  font-size: 1.06rem;
+  line-height: 1.75;
+  color: #CBD5E1;
+  margin-bottom: 1.25rem;
+}
+.spoke_contentSection__lrlT6 strong {
+  color: #FFFFFF;
+}
+
+/* --- NOTICE / PRÓXIMAS ETAPAS DO DOSSIÊ --- */
+.spoke_expansionNotice__FLhA7 {
+  background-color: rgba(212, 175, 55, 0.05);
+  border: 1px dashed rgba(212, 175, 55, 0.35);
+  border-radius: 6px;
+  padding: 1.5rem 1.75rem;
+  margin: 3rem 0;
+}
+.spoke_expansionNotice__FLhA7 h4 {
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-size: 1.1rem;
+  color: #D4AF37;
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+}
+.spoke_expansionNotice__FLhA7 p {
+  font-size: 0.94rem;
+  color: #CBD5E1;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --- VETOR DE RETENÇÃO / BIO & LINK DIRETO PARA O HUB --- */
+.spoke_hubEquityBox__f46u5 {
+  background-color: #111715;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 8px;
+  padding: 2.25rem;
+  margin: 3.5rem 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+@media (max-width: 768px) {
+  .spoke_hubEquityBox__f46u5 {
+    padding: 1.5rem;
+  }
+}
+
+.spoke_hubEquityHeader__RAVqE {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.spoke_authorThumb__T5L6_ {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #D4AF37;
+}
+
+.spoke_hubEquityTitle__5nkG6 {
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.spoke_hubEquityRole__ntjc6 {
+  font-size: 0.85rem;
+  color: #D4AF37;
+  font-weight: 600;
+  margin: 0.2rem 0 0 0;
+}
+
+.spoke_hubEquityText__Mcc5_ {
+  font-size: 0.98rem;
+  color: #CBD5E1;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.spoke_hubLinkCta__f_BYg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0B0F0E;
+  background-color: #D4AF37;
+  border: 1px solid #D4AF37;
+  padding: 0.85rem 1.6rem;
+  border-radius: 4px;
+  text-decoration: none;
+  align-self: flex-start;
+  transition: all 0.15s ease;
+}
+.spoke_hubLinkCta__f_BYg:hover {
+  background-color: #E5C358;
+  border-color: #E5C358;
+}
+
+/* --- TAGS ENTITY SALIENCE --- */
+.spoke_tagsRow__YaB8_ {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.spoke_tagPill__4Hikr {
+  font-size: 0.78rem;
+  color: #CBD5E1;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.25rem 0.6rem;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+/* --- SEÇÃO DE ARTEFATOS EM DESENVOLVIMENTO (PLACEHOLDER ESTRUTURADO) --- */
+.spoke_spokePlaceholderSection__u_zA0 {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 2.5rem 2rem;
+  margin: 3.5rem 0;
+}
+@media (max-width: 768px) {
+  .spoke_spokePlaceholderSection__u_zA0 {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+.spoke_placeholderHeader__41F1t {
+  margin-bottom: 2rem;
+}
+
+.spoke_placeholderBadge__A_rLI {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #D4AF37;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.spoke_placeholderTitle__jmIez {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+}
+
+.spoke_placeholderSubtext__nVFZd {
+  font-size: 0.95rem;
+  color: #CBD5E1;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 780px;
+}
+
+.spoke_placeholderGrid__oyd0o {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1.25rem;
+  gap: 1.25rem;
+}
+@media (max-width: 900px) {
+  .spoke_placeholderGrid__oyd0o {
+    grid-template-columns: 1fr;
+  }
+}
+
+.spoke_placeholderCard__VHUiy {
+  background-color: #0B0F0E;
+  border: 1px dashed rgba(212, 175, 55, 0.35);
+  border-radius: 6px;
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: all 0.2s ease;
+}
+.spoke_placeholderCard__VHUiy:hover {
+  border-color: #D4AF37;
+  background-color: rgba(212, 175, 55, 0.03);
+}
+
+.spoke_placeholderCardTop__9HYQ8 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.spoke_placeholderCardStatus___54a6 {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #D4AF37;
+  background-color: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-weight: 700;
+}
+
+.spoke_placeholderCardTitle__pceEH {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #F1F5F9;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.spoke_placeholderCardDesc__Scy9L {
+  font-size: 0.88rem;
+  color: #94A3B8;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* --- FOOTER SIMPLES E ELEGANTE --- */
+.spoke_spokeFooter__0mOsV {
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+  padding: 2.5rem 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #94A3B8;
+}
+.spoke_spokeFooter__0mOsV p {
+  margin: 0.35rem 0;
+}
+.spoke_spokeFooter__0mOsV a {
+  color: #D4AF37;
+  text-decoration: none;
+}
+.spoke_spokeFooter__0mOsV a:hover {
+  text-decoration: underline;
+}
