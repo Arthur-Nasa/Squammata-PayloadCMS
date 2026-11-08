@@ -2240,7 +2240,8 @@ $font-editorial: 'Zilla Slab', Georgia, serif;
   border-bottom: 1px solid $border-grid;
   transition: background-color 0.2s ease;
 
-  &.caseAccordionOpen {
+  &.caseAccordionOpen,
+  &[data-open="true"] {
     background-color: rgba(255, 255, 255, 0.015);
   }
 }
@@ -2515,7 +2516,8 @@ $font-editorial: 'Zilla Slab', Georgia, serif;
   transition: border-color 0.2s ease;
   overflow: hidden;
 
-  &.faqAccordionOpen {
+  &.faqAccordionOpen,
+  &[data-open="true"] {
     border-color: rgba(212, 175, 55, 0.4);
   }
 }

@@ -300,22 +300,141 @@ function adaptHtmlContent(html, depth = 0, lang = 'pt', routePath = '/') {
     .replaceAll(' | Squammata - PayloadCMS', ' | Squammata')
     .replaceAll('/* ---', '/*')
 
-  // 9. Script vanilla para suporte a scroll suave e eventos
+  // 9. Script vanilla para suporte a scroll suave e eventos interativos (acordeom, faqs, indicadores)
   const helperScript = `
 <script>
 (function() {
+  // 1. Scroll suave para links com ancora
   document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
     anchor.addEventListener('click', function(e) {
       var href = this.getAttribute('href');
       if (href && href.length > 1) {
         var target = document.querySelector(href);
-        if (target) {
+        if (target && typeof target.scrollIntoView === 'function') {
           e.preventDefault();
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       }
     });
   });
+
+  // 2. Acordeom dos Casos de Estudo (Historico Pratico)
+  var caseItems = document.querySelectorAll('[data-case-item]');
+  caseItems.forEach(function(item) {
+    var bar = item.querySelector('[data-case-bar]');
+    var content = item.querySelector('[data-case-content]');
+    var trigger = item.querySelector('[data-case-trigger]');
+    var triggerSpan = trigger ? trigger.querySelector('span') : null;
+
+    function toggleCase(e) {
+      if (e && e.target && e.target.closest && e.target.closest('a')) {
+        return; // permite clicar no link direto 'Ver Estudo'
+      }
+      if (e && e.preventDefault) e.preventDefault();
+
+      var isClosed = !content.style.display || content.style.display === 'none';
+      content.style.display = isClosed ? 'block' : 'none';
+      item.setAttribute('data-open', isClosed ? 'true' : 'false');
+      if (bar) bar.setAttribute('aria-expanded', isClosed ? 'true' : 'false');
+      if (trigger) trigger.setAttribute('aria-expanded', isClosed ? 'true' : 'false');
+      if (triggerSpan) {
+        var isEn = document.documentElement.lang === 'en';
+        if (isClosed) {
+          triggerSpan.textContent = isEn ? 'Hide details ▲' : 'Ocultar detalhes ▲';
+        } else {
+          triggerSpan.textContent = isEn ? 'View details ▼' : 'Ver detalhes ▼';
+        }
+      }
+    }
+
+    if (bar && content) {
+      bar.addEventListener('click', toggleCase);
+      bar.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          toggleCase(e);
+        }
+      });
+    }
+  });
+
+  // 3. Grandes Numeros (+3 indicadores de impacto)
+  var moreBtn = document.querySelector('[data-toggle-indicators]');
+  var extraCells = document.querySelectorAll('[data-extra-indicator="true"]');
+  if (moreBtn && extraCells.length > 0) {
+    var btnSpan = moreBtn.querySelector('span') || moreBtn;
+    moreBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      var isClosed = !extraCells[0].style.display || extraCells[0].style.display === 'none';
+      extraCells.forEach(function(cell) {
+        cell.style.display = isClosed ? 'flex' : 'none';
+      });
+      var isEn = document.documentElement.lang === 'en';
+      if (isClosed) {
+        btnSpan.textContent = isEn ? 'Hide additional indicators ▲' : 'Ocultar indicadores adicionais ▲';
+      } else {
+        btnSpan.textContent = isEn ? 'View more impact indicators (+3) ▼' : 'Ver mais indicadores de impacto (+3) ▼';
+      }
+    });
+  }
+
+  // 4. Acordeom do FAQ (Perguntas Frequentes)
+  var faqCards = document.querySelectorAll('[data-faq-card]');
+  faqCards.forEach(function(card) {
+    var header = card.querySelector('[data-faq-header]');
+    var body = card.querySelector('[data-faq-body]');
+    var icon = card.querySelector('[data-faq-icon]');
+
+    if (header && body) {
+      header.addEventListener('click', function(e) {
+        e.preventDefault();
+        var isCurrentlyOpen = card.getAttribute('data-open') === 'true' || body.style.display === 'block';
+        var willOpen = !isCurrentlyOpen;
+
+        // Fecha todos os outros itens do FAQ
+        faqCards.forEach(function(other) {
+          var otherBody = other.querySelector('[data-faq-body]');
+          var otherIcon = other.querySelector('[data-faq-icon]');
+          var otherHeader = other.querySelector('[data-faq-header]');
+          if (otherBody) otherBody.style.display = 'none';
+          if (otherIcon) otherIcon.textContent = '▼';
+          if (otherHeader) otherHeader.setAttribute('aria-expanded', 'false');
+          other.setAttribute('data-open', 'false');
+        });
+
+        // Abre o item clicado se estava fechado
+        if (willOpen) {
+          body.style.display = 'block';
+          if (icon) icon.textContent = '▲';
+          header.setAttribute('aria-expanded', 'true');
+          card.setAttribute('data-open', 'true');
+        }
+      });
+    }
+  });
+
+  // 5. Interacao do Formulario de Newsletter
+  var nlForm = document.querySelector('[data-newsletter-form]');
+  if (nlForm) {
+    nlForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var input = nlForm.querySelector('input[type="email"]');
+      if (input && input.value && input.value.indexOf('@') > 0) {
+        var email = input.value.trim();
+        var parent = nlForm.parentElement;
+        if (parent) {
+          nlForm.style.display = 'none';
+          var successDiv = document.createElement('div');
+          successDiv.style.padding = '1.5rem';
+          successDiv.style.border = '1px solid #c5a880';
+          successDiv.style.backgroundColor = 'rgba(197, 168, 128, 0.08)';
+          successDiv.style.borderRadius = '4px';
+          successDiv.style.marginTop = '1rem';
+          successDiv.innerHTML = '<strong style="color:#c5a880;display:block;margin-bottom:0.5rem;font-family:monospace;">INSCRIÇÃO CONFIRMADA</strong><p style="color:#FFFFFF;margin:0;font-size:0.95rem;">Obrigado pelo interesse. O endereço <strong>' + email + '</strong> foi registrado com sucesso.</p>';
+          parent.appendChild(successDiv);
+        }
+      }
+    });
+  }
 })();
 </script>
 `

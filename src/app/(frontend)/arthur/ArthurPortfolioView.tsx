@@ -484,9 +484,14 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
               </p>
             </div>
 
-            <div className={styles.tabularGrid}>
-              {(showAllIndicators ? indicatorCards : indicatorCards.slice(0, 3)).map((card: any, idx: number) => (
-                <div key={card.id || idx} className={styles.tabularCell}>
+            <div className={styles.tabularGrid} data-tabular-grid="true" data-show-all="false">
+              {indicatorCards.map((card: any, idx: number) => (
+                <div
+                  key={card.id || idx}
+                  className={`${styles.tabularCell} ${idx >= 3 ? styles.extraIndicatorCell : ''}`}
+                  data-extra-indicator={idx >= 3 ? 'true' : undefined}
+                  style={{ display: idx >= 3 && !showAllIndicators ? 'none' : 'flex' }}
+                >
                   <div className={styles.tabularValue}>
                     {card.value}
                   </div>
@@ -515,6 +520,7 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                 type="button"
                 onClick={() => setShowAllIndicators(!showAllIndicators)}
                 className={styles.toggleMoreBtn}
+                data-toggle-indicators="true"
               >
                 <span>{showAllIndicators ? 'Ocultar indicadores adicionais ▲' : 'Ver mais indicadores de impacto (+3) ▼'}</span>
               </button>
@@ -724,9 +730,14 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
 
             <div className={styles.casesDossier}>
               {/* Case 01: Rua do Café */}
-              <div className={`${styles.caseAccordionItem} ${openCases['rua-do-cafe'] ? styles.caseAccordionOpen : ''}`}>
+              <div
+                className={`${styles.caseAccordionItem} ${openCases['rua-do-cafe'] ? styles.caseAccordionOpen : ''}`}
+                data-case-item="rua-do-cafe"
+                data-open={openCases['rua-do-cafe'] ? 'true' : 'false'}
+              >
                 <div
                   className={styles.caseAccordionBar}
+                  data-case-bar="true"
                   onClick={() => toggleCase('rua-do-cafe')}
                   role="button"
                   tabIndex={0}
@@ -763,6 +774,7 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                     <button
                       type="button"
                       className={styles.caseAccordionToggleTrigger}
+                      data-case-trigger="true"
                       aria-label={openCases['rua-do-cafe'] ? 'Ocultar detalhes do caso' : 'Ver detalhes do caso'}
                     >
                       <span>{openCases['rua-do-cafe'] ? 'Ocultar detalhes ▲' : 'Ver detalhes ▼'}</span>
@@ -770,9 +782,12 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                   </div>
                 </div>
 
-                {openCases['rua-do-cafe'] && (
-                  <div className={styles.caseAccordionContent}>
-                    <article className={styles.caseDossierRow}>
+                <div
+                  className={styles.caseAccordionContent}
+                  data-case-content="true"
+                  style={{ display: openCases['rua-do-cafe'] ? 'block' : 'none' }}
+                >
+                  <article className={styles.caseDossierRow}>
                       <div className={styles.zoneA}>
                         <div className={`${styles.casePeriod} ${styles.monoFont}`}>
                           Janeiro 2024 a Maio 2026
@@ -896,13 +911,17 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                       </div>
                     </article>
                   </div>
-                )}
-              </div>
+                </div>
 
               {/* Case 02: Sheetgo */}
-              <div className={`${styles.caseAccordionItem} ${openCases['sheetgo'] ? styles.caseAccordionOpen : ''}`}>
+              <div
+                className={`${styles.caseAccordionItem} ${openCases['sheetgo'] ? styles.caseAccordionOpen : ''}`}
+                data-case-item="sheetgo"
+                data-open={openCases['sheetgo'] ? 'true' : 'false'}
+              >
                 <div
                   className={styles.caseAccordionBar}
+                  data-case-bar="true"
                   onClick={() => toggleCase('sheetgo')}
                   role="button"
                   tabIndex={0}
@@ -939,6 +958,7 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                     <button
                       type="button"
                       className={styles.caseAccordionToggleTrigger}
+                      data-case-trigger="true"
                       aria-label={openCases['sheetgo'] ? 'Ocultar detalhes do caso' : 'Ver detalhes do caso'}
                     >
                       <span>{openCases['sheetgo'] ? 'Ocultar detalhes ▲' : 'Ver detalhes ▼'}</span>
@@ -946,9 +966,12 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                   </div>
                 </div>
 
-                {openCases['sheetgo'] && (
-                  <div className={styles.caseAccordionContent}>
-                    <article className={styles.caseDossierRow}>
+                <div
+                  className={styles.caseAccordionContent}
+                  data-case-content="true"
+                  style={{ display: openCases['sheetgo'] ? 'block' : 'none' }}
+                >
+                  <article className={styles.caseDossierRow}>
                       <div className={styles.zoneA}>
                         <div className={`${styles.casePeriod} ${styles.monoFont}`}>
                           Janeiro 2024 a Outubro 2024
@@ -1063,13 +1086,17 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                       </div>
                     </article>
                   </div>
-                )}
-              </div>
+                </div>
 
               {/* Case 03: Máquinas & Café */}
-              <div className={`${styles.caseAccordionItem} ${openCases['maquinas-cafe'] ? styles.caseAccordionOpen : ''}`}>
+              <div
+                className={`${styles.caseAccordionItem} ${openCases['maquinas-cafe'] ? styles.caseAccordionOpen : ''}`}
+                data-case-item="maquinas-cafe"
+                data-open={openCases['maquinas-cafe'] ? 'true' : 'false'}
+              >
                 <div
                   className={styles.caseAccordionBar}
+                  data-case-bar="true"
                   onClick={() => toggleCase('maquinas-cafe')}
                   role="button"
                   tabIndex={0}
@@ -1106,6 +1133,7 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                     <button
                       type="button"
                       className={styles.caseAccordionToggleTrigger}
+                      data-case-trigger="true"
                       aria-label={openCases['maquinas-cafe'] ? 'Ocultar detalhes do caso' : 'Ver detalhes do caso'}
                     >
                       <span>{openCases['maquinas-cafe'] ? 'Ocultar detalhes ▲' : 'Ver detalhes ▼'}</span>
@@ -1113,9 +1141,12 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                   </div>
                 </div>
 
-                {openCases['maquinas-cafe'] && (
-                  <div className={styles.caseAccordionContent}>
-                    <article className={styles.caseDossierRow}>
+                <div
+                  className={styles.caseAccordionContent}
+                  data-case-content="true"
+                  style={{ display: openCases['maquinas-cafe'] ? 'block' : 'none' }}
+                >
+                  <article className={styles.caseDossierRow}>
                       <div className={styles.zoneA}>
                         <div className={`${styles.casePeriod} ${styles.monoFont}`}>
                           Janeiro 2014 a Janeiro 2024 (10 Anos)
@@ -1243,13 +1274,17 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                       </div>
                     </article>
                   </div>
-                )}
-              </div>
+                </div>
 
               {/* Case 04: Framework POAS & Governança no DRE */}
-              <div className={`${styles.caseAccordionItem} ${openCases['poas-dre'] ? styles.caseAccordionOpen : ''}`}>
+              <div
+                className={`${styles.caseAccordionItem} ${openCases['poas-dre'] ? styles.caseAccordionOpen : ''}`}
+                data-case-item="poas-dre"
+                data-open={openCases['poas-dre'] ? 'true' : 'false'}
+              >
                 <div
                   className={styles.caseAccordionBar}
+                  data-case-bar="true"
                   onClick={() => toggleCase('poas-dre')}
                   role="button"
                   tabIndex={0}
@@ -1286,6 +1321,7 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                     <button
                       type="button"
                       className={styles.caseAccordionToggleTrigger}
+                      data-case-trigger="true"
                       aria-label={openCases['poas-dre'] ? 'Ocultar detalhes do caso' : 'Ver detalhes do caso'}
                     >
                       <span>{openCases['poas-dre'] ? 'Ocultar detalhes ▲' : 'Ver detalhes ▼'}</span>
@@ -1293,9 +1329,12 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                   </div>
                 </div>
 
-                {openCases['poas-dre'] && (
-                  <div className={styles.caseAccordionContent}>
-                    <article className={styles.caseDossierRow}>
+                <div
+                  className={styles.caseAccordionContent}
+                  data-case-content="true"
+                  style={{ display: openCases['poas-dre'] ? 'block' : 'none' }}
+                >
+                  <article className={styles.caseDossierRow}>
                       <div className={styles.zoneA}>
                         <div className={`${styles.casePeriod} ${styles.monoFont}`}>
                           Metodologia Proprietária
@@ -1402,8 +1441,7 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                       </div>
                     </article>
                   </div>
-                )}
-              </div>
+                </div>
             </div>
           </div>
         </section>
@@ -1707,7 +1745,7 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleNewsletterSubmit} className={styles.newsletterForm} noValidate>
+                <form onSubmit={handleNewsletterSubmit} className={styles.newsletterForm} data-newsletter-form="true" noValidate>
                   <div className={styles.newsletterInputGroup}>
                     <input
                       type="email"
@@ -1801,17 +1839,20 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
               </p>
             </div>
 
-            <div className={styles.faqAccordionGrid}>
+            <div className={styles.faqAccordionGrid} data-faq-grid="true">
               {faqItems.map((faq: any, idx: number) => {
                 const isOpen = openFaqIndex === idx
                 return (
                   <div
                     key={faq.id || idx}
                     className={`${styles.faqAccordionCard} ${isOpen ? styles.faqAccordionOpen : ''}`}
+                    data-faq-card="true"
+                    data-open={isOpen ? 'true' : 'false'}
                   >
                     <button
                       type="button"
                       className={styles.faqAccordionHeader}
+                      data-faq-header="true"
                       onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
                       aria-expanded={isOpen}
                     >
@@ -1823,17 +1864,19 @@ export const ArthurPortfolioView: React.FC<ArthurPortfolioViewProps> = ({ initia
                           {faq.question}
                         </h3>
                       </div>
-                      <span className={styles.faqAccordionIcon} aria-hidden="true">
+                      <span className={styles.faqAccordionIcon} data-faq-icon="true" aria-hidden="true">
                         {isOpen ? '▲' : '▼'}
                       </span>
                     </button>
-                    {isOpen && (
-                      <div className={styles.faqAccordionBody}>
-                        <p className={`${styles.faqAccordionAnswer} ${styles.bodyFont}`}>
-                          {faq.answer}
-                        </p>
-                      </div>
-                    )}
+                    <div
+                      className={styles.faqAccordionBody}
+                      data-faq-body="true"
+                      style={{ display: isOpen ? 'block' : 'none' }}
+                    >
+                      <p className={`${styles.faqAccordionAnswer} ${styles.bodyFont}`}>
+                        {faq.answer}
+                      </p>
+                    </div>
                   </div>
                 )
               })}
