@@ -50,6 +50,7 @@ async function fetchPortfolioPages() {
     '/casos/seo-catalogo-maquinas-cafe',
     '/casos/retencao-ux-saas-sheetgo',
     '/governanca/poas-dre-ecommerce',
+    '/trajetoria',
   ]
   const results = {}
 
@@ -161,20 +162,63 @@ function adaptHtmlContent(html, depth = 0, lang = 'pt', routePath = '/') {
     .replace(/<div class="mil-cursor-follower"><\/div>/gi, '')
     .replace(/<div class="mil-progress-track"><div class="mil-progress"><\/div><\/div>/gi, '')
     .replace(/<div class="mil-preloader-frame"[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/g, '')
+    .replace(/<div class="mil-top-panel[\s\S]*?<\/header>/gi, '')
+    .replace(/<footer class="mil-footer-2[\s\S]*?<\/footer>/gi, '')
 
-  // 2. Otimizar CSS: remover layout.css e manter base limpa
-  adapted = adapted.replace(
-    /<link\s+rel="stylesheet"\s+href="[^"]*layout\.css[^"]*"[^>]*\/?>/gi,
-    '<style>html{scroll-behavior:smooth;}body{margin:0;padding:0;background-color:#0B0F0E;color:#F1F5F9;overflow-x:hidden;}</style>',
-  )
+  // 2. Extrair e embutir Critical CSS diretamente no <head>, eliminando render-blocking
+  let criticalCssBundle = ''
 
-  // 3. Garantir caminho correto de page.css
-  adapted = adapted.replace(
-    /href="[^"]*\/_next\/static\/css\/app\/\(frontend\)\/arthur\/page\.css[^"]*"/gi,
-    `href="${prefix}/_next/static/css/app/(frontend)/arthur/page.css"`,
-  )
+  // Buscar todas as folhas de estilo referenciadas no HTML
+  const cssMatches = [...adapted.matchAll(/<link\s+rel="stylesheet"\s+href="([^"]+)"[^>]*\/?>/gi)]
+  for (const match of cssMatches) {
+    const rawHref = match[1]
+    const fullTag = match[0]
 
-  // 4. Adaptar caminhos estáticos
+    // Se for layout.css, substituir pelo reset inline minimalista
+    if (rawHref.includes('layout.css')) {
+      adapted = adapted.replace(
+        fullTag,
+        '<style id="base-reset-css">html{scroll-behavior:smooth;}body{margin:0;padding:0;background-color:#0B0F0E;color:#F1F5F9;overflow-x:hidden;}</style>',
+      )
+      continue
+    }
+
+    // Se for page.css ou outro CSS estático local gerado pelo Next.js
+    if (rawHref.includes('/_next/static/css/')) {
+      const cleanPath = rawHref.split('?')[0].replace(/^\/?_next\//, '')
+      const diskPath = path.join(ROOT_DIR, '.next', cleanPath)
+      if (fs.existsSync(diskPath)) {
+        const cssContent = fs.readFileSync(diskPath, 'utf-8')
+        criticalCssBundle += `\n/* ${cleanPath} */\n${cssContent}`
+        adapted = adapted.replace(fullTag, '')
+      }
+    }
+  }
+
+  // Fallback se não encontrou via regex do HTML: tentar buscar pelo caminho padrão da rota
+  if (!criticalCssBundle) {
+    let fallbackCssSubpath = 'app/(frontend)/arthur/page.css'
+    if (routePath.includes('marketplace-specialty-coffee')) {
+      fallbackCssSubpath = 'app/(frontend)/casos/marketplace-specialty-coffee/page.css'
+    } else if (routePath.includes('seo-catalogo-maquinas-cafe')) {
+      fallbackCssSubpath = 'app/(frontend)/casos/seo-catalogo-maquinas-cafe/page.css'
+    } else if (routePath.includes('retencao-ux-saas-sheetgo')) {
+      fallbackCssSubpath = 'app/(frontend)/casos/retencao-ux-saas-sheetgo/page.css'
+    } else if (routePath.includes('poas-dre-ecommerce')) {
+      fallbackCssSubpath = 'app/(frontend)/governanca/poas-dre-ecommerce/page.css'
+    } else if (routePath.includes('trajetoria')) {
+      fallbackCssSubpath = 'app/(frontend)/trajetoria/page.css'
+    }
+    const fallbackPath = path.join(ROOT_DIR, '.next', 'static', 'css', fallbackCssSubpath)
+    if (fs.existsSync(fallbackPath)) {
+      criticalCssBundle = fs.readFileSync(fallbackPath, 'utf-8')
+    }
+  }
+
+  // Limpar quaisquer tags residuais de link rel="stylesheet" para page.css
+  adapted = adapted.replace(/<link\s+rel="stylesheet"\s+href="[^"]*page\.css[^"]*"[^>]*\/?>/gi, '')
+
+  // 3. Adaptar caminhos estáticos
   adapted = adapted
     .replaceAll('href="/_next/', `href="${prefix}/_next/`)
     .replaceAll('src="/_next/', `src="${prefix}/_next/`)
@@ -199,7 +243,7 @@ function adaptHtmlContent(html, depth = 0, lang = 'pt', routePath = '/') {
     .replaceAll('href="/resume_ecommerce_arthursaggioratto.pdf"', `href="${prefix}/resume_ecommerce_arthursaggioratto.pdf"`)
     .replaceAll('href="./resume_ecommerce_arthursaggioratto.pdf"', `href="${prefix}/resume_ecommerce_arthursaggioratto.pdf"`)
 
-  // 5. Links internos de navegação (adaptados para subcaminho do GitHub Pages)
+  // 4. Links internos de navegação (adaptados para subcaminho do GitHub Pages)
   adapted = adapted
     .replaceAll('https://arthursaggioratto.com.br/', `${CANONICAL_DOMAIN}/`)
     .replaceAll('https://arthursaggioratto.com.br', CANONICAL_DOMAIN)
@@ -217,18 +261,21 @@ function adaptHtmlContent(html, depth = 0, lang = 'pt', routePath = '/') {
     .replaceAll('href="/casos/retencao-ux-saas-sheetgo"', 'href="/Squammata-PayloadCMS/casos/retencao-ux-saas-sheetgo/"')
     .replaceAll('href="/governanca/poas-dre-ecommerce/"', 'href="/Squammata-PayloadCMS/governanca/poas-dre-ecommerce/"')
     .replaceAll('href="/governanca/poas-dre-ecommerce"', 'href="/Squammata-PayloadCMS/governanca/poas-dre-ecommerce/"')
+    .replaceAll('href="/trajetoria/"', 'href="/Squammata-PayloadCMS/trajetoria/"')
+    .replaceAll('href="/trajetoria"', 'href="/Squammata-PayloadCMS/trajetoria/"')
     .replaceAll('href="/arthur#', 'href="/Squammata-PayloadCMS/#')
 
-  // 6. Preload de alta prioridade da imagem de autor no formato WebP e fontes
+  // 5. Preload de alta prioridade da imagem de autor no formato WebP e carregamento não bloqueante de fontes
   const fontLinks =
-    '<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" /><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />'
+    '<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" /><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" media="print" onload="this.media=\'all\'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" /></noscript>'
   const imagePreload = `<link rel="preload" as="image" href="${prefix}/arthur-saggioratto.webp" type="image/webp" fetchpriority="high" />`
+  const criticalCssTag = criticalCssBundle ? `<style id="critical-page-css">${criticalCssBundle}</style>` : ''
 
   adapted = adapted.replace(/<link\s+rel="preload"\s+as="image"[^>]*\/?>/gi, '')
   adapted = adapted.replace(/<link\s+rel="preconnect"[^>]*\/?>/gi, '')
   adapted = adapted.replace(/<link\s+href="https:\/\/fonts\.googleapis\.com[^"]*"[^>]*\/?>/gi, '')
 
-  adapted = adapted.replace('<head>', `<head>${imagePreload}${fontLinks}`)
+  adapted = adapted.replace('<head>', `<head>${imagePreload}${fontLinks}${criticalCssTag}`)
 
   // 7. Canonical e hreflang
   adapted = adapted.replace(
@@ -345,31 +392,39 @@ const adaptedSpoke04Html = adaptHtmlContent(spoke04Html, 2, 'pt', '/governanca/p
 fs.writeFileSync(path.join(spoke04Dir, 'index.html'), adaptedSpoke04Html, 'utf-8')
 console.log('✅ Spoke 04 (/governanca/poas-dre-ecommerce/) gerado com sucesso.')
 
-// 7. Garantir remoção do CNAME para ativar o domínio nativo do GitHub Pages
+// 7. Renderizar Spoke 05: /trajetoria/
+const spoke05Html = pagesHtml['/trajetoria']
+const spoke05Dir = path.join(DIST_DIR, 'trajetoria')
+fs.mkdirSync(spoke05Dir, { recursive: true })
+const adaptedSpoke05Html = adaptHtmlContent(spoke05Html, 1, 'pt', '/trajetoria')
+fs.writeFileSync(path.join(spoke05Dir, 'index.html'), adaptedSpoke05Html, 'utf-8')
+console.log('✅ Spoke 05 (/trajetoria/) gerado com sucesso.')
+
+// 8. Garantir remoção do CNAME para ativar o domínio nativo do GitHub Pages
 const cnamePath = path.join(DIST_DIR, 'CNAME')
 if (fs.existsSync(cnamePath)) {
   fs.rmSync(cnamePath, { force: true })
 }
 console.log('✅ Arquivo CNAME removido para ativar URL nativa do GitHub Pages.')
 
-// 8. Criar .nojekyll
+// 9. Criar .nojekyll
 fs.writeFileSync(path.join(DIST_DIR, '.nojekyll'), '', 'utf-8')
 console.log('✅ Arquivo .nojekyll criado.')
 
-// 9. Criar diretório legador ghSubdir para compatibilidade com redirecionador
+// 10. Criar diretório legador ghSubdir para compatibilidade com redirecionador
 const ghSubdir = path.join(DIST_DIR, 'Squammata-PayloadCMS')
 fs.mkdirSync(ghSubdir, { recursive: true })
 fs.writeFileSync(path.join(ghSubdir, 'index.html'), adapted404Html, 'utf-8')
 
-// 10. Copiar assets estáticos da pasta public/
+// 11. Copiar assets estáticos da pasta public/
 console.log('📁 Copiando assets estáticos da pasta public/...')
 const publicDir = path.join(ROOT_DIR, 'public')
 if (fs.existsSync(publicDir)) {
   fs.cpSync(publicDir, DIST_DIR, { recursive: true })
 }
 
-// 10.1 Garantir redundância de imagens e PDFs em subpastas dos Spokes e EN
-const spokeDirs = [enDir, enArthurDir, ghSubdir, spoke01Dir, spoke02Dir, spoke03Dir, spoke04Dir]
+// 11.1 Garantir redundância de imagens e PDFs em subpastas dos Spokes e EN
+const spokeDirs = [enDir, enArthurDir, ghSubdir, spoke01Dir, spoke02Dir, spoke03Dir, spoke04Dir, spoke05Dir]
 for (const sDir of spokeDirs) {
   if (fs.existsSync(path.join(publicDir, 'arthur-saggioratto.jpg'))) {
     fs.copyFileSync(path.join(publicDir, 'arthur-saggioratto.jpg'), path.join(sDir, 'arthur-saggioratto.jpg'))

@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Quicksand:wght@500;600;700&family=Zilla+Slab:ital,wght@0,400;0,600;0,700;1,400&display=swap');
-
 /* ==========================================================================
    PORTFÓLIO EXECUTIVO EDITORIAL (SWISS GRID / ANTI-AI BOILERPLATE)
    ARTHUR SAGGIORATTO | EXECUTIVO DE CRESCIMENTO E RENTABILIDADE DIGITAL
+   Fontes carregadas de forma assíncrona no HTML para evitar render blocking
    ========================================================================== */
 
 /* --- VARIÁVEIS DO SISTEMA EDITORIAL --- */
@@ -2211,5 +2210,409 @@ $font-editorial: 'Zilla Slab', Georgia, serif;
   font-size: 0.82rem;
   color: #EF4444;
   margin-top: 0.25rem;
+}
+
+/* --- OTIMIZAÇÃO DE ROLAGEM: ACORDEOM DE CASOS, VEJA MAIS & TRAJETÓRIA --- */
+
+.toggleMoreBtn {
+  background: transparent;
+  color: #D4AF37;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  font-family: $font-mono;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  padding: 0.65rem 1.4rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &:hover {
+    background-color: rgba(212, 175, 55, 0.1);
+    border-color: #D4AF37;
+    color: #FFFFFF;
+  }
+}
+
+.caseAccordionItem {
+  border-bottom: 1px solid $border-grid;
+  transition: background-color 0.2s ease;
+
+  &.caseAccordionOpen {
+    background-color: rgba(255, 255, 255, 0.015);
+  }
+}
+
+.caseAccordionBar {
+  padding: 1.25rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+  user-select: none;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+  }
+}
+
+.caseAccordionLeft {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+
+  @media (max-width: 600px) {
+    gap: 0.5rem;
+  }
+}
+
+.caseAccordionCompany {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+  border-left: 3px solid #D4AF37;
+  padding-left: 0.65rem;
+  line-height: 1.2;
+}
+
+.caseAccordionPeriod {
+  font-size: 0.8rem;
+  color: #8592A3;
+  letter-spacing: 0.04em;
+}
+
+.caseAccordionRole {
+  font-size: 0.88rem;
+  color: #CBD5E1;
+}
+
+.caseAccordionRight {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-shrink: 0;
+
+  @media (max-width: 900px) {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+.caseAccordionHighlightBadge {
+  font-size: 0.75rem;
+  color: #22C55E;
+  background-color: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.caseAccordionDirectLink {
+  font-family: $font-mono;
+  font-size: 0.8rem;
+  color: #D4AF37;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background-color: #D4AF37;
+    color: #0B0F0E;
+  }
+}
+
+.caseAccordionToggleTrigger {
+  background: transparent;
+  border: none;
+  color: #94A3B8;
+  font-family: $font-mono;
+  font-size: 0.82rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: #FFFFFF;
+  }
+}
+
+.caseAccordionContent {
+  padding-bottom: 2rem;
+  animation: fadeInAccordion 0.25s ease-out;
+}
+
+@keyframes fadeInAccordion {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- RESUMO EXECUTIVO DA TRAJETÓRIA --- */
+.trajectorySummaryCard {
+  background: linear-gradient(145deg, #111715 0%, #0B0F0E 100%);
+  border: 1px solid $border-grid;
+  border-radius: 8px;
+  padding: 2.25rem 2.5rem;
+  margin-top: 1.5rem;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+}
+
+.trajectorySummaryHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.trajectoryBadge {
+  font-size: 0.72rem;
+  color: #D4AF37;
+  background-color: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.trajectorySummaryTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.trajectorySummaryLead {
+  font-size: 0.98rem;
+  color: $text-secondary;
+  line-height: 1.6;
+  margin-bottom: 1.75rem;
+  max-width: 900px;
+}
+
+.trajectoryPillarsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.trajectoryPillar {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid $border-grid-subtle;
+  padding: 1.25rem;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.pillarNum {
+  font-size: 0.75rem;
+  color: #D4AF37;
+  font-weight: 700;
+}
+
+.pillarTitle {
+  font-size: 1rem;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.pillarText {
+  font-size: 0.88rem;
+  color: $text-tertiary;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.trajectoryCtaRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  border-top: 1px solid $border-grid-subtle;
+}
+
+.trajectoryCtaBtn {
+  background-color: #D4AF37;
+  color: #0B0F0E;
+  font-family: $font-heading;
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 0.75rem 1.4rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+
+  &:hover {
+    background-color: #E5C358;
+  }
+}
+
+.trajectorySerasaBtn {
+  background-color: transparent;
+  color: #94A3B8;
+  font-family: $font-mono;
+  font-size: 0.82rem;
+  padding: 0.75rem 1.1rem;
+  border: 1px solid $border-grid;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+
+  &:hover {
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.35);
+  }
+}
+
+/* --- FAQ EM ACORDEOM INTERATIVO --- */
+.faqAccordionGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.faqAccordionCard {
+  background: #111715;
+  border: 1px solid $border-grid;
+  border-radius: 6px;
+  transition: border-color 0.2s ease;
+  overflow: hidden;
+
+  &.faqAccordionOpen {
+    border-color: rgba(212, 175, 55, 0.4);
+  }
+}
+
+.faqAccordionHeader {
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  cursor: pointer;
+  gap: 1rem;
+
+  @media (max-width: 600px) {
+    padding: 1rem;
+  }
+}
+
+.faqAccordionTitleCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.faqAccordionBadge {
+  font-size: 0.72rem;
+  color: #c5a880;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.faqAccordionQuestion {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.faqAccordionIcon {
+  font-size: 0.85rem;
+  color: #D4AF37;
+  font-family: $font-mono;
+  flex-shrink: 0;
+  padding-left: 0.5rem;
+}
+
+.faqAccordionBody {
+  padding: 0 1.5rem 1.35rem 1.5rem;
+  border-top: 1px solid $border-grid-subtle;
+  margin-top: 0.25rem;
+  padding-top: 1rem;
+  animation: fadeInAccordion 0.2s ease-out;
+
+  @media (max-width: 600px) {
+    padding: 0.85rem 1rem 1rem 1rem;
+  }
+}
+
+.faqAccordionAnswer {
+  font-size: 0.95rem;
+  color: $text-secondary;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --- COMPACTAÇÃO MOBILE DE PADDINGS --- */
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 2.5rem 0 2rem 0;
+  }
+  .casesSection {
+    padding: 2.75rem 0;
+  }
+  .bigNumbersSection {
+    padding: 2.75rem 0;
+  }
+  .matrixSection {
+    padding: 2.75rem 0;
+  }
+  .academicSection {
+    padding: 2.75rem 0;
+  }
+  .blogSection {
+    padding: 2.75rem 0;
+  }
+  .newsletterSection {
+    padding: 2.5rem 0;
+  }
+  .faqSection {
+    padding: 2.75rem 0;
+  }
+  .engagementSection {
+    padding: 2.75rem 0;
+  }
 }
 

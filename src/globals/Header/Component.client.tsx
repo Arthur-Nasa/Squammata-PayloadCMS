@@ -51,10 +51,13 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
     asPath === '/portfolio' ||
     asPath === '/en/arthur' ||
     asPath === '/en/portfolio' ||
-    asPath?.startsWith('/arthur/') ||
-    asPath?.startsWith('/portfolio/') ||
+    asPath?.startsWith('/arthur') ||
+    asPath?.startsWith('/portfolio') ||
     asPath?.startsWith('/en/arthur') ||
     asPath?.startsWith('/en/portfolio') ||
+    asPath?.startsWith('/casos') ||
+    asPath?.startsWith('/governanca') ||
+    asPath?.startsWith('/trajetoria') ||
     asPath?.includes('Squammata-PayloadCMS') ||
     (typeof window !== 'undefined' && (
       window.location.pathname.includes('Squammata-PayloadCMS') ||
